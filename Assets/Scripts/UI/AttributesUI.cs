@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class AttributesUI : MonoBehaviour
 {
+    public bool isVisible = false;
     [SerializeField]
     private AttributesButtonsUI attributesButtonsUI;
     [SerializeField]
     private AttributesTextUI attributesTextUI;
 
-    private void Start()
+    private void Update()
     {
-        attributesTextUI.Init();
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            if(isVisible == false)
+            {
+                attributesTextUI.Init();
+                attributesButtonsUI.Init();
+            }
+            else
+            {
+                attributesTextUI.DetachAll();
+            }
+
+            isVisible = !isVisible;
+        }
+
     }
 
 

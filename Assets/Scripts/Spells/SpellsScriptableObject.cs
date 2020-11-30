@@ -88,7 +88,7 @@ public class SpellsScriptableObject: ScriptableObject
         [SerializeField]
         Element element;
         [SerializeField]
-        NormalAttributes requirements;
+        List<Attribute> requirements = AttributesFactory.GetNormalAttributes();
 
         public string Name { get => name; private set => name = value; }
         public int Id { get => id; private set => id = value; }
@@ -98,6 +98,6 @@ public class SpellsScriptableObject: ScriptableObject
         public float ManaCost { get => manaCost; private set => manaCost = value; }
         public Specialization Specialization { get => specialization; set => specialization = value; }
         public Element Element { get => element; private set => element = value; }
-        public NormalAttributes Requirements { get => requirements; set => requirements = value; }
+        public List<Attribute> Requirements { get => requirements; set => requirements = value; }
     }
 }

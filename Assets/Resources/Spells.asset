@@ -22,15 +22,14 @@ MonoBehaviour:
     specialization: 0
     element: 6
     requirements:
-      attributes:
-      - type: 0
-        level: 0
-      - type: 1
-        level: 0
-      - type: 2
-        level: 0
-      - type: 3
-        level: 0
+    - type: 0
+      level: 0
+    - type: 1
+      level: 0
+    - type: 2
+      level: 0
+    - type: 3
+      level: 0
   - name: Heal
     id: 1
     unlock: 0
@@ -40,15 +39,14 @@ MonoBehaviour:
     specialization: 1
     element: 4
     requirements:
-      attributes:
-      - type: 0
-        level: 0
-      - type: 1
-        level: 0
-      - type: 2
-        level: 0
-      - type: 3
-        level: 0
+    - type: 0
+      level: 0
+    - type: 1
+      level: 0
+    - type: 2
+      level: 0
+    - type: 3
+      level: 0
   - name: Fireball
     id: 2
     unlock: 0
@@ -58,12 +56,11 @@ MonoBehaviour:
     specialization: 0
     element: 0
     requirements:
-      attributes:
-      - type: 0
-        level: 0
-      - type: 1
-        level: 0
-      - type: 2
-        level: 0
-      - type: 3
-        level: 0
+    - type: 0
+      level: 0
+    - type: 1
+      level: 0
+    - type: 2
+      level: 0
+    - type: 3
+      level: 0

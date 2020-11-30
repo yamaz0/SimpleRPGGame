@@ -15,7 +15,13 @@ MonoBehaviour:
   attributes:
   - name: knowledge
     id: 0
-    magicAttributes: 0
+    magicAttribute: 0
   - name: concetration
     id: 1
-    magicAttributes: 1
+    magicAttribute: 1
+  - name: Will
+    id: 2
+    magicAttribute: 2
+  - name: Mana
+    id: 3
+    magicAttribute: 3

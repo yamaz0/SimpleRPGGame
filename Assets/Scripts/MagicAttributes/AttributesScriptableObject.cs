@@ -25,6 +25,19 @@ public class AttributesScriptableObject : ScriptableObject
         instance = this;
     }
 
+    public AttributeInfo GetAttributeInfoByType(MagicAttributes type)
+    {
+        foreach (AttributeInfo nameInfo in Attributes)
+        {
+            if (nameInfo.MagicAttribute == type)
+            {
+                return nameInfo;
+            }
+        }
+
+        return null;
+    }
+
     public AttributeInfo GetAttributeInfoById(int id)
     {
         foreach (AttributeInfo nameInfo in Attributes)
@@ -54,9 +67,9 @@ public class AttributesScriptableObject : ScriptableObject
     public enum MagicAttributes
     {
         KNOWLEDGE = 0,
-        CONCETRATION=1,
-        WILL=2,
-        MANA=3
+        CONCETRATION = 1,
+        WILL = 2,
+        MANA = 3
     }
 
     [System.Serializable]
@@ -67,10 +80,10 @@ public class AttributesScriptableObject : ScriptableObject
         [SerializeField]
         private int id;
         [SerializeField]
-        private MagicAttributes magicAttributes;
+        private MagicAttributes magicAttribute;
 
         public string Name { get => name; set => name = value; }
         public int Id { get => id; set => id = value; }
-        public MagicAttributes MagicAttributes { get => magicAttributes; set => magicAttributes = value; }
+        public MagicAttributes MagicAttribute { get => magicAttribute; set => magicAttribute = value; }
     }
 }

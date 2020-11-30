@@ -15,6 +15,7 @@ public class Attribute
     public AttributesScriptableObject.MagicAttributes Type { get => type; set => type = value; }
     public int Level { get => level; private set => level = value; }
 
+    [field: NonSerialized]
     public event Action<float> OnLevelChanged = delegate { };
 
     public Attribute(AttributesScriptableObject.MagicAttributes id, int level = 0)

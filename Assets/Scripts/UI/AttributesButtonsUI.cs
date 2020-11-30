@@ -13,7 +13,12 @@ public class AttributesButtonsUI
 
     public void Init()
     {
-        // but1.onClick.AddListener(() => Player.Instance.Attributes.AddAttributeProgress(AttributesScriptableObject.MagicAttributes.KNOWLEDGE,10));
-        // but2.onClick.AddListener(() => Player.Instance.Attributes.AddAttributeProgress(AttributesScriptableObject.MagicAttributes.CONCETRATION,10));
+        but1.onClick.AddListener(() => Player.Instance.character.Attributes.AddAttributeLevel(AttributesScriptableObject.MagicAttributes.KNOWLEDGE));
+        but2.onClick.AddListener(() => Player.Instance.character.Attributes.AddAttributeLevel(AttributesScriptableObject.MagicAttributes.CONCETRATION));
+    }
+
+    public void AddAtribute()
+    {
+        Player.Instance.character.Attributes.AddAttributeLevel(AttributesScriptableObject.MagicAttributes.KNOWLEDGE);
     }
 }

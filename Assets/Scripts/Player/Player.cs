@@ -6,7 +6,6 @@ public class Player : Singleton<Player>
 {
     [SerializeField]
     public PlayerCharacter character;
-    //TODO: LISTA SPELKOW KTORE SA ODLBOKOWANE PO ID
 
     public void LoadData()
     {
