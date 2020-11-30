@@ -1,0 +1,50 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine;
+
+public static class SavePlayer
+{
+    public static void PlayerSerialize(Player player)
+    {
+        FileStream file = new FileStream("PlayerAttributes.dat", FileMode.Create);
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        try
+        {
+            formatter.Serialize(file, player.character);
+        }
+        catch (SerializationException e)
+        {
+            Debug.LogError("Failed to serialize. Reason: " + e.Message);
+            throw;
+        }
+        finally
+        {
+            file.Close();
+        }
+    }
+
+    public static void PlayerDeserialize(Player player)
+    {
+        FileStream fs = new FileStream("PlayerAttributes.dat", FileMode.Open);
+
+        try
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            player.character = formatter.Deserialize(fs) as PlayerCharacter;
+        }
+        catch (SerializationException e)
+        {
+            Debug.LogError("Failed to deserialize. Reason: " + e.Message);
+            throw;
+        }
+        finally
+        {
+            fs.Close();
+        }
+    }
+}

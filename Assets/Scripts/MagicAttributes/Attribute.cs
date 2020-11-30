@@ -7,52 +7,45 @@ using UnityEngine;
 public class Attribute
 {
     [SerializeField]
-    private string name;
+    private AttributesScriptableObject.MagicAttributes type;
     [SerializeField]
     private int level;
-    [SerializeField]
-    private float actualProgress;
-    [SerializeField]
-    private float requirementProgress;
 
+    // public int Id { get => id; set => id = value; }
+    public AttributesScriptableObject.MagicAttributes Type { get => type; set => type = value; }
     public int Level { get => level; private set => level = value; }
-    public event Action<float> OnProgressChange = delegate { };
 
-    private void CalculateRequirementProgress()
+    public event Action<float> OnLevelChanged = delegate { };
+
+    public Attribute(AttributesScriptableObject.MagicAttributes id, int level = 0)
     {
-        requirementProgress = 100 * (Level + 1);
+        Type = id;
+        Level = level;
+    }
+    public Attribute(int level = 0)
+    {
+        Level = level;
     }
 
-    private void LevelUp()
+    public void AddLevel(int value)
+    {
+        SetLevel(Level + value);
+    }
+
+    public void SetLevel(int value)
+    {
+        Level = value;
+        NotifyLevelChanged();
+    }
+
+    public void LevelUp()
     {
         Level++;
-        actualProgress = 0;
-        CalculateRequirementProgress();
+        NotifyLevelChanged();
     }
 
-    private void CheckProgress()
+    private void NotifyLevelChanged()
     {
-        if (actualProgress >= requirementProgress)
-        {
-            LevelUp();
-        }
-    }
-
-    public void AddProgress(float value)
-    {
-        float calculateProgress = Mathf.Clamp(actualProgress + value, 0, requirementProgress);
-        SetProgress(calculateProgress);
-    }
-
-    public void SetProgress(float value)
-    {
-        actualProgress = value;
-        CheckProgress();
-        OnProgressChange(actualProgress);
-    }
-
-    public float GetProgressPercent()
-    {
-        return actualProgress / requirementProgress;
+        OnLevelChanged(Level);
     }
 }

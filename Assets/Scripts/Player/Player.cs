@@ -5,19 +5,31 @@ using UnityEngine;
 public class Player : Singleton<Player>
 {
     [SerializeField]
-    private Attributes attributes;
+    public PlayerCharacter character;
+    //TODO: LISTA SPELKOW KTORE SA ODLBOKOWANE PO ID
 
-    [SerializeField]
-    public Attributes Attributes { get => attributes; set => attributes = value; }
+    public void LoadData()
+    {
+       SavePlayer.PlayerDeserialize(this);
+    }
+
+    public void SaveData()
+    {
+       SavePlayer.PlayerSerialize(this);
+    }
+
+    private void Start()
+    {
+        // LoadData();
+    }
 
     public void KnowledgeAdd()
     {
-        Attributes.AddAttributeProgress(Attributes.MagicAttributes.KNOWLEDGE, 10);
+        // Attributes.AddAttributeProgress(AttributesScriptableObject.MagicAttributes.KNOWLEDGE, 10);
     }
 
     public void ConcetrationAdd()
     {
-        Attributes.AddAttributeProgress(Attributes.MagicAttributes.CONCETRATION, 10);
+        // Attributes.AddAttributeProgress(AttributesScriptableObject.MagicAttributes.CONCETRATION, 10);
     }
-
 }

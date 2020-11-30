@@ -62,6 +62,12 @@ public class SpellsScriptableObject: ScriptableObject
         ENERGY
     }
 
+    public enum Specialization
+    {
+        BATTLE,
+        PROTECT
+    }
+
     [System.Serializable]
     public class SpellInfo
     {
@@ -69,8 +75,6 @@ public class SpellsScriptableObject: ScriptableObject
         private string name;
         [SerializeField]
         private int id;
-        [SerializeField]
-        Element element;
         [SerializeField]
         bool unlock;
         [SerializeField]
@@ -80,15 +84,20 @@ public class SpellsScriptableObject: ScriptableObject
         [SerializeField]
         float manaCost;
         [SerializeField]
-        Attribute requirement;
+        Specialization specialization;
+        [SerializeField]
+        Element element;
+        [SerializeField]
+        NormalAttributes requirements;
 
         public string Name { get => name; private set => name = value; }
         public int Id { get => id; private set => id = value; }
-        public Element Element { get => element; private set => element = value; }
         public bool Unlock { get => unlock; private set => unlock = value; }
         public float Dmg { get => dmg; private set => dmg = value; }
         public float Cooldown { get => cooldown; private set => cooldown = value; }
         public float ManaCost { get => manaCost; private set => manaCost = value; }
-        public Attribute Requirement { get => requirement; set => requirement = value; }
+        public Specialization Specialization { get => specialization; set => specialization = value; }
+        public Element Element { get => element; private set => element = value; }
+        public NormalAttributes Requirements { get => requirements; set => requirements = value; }
     }
 }

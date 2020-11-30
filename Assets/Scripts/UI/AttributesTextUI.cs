@@ -6,23 +6,18 @@ using UnityEngine;
 public class AttributesTextUI
 {
     [SerializeField]
-    private TMPro.TMP_Text knowledgeText;
+    private Transform attributesTextContent;
     [SerializeField]
-    private TMPro.TMP_Text ConcetrationText;
+    private AttributeTextController attributeTextPrefab;
 
     public void Init()
     {
-        Player.Instance.Attributes.Knowledge.OnProgressChange += SetKnowledgeText;
-        Player.Instance.Attributes.Concetration.OnProgressChange += SetConcetrationText;
+        // List<Attribute> attributesList = Player.Instance.Attributes.AttributesList;
+        // for (int i = 0; i < attributesList.Count; i++)
+        // {
+        //     AttributeTextController attributeTextController = GameObject.Instantiate(attributeTextPrefab,attributesTextContent);
+        //     attributeTextController.Initialize(attributesList[i]);
+        // }
     }
 
-    public void SetKnowledgeText(float value)
-    {
-        knowledgeText.text = value.ToString();
-    }
-
-    public void SetConcetrationText(float value)
-    {
-        ConcetrationText.text = value.ToString();
-    }
 }
