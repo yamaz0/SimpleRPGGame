@@ -5,14 +5,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private NpcCharacter character;
-    [SerializeField]
-    private List<SpellEffect> spellEffects;
+    private NormalCharacter character;
 
-    public List<SpellEffect> SpellEffects { get => spellEffects; set => spellEffects = value; }
+    public NormalCharacter Character { get => character; set => character = value; }
 
 
-//to dać do klasy ktora bedzie obslugiwac walke
+
+    //to dać do klasy ktora bedzie obslugiwac walke
     public void OnUpdate()
     {
         // for (int i = SpellEffects.Count - 1; i >= 0 ; i--)

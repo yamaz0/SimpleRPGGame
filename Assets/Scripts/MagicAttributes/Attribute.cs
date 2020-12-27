@@ -33,10 +33,14 @@ public class Attribute
         SetLevel(Level + value);
     }
 
-    public void SetLevel(int value)
+    public void SetLevel(int value, bool isNotify = true)
     {
         Level = value;
-        NotifyLevelChanged();
+
+        if(isNotify == true)
+        {
+            NotifyLevelChanged();
+        }
     }
 
     public void LevelUp()

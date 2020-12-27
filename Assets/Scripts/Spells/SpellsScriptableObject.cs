@@ -12,7 +12,7 @@ public class SpellsScriptableObject: ScriptableObject
 
     public static SpellsScriptableObject Instance { get { return instance; } }
 
-    public List<SpellInfo> Spells { get => spells; set => spells = value; }
+    public List<SpellInfo> SpellsInfo { get => spells; set => spells = value; }
 
     [RuntimeInitializeOnLoadMethod]
     private static void Init()
@@ -27,11 +27,11 @@ public class SpellsScriptableObject: ScriptableObject
 
     public SpellInfo GetSpellInfoById(int id)
     {
-        foreach (SpellInfo nameInfo in Spells)
+        foreach (SpellInfo spellInfo in SpellsInfo)
         {
-            if (nameInfo.Id == id)
+            if (spellInfo.Id == id)
             {
-                return nameInfo;
+                return spellInfo;
             }
         }
 
@@ -40,11 +40,11 @@ public class SpellsScriptableObject: ScriptableObject
 
     public SpellInfo GetSpellInfoByName(string name)
     {
-        foreach (SpellInfo nameInfo in Spells)
+        foreach (SpellInfo spellInfo in SpellsInfo)
         {
-            if (nameInfo.Name == name)
+            if (spellInfo.Name == name)
             {
-                return nameInfo;
+                return spellInfo;
             }
         }
 
@@ -78,7 +78,7 @@ public class SpellsScriptableObject: ScriptableObject
         [SerializeField]
         bool unlock;
         [SerializeField]
-        float dmg;
+        float spellPower;
         [SerializeField]
         float cooldown;
         [SerializeField]
@@ -89,15 +89,21 @@ public class SpellsScriptableObject: ScriptableObject
         Element element;
         [SerializeField]
         List<Attribute> requirements = AttributesFactory.GetNormalAttributes();
+        [SerializeField]
+        List<SpellEffectInfo> receiverEffects;
+        [SerializeField]
+        List<SpellEffectInfo> targetEffects;
 
         public string Name { get => name; private set => name = value; }
         public int Id { get => id; private set => id = value; }
         public bool Unlock { get => unlock; private set => unlock = value; }
-        public float Dmg { get => dmg; private set => dmg = value; }
+        public float SpellPower { get => spellPower; private set => spellPower = value; }
         public float Cooldown { get => cooldown; private set => cooldown = value; }
         public float ManaCost { get => manaCost; private set => manaCost = value; }
         public Specialization Specialization { get => specialization; set => specialization = value; }
         public Element Element { get => element; private set => element = value; }
         public List<Attribute> Requirements { get => requirements; set => requirements = value; }
+        public List<SpellEffectInfo> ReceiverSpellEffectsInfos { get => receiverEffects; set => receiverEffects = value; }
+        public List<SpellEffectInfo> TargetSpellEffectsInfos { get => targetEffects; set => targetEffects = value; }
     }
 }

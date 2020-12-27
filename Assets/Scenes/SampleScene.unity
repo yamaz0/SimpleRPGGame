@@ -263,6 +263,50 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!1 &371307349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371307351}
+  - component: {fileID: 371307350}
+  m_Layer: 0
+  m_Name: SpellManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &371307350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371307349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c1923eacdfea8248bdbfb75237d94e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spells: []
+--- !u!4 &371307351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371307349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1252.8672, y: 558.1687, z: -228.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9a8e64467207543b1c35cedeec4819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVisible: 0
   attributesButtonsUI:
     but1: {fileID: 1498060596}
     but2: {fileID: 1743377808}
@@ -824,6 +869,7 @@ MonoBehaviour:
     attributesTextContent: {fileID: 364772760}
     attributeTextPrefab: {fileID: 6953433975825803541, guid: 76e6cb2073e1e084cbcd338cb3685e83,
       type: 3}
+    textControllers: []
 --- !u!1 &1134248853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,8 +1166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character:
-    knownSpellsId: 
-  spellEffects: []
+    knownSpellsId: 02000000
 --- !u!4 &1730599732
 Transform:
   m_ObjectHideFlags: 0
@@ -1396,7 +1441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character:
-    knownSpellsId: 
+    knownSpellsId: 02000000
 --- !u!4 &1919726951
 Transform:
   m_ObjectHideFlags: 0
@@ -1421,6 +1466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1986996299}
+  - component: {fileID: 1986996300}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1442,3 +1488,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1986996300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986996298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79376db39deedea4b8ece930b7fea932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  op1:
+    hp: 100
+    mana: 100
+  op2:
+    hp: 100
+    mana: 100
+  player: {fileID: 1919726950}
+  enemy: {fileID: 1730599731}

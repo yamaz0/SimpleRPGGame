@@ -4,23 +4,19 @@ using UnityEngine;
 
 [Effect]
 [System.Serializable]
-public class DamageMirrorEffect : SpellEffect
+public class DamageMirrorEffect1 : SpellEffect
 {
-    private float dmgPercentToMirror;
-
     public override void Execute(Character<Attribute> character)
     {
-        throw new System.NotImplementedException();
     }
 
     public override void RemoveEffect(Character<Attribute> character)
     {
-        throw new System.NotImplementedException();
     }
 
-    public DamageMirrorEffect(DamageMirrorEffectInfo info)
+    public DamageMirrorEffect1(SpellEffectInfo info)
         : base(info)
     {
-        dmgPercentToMirror = info.dmgPercentToMirror;
+        
     }
 }

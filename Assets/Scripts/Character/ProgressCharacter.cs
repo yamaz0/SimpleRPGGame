@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerCharacter : Character<ProgressAttribute>
+public class ProgressCharacter : Character<ProgressAttribute>
 {
-    public PlayerCharacter()
+    public ProgressCharacter()
     {
         Attributes = new ProgressAttributes();
     }

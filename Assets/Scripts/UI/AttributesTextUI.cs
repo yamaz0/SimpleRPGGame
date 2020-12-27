@@ -14,7 +14,7 @@ public List<AttributeTextController> textControllers;
     public void Init()
     {
         textControllers.Clear();
-        List<ProgressAttribute> attributesList = Player.Instance.character.Attributes.Attributes;
+        List<ProgressAttribute> attributesList = Player.Instance.Character.Attributes.Attributes;
 
         for (int i = 0; i < attributesList.Count; i++)
         {

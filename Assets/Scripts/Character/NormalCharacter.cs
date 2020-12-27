@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class NpcCharacter : Character<Attribute>
+public class NormalCharacter : Character<Attribute>
 {
-    public NpcCharacter()
+    public NormalCharacter()
     {
         Attributes = new NormalAttributes();
     }

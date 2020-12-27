@@ -1,30 +1,56 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SpellEffect : MonoBehaviour
+[System.Serializable]
+public abstract class SpellEffect
 {
+    [SerializeField]
+    private int id;
+    [SerializeField]
     private int duration;
+    [SerializeField]
+    bool isRepeatable = false;
+    [SerializeField]
+    bool isSingleUse = false;
 
-    public abstract void Execute();
+    public bool IsRepeatable { get => isRepeatable; set => isRepeatable = value; }
+    public bool IsSingleUse { get => isSingleUse; set => isSingleUse = value; }
 
-    public virtual bool CheckDuration()
+    public abstract void Execute(Character<Attribute> character);
+    public abstract void RemoveEffect(Character<Attribute> character);
+
+    public bool CheckDurationEffect()
     {
         duration--;
 
         if (duration <= 0)
         {
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 
-//zadawanie obrazen w czasie np podpalenie zatrucie itp
-//zwiekszenie regenracji many na kilka tur
-//odbicie czaru lub czesci dmg
-//zwiekszenie odpornosci
-//zwiekszenie obrazen
-//
+    public SpellEffect(SpellEffectInfo info)
+    {
+        id = info.Id;
+        duration = info.Duration;
+        //TODO boole i inne jesli bedo
+    }
+
+    //zadawanie obrazen w czasie np podpalenie zatrucie itp
+    //zwiekszenie regenracji many na kilka tur
+    //odbicie czaru lub czesci dmg
+    //zwiekszenie odpornosci
+    //zwiekszenie obrazen
+    //
+
+}
+
+[AttributeUsage(AttributeTargets.Class)]
+public class Effect : System.Attribute
+{
 
 }

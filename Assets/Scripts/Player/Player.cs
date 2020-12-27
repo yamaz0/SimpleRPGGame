@@ -5,7 +5,9 @@ using UnityEngine;
 public class Player : Singleton<Player>
 {
     [SerializeField]
-    public PlayerCharacter character;
+    private ProgressCharacter character;
+
+    public ProgressCharacter Character { get => character; set => character = value; }
 
     public void LoadData()
     {
