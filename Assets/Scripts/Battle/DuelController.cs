@@ -32,19 +32,22 @@ public class DuelController : MonoBehaviour
         if (CheckOponentReady(attacker) == true)
         {
             Spell attackerSpell = attacker.GetRandomAttackSpell();
+            float dmg = attackerSpell.SpellPower;
             attacker.mana -= attackerSpell.ManaCost;
+
             attacker.Attack(attackerSpell);//jakis exhaust dodac
 //if atakowany nie jest exhausted
+
             Spell attackedDefendSpell = attacked.GetDefendSpell(attackerSpell);
+
             if(attackedDefendSpell != null)
             {
+                //TODO jakies obliczenia jakie obrazenia zadaje czy cos
+                dmg = dmg / 3; //przykladowo
                 attacked.Defend(attackedDefendSpell);//jakis exhaust dodac
+            }
 
-            }
-            else
-            {
-                attacked.hp -= attackerSpell.SpellPower;
-            }
+            attacked.hp -= dmg;
 
             AddEffectToOponents(attacker, attacked, attackerSpell);
         }
