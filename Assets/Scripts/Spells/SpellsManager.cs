@@ -9,7 +9,7 @@ public class SpellsManager : Singleton<SpellsManager>
 
     public List<Spell> Spells { get => spells; set => spells = value; }
 
-    private void Start()
+    protected override void Initialize()
     {
         Spells.Clear();
         List<SpellsScriptableObject.SpellInfo> spellsInfo = SpellsScriptableObject.Instance.SpellsInfo;

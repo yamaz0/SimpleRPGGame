@@ -18,8 +18,8 @@ public abstract class SpellEffect
     public bool IsRepeatable { get => isRepeatable; set => isRepeatable = value; }
     public bool IsSingleUse { get => isSingleUse; set => isSingleUse = value; }
 
-    public abstract void Execute(Character<Attribute> character);
-    public abstract void RemoveEffect(Character<Attribute> character);
+    public abstract void Execute(Opponent opponent);
+    public abstract void RemoveEffect(Opponent opponent);
 
     public bool CheckDurationEffect()
     {
@@ -37,6 +37,8 @@ public abstract class SpellEffect
     {
         id = info.Id;
         duration = info.Duration;
+        IsRepeatable=info.IsRepeatable;
+        IsSingleUse=info.IsSingleUse;
         //TODO boole i inne jesli bedo
     }
 

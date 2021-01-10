@@ -26,7 +26,7 @@ public abstract class Character<T> where T : Attribute
         return Attributes.GetAttributes();
     }
 
-    public void CopyCharacter(Character<Attribute> characterCopy)
+    public void CopyCharacter<T>(Character<T> characterCopy) where T : Attribute
     {
         for (int i = 0; i < Attributes.Attributes.Count; i++)
         {
@@ -36,16 +36,4 @@ public abstract class Character<T> where T : Attribute
         KnownSpellsId = new List<int>();
         KnownSpellsId.AddRange(characterCopy.KnownSpellsId);
     }
-
-    public void CopyCharacter(Character<ProgressAttribute> characterCopy)
-    {
-        for (int i = 0; i < Attributes.Attributes.Count; i++)
-        {
-            Attributes.Attributes[i].SetLevel(characterCopy.Attributes.Attributes[i].Level);
-        }
-
-        KnownSpellsId = new List<int>();
-        KnownSpellsId.AddRange(characterCopy.KnownSpellsId);
-    }
-
 }

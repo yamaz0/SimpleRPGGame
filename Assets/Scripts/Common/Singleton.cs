@@ -19,6 +19,11 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         }
     }
 
+    protected virtual void Initialize()
+    {
+
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -29,7 +34,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         {
             Destroy(gameObject.GetComponent(Instance.GetType()));
         }
-
+        Initialize();
         DontDestroyOnLoad(gameObject);
     }
 }

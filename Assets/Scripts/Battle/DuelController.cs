@@ -2,38 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class DuelController : MonoBehaviour
 {
     public Opponent op1;
     public Opponent op2;
 
-    public Player player;
-    public Enemy enemy;
     bool TURNTEST;
-    private void Start() {
-        op1.Initialize(player.Character);
-        op2.Initialize(enemy.Character);
+
+    public void Initialize<S, T>(Character<S> characterFirst, Character<T> characterSecound) where T : Attribute where S : Attribute
+    {
+        op1.Initialize(characterFirst);
+        op2.Initialize(characterSecound);
     }
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.T))
-        DoTurn();
-    }
-    public void DoTurn()
+
+    public void DoTurn()//TODO ogarnac lepszy sposob robienia tury
     {
         if(TURNTEST)
         TryAttack(op1, op2);
         else
         TryAttack(op2, op1);
         TURNTEST=!TURNTEST;
+        op1.ExecuteEffects();
+        op2.ExecuteEffects();
     }
 
     private void TryAttack(Opponent attacker, Opponent attacked)
     {
         if (CheckOponentReady(attacker) == true)
         {
-            Spell attackerSpell = attacker.GetSpell();
-            attacker.mana -=attackerSpell.ManaCost;
-            attacked.hp -= attackerSpell.SpellPower;
+            Spell attackerSpell = attacker.GetRandomAttackSpell();
+            attacker.mana -= attackerSpell.ManaCost;
+            attacker.Attack(attackerSpell);//jakis exhaust dodac
+//if atakowany nie jest exhausted
+            Spell attackedDefendSpell = attacked.GetDefendSpell(attackerSpell);
+            if(attackedDefendSpell != null)
+            {
+                attacked.Defend(attackedDefendSpell);//jakis exhaust dodac
+
+            }
+            else
+            {
+                attacked.hp -= attackerSpell.SpellPower;
+            }
+
             AddEffectToOponents(attacker, attacked, attackerSpell);
         }
     }

@@ -4,19 +4,22 @@ using UnityEngine;
 
 [Effect]
 [System.Serializable]
-public class DamageMirrorEffect1 : SpellEffect
+public class HealingEffect : SpellEffect
 {
+    private float healValue;
+
     public override void Execute(Opponent opponent)
     {
+        opponent.hp += healValue;
     }
 
     public override void RemoveEffect(Opponent opponent)
     {
     }
 
-    public DamageMirrorEffect1(SpellEffectInfo info)
+    public HealingEffect(HealingEffectInfo info)
         : base(info)
     {
-        
+        healValue = info.healValue;
     }
 }

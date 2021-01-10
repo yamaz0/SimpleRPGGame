@@ -10,6 +10,6 @@ public class DamageInTimeEffectInfo : SpellEffectInfo
 
     public override SpellEffect GetSpellEffect()
     {
-        return new DamageMirrorEffect1(this);
+        return new DamageInTimerEffect(this);
     }
 }

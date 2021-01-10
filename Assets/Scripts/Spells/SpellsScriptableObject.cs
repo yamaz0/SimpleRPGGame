@@ -62,10 +62,11 @@ public class SpellsScriptableObject: ScriptableObject
         ENERGY
     }
 
-    public enum Specialization
+    public enum SpellType
     {
-        BATTLE,
-        PROTECT
+        ATTACK,
+        DEFEND,
+        BUFFHEALETC//to change
     }
 
     [System.Serializable]
@@ -84,7 +85,7 @@ public class SpellsScriptableObject: ScriptableObject
         [SerializeField]
         float manaCost;
         [SerializeField]
-        Specialization specialization;
+        SpellType spellType;
         [SerializeField]
         Element element;
         [SerializeField]
@@ -93,6 +94,8 @@ public class SpellsScriptableObject: ScriptableObject
         List<SpellEffectInfo> receiverEffects;
         [SerializeField]
         List<SpellEffectInfo> targetEffects;
+        [SerializeField]
+        Sprite sprite;
 
         public string Name { get => name; private set => name = value; }
         public int Id { get => id; private set => id = value; }
@@ -100,10 +103,11 @@ public class SpellsScriptableObject: ScriptableObject
         public float SpellPower { get => spellPower; private set => spellPower = value; }
         public float Cooldown { get => cooldown; private set => cooldown = value; }
         public float ManaCost { get => manaCost; private set => manaCost = value; }
-        public Specialization Specialization { get => specialization; set => specialization = value; }
+        public SpellType SpellType { get => spellType; set => spellType = value; }
         public Element Element { get => element; private set => element = value; }
         public List<Attribute> Requirements { get => requirements; set => requirements = value; }
         public List<SpellEffectInfo> ReceiverSpellEffectsInfos { get => receiverEffects; set => receiverEffects = value; }
         public List<SpellEffectInfo> TargetSpellEffectsInfos { get => targetEffects; set => targetEffects = value; }
+        public Sprite Sprite { get => sprite; set => sprite = value; }
     }
 }
