@@ -89,7 +89,7 @@ public class SpellsScriptableObject: ScriptableObject
         [SerializeField]
         Element element;
         [SerializeField]
-        List<Attribute> requirements = AttributesFactory.GetNormalAttributes();
+        List<Attribute> requirements = AttributesFactory.GetAttributes<Attribute>();
         [SerializeField]
         List<SpellEffectInfo> receiverEffects;
         [SerializeField]

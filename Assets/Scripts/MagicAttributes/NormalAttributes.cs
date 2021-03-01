@@ -7,6 +7,6 @@ public class NormalAttributes : AttributesBase<Attribute>
 {
     public NormalAttributes()
     {
-        Attributes = AttributesFactory.GetNormalAttributes();
+        Attributes = AttributesFactory.GetAttributes<Attribute>();
     }
 }

@@ -69,7 +69,8 @@ public class AttributesScriptableObject : ScriptableObject
         KNOWLEDGE = 0,
         CONCETRATION = 1,
         WILL = 2,
-        MANA = 3
+        MANA = 3,
+        ASDASDSDA = 4
     }
 
     [System.Serializable]

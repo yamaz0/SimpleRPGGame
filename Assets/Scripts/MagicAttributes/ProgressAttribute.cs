@@ -12,5 +12,9 @@ public class ProgressAttribute : Attribute
     {
         progres = new Progress();
     }
+    public ProgressAttribute() : base()
+    {
+        progres = new Progress();
+    }
 
 }
