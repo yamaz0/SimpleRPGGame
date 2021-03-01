@@ -16,7 +16,8 @@ public class AttributeTextController : MonoBehaviour
         AttributesScriptableObject.AttributeInfo attributeInfo = AttributesScriptableObject.Instance.GetAttributeInfoByType(attribute.Type);//ogolnie tutaj chyba powinna byc lokalizacja jakas wiesz o co chodzi byczku co to oglada ;3
     cache = attribute;
         attribute.OnLevelChanged += SetAttributeValueText;
-        SetAttributeNameText(attributeInfo.Name);
+        string attributeName = attributeInfo != null ? attributeInfo.Name : attribute.Type.ToString();
+        SetAttributeNameText(attributeName);
         SetAttributeValueText(attribute.Level);
     }
 
