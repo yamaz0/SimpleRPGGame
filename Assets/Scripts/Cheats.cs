@@ -18,10 +18,12 @@ public class Cheats : MonoBehaviour
  [MenuItem("DoSomething/asdasd")]
     static void asdasd()
     {
-        Progress progres = Player.Instance.Character.Attributes.Attributes[1].progres;
-        Debug.Log(progres.GetProgressPercent());
-        progres.AddProgress(1);
-        Debug.Log(progres.GetProgressPercent());
+        // Progress progres = Player.Instance.Character.Attributes.Attributes[1].progres;
+        // Debug.Log(progres.GetProgressPercent());
+        // progres.AddProgress(1);
+        // Debug.Log(progres.GetProgressPercent());
     }
 
 }
+
+

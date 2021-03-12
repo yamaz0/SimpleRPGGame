@@ -8,6 +8,8 @@ public class AttributeTextController : MonoBehaviour
     private TMPro.TMP_Text attributeNameText;
     [SerializeField]
     private TMPro.TMP_Text attributeValueText;
+    [SerializeField]
+    private TMPro.TMP_Text attributePercentValueText;
 
     private Attribute cache;
 
@@ -21,6 +23,10 @@ public class AttributeTextController : MonoBehaviour
         SetAttributeValueText(attribute.Level);
     }
 
+    public void SetAtributeProgers(string value)
+    {
+        attributePercentValueText.text = value;
+    }
     public void SetAttributeNameText(string name)
     {
         attributeNameText.text = name;

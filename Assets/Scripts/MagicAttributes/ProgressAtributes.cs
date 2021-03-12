@@ -9,9 +9,4 @@ public class ProgressAttributes : AttributesBase<ProgressAttribute>
     {
         Attributes = AttributesFactory.GetAttributes<ProgressAttribute>();
     }
-
-    public void AddProgress(AttributesScriptableObject.MagicAttributes attributeType, int value)
-    {
-        Attributes[(int)attributeType].progres.AddProgress(value);
-    }
 }

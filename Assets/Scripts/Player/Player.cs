@@ -6,7 +6,8 @@ public class Player : Singleton<Player>
 {
     [SerializeField]
     private ProgressCharacter character;
-
+    [SerializeField]
+    private float speed;
     public ProgressCharacter Character { get => character; set => character = value; }
 
     public void LoadData()
@@ -32,5 +33,10 @@ public class Player : Singleton<Player>
     public void ConcetrationAdd()
     {
         // Attributes.AddAttributeProgress(AttributesScriptableObject.MagicAttributes.CONCETRATION, 10);
+    }
+    private void Update() {
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+        gameObject.transform.Translate(new Vector2(h, v) * Time.deltaTime * speed);
     }
 }

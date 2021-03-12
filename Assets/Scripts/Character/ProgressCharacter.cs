@@ -9,4 +9,9 @@ public class ProgressCharacter : Character<ProgressAttribute>
     {
         Attributes = new ProgressAttributes();
     }
+
+    public void AddProgress(AttributesScriptableObject.MagicAttributes attributeType, int value)
+    {
+        Attributes.Attributes[(int)attributeType].AddProgress(value);
+    }
 }

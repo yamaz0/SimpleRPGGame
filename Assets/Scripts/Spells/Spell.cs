@@ -45,7 +45,6 @@ public class Spell
 
         Name = spellInfo.Name;
         Id = spellInfo.Id;
-        Element = spellInfo.Element;
         Unlock = spellInfo.Unlock;
         SpellPower = spellInfo.SpellPower;
         Cooldown = spellInfo.Cooldown;

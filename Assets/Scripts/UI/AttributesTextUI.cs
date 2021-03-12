@@ -20,6 +20,8 @@ public List<AttributeTextController> textControllers;
         {
             AttributeTextController attributeTextController = GameObject.Instantiate(attributeTextPrefab,attributesTextContent);
             attributeTextController.Initialize(attributesList[i]);
+            attributesList[i].OnProgressChange += (x)=>{attributeTextController.SetAtributeProgers(x.ToString());};
+            attributeTextController.SetAtributeProgers(attributesList[i].GetProgressPercent().ToString());
             textControllers.Add(attributeTextController);
         }
     }
