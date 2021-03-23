@@ -31,11 +31,19 @@ public class InteractObject : MonoBehaviour, IUseable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        isActive = true;
-        useUI.SetActive(true);
+        if(other.tag == "Player")
+        {
+            isActive = true;
+            useUI.SetActive(true);
+        }
     }
-    private void OnTriggerExit2D(Collider2D other) {
-        isActive = false;
-        useUI.SetActive(false);
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            isActive = false;
+            useUI.SetActive(false);
+        }
     }
 }

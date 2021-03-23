@@ -18,6 +18,9 @@ public class Cheats : MonoBehaviour
  [MenuItem("DoSomething/asdasd")]
     static void asdasd()
     {
+
+                BookItem item = ItemsManager.Instance.GetItem<BookItem>(ItemsManager.ItemType.BOOK,0);
+        item.Use();
         // Progress progres = Player.Instance.Character.Attributes.Attributes[1].progres;
         // Debug.Log(progres.GetProgressPercent());
         // progres.AddProgress(1);
