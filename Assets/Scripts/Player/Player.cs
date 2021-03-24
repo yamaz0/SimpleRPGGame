@@ -8,8 +8,9 @@ public class Player : Singleton<Player>
     private ProgressCharacter character;
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private Inventory inventory;
     public ProgressCharacter Character { get => character; set => character = value; }
-
     public void LoadData()
     {
        SavePlayer.PlayerDeserialize(this);
