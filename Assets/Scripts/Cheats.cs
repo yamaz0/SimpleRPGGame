@@ -15,16 +15,27 @@ public class Cheats : MonoBehaviour
     {
         Player.Instance.SaveData();
     }
- [MenuItem("DoSomething/asdasd")]
-    static void asdasd()
+ [MenuItem("DoSomething/TimeCouting")]
+    static void TimeCouting()
     {
+        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+        System.TimeSpan t=new System.TimeSpan();
+            ItemsManager instance = ItemsManager.Instance;
 
-                BookItem item = ItemsManager.Instance.GetItem<BookItem>(ItemsManager.ItemType.BOOK,0);
-        item.Use();
-        // Progress progres = Player.Instance.Character.Attributes.Attributes[1].progres;
-        // Debug.Log(progres.GetProgressPercent());
-        // progres.AddProgress(1);
-        // Debug.Log(progres.GetProgressPercent());
+
+
+        t= new System.TimeSpan();
+        for (int i = 0; i < 1; i++)
+        {
+            sw = System.Diagnostics.Stopwatch.StartNew();
+            sw.Start();
+
+            BookItem item2 = instance.CreateBookItem(0);
+
+            sw.Stop();
+            t+=sw.Elapsed;
+        }
+        Debug.Log("Elapsed2="+t);
     }
 
 }
