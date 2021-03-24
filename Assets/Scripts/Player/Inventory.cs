@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Inventory
 {
     [SerializeField]
@@ -9,5 +10,14 @@ public class Inventory
 
     public List<(ItemsManager.ItemType itemType, int id)> ItemsIds { get => itemsIds; set => itemsIds = value; }
 
-    public List<Item> itemList;
+    public Inventory()
+    {
+        ItemsIds = new List<(ItemsManager.ItemType itemType, int id)>();
+    }
+    public void AddItem(ItemsManager.ItemType itemType, int id)
+    {
+        ItemsIds.Add((itemType, id));
+    }
+
+
 }

@@ -11,6 +11,8 @@ public class Player : Singleton<Player>
     [SerializeField]
     private Inventory inventory;
     public ProgressCharacter Character { get => character; set => character = value; }
+    public Inventory Inventory { get => inventory; set => inventory = value; }
+
     public void LoadData()
     {
        SavePlayer.PlayerDeserialize(this);
@@ -24,6 +26,7 @@ public class Player : Singleton<Player>
     private void Start()
     {
         // LoadData();
+        Inventory = new Inventory();
     }
 
     public void KnowledgeAdd()

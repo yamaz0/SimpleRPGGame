@@ -15,6 +15,13 @@ public class Cheats : MonoBehaviour
     {
         Player.Instance.SaveData();
     }
+
+ [MenuItem("DoSomething/AddItemTest")]
+    static void AddItem()
+    {
+        Player.Instance.Inventory.AddItem(ItemsManager.ItemType.BOOK, 0);
+    }
+
  [MenuItem("DoSomething/TimeCouting")]
     static void TimeCouting()
     {
