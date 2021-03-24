@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item<T,Y>
-    where Y : ItemsScriptableObject<T,Y>.ItemInfo
-    where T:ItemsScriptableObject<T,Y>
+public abstract class Item
 {
     [SerializeField]
     private string name;
@@ -16,10 +14,10 @@ public abstract class Item<T,Y>
     public string Name { get => name; set => name = value; }
     public int Id { get => id; set => id = value; }
     public ItemsManager.ItemType Type { get => type; set => type = value; }
-    protected Item(ItemsScriptableObject<T,Y>.ItemInfo info)
+    protected Item(int id, string name, ItemsManager.ItemType itemType)
     {
-        Id = info.Id;
-        Name = info.Name;
-        Type = info.ItemType;
+        Id = id;
+        Name = name;
+        Type = itemType;
     }
 }
