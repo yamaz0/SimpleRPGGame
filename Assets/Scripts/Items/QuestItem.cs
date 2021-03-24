@@ -2,22 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestItem : Item
+public class QuestItem : Item<QuestItemsScriptableObject, QuestItemsScriptableObject.QuestItemInfo>
 {
     int questId;
 
     public int QuestId { get => questId; set => questId = value; }
 
-    public void Initialize(QuestItemsScriptableObject.QuestItemInfo info)
+    public QuestItem(QuestItemsScriptableObject.QuestItemInfo info):base(info)
     {
-        Id = info.Id;
-        Name = info.Name;
-        Type = info.ItemType;
         QuestId = info.QuestId;
-    }
-
-    public QuestItem()
-    {
-
     }
 }

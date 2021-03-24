@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BookItem : Item
+public class BookItem : Item<BookItemsScriptableObject, BookItemsScriptableObject.BookItemInfo>
 {
     int bookXp;
 
@@ -12,16 +12,8 @@ public class BookItem : Item
 Debug.Log("BookItemUse");
     }
 
-    public void Initialize(BookItemsScriptableObject.BookItemInfo info)
+    public BookItem(BookItemsScriptableObject.BookItemInfo info):base(info)
     {
-        Id = info.Id;
-        Name = info.Name;
-        Type = info.ItemType;
         BookXp = info.BookXp;
-    }
-
-    public BookItem()
-    {
-
     }
 }
