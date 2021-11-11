@@ -15,7 +15,7 @@ public class BattleManager : Singleton<BattleManager>
     [SerializeField]
     private DuelController duelController;
 
-    public void StartBattle<S, T>(Character<S> characterFirst, Character<T> characterSecound) where T : Attribute where S : Attribute
+    public void StartBattle(Character characterFirst, Character characterSecound)
     {
         duelController = Instantiate(duelControllerPrefab);
         duelController.Initialize(characterFirst, characterSecound);

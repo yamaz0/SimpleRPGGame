@@ -25,7 +25,6 @@ public class InteractObject : MonoBehaviour, IUseable
 
     public void Use()
     {
-        Player.Instance.Character.AddProgress(atribute, value);
         // Player.Instance.Character.Attributes.AddAttributeLevel(atribute, value);
     }
 

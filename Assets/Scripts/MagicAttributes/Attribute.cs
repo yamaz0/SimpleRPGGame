@@ -18,17 +18,10 @@ public class Attribute
     [field: NonSerialized]
     public event Action<float> OnLevelChanged = delegate { };
 
-    public Attribute()
-    {
-    }
 
     public Attribute(AttributesScriptableObject.MagicAttributes id, int level = 0)
     {
         Type = id;
-        Level = level;
-    }
-    public Attribute(int level = 0)
-    {
         Level = level;
     }
 

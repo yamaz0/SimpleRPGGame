@@ -36,7 +36,7 @@ public static class SavePlayer
         {
             BinaryFormatter formatter = new BinaryFormatter();
 
-            player.Character = formatter.Deserialize(fs) as ProgressCharacter;
+            player.Character = formatter.Deserialize(fs) as Character;
             player.Inventory = formatter.Deserialize(fs) as Inventory;
         }
         catch (SerializationException e)

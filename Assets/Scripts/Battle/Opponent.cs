@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Opponent : MonoBehaviour
 {
-    private Character<Attribute> character;
+    private Character character;
     private List<SpellEffect> spellEffects = new List<SpellEffect>();
     public float hp = 100;
     public float mana = 100;
@@ -14,16 +14,16 @@ public class Opponent : MonoBehaviour
     public  Animator anim;
     public  OpponentSpriteController spritesController;
 
-    public Character<Attribute> Character { get => character; set => character = value; }
+    public Character Character { get => character; set => character = value; }
     public List<Spell> Spells { get; set; }
     public List<Spell> AttackSpells { get; set; } = new List<Spell>();
     public List<Spell> DefendSpells { get; set; } = new List<Spell>();
     public List<Spell> BuffHealEtcSpells { get; set; } = new List<Spell>();
     public List<SpellEffect> SpellEffects { get => spellEffects; set => spellEffects = value; }
 
-    public void Initialize<T>(Character<T> characterToCopy) where T : Attribute
+    public void Initialize(Character characterToCopy)
     {
-        character = new NormalCharacter();
+        character = new Character();
         character.CopyCharacter(characterToCopy);
         Spells = new List<Spell>();
         List<int> knownSpellsId = Character.KnownSpellsId;
