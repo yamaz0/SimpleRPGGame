@@ -8,16 +8,16 @@ public abstract class Item
     private string name;
     [SerializeField]
     private int id;
-    [SerializeField]
-    private ItemsManager.ItemType type;
+    // [SerializeField]
+    // private ItemsManager.ItemType type;
 
-    public string Name { get => name; set => name = value; }
-    public int Id { get => id; set => id = value; }
-    public ItemsManager.ItemType Type { get => type; set => type = value; }
-    protected Item(int id, string name, ItemsManager.ItemType itemType)
-    {
-        Id = id;
-        Name = name;
-        Type = itemType;
-    }
+    // public string Name { get => name; set => name = value; }
+    // public int Id { get => id; set => id = value; }
+    // public ItemsManager.ItemType Type { get => type; set => type = value; }
+    // protected Item(int id, string name, ItemsManager.ItemType itemType)
+    // {
+    //     Id = id;
+    //     Name = name;
+    //     Type = itemType;
+    // }
 }

@@ -19,30 +19,30 @@ public class Cheats : MonoBehaviour
  [MenuItem("DoSomething/AddItemTest")]
     static void AddItem()
     {
-        Player.Instance.Inventory.AddItem(ItemsManager.ItemType.BOOK, 0);
+        // Player.Instance.Inventory.AddItem(ItemsManager.ItemType.BOOK, 0);
     }
 
  [MenuItem("DoSomething/TimeCouting")]
     static void TimeCouting()
     {
-        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-        System.TimeSpan t=new System.TimeSpan();
-            ItemsManager instance = ItemsManager.Instance;
+        // System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+        // System.TimeSpan t=new System.TimeSpan();
+        //     ItemsManager instance = ItemsManager.Instance;
 
 
 
-        t= new System.TimeSpan();
-        for (int i = 0; i < 1; i++)
-        {
-            sw = System.Diagnostics.Stopwatch.StartNew();
-            sw.Start();
+        // t= new System.TimeSpan();
+        // for (int i = 0; i < 1; i++)
+        // {
+        //     sw = System.Diagnostics.Stopwatch.StartNew();
+        //     sw.Start();
 
-            BookItem item2 = instance.CreateBookItem(0);
+        //     BookItem item2 = instance.CreateBookItem(0);
 
-            sw.Stop();
-            t+=sw.Elapsed;
-        }
-        Debug.Log("Elapsed2="+t);
+        //     sw.Stop();
+        //     t+=sw.Elapsed;
+        // }
+        // Debug.Log("Elapsed2="+t);
     }
 
 }

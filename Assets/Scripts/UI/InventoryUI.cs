@@ -32,24 +32,24 @@ private void Update() {
         ItemsManager itemsManager = ItemsManager.Instance;
         Item item = null;
 
-        switch (itemType)
-        {
-            case ItemsManager.ItemType.OTHER:
-                break;
-            case ItemsManager.ItemType.USE:
-                break;
-            case ItemsManager.ItemType.INGREDIENT:
-                break;
-            case ItemsManager.ItemType.BOOK:
-                item = itemsManager.CreateBookItem(id);
-                break;
-            case ItemsManager.ItemType.QUEST:
-                item = itemsManager.CreateQuestItem(id);
-                break;
-            default:
-                Debug.LogError("Item type incorrect!");
-                return;
-        }
+        // switch (itemType)
+        // {
+        //     case ItemsManager.ItemType.OTHER:
+        //         break;
+        //     case ItemsManager.ItemType.USE:
+        //         break;
+        //     case ItemsManager.ItemType.INGREDIENT:
+        //         break;
+        //     case ItemsManager.ItemType.BOOK:
+        //         item = itemsManager.CreateBookItem(id);
+        //         break;
+        //     case ItemsManager.ItemType.QUEST:
+        //         item = itemsManager.CreateQuestItem(id);
+        //         break;
+        //     default:
+        //         Debug.LogError("Item type incorrect!");
+        //         return;
+        // }
         ItemList.Add(item);
     }
 }
