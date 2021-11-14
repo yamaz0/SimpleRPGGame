@@ -5,9 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private Character character;
+    private NormalCharacter character;
 
-    public Character Character { get => character; set => character = value; }
+    public NormalCharacter Character { get => character; set => character = value; }
 
 
 

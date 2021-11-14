@@ -10,7 +10,7 @@ public class DuelController : MonoBehaviour
 
     bool TURNTEST;
 
-    public void Initialize(Character characterFirst, Character characterSecound)
+    public void Initialize<S, T>(Character<S> characterFirst, Character<T> characterSecound) where T : Attribute where S : Attribute
     {
         op1.Initialize(characterFirst);
         op2.Initialize(characterSecound);

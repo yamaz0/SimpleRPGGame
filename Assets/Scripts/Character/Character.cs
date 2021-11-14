@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public  class Character
+public abstract class Character<T> where T : Attribute
 {
     [SerializeField]
-    private Attributes attributes;
+    private AttributesBase<T> attributes;
     [SerializeField]
     private List<int> knownSpellsId;
 
-    public Attributes Attributes { get => attributes; set => attributes = value; }
+    public AttributesBase<T> Attributes { get => attributes; set => attributes = value; }
     public List<int> KnownSpellsId { get => knownSpellsId; set => knownSpellsId = value; }
 
     public void AddSpell(int id)
@@ -21,11 +21,16 @@ public  class Character
         }
     }
 
-    public void CopyCharacter(Character characterCopy)
+    public List<Attribute> GetAttributes()
     {
-        for (int i = 0; i < Attributes.AttributesList.Count; i++)
+        return Attributes.GetAttributes();
+    }
+
+    public void CopyCharacter<T>(Character<T> characterCopy) where T : Attribute
+    {
+        for (int i = 0; i < Attributes.Attributes.Count; i++)
         {
-            Attributes.AttributesList[i].SetLevel(characterCopy.Attributes.AttributesList[i].Level);
+            Attributes.Attributes[i].SetLevel(characterCopy.Attributes.Attributes[i].Level);
         }
 
         KnownSpellsId = new List<int>();

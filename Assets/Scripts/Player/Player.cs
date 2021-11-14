@@ -5,12 +5,12 @@ using UnityEngine;
 public class Player : Singleton<Player>
 {
     [SerializeField]
-    private Character character;
+    private ProgressCharacter character;
     [SerializeField]
     private float speed;
     [SerializeField]
     private Inventory inventory;
-    public Character Character { get => character; set => character = value; }
+    public ProgressCharacter Character { get => character; set => character = value; }
     public Inventory Inventory { get => inventory; set => inventory = value; }
 
     public void LoadData()

@@ -14,12 +14,14 @@ public List<AttributeTextController> textControllers;
     public void Init()
     {
         textControllers.Clear();
-        List<Attribute> attributesList = Player.Instance.Character.Attributes.AttributesList;
+        List<ProgressAttribute> attributesList = Player.Instance.Character.Attributes.Attributes;
 
         for (int i = 0; i < attributesList.Count; i++)
         {
             AttributeTextController attributeTextController = GameObject.Instantiate(attributeTextPrefab,attributesTextContent);
             attributeTextController.Initialize(attributesList[i]);
+            attributesList[i].OnProgressChange += (x)=>{attributeTextController.SetAtributeProgers(x.ToString());};
+            attributeTextController.SetAtributeProgers(attributesList[i].GetProgressPercent().ToString());
             textControllers.Add(attributeTextController);
         }
     }

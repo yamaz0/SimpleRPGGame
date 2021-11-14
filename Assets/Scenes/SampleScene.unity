@@ -626,7 +626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &624115803
@@ -8766,16 +8766,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character:
-    attributes:
-      attributesList:
-      - type: 0
-        level: 0
-      - type: 1
-        level: 0
-      - type: 2
-        level: 0
-      - type: 3
-        level: 0
     knownSpellsId: 00000000010000000200000003000000
 --- !u!4 &1730599732
 Transform:
@@ -9340,16 +9330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character:
-    attributes:
-      attributesList:
-      - type: 0
-        level: 0
-      - type: 1
-        level: 0
-      - type: 2
-        level: 0
-      - type: 3
-        level: 0
     knownSpellsId: 00000000010000000200000003000000
   speed: 5
 --- !u!4 &1919726951
