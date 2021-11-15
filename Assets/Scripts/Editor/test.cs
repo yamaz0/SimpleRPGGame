@@ -39,18 +39,9 @@ public class test : EditorWindow
         {
             currentState = State.SHOW_ALL;
         }
-        else if(GUILayout.Button("add"))
+        else if(GUILayout.Button("Create"))
         {
             currentState = State.CREATE;
-            // if(ItemsScriptableObject.Instance.Items == null)
-            // ItemsScriptableObject.Instance.Items = new List<ItemsScriptableObject.ItemInfo>();
-
-            BookItemInfo bookItemInfo = ItemsScriptableObject.Instance.CreateItem(ItemsManager.ItemType.BOOK) as BookItemInfo;
-            bookItemInfo.Init(0,"imte",5);
-            QuestItemInfo bookItemInfo1 = ItemsScriptableObject.Instance.CreateItem(ItemsManager.ItemType.QUEST) as QuestItemInfo;
-            bookItemInfo1.Init(1,"imte2",5);
-            BookItemInfo bookItemInfo2 = ItemsScriptableObject.Instance.CreateItem(ItemsManager.ItemType.BOOK) as BookItemInfo;
-            bookItemInfo2.Init(2,"imte3",5);
         }
 
         switch (currentState)
@@ -66,10 +57,6 @@ public class test : EditorWindow
             default:
                 break;
         }
-
-
-
-
     }
 
     private void ShowCreateItems()
@@ -109,8 +96,9 @@ public class test : EditorWindow
 
     private void ShowItemsCreateFields()
     {
-        id = EditorGUILayout.IntField(ItemsScriptableObject.Instance.Items.Count, "id");
-        nameItem = EditorGUILayout.TextField(nameItem);
+        id = ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1;
+        GUILayout.Label("Id: " + id.ToString());
+        nameItem = EditorGUILayout.TextField("Name: ",nameItem);
         switch (currentType)
         {
             case ItemsManager.ItemType.OTHER:
@@ -120,10 +108,10 @@ public class test : EditorWindow
             case ItemsManager.ItemType.INGREDIENT:
                 break;
             case ItemsManager.ItemType.BOOK:
-                bookXp = EditorGUILayout.IntField(1);
+                bookXp = EditorGUILayout.IntField("BookXp: ", bookXp);
                 break;
             case ItemsManager.ItemType.QUEST:
-                questId = EditorGUILayout.IntField(1);
+                questId = EditorGUILayout.IntField("QuestId: ", questId);
                 break;
             default:
                 break;
@@ -132,6 +120,7 @@ public class test : EditorWindow
 
     private void ShowItemsTypesButtons()
     {
+        GUILayout.Label("Item Type");
         GUILayout.BeginHorizontal();
         string[] types = System.Enum.GetNames(typeof(ItemsManager.ItemType));
         foreach (string t in types)
