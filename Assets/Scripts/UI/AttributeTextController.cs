@@ -20,7 +20,7 @@ public class AttributeTextController : MonoBehaviour
         attribute.OnLevelChanged += SetAttributeValueText;
         string attributeName = attributeInfo != null ? attributeInfo.Name : attribute.Type.ToString();
         SetAttributeNameText(attributeName);
-        SetAttributeValueText(attribute.Level);
+        SetAttributeValueText(attribute.Value);
     }
 
     public void SetAtributeProgers(string value)

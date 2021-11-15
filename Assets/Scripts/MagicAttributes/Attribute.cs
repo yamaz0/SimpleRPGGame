@@ -9,37 +9,34 @@ public class Attribute
     [SerializeField]
     private AttributesScriptableObject.MagicAttributes type;
     [SerializeField]
-    private int level;
+    private int value;
 
     // public int Id { get => id; set => id = value; }
     public AttributesScriptableObject.MagicAttributes Type { get => type; set => type = value; }
-    public int Level { get => level; private set => level = value; }
+    public int Value { get => value; private set => this.value = value; }
 
     [field: NonSerialized]
     public event Action<float> OnLevelChanged = delegate { };
 
-    public Attribute()
-    {
-    }
 
-    public Attribute(AttributesScriptableObject.MagicAttributes id, int level = 0)
+    public Attribute(AttributesScriptableObject.MagicAttributes type, int level = 0)
     {
-        Type = id;
-        Level = level;
+        Type = type;
+        Value = level;
     }
     public Attribute(int level = 0)
     {
-        Level = level;
+        Value = level;
     }
 
     public void AddLevel(int value)
     {
-        SetLevel(Level + value);
+        SetLevel(Value + value);
     }
 
     public void SetLevel(int value, bool isNotify = true)
     {
-        Level = value;
+        Value = value;
 
         if(isNotify == true)
         {
@@ -49,12 +46,12 @@ public class Attribute
 
     public void LevelUp()
     {
-        Level++;
+        Value++;
         NotifyLevelChanged();
     }
 
     private void NotifyLevelChanged()
     {
-        OnLevelChanged(Level);
+        OnLevelChanged(Value);
     }
 }
