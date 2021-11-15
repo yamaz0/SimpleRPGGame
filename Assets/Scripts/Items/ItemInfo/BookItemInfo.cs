@@ -13,10 +13,11 @@ public class BookItemInfo: ItemsScriptableObject.ItemInfo
         ItemType = ItemsManager.ItemType.BOOK;
     }
 
-    public void Init(int id, string name, int xp)
+    public ItemsScriptableObject.ItemInfo Init(int id, string name, int xp)
     {
         InitBase(id,name);
         BookXp = xp;
+        return this;
     }
 
 }

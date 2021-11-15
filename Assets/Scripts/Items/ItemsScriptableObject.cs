@@ -47,8 +47,7 @@ public class ItemsScriptableObject: ScriptableObject
                 Debug.LogError("Error item type.");
                 break;
         }
-        if(itemInfoInstance != null)
-            Items.Add(itemInfoInstance);
+
         return itemInfoInstance;
         // AddObjectToAsset
     }

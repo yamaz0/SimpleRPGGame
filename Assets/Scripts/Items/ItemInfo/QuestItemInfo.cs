@@ -12,9 +12,10 @@ public class QuestItemInfo: ItemsScriptableObject.ItemInfo
     {
         ItemType=ItemsManager.ItemType.QUEST;
     }
-    public void Init(int id, string name, int questId)
+    public ItemsScriptableObject.ItemInfo Init(int id, string name, int questId)
     {
         InitBase(id,name);
         QuestId = questId;
+        return this;
     }
 }
