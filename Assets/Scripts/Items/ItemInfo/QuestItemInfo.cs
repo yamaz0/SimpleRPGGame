@@ -12,8 +12,9 @@ public class QuestItemInfo: ItemsScriptableObject.ItemInfo
     {
         ItemType=ItemsManager.ItemType.QUEST;
     }
-    public override void show()
+    public void Init(int id, string name, int questId)
     {
-        Debug.Log("quest");
+        InitBase(id,name);
+        QuestId = questId;
     }
 }

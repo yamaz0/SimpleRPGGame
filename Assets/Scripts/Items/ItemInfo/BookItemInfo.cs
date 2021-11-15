@@ -10,11 +10,13 @@ public class BookItemInfo: ItemsScriptableObject.ItemInfo
     public int BookXp { get => bookXp; set => bookXp = value; }
     public BookItemInfo()
     {
-        ItemType=ItemsManager.ItemType.BOOK;
+        ItemType = ItemsManager.ItemType.BOOK;
     }
-    public override void show()
+
+    public void Init(int id, string name, int xp)
     {
-        Debug.Log("books");
+        InitBase(id,name);
+        BookXp = xp;
     }
 
 }

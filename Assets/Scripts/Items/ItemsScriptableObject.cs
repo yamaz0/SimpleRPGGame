@@ -24,11 +24,11 @@ public class ItemsScriptableObject: ScriptableObject
         instance = this;
     }
 
-    public void AddItem(ItemInfo item)
+    public ItemInfo CreateItem(ItemsManager.ItemType item)
     {
         ItemInfo itemInfoInstance = null;
 
-        switch (item.ItemType)
+        switch (item)
         {
             case ItemsManager.ItemType.OTHER:
                 break;
@@ -37,18 +37,19 @@ public class ItemsScriptableObject: ScriptableObject
             case ItemsManager.ItemType.INGREDIENT:
                 break;
             case ItemsManager.ItemType.BOOK:
-                 itemInfoInstance = CreateInstance<BookItemInfo>();
+                itemInfoInstance = CreateInstance<BookItemInfo>();
+                itemInfoInstance.Id=1;
                 break;
             case ItemsManager.ItemType.QUEST:
                 itemInfoInstance = CreateInstance<QuestItemInfo>();
                 break;
             default:
                 Debug.LogError("Error item type.");
-                return;
+                break;
         }
-
-        Items.Add(itemInfoInstance);
-        Debug.Log(Items.Count);
+        if(itemInfoInstance != null)
+            Items.Add(itemInfoInstance);
+        return itemInfoInstance;
         // AddObjectToAsset
     }
 
@@ -96,19 +97,20 @@ public class ItemsScriptableObject: ScriptableObject
         [SerializeField]
         private int id;
         [SerializeField]
-        private ItemsManager.ItemType itemType;//prawdopodobnie do wywalenia xd
+        private ItemsManager.ItemType itemType;
 
         public string ItemName { get => itemName; set => itemName = value; }
         public int Id { get => id; set => id = value; }
         public ItemsManager.ItemType ItemType { get => itemType; set => itemType = value; }
 
-    private void OnEnable()
-    {
-        hideFlags = HideFlags.HideAndDontSave;
-    }
-        public virtual void show()
+        private void OnEnable()
         {
-Debug.Log("nie tutaj");
+            hideFlags = HideFlags.HideAndDontSave;
+        }
+        protected void InitBase(int id, string name)
+        {
+            Id = id;
+            ItemName = name;
         }
     }
 }
