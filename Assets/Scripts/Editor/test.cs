@@ -20,6 +20,8 @@ public class test : EditorWindow
     string nameItem;
     ItemsScriptableObject.ItemInfo itemInfoInstance;
 
+    private ShowItemsEditorWindow showItemsEditorWindow;
+
 
     [MenuItem("ProjektMagic/test")]
     private static void ShowWindow() {
@@ -96,7 +98,7 @@ public class test : EditorWindow
 
     private void ShowItemsCreateFields()
     {
-        id = ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1;
+        id = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
         GUILayout.Label("Id: " + id.ToString());
         nameItem = EditorGUILayout.TextField("Name: ",nameItem);
         switch (currentType)
@@ -136,21 +138,6 @@ public class test : EditorWindow
 
     private void ShowItems()
     {
-        List<ItemsScriptableObject.ItemInfo> items = ItemsScriptableObject.Instance.Items;
-
-        if (items != null)
-        {
-            GUILayout.BeginVertical();
-
-            items.ForEach(x =>
-            {
-                GUILayout.Label("Id: " + x.Id.ToString());
-                GUILayout.Label("Name: " + x.ItemName);
-                GUILayout.Label("Type: " + x.ItemType.ToString());
-                GUILayout.Space(10);
-            });
-
-            GUILayout.EndVertical();
-        }
+        showItemsEditorWindow.ShowItems();
     }
 }
