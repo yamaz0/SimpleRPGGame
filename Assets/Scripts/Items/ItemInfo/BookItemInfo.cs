@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class BookItemInfo: ItemsScriptableObject.ItemInfo
+public class BookItemInfo: ItemInfo
 {
     [SerializeField]
     private int bookXp;
 
     public int BookXp { get => bookXp; set => bookXp = value; }
+
     public BookItemInfo()
     {
         ItemType = ItemsManager.ItemType.BOOK;
     }
 
-    public ItemsScriptableObject.ItemInfo Init(int id, string name, int xp)
+    public ItemInfo Init(int id, string name, Sprite sprite, int xp)
     {
-        InitBase(id,name);
+        InitBase(id, name, sprite);
         BookXp = xp;
         return this;
     }

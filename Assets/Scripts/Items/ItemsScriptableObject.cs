@@ -2,27 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Items", menuName = "ScriptableObjects/ItemsScriptableObject")]
+[CreateAssetMenu(fileName = "ItemsScriptableObject", menuName = "ScriptableObjects/ItemsScriptableObject")]
 public class ItemsScriptableObject: ScriptableObject
 {
     private static ItemsScriptableObject instance;
 
-    private List<ItemsScriptableObject.ItemInfo> items = new List<ItemInfo>();
+    [SerializeReference]
+    private List<ItemInfo> items;
 
-    public static ItemsScriptableObject Instance { get { return instance; } }
+    public static ItemsScriptableObject Instance { get { if(instance == null) instance = Resources.LoadAll<ItemsScriptableObject>("")[0]; return instance; } }
 
-    public List<ItemsScriptableObject.ItemInfo> Items { get => items; set => items = value; }
-
-    [RuntimeInitializeOnLoadMethod]
-    private static void Init()
-    {
-        instance = Resources.LoadAll<ItemsScriptableObject>("")[0];
-    }
-
-    public ItemsScriptableObject()
-    {
-        instance = this;
-    }
+    public List<ItemInfo> Items { get => items; set => items = value; }
 
     public ItemInfo CreateItem(ItemsManager.ItemType item)
     {
@@ -37,8 +27,7 @@ public class ItemsScriptableObject: ScriptableObject
             case ItemsManager.ItemType.INGREDIENT:
                 break;
             case ItemsManager.ItemType.BOOK:
-                itemInfoInstance = CreateInstance<BookItemInfo>();
-                itemInfoInstance.Id=1;
+                itemInfoInstance = CreateInstance<BookItemInfo>() ;
                 break;
             case ItemsManager.ItemType.QUEST:
                 itemInfoInstance = CreateInstance<QuestItemInfo>();
@@ -54,12 +43,14 @@ public class ItemsScriptableObject: ScriptableObject
 
     private void OnEnable()
     {
+        instance = Resources.LoadAll<ItemsScriptableObject>("")[0];
+
         if(Items == null)
         {
             Items = new List<ItemInfo>();
         }
 
-        hideFlags = HideFlags.HideAndDontSave;
+        // hideFlags = HideFlags.HideAndDontSave;
     }
 
     public ItemInfo GetItemInfoById(int id)
@@ -86,30 +77,5 @@ public class ItemsScriptableObject: ScriptableObject
         }
 
         return null;
-    }
-
-    [System.Serializable]
-    public class ItemInfo : ScriptableObject
-    {
-        [SerializeField]
-        private string itemName;
-        [SerializeField]
-        private int id;
-        [SerializeField]
-        private ItemsManager.ItemType itemType;
-
-        public string ItemName { get => itemName; set => itemName = value; }
-        public int Id { get => id; set => id = value; }
-        public ItemsManager.ItemType ItemType { get => itemType; set => itemType = value; }
-
-        private void OnEnable()
-        {
-            hideFlags = HideFlags.HideAndDontSave;
-        }
-        protected void InitBase(int id, string name)
-        {
-            Id = id;
-            ItemName = name;
-        }
     }
 }
