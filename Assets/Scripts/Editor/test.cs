@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEditor;
 public class test : EditorWindow
 {
-    enum State
+    public enum State
     {
         NONE,
         SHOW_ALL,
-        CREATE
+        CREATE,
+        MODIFY
     }
 
     private State currentState = new State();
@@ -17,6 +18,8 @@ public class test : EditorWindow
     private ShowItemsEditorWindow showItemsEditorWindow;
     [SerializeField]
     private CreateItemsEditorWindow createItemsEditorWindow;
+
+    public State CurrentState { get => currentState; set => currentState = value; }
 
     private void OnEnable()
     {
@@ -45,14 +48,14 @@ public class test : EditorWindow
 
         if(GUILayout.Button("show items"))
         {
-            currentState = State.SHOW_ALL;
+            CurrentState = State.SHOW_ALL;
         }
         else if(GUILayout.Button("Create"))
         {
-            currentState = State.CREATE;
+            CurrentState = State.CREATE;
         }
 
-        switch (currentState)
+        switch (CurrentState)
         {
             case State.NONE:
                 break;
@@ -61,6 +64,9 @@ public class test : EditorWindow
                 break;
             case State.CREATE:
                 ShowCreateItems();
+                break;
+            case State.MODIFY:
+                createItemsEditorWindow.ShowItemsModify();
                 break;
             default:
                 break;
@@ -74,6 +80,6 @@ public class test : EditorWindow
 
     private void ShowItems()
     {
-        showItemsEditorWindow.ShowItems();
+        showItemsEditorWindow.ShowItems(createItemsEditorWindow, this);
     }
 }

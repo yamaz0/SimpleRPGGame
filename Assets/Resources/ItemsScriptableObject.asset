@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ItemsScriptableObject
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 6981595862800577329, guid: 3da5278e5cbf7f3419b517a703c0cc0e, type: 2}
-  - {fileID: 6697325454747704381, guid: 3da5278e5cbf7f3419b517a703c0cc0e, type: 2}
-  - {fileID: 2213674611551913767, guid: 3da5278e5cbf7f3419b517a703c0cc0e, type: 2}
+  - {fileID: -5749244328502567752, guid: 3da5278e5cbf7f3419b517a703c0cc0e, type: 2}
+  - {fileID: -117755141923480017, guid: 3da5278e5cbf7f3419b517a703c0cc0e, type: 2}
+  - {fileID: 7010853955942213160, guid: 3da5278e5cbf7f3419b517a703c0cc0e, type: 2}
+  - {fileID: 198944522443695118, guid: 3da5278e5cbf7f3419b517a703c0cc0e, type: 2}

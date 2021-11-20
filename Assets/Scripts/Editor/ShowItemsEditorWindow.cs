@@ -6,7 +6,7 @@ using UnityEditor;
 public class ShowItemsEditorWindow : EditorWindow
 {
     Vector2 scrollPos;
-    public void ShowItems()
+    public void ShowItems(CreateItemsEditorWindow createItemsEditorWindow, test t)
     {
         List<ItemInfo> items = ItemsScriptableObject.Instance.Items;
 
@@ -31,6 +31,13 @@ public class ShowItemsEditorWindow : EditorWindow
                                     GUILayout.Label("Type: " + x.ItemType.ToString());
                                     GUILayout.Box(x.Icon.texture);
                                     // GUI.DrawTexture(new Rect(0,0,50,50),x.Icon.texture);
+                                        // GUILayout.BeginHorizontal();
+                                        if(GUILayout.Button("Modify"))
+                                        {
+                                            createItemsEditorWindow.SetValuesFields(x.Id, x.ItemName, x.Icon);
+                                            t.CurrentState = test.State.MODIFY;
+                                        }
+                                        // GUILayout.EndHorizontal();
                                     GUILayout.Space(10);
                                 GUILayout.EndArea();
                             GUILayout.EndVertical();

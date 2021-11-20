@@ -35,6 +35,39 @@ public class CreateItemsEditorWindow : EditorWindow
         }
     }
 
+    public void ShowItemsModify()
+    {
+        ShowItemsFields();
+
+        if (GUILayout.Button("Save"))
+        {
+            ModifyItem();
+        }
+    }
+    private void ModifyItem()
+    {
+        switch (currentType)
+        {
+            case ItemsManager.ItemType.OTHER:
+                break;
+            case ItemsManager.ItemType.USE:
+                break;
+            case ItemsManager.ItemType.INGREDIENT:
+                break;
+            case ItemsManager.ItemType.BOOK:
+                ((BookItemInfo)ItemsScriptableObject.Instance.GetItemInfoById(id)).Init(id, nameItem, icon, bookXp);
+                break;
+            case ItemsManager.ItemType.QUEST:
+                ((QuestItemInfo)ItemsScriptableObject.Instance.GetItemInfoById(id)).Init(id, nameItem, icon, questId);
+                break;
+            default:
+                break;
+        }
+        EditorUtility.SetDirty(ItemsScriptableObject.Instance);
+        EditorUtility.SetDirty(ItemsSO.Instance);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+    }
     private void CreateItem()
     {
         ItemInfo itemInfoInstance = null;
@@ -67,14 +100,46 @@ public class CreateItemsEditorWindow : EditorWindow
         AssetDatabase.Refresh();
     }
 
-    private void ShowItemsFields()
+    private void ModifyItem(ItemInfo item)
+    {
+        switch (currentType)
+        {
+            case ItemsManager.ItemType.OTHER:
+                break;
+            case ItemsManager.ItemType.USE:
+                break;
+            case ItemsManager.ItemType.INGREDIENT:
+                break;
+            case ItemsManager.ItemType.BOOK:
+                bookXp = ((BookItemInfo)item).BookXp;
+                break;
+            case ItemsManager.ItemType.QUEST:
+                questId = ((QuestItemInfo)item).QuestId;
+                break;
+            default:
+                break;
+        }
+
+        currentType = item.ItemType;
+        SetValuesFields(item.Id, item.ItemName, item.Icon);
+    }
+
+    public void SetValuesFields(int itemId, string itemname, Sprite sprite)
+    {
+        id = itemId;
+        nameItem = itemname;
+        icon = sprite;
+        hasTypeSelected = true;
+    }
+
+    private void ShowItemsFields(ItemInfo item = null)
     {
         if(ItemsScriptableObject.Instance.Items == null)
         {
             ItemsScriptableObject.Instance.Items = new List<ItemInfo>();
         }
 
-        id = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
+        id = ItemsScriptableObject.Instance.Items.Count;
         GUILayout.Label("Id: " + id.ToString());
         nameItem = EditorGUILayout.TextField("Name: ",nameItem);
         icon = (Sprite)EditorGUILayout.ObjectField("Sprite: ",icon,typeof(Sprite));
@@ -109,7 +174,7 @@ public class CreateItemsEditorWindow : EditorWindow
             {
                 System.Enum.TryParse(t, out ItemsManager.ItemType enumType);
                 currentType = enumType;
-                hasTypeSelected = true;
+                SetValuesFields(ItemsScriptableObject.Instance.Items.Count, string.Empty, null);
             }
         }
         GUILayout.EndHorizontal();
