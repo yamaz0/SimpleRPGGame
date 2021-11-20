@@ -13,9 +13,11 @@ public class CreateItemsEditorWindow : EditorWindow
     private ItemsManager.ItemType currentType = ItemsManager.ItemType.OTHER;
     private bool hasTypeSelected = false;
 
+    public bool HasTypeSelected { get => hasTypeSelected; set => hasTypeSelected = value; }
+
     public void ShowItemsCreator()
     {
-        if(hasTypeSelected == false)
+        if(HasTypeSelected == false)
         {
             ShowItemsTypesButtons();
         }
@@ -23,7 +25,7 @@ public class CreateItemsEditorWindow : EditorWindow
         {
             if (GUILayout.Button("Select other type"))
             {
-                hasTypeSelected = false;
+                HasTypeSelected = false;
             }
 
             ShowItemsFields();
@@ -44,8 +46,12 @@ public class CreateItemsEditorWindow : EditorWindow
             ModifyItem();
         }
     }
+
     private void ModifyItem()
     {
+        ItemInfo itemInfo = ItemsScriptableObject.Instance.GetItemInfoById(id);
+        currentType=itemInfo.ItemType;
+
         switch (currentType)
         {
             case ItemsManager.ItemType.OTHER:
@@ -55,10 +61,10 @@ public class CreateItemsEditorWindow : EditorWindow
             case ItemsManager.ItemType.INGREDIENT:
                 break;
             case ItemsManager.ItemType.BOOK:
-                ((BookItemInfo)ItemsScriptableObject.Instance.GetItemInfoById(id)).Init(id, nameItem, icon, bookXp);
+                ((BookItemInfo)itemInfo).Init(id, nameItem, icon, bookXp);
                 break;
             case ItemsManager.ItemType.QUEST:
-                ((QuestItemInfo)ItemsScriptableObject.Instance.GetItemInfoById(id)).Init(id, nameItem, icon, questId);
+                ((QuestItemInfo)itemInfo).Init(id, nameItem, icon, questId);
                 break;
             default:
                 break;
@@ -100,8 +106,11 @@ public class CreateItemsEditorWindow : EditorWindow
         AssetDatabase.Refresh();
     }
 
-    private void ModifyItem(ItemInfo item)
+    public void SetValuesFields(ItemInfo item)
     {
+        currentType = item.ItemType;
+        SetValuesFields(item.Id, item.ItemName, item.Icon);
+
         switch (currentType)
         {
             case ItemsManager.ItemType.OTHER:
@@ -119,9 +128,6 @@ public class CreateItemsEditorWindow : EditorWindow
             default:
                 break;
         }
-
-        currentType = item.ItemType;
-        SetValuesFields(item.Id, item.ItemName, item.Icon);
     }
 
     public void SetValuesFields(int itemId, string itemname, Sprite sprite)
@@ -129,7 +135,7 @@ public class CreateItemsEditorWindow : EditorWindow
         id = itemId;
         nameItem = itemname;
         icon = sprite;
-        hasTypeSelected = true;
+        HasTypeSelected = true;
     }
 
     private void ShowItemsFields(ItemInfo item = null)
@@ -139,7 +145,6 @@ public class CreateItemsEditorWindow : EditorWindow
             ItemsScriptableObject.Instance.Items = new List<ItemInfo>();
         }
 
-        id = ItemsScriptableObject.Instance.Items.Count;
         GUILayout.Label("Id: " + id.ToString());
         nameItem = EditorGUILayout.TextField("Name: ",nameItem);
         icon = (Sprite)EditorGUILayout.ObjectField("Sprite: ",icon,typeof(Sprite));

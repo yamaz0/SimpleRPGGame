@@ -53,6 +53,7 @@ public class test : EditorWindow
         else if(GUILayout.Button("Create"))
         {
             CurrentState = State.CREATE;
+            createItemsEditorWindow.HasTypeSelected = false;
         }
 
         switch (CurrentState)
@@ -78,8 +79,54 @@ public class test : EditorWindow
         createItemsEditorWindow.ShowItemsCreator();
     }
 
+    Vector2 scrollPos;
     private void ShowItems()
     {
-        showItemsEditorWindow.ShowItems(createItemsEditorWindow, this);
+        List<ItemInfo> items = ItemsScriptableObject.Instance.Items;
+
+        if (items != null)
+        {
+            scrollPos = GUILayout.BeginScrollView(scrollPos,false,true);
+                GUILayout.BeginVertical();
+
+                int w = 0;
+                int h = 0;
+
+                items.ForEach(x =>
+                {
+                    if(w == 0)
+                    {
+                        GUILayout.BeginHorizontal();
+                    }
+                            GUILayout.BeginVertical();
+                                GUILayout.BeginArea(new Rect(100*w, 100*h, 200, 200));
+                                    GUILayout.Label("Id: " + x.Id.ToString());
+                                    GUILayout.Label("Name: " + x.ItemName);
+                                    GUILayout.Label("Type: " + x.ItemType.ToString());
+                                    GUILayout.Box(x.Icon.texture);
+                                    // GUI.DrawTexture(new Rect(0,0,50,50),x.Icon.texture);
+                                        // GUILayout.BeginHorizontal();
+                                        if(GUILayout.Button("Modify"))
+                                        {
+                                            createItemsEditorWindow.SetValuesFields(x);
+                                            CurrentState = test.State.MODIFY;
+                                        }
+                                        // GUILayout.EndHorizontal();
+                                    GUILayout.Space(10);
+                                GUILayout.EndArea();
+                            GUILayout.EndVertical();
+
+                        w++;
+                        if(w > Screen.width/100-1)
+                        {
+                            w = 0;
+                            h++;
+                        GUILayout.EndHorizontal();
+                        }
+                });
+
+                GUILayout.EndVertical();
+            GUILayout.EndScrollView();
+        }
     }
 }
