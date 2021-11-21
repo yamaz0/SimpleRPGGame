@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,15 +17,12 @@ public class test : EditorWindow
     private State currentState = new State();
 
     [SerializeField]
-    private ShowItemsEditorWindow showItemsEditorWindow;
-    [SerializeField]
     private CreateItemsEditorWindow createItemsEditorWindow;
 
     public State CurrentState { get => currentState; set => currentState = value; }
 
     private void OnEnable()
     {
-        showItemsEditorWindow = CreateInstance<ShowItemsEditorWindow>();
         createItemsEditorWindow = CreateInstance<CreateItemsEditorWindow>();
     }
 
@@ -90,18 +89,15 @@ public class test : EditorWindow
             int w = 0;
             int h = 0;
 
-foreach (var x in items)
-{
+            foreach (var x in items)
+            {
                 if(w == 0)
                 {
                     GUILayout.BeginHorizontal();
                 }
                         GUILayout.BeginVertical();
                             GUILayout.BeginArea(new Rect(100*w, 150*h, 100, 150));
-                                GUILayout.Box(x.Icon.texture,GUILayout.Width(100),GUILayout.Height(50));
-                                GUILayout.Label("Id: " + x.Id.ToString());
-                                GUILayout.Label(x.ItemName);
-                                GUILayout.Label("Type: " + x.ItemType.ToString());
+                                x.ShowBaseItemInfo();
                                 // GUI.DrawTexture(new Rect(0,0,50,50),x.Icon.texture);
                                     GUILayout.BeginHorizontal();
                                     if(GUILayout.Button("Del"))
@@ -132,3 +128,4 @@ foreach (var x in items)
         }
     }
 }
+#endif

@@ -20,13 +20,35 @@ public class ItemInfo : ScriptableObject
     public Sprite Icon { get => icon; set => icon = value; }
 
     private void OnEnable()
-        {
-            //  hideFlags = HideFlags.HideAndDontSave;
-        }
-        protected void InitBase(int id, string name, Sprite sprite)
-        {
-            Id = id;
-            ItemName = name;
-            icon = sprite;
-        }
+    {
+        //  hideFlags = HideFlags.HideAndDontSave;
     }
+    protected void InitBase(int id, string name, Sprite sprite)
+    {
+        Id = id;
+        ItemName = name;
+        icon = sprite;
+    }
+
+#if UNITY_EDITOR
+    public virtual void ShowFields()
+    {
+        GUILayout.Label("Id: " + Id.ToString());
+        ItemName = UnityEditor.EditorGUILayout.TextField("Name: ",ItemName);
+        Icon = (Sprite)UnityEditor.EditorGUILayout.ObjectField("Sprite: ",Icon,typeof(Sprite));
+    }
+
+    public void ShowBaseItemInfo()
+    {
+        GUILayout.Box(Icon.texture,GUILayout.Width(100),GUILayout.Height(50));
+        GUILayout.Label("Id: " + Id.ToString());
+        GUILayout.Label(ItemName);
+        GUILayout.Label("Type: " + ItemType.ToString());
+    }
+
+    public virtual void ShowAllItemInfo()
+    {
+        ShowBaseItemInfo();
+    }
+#endif
+}

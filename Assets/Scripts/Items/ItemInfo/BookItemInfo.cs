@@ -21,4 +21,17 @@ public class BookItemInfo: ItemInfo
         return this;
     }
 
+#if UNITY_EDITOR
+    public override void ShowFields()
+    {
+        base.ShowFields();
+        bookXp = UnityEditor.EditorGUILayout.IntField("BookXp: ", bookXp);
+    }
+
+    public override void ShowAllItemInfo()
+    {
+        base.ShowAllItemInfo();
+        GUILayout.Label("BookXp: " + BookXp.ToString());
+    }
+#endif
 }

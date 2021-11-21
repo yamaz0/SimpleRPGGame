@@ -20,4 +20,18 @@ public class QuestItemInfo: ItemInfo
         QuestId = questId;
         return this;
     }
+
+#if UNITY_EDITOR
+    public override void ShowFields()
+    {
+        base.ShowFields();
+        questId = UnityEditor.EditorGUILayout.IntField("QuestId: ", questId);
+    }
+
+    public override void ShowAllItemInfo()
+    {
+        base.ShowAllItemInfo();
+        GUILayout.Label("QuestId: " + QuestId.ToString());
+    }
+#endif
 }
