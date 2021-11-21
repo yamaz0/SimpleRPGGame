@@ -90,8 +90,8 @@ public class test : EditorWindow
             int w = 0;
             int h = 0;
 
-            items.ForEach(x =>
-            {
+foreach (var x in items)
+{
                 if(w == 0)
                 {
                     GUILayout.BeginHorizontal();
@@ -106,8 +106,8 @@ public class test : EditorWindow
                                     GUILayout.BeginHorizontal();
                                     if(GUILayout.Button("Del"))
                                     {
-                                        createItemsEditorWindow.SetValuesFields(x);
-                                        CurrentState = test.State.MODIFY;
+                                        createItemsEditorWindow.RemoveItem(x);
+                                        break;;
                                     }
                                     if(GUILayout.Button("Mod"))
                                     {
@@ -126,7 +126,7 @@ public class test : EditorWindow
                         h++;
                     GUILayout.EndHorizontal();
                     }
-            });
+            };
 
             GUILayout.EndScrollView();
         }

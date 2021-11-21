@@ -75,6 +75,16 @@ public class CreateItemsEditorWindow : EditorWindow
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
+
+    public void RemoveItem(ItemInfo itemInfo)
+    {
+        ItemsScriptableObject.Instance.Items.Remove(itemInfo);
+        EditorUtility.SetDirty(ItemsScriptableObject.Instance);
+        EditorUtility.SetDirty(ItemsSO.Instance);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+    }
+
     private void CreateItem()
     {
         ItemInfo itemInfoInstance = null;
@@ -180,7 +190,8 @@ public class CreateItemsEditorWindow : EditorWindow
             {
                 System.Enum.TryParse(t, out ItemsManager.ItemType enumType);
                 currentType = enumType;
-                SetValuesFields(ItemsScriptableObject.Instance.Items.Count, string.Empty, null);
+                int itemId = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
+                SetValuesFields(itemId, string.Empty, null);
             }
         }
         GUILayout.EndHorizontal();
