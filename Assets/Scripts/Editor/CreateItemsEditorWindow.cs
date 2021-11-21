@@ -33,6 +33,7 @@ public class CreateItemsEditorWindow : EditorWindow
             if (GUILayout.Button("ADD"))
             {
                 CreateItem();
+                HasTypeSelected = false;
             }
         }
     }
