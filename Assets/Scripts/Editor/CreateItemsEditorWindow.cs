@@ -2,22 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Reflection;
+using System;
+using System.Linq;
 
 public class CreateItemsEditorWindow : EditorWindow
 {
-    private int bookXp;
-    private Sprite icon;
-    private int questId;
-    private int id;
-    private string nameItem;
-    private ItemsManager.ItemType currentType = ItemsManager.ItemType.OTHER;
-    private bool hasTypeSelected = false;
+    ItemInfo currentItem = null;
+    List<Type> types1;
 
-    public bool HasTypeSelected { get => hasTypeSelected; set => hasTypeSelected = value; }
+    public ItemInfo CurrentItem { get => currentItem; set => currentItem = value; }
 
     public void ShowItemsCreator()
     {
-        if(HasTypeSelected == false)
+        if(CurrentItem == null)
         {
             ShowItemsTypesButtons();
         }
@@ -25,173 +23,68 @@ public class CreateItemsEditorWindow : EditorWindow
         {
             if (GUILayout.Button("Select other type"))
             {
-                HasTypeSelected = false;
+                CurrentItem = null;
             }
 
-            ShowItemsFields();
+            CurrentItem.ShowFields();
 
             if (GUILayout.Button("ADD"))
             {
                 CreateItem();
-                HasTypeSelected = false;
+                CurrentItem = null;
             }
         }
     }
 
     public void ShowItemsModify()
     {
-        ShowItemsFields();
+        CurrentItem.ShowFields();
 
         if (GUILayout.Button("Save"))
         {
-            ModifyItem();
+            AssetSaveAndRefresh();
         }
-    }
-
-    private void ModifyItem()
-    {
-        ItemInfo itemInfo = ItemsScriptableObject.Instance.GetItemInfoById(id);
-        currentType=itemInfo.ItemType;
-
-        switch (currentType)
-        {
-            case ItemsManager.ItemType.OTHER:
-                break;
-            case ItemsManager.ItemType.USE:
-                break;
-            case ItemsManager.ItemType.INGREDIENT:
-                break;
-            case ItemsManager.ItemType.BOOK:
-                ((BookItemInfo)itemInfo).Init(id, nameItem, icon, bookXp);
-                break;
-            case ItemsManager.ItemType.QUEST:
-                ((QuestItemInfo)itemInfo).Init(id, nameItem, icon, questId);
-                break;
-            default:
-                break;
-        }
-        EditorUtility.SetDirty(ItemsScriptableObject.Instance);
-        EditorUtility.SetDirty(ItemsSO.Instance);
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
     }
 
     public void RemoveItem(ItemInfo itemInfo)
     {
         ItemsScriptableObject.Instance.Items.Remove(itemInfo);
-        EditorUtility.SetDirty(ItemsScriptableObject.Instance);
-        EditorUtility.SetDirty(ItemsSO.Instance);
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
+        AssetSaveAndRefresh();
     }
 
     private void CreateItem()
     {
-        ItemInfo itemInfoInstance = null;
-        switch (currentType)
-        {
-            case ItemsManager.ItemType.OTHER:
-                break;
-            case ItemsManager.ItemType.USE:
-                break;
-            case ItemsManager.ItemType.INGREDIENT:
-                break;
-            case ItemsManager.ItemType.BOOK:
-                itemInfoInstance = (ItemsScriptableObject.Instance.CreateItem(ItemsManager.ItemType.BOOK) as BookItemInfo).Init(id, nameItem, icon, bookXp);
-                break;
-            case ItemsManager.ItemType.QUEST:
-                itemInfoInstance = (ItemsScriptableObject.Instance.CreateItem(ItemsManager.ItemType.QUEST) as QuestItemInfo).Init(id, nameItem, icon, questId);
-                break;
-            default:
-                break;
-        }
+        ItemInfo itemInfoInstance = ItemsScriptableObject.Instance.CreateItem(CurrentItem);
 
-        itemInfoInstance.name = itemInfoInstance.ItemName;
         ItemsScriptableObject.Instance.Items.Add(itemInfoInstance);
+        AssetDatabase.AddObjectToAsset(itemInfoInstance, ItemsSO.Instance);
+        AssetSaveAndRefresh();
+    }
 
-        AssetDatabase.AddObjectToAsset(itemInfoInstance,ItemsSO.Instance);
+    private void AssetSaveAndRefresh()
+    {
         EditorUtility.SetDirty(ItemsScriptableObject.Instance);
-        EditorUtility.SetDirty(itemInfoInstance);
         EditorUtility.SetDirty(ItemsSO.Instance);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
 
-    public void SetValuesFields(ItemInfo item)
-    {
-        currentType = item.ItemType;
-        SetValuesFields(item.Id, item.ItemName, item.Icon);
-
-        switch (currentType)
-        {
-            case ItemsManager.ItemType.OTHER:
-                break;
-            case ItemsManager.ItemType.USE:
-                break;
-            case ItemsManager.ItemType.INGREDIENT:
-                break;
-            case ItemsManager.ItemType.BOOK:
-                bookXp = ((BookItemInfo)item).BookXp;
-                break;
-            case ItemsManager.ItemType.QUEST:
-                questId = ((QuestItemInfo)item).QuestId;
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void SetValuesFields(int itemId, string itemname, Sprite sprite)
-    {
-        id = itemId;
-        nameItem = itemname;
-        icon = sprite;
-        HasTypeSelected = true;
-    }
-
-    private void ShowItemsFields(ItemInfo item = null)
-    {
-        if(ItemsScriptableObject.Instance.Items == null)
-        {
-            ItemsScriptableObject.Instance.Items = new List<ItemInfo>();
-        }
-
-        GUILayout.Label("Id: " + id.ToString());
-        nameItem = EditorGUILayout.TextField("Name: ",nameItem);
-        icon = (Sprite)EditorGUILayout.ObjectField("Sprite: ",icon,typeof(Sprite));
-
-        switch (currentType)
-        {
-            case ItemsManager.ItemType.OTHER:
-                break;
-            case ItemsManager.ItemType.USE:
-                break;
-            case ItemsManager.ItemType.INGREDIENT:
-                break;
-            case ItemsManager.ItemType.BOOK:
-                bookXp = EditorGUILayout.IntField("BookXp: ", bookXp);
-                break;
-            case ItemsManager.ItemType.QUEST:
-                questId = EditorGUILayout.IntField("QuestId: ", questId);
-                break;
-            default:
-                break;
-        }
+    private void OnEnable() {
+        types1 = Assembly.GetAssembly(typeof(ItemInfo)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(ItemInfo))).ToList();
     }
 
     private void ShowItemsTypesButtons()
     {
         GUILayout.Label("Item Type");
         GUILayout.BeginHorizontal();
-        string[] types = System.Enum.GetNames(typeof(ItemsManager.ItemType));
-        foreach (string t in types)
+        foreach (var t in types1)
         {
-            if (GUILayout.Button(t))
+            if (GUILayout.Button(t.ToString()))
             {
-                System.Enum.TryParse(t, out ItemsManager.ItemType enumType);
-                currentType = enumType;
                 int itemId = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
-                SetValuesFields(itemId, string.Empty, null);
+
+                CurrentItem = (ItemInfo)Activator.CreateInstance(t);
+                CurrentItem.Id = itemId;
             }
         }
         GUILayout.EndHorizontal();

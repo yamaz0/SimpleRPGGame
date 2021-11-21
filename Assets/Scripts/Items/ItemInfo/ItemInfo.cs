@@ -14,7 +14,7 @@ public class ItemInfo : ScriptableObject
     [SerializeField]
     private ItemsManager.ItemType itemType;
 
-    public string ItemName { get => itemName; set => itemName = value; }
+    public string ItemName { get => itemName; set { itemName = value; name = value; } }
     public int Id { get => id; set => id = value; }
     public ItemsManager.ItemType ItemType { get => itemType; set => itemType = value; }
     public Sprite Icon { get => icon; set => icon = value; }
@@ -23,11 +23,11 @@ public class ItemInfo : ScriptableObject
     {
         //  hideFlags = HideFlags.HideAndDontSave;
     }
-    protected void InitBase(int id, string name, Sprite sprite)
+    public virtual void CopyValues(ItemInfo item)
     {
-        Id = id;
-        ItemName = name;
-        icon = sprite;
+        Id = item.Id;
+        ItemName = item.ItemName;
+        icon = item.Icon;
     }
 
 #if UNITY_EDITOR

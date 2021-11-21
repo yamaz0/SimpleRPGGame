@@ -14,18 +14,17 @@ public class BookItemInfo: ItemInfo
         ItemType = ItemsManager.ItemType.BOOK;
     }
 
-    public ItemInfo Init(int id, string name, Sprite sprite, int xp)
+    public override void CopyValues(ItemInfo item)
     {
-        InitBase(id, name, sprite);
-        BookXp = xp;
-        return this;
+        base.CopyValues(item);
+        BookXp = ((BookItemInfo)item).BookXp;
     }
 
 #if UNITY_EDITOR
     public override void ShowFields()
     {
         base.ShowFields();
-        bookXp = UnityEditor.EditorGUILayout.IntField("BookXp: ", bookXp);
+        BookXp = UnityEditor.EditorGUILayout.IntField("BookXp: ", bookXp);
     }
 
     public override void ShowAllItemInfo()

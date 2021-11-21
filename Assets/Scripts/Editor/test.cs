@@ -52,7 +52,6 @@ public class test : EditorWindow
         else if(GUILayout.Button("Create"))
         {
             CurrentState = State.CREATE;
-            createItemsEditorWindow.HasTypeSelected = false;
         }
 
         switch (CurrentState)
@@ -89,7 +88,7 @@ public class test : EditorWindow
             int w = 0;
             int h = 0;
 
-            foreach (var x in items)
+            foreach (var item in items)
             {
                 if(w == 0)
                 {
@@ -97,18 +96,18 @@ public class test : EditorWindow
                 }
                         GUILayout.BeginVertical();
                             GUILayout.BeginArea(new Rect(100*w, 150*h, 100, 150));
-                                x.ShowBaseItemInfo();
+                                item.ShowBaseItemInfo();
                                 // GUI.DrawTexture(new Rect(0,0,50,50),x.Icon.texture);
                                     GUILayout.BeginHorizontal();
                                     if(GUILayout.Button("Del"))
                                     {
-                                        createItemsEditorWindow.RemoveItem(x);
+                                        createItemsEditorWindow.RemoveItem(item);
                                         break;;
                                     }
                                     if(GUILayout.Button("Mod"))
                                     {
-                                        createItemsEditorWindow.SetValuesFields(x);
                                         CurrentState = test.State.MODIFY;
+                                        createItemsEditorWindow.CurrentItem = item;
                                     }
                                     GUILayout.EndHorizontal();
                             GUILayout.EndArea();

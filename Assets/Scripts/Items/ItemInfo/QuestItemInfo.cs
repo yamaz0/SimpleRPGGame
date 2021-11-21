@@ -14,18 +14,17 @@ public class QuestItemInfo: ItemInfo
         ItemType = ItemsManager.ItemType.QUEST;
     }
 
-    public ItemInfo Init(int id, string name, Sprite sprite, int questId)
+    public override void CopyValues(ItemInfo item)
     {
-        InitBase(id, name, sprite);
-        QuestId = questId;
-        return this;
+        base.CopyValues(item);
+        QuestId = ((QuestItemInfo)item).QuestId;
     }
 
 #if UNITY_EDITOR
     public override void ShowFields()
     {
         base.ShowFields();
-        questId = UnityEditor.EditorGUILayout.IntField("QuestId: ", questId);
+        QuestId = UnityEditor.EditorGUILayout.IntField("QuestId: ", questId);
     }
 
     public override void ShowAllItemInfo()

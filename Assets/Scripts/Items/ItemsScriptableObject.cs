@@ -14,11 +14,11 @@ public class ItemsScriptableObject: ScriptableObject
 
     public List<ItemInfo> Items { get => items; set => items = value; }
 
-    public ItemInfo CreateItem(ItemsManager.ItemType item)
+    public ItemInfo CreateItem(ItemInfo item)
     {
         ItemInfo itemInfoInstance = null;
 
-        switch (item)
+        switch (item.ItemType)
         {
             case ItemsManager.ItemType.OTHER:
                 break;
@@ -37,6 +37,8 @@ public class ItemsScriptableObject: ScriptableObject
                 break;
         }
 
+        itemInfoInstance.CopyValues(item);
+        itemInfoInstance.name = itemInfoInstance.ItemName;
         return itemInfoInstance;
         // AddObjectToAsset
     }
