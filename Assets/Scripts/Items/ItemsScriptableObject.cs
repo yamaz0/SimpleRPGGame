@@ -16,31 +16,10 @@ public class ItemsScriptableObject: ScriptableObject
 
     public ItemInfo CreateItem(ItemInfo item)
     {
-        ItemInfo itemInfoInstance = null;
-
-        switch (item.ItemType)
-        {
-            case ItemsManager.ItemType.OTHER:
-                break;
-            case ItemsManager.ItemType.USE:
-                break;
-            case ItemsManager.ItemType.INGREDIENT:
-                break;
-            case ItemsManager.ItemType.BOOK:
-                itemInfoInstance = CreateInstance<BookItemInfo>() ;
-                break;
-            case ItemsManager.ItemType.QUEST:
-                itemInfoInstance = CreateInstance<QuestItemInfo>();
-                break;
-            default:
-                Debug.LogError("Error item type.");
-                break;
-        }
-
+        ItemInfo itemInfoInstance = (ItemInfo)CreateInstance(item.GetType());
         itemInfoInstance.CopyValues(item);
         itemInfoInstance.name = itemInfoInstance.ItemName;
         return itemInfoInstance;
-        // AddObjectToAsset
     }
 
     private void OnEnable()

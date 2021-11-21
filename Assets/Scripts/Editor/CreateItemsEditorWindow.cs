@@ -72,7 +72,9 @@ public class CreateItemsEditorWindow : EditorWindow
     private void OnEnable() {
         types1 = Assembly.GetAssembly(typeof(ItemInfo)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(ItemInfo))).ToList();
     }
-
+private void OnDisable() {
+    AssetSaveAndRefresh();
+}
     private void ShowItemsTypesButtons()
     {
         GUILayout.Label("Item Type");
