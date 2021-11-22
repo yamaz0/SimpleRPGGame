@@ -15,6 +15,8 @@ public class ItemsEditorWindow : EditorWindow
         CREATE,
         MODIFY
     }
+    string searchString;
+    List<ItemInfo> items;
 
     List<Type> itemInfoTypes;
     private State currentState = new State();
@@ -63,7 +65,14 @@ public class ItemsEditorWindow : EditorWindow
             CurrentState = State.CREATE;
             ResetSelectedItem();
         }
-        createWidth=300;
+
+        searchString = UnityEditor.EditorGUILayout.TextField(searchString);
+        if(GUILayout.Button("Search"))
+        {
+            SearchItems();
+        }
+
+        createWidth =300;
         EditorGUIUtility.labelWidth = 80;
         GUILayout.BeginArea(new Rect(Screen.width-createWidth,100,createWidth,Screen.height));
             switch (CurrentState)
@@ -88,12 +97,25 @@ public class ItemsEditorWindow : EditorWindow
             }
         GUILayout.EndArea();
         GUILayout.BeginArea(new Rect(0,100,Screen.width-createWidth,Screen.height));
-        ShowItems();
+        ShowItems(items);
         GUILayout.EndArea();
 
         if (GUI.Button(new Rect(0,0,Screen.width,Screen.height), "", GUIStyle.none))
         {
             GUI.FocusControl(null);
+        }
+    }
+
+    private void SearchItems()
+    {
+        items.Clear();
+        if (string.IsNullOrEmpty(searchString) == false)
+        {
+            items.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.ItemName.Contains(searchString)));
+        }
+        else
+        {
+            items.AddRange(ItemsScriptableObject.Instance.Items);
         }
     }
 
@@ -136,9 +158,8 @@ public class ItemsEditorWindow : EditorWindow
     }
 
     Vector2 scrollPos;
-    private void ShowItems()
+    private void ShowItems(List<ItemInfo> items)
     {
-        List<ItemInfo> items = ItemsScriptableObject.Instance.Items;
         if (items != null)
         {
             scrollPos = GUILayout.BeginScrollView(scrollPos,false,true);

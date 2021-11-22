@@ -44,6 +44,7 @@ public class ItemsScriptableObject: ScriptableObject
     {
         ItemInfo itemToRemove = GetItemInfoById(item.Id);
         Items.Remove(itemToRemove);
+        DestroyImmediate(itemToRemove, true);
         SaveAndRefresh();
     }
 #endif
