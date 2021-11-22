@@ -14,13 +14,39 @@ public class ItemsScriptableObject: ScriptableObject
 
     public List<ItemInfo> Items { get => items; set => items = value; }
 
-    public ItemInfo CreateItem(ItemInfo item)
+#if UNITY_EDITOR
+    public void AddItemInstance(ItemInfo item)
     {
         ItemInfo itemInfoInstance = (ItemInfo)CreateInstance(item.GetType());
         itemInfoInstance.CopyValues(item);
-        itemInfoInstance.name = itemInfoInstance.ItemName;
-        return itemInfoInstance;
+        itemInfoInstance.name = itemInfoInstance.ItemName; ;
+
+        Instance.Items.Add(itemInfoInstance);
+        UnityEditor.AssetDatabase.AddObjectToAsset(itemInfoInstance, ItemsSO.Instance);
+        SaveAndRefresh();
     }
+
+    private void SaveAndRefresh()
+    {
+        UnityEditor.EditorUtility.SetDirty(ItemsScriptableObject.Instance);
+        UnityEditor.EditorUtility.SetDirty(ItemsSO.Instance);
+        UnityEditor.AssetDatabase.SaveAssets();
+        UnityEditor.AssetDatabase.Refresh();
+    }
+
+    public void ModifyItemInstance(ItemInfo item)
+    {
+        GetItemInfoById(item.Id).CopyValues(item);
+        SaveAndRefresh();
+    }
+
+    public void RemoveItemInstance(ItemInfo item)
+    {
+        ItemInfo itemToRemove = GetItemInfoById(item.Id);
+        Items.Remove(itemToRemove);
+        SaveAndRefresh();
+    }
+#endif
 
     private void OnEnable()
     {

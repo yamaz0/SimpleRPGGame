@@ -34,8 +34,8 @@ public class ItemInfo : ScriptableObject
     public virtual void ShowFields()
     {
         GUILayout.Label("Id: " + Id.ToString());
-        ItemName = UnityEditor.EditorGUILayout.TextField("Name: ",ItemName);
-        Icon = (Sprite)UnityEditor.EditorGUILayout.ObjectField("Sprite: ",Icon,typeof(Sprite));
+        ItemName = UnityEditor.EditorGUILayout.TextField("Name: ", ItemName);
+        Icon = (Sprite)UnityEditor.EditorGUILayout.ObjectField("Sprite: ",Icon,typeof(Sprite),false);
     }
 
     public void ShowBaseItemInfo()
