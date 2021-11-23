@@ -15,6 +15,7 @@ public class ItemsScriptableObject: ScriptableObject
     public List<ItemInfo> Items { get => items; set => items = value; }
 
 #if UNITY_EDITOR
+    public event System.Action OnChangedItems = delegate{};
     public void AddItemInstance(ItemInfo item)
     {
         ItemInfo itemInfoInstance = (ItemInfo)CreateInstance(item.GetType());
@@ -28,10 +29,16 @@ public class ItemsScriptableObject: ScriptableObject
 
     private void SaveAndRefresh()
     {
+        NotifyChangedItemsList();
         UnityEditor.EditorUtility.SetDirty(ItemsScriptableObject.Instance);
         UnityEditor.EditorUtility.SetDirty(ItemsSO.Instance);
         UnityEditor.AssetDatabase.SaveAssets();
         UnityEditor.AssetDatabase.Refresh();
+    }
+
+    private void NotifyChangedItemsList()
+    {
+        OnChangedItems();
     }
 
     public void ModifyItemInstance(ItemInfo item)

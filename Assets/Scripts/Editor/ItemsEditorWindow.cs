@@ -15,8 +15,11 @@ public class ItemsEditorWindow : EditorWindow
         CREATE,
         MODIFY
     }
+
+    bool isShowFilter = false;
     string searchString;
-    List<ItemInfo> items;
+    string searchStringField;
+    List<ItemInfo> items = new List<ItemInfo>();
 
     List<Type> itemInfoTypes;
     private State currentState = new State();
@@ -24,17 +27,20 @@ public class ItemsEditorWindow : EditorWindow
     private ItemInfo currentItem = null;
     // [SerializeField]
     // private CreateItemsEditorWindow createItemsEditorWindow;
-    int createWidth=300;
+    int createWidth = 300;
 
     public State CurrentState { get => currentState; set => currentState = value; }
     public ItemInfo CurrentItem { get => currentItem; set => currentItem = value; }
 
     private void OnEnable()
     {
+        ItemsScriptableObject.Instance.OnChangedItems += SearchItems;
         // createItemsEditorWindow = CreateInstance<CreateItemsEditorWindow>();
         itemInfoTypes = Assembly.GetAssembly(typeof(ItemInfo)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(ItemInfo))).ToList();
     }
-
+private void OnDisable() {
+    ItemsScriptableObject.Instance.OnChangedItems -= SearchItems;
+}
     [MenuItem("ProjektMagic/test")]
     private static void ShowWindow()
     {
@@ -54,25 +60,34 @@ public class ItemsEditorWindow : EditorWindow
             Debug.Log(ItemsScriptableObject.Instance.Items.Count);
         }
 
-        // if(GUILayout.Button("show items"))
-        // {
-        //     previusState = CurrentState;
-        //     CurrentState = State.SHOW_ALL;
-        // }
-        else if(GUILayout.Button("Create"))
+        if(GUILayout.Button("Create"))
         {
             previusState = CurrentState;
             CurrentState = State.CREATE;
             ResetSelectedItem();
         }
-
-        searchString = UnityEditor.EditorGUILayout.TextField(searchString);
-        if(GUILayout.Button("Search"))
+        if(GUILayout.Button("Show/Hide filtres"))
         {
-            SearchItems();
+            isShowFilter = !isShowFilter;
+        }
+        if(isShowFilter == true)
+        {
+            ShowItemsTypesButtons(ItemTypeFilter);
+
+            if(GUILayout.Button("Change order"))
+            {
+                items.Reverse();
+            }
+
+            searchStringField = UnityEditor.EditorGUILayout.TextField(searchStringField);
+            if(GUILayout.Button("Search"))
+            {
+                searchString = searchStringField;
+                SearchItems();
+            }
         }
 
-        createWidth =300;
+        createWidth = 300;
         EditorGUIUtility.labelWidth = 80;
         GUILayout.BeginArea(new Rect(Screen.width-createWidth,100,createWidth,Screen.height));
             switch (CurrentState)
@@ -89,7 +104,7 @@ public class ItemsEditorWindow : EditorWindow
                     CurrentItem.ShowFields();
                     if (GUILayout.Button("Save"))
                     {
-                        ItemsScriptableObject.Instance.GetItemInfoById(CurrentItem.Id).CopyValues(CurrentItem);
+                        ItemsScriptableObject.Instance.ModifyItemInstance(CurrentItem);
                     }
                     break;
                 default:
@@ -131,7 +146,7 @@ public class ItemsEditorWindow : EditorWindow
     {
         if(CurrentItem == null)
         {
-            ShowItemsTypesButtons();
+            ShowItemsTypesButtons(CreateItemTypeInstance);
         }
         else
         {
@@ -180,6 +195,11 @@ public class ItemsEditorWindow : EditorWindow
                                     GUILayout.BeginHorizontal();
                                     if(GUILayout.Button("Del"))
                                     {
+                                        if(CurrentItem != null && CurrentItem.Id == item.Id)
+                                        {
+                                            ResetSelectedItem();
+                                            currentState = State.NONE;
+                                        }
                                         ItemsScriptableObject.Instance.RemoveItemInstance(item);
                                         break;
                                     }
@@ -207,29 +227,40 @@ public class ItemsEditorWindow : EditorWindow
         }
     }
 
-    private void ShowItemsTypesButtons()
+    private void ShowItemsTypesButtons(Action<Type> OnButtonTypeClicked)
     {
-        GUILayout.Label("Item Type");
+        GUILayout.Label("Items Types");
         GUILayout.BeginHorizontal();
         foreach (var t in itemInfoTypes)
         {
             if (GUILayout.Button(t.ToString()))
             {
-                int itemId = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
-
-                CurrentItem = (ItemInfo)CreateInstance(t);
-                CurrentItem.Id = itemId;
-                CurrentItem.Icon = Resources.LoadAll<Sprite>("")[0];
+                OnButtonTypeClicked(t);
             }
         }
         GUILayout.EndHorizontal();
     }
 
-  public static string TextField(string label, string text)
-  {
-    var textDimensions = GUI.skin.label.CalcSize(new GUIContent(label));
-    EditorGUIUtility.labelWidth = textDimensions.x;
-    return EditorGUILayout.TextField(label, text);
-  }
+    private void CreateItemTypeInstance(Type t)
+    {
+        int itemId = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
+
+        CurrentItem = (ItemInfo)CreateInstance(t);
+        CurrentItem.Id = itemId;
+        CurrentItem.Icon = Resources.LoadAll<Sprite>("")[0];
+    }
+
+    private void ItemTypeFilter(Type t)
+    {
+        items.Clear();
+        items.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.GetType().Equals(t)));
+    }
+
+    public static string TextField(string label, string text)
+    {
+        var textDimensions = GUI.skin.label.CalcSize(new GUIContent(label));
+        EditorGUIUtility.labelWidth = textDimensions.x;
+        return EditorGUILayout.TextField(label, text);
+    }
 }
 #endif
