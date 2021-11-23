@@ -37,4 +37,20 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     public State PreviusState { get => previusState; set => previusState = value; }
     public ItemInfo CurrentItem { get => currentItem; set => currentItem = value; }
     public int CreateWidth { get => createWidth; set => createWidth = value; }
+
+    public void ChangeState(State s)
+    {
+        PreviusState = CurrentState;
+        CurrentState = s;
+    }
+    public void ResetSelectedItem()
+    {
+        CurrentItem = null;
+    }
+
+    public void ReverseItemList()
+    {
+        Items.Reverse();
+    }
+
 }
