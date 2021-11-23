@@ -9,38 +9,17 @@ using System.Reflection;
 using System.Linq;
 public class ItemsEditorWindow : EditorWindow
 {
-    public enum State
-    {
-        NONE,
-        CREATE,
-        MODIFY
-    }
-
-    bool isShowFilter = false;
-    string searchString;
-    string searchStringField;
-    List<ItemInfo> items = new List<ItemInfo>();
-
-    List<Type> itemInfoTypes;
-    private State currentState = new State();
-    private State previusState = new State();
-    private ItemInfo currentItem = null;
-    // [SerializeField]
-    // private CreateItemsEditorWindow createItemsEditorWindow;
-    int createWidth = 300;
-
-    public State CurrentState { get => currentState; set => currentState = value; }
-    public ItemInfo CurrentItem { get => currentItem; set => currentItem = value; }
-
     private void OnEnable()
     {
         ItemsScriptableObject.Instance.OnChangedItems += SearchItems;
-        // createItemsEditorWindow = CreateInstance<CreateItemsEditorWindow>();
-        itemInfoTypes = Assembly.GetAssembly(typeof(ItemInfo)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(ItemInfo))).ToList();
+        DataItemsEditorWindow.instance.ItemInfoTypes = Assembly.GetAssembly(typeof(ItemInfo)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(ItemInfo))).ToList();
     }
-private void OnDisable() {
-    ItemsScriptableObject.Instance.OnChangedItems -= SearchItems;
-}
+
+    private void OnDisable()
+    {
+        ItemsScriptableObject.Instance.OnChangedItems -= SearchItems;
+    }
+
     [MenuItem("ProjektMagic/test")]
     private static void ShowWindow()
     {
@@ -62,57 +41,57 @@ private void OnDisable() {
 
         if(GUILayout.Button("Create"))
         {
-            previusState = CurrentState;
-            CurrentState = State.CREATE;
+            DataItemsEditorWindow.instance.PreviusState = DataItemsEditorWindow.instance.CurrentState;
+            DataItemsEditorWindow.instance.CurrentState = DataItemsEditorWindow.State.CREATE;
             ResetSelectedItem();
         }
         if(GUILayout.Button("Show/Hide filtres"))
         {
-            isShowFilter = !isShowFilter;
+            DataItemsEditorWindow.instance.IsShowFilter = !DataItemsEditorWindow.instance.IsShowFilter;
         }
-        if(isShowFilter == true)
+        if(DataItemsEditorWindow.instance.IsShowFilter == true)
         {
             ShowItemsTypesButtons(ItemTypeFilter);
 
             if(GUILayout.Button("Change order"))
             {
-                items.Reverse();
+                DataItemsEditorWindow.instance.Items.Reverse();
             }
 
-            searchStringField = UnityEditor.EditorGUILayout.TextField(searchStringField);
+            DataItemsEditorWindow.instance.SearchStringField = UnityEditor.EditorGUILayout.TextField(DataItemsEditorWindow.instance.SearchStringField);
             if(GUILayout.Button("Search"))
             {
-                searchString = searchStringField;
+                DataItemsEditorWindow.instance.SearchString = DataItemsEditorWindow.instance.SearchStringField;
                 SearchItems();
             }
         }
 
-        createWidth = 300;
+        DataItemsEditorWindow.instance.CreateWidth = 300;
         EditorGUIUtility.labelWidth = 80;
-        GUILayout.BeginArea(new Rect(Screen.width-createWidth,100,createWidth,Screen.height));
-            switch (CurrentState)
+        GUILayout.BeginArea(new Rect(Screen.width-DataItemsEditorWindow.instance.CreateWidth,100,DataItemsEditorWindow.instance.CreateWidth,Screen.height));
+            switch (DataItemsEditorWindow.instance.CurrentState)
             {
-                case State.NONE:
-                createWidth=0;
+                case DataItemsEditorWindow.State.NONE:
+                DataItemsEditorWindow.instance.CreateWidth=0;
                     break;
-                case State.CREATE:
+                case DataItemsEditorWindow.State.CREATE:
                     ShowBackButton();
                     ShowCreateItems();
                     break;
-                case State.MODIFY:
+                case DataItemsEditorWindow.State.MODIFY:
                     ShowBackButton();
-                    CurrentItem.ShowFields();
+                    DataItemsEditorWindow.instance.CurrentItem.ShowFields();
                     if (GUILayout.Button("Save"))
                     {
-                        ItemsScriptableObject.Instance.ModifyItemInstance(CurrentItem);
+                        ItemsScriptableObject.Instance.ModifyItemInstance(DataItemsEditorWindow.instance.CurrentItem);
                     }
                     break;
                 default:
                     break;
             }
         GUILayout.EndArea();
-        GUILayout.BeginArea(new Rect(0,100,Screen.width-createWidth,Screen.height));
-        ShowItems(items);
+        GUILayout.BeginArea(new Rect(0,100,Screen.width-DataItemsEditorWindow.instance.CreateWidth,Screen.height));
+        ShowItems(DataItemsEditorWindow.instance.Items);
         GUILayout.EndArea();
 
         if (GUI.Button(new Rect(0,0,Screen.width,Screen.height), "", GUIStyle.none))
@@ -123,14 +102,14 @@ private void OnDisable() {
 
     private void SearchItems()
     {
-        items.Clear();
-        if (string.IsNullOrEmpty(searchString) == false)
+        DataItemsEditorWindow.instance.Items.Clear();
+        if (string.IsNullOrEmpty(DataItemsEditorWindow.instance.SearchString) == false)
         {
-            items.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.ItemName.Contains(searchString)));
+            DataItemsEditorWindow.instance.Items.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.ItemName.Contains(DataItemsEditorWindow.instance.SearchString)));
         }
         else
         {
-            items.AddRange(ItemsScriptableObject.Instance.Items);
+            DataItemsEditorWindow.instance.Items.AddRange(ItemsScriptableObject.Instance.Items);
         }
     }
 
@@ -138,13 +117,13 @@ private void OnDisable() {
     {
         if (GUILayout.Button("X",GUILayout.Width(50)))
         {
-            CurrentState = State.NONE;
+            DataItemsEditorWindow.instance.CurrentState = DataItemsEditorWindow.State.NONE;
         }
     }
 
     private void ShowCreateItems()
     {
-        if(CurrentItem == null)
+        if(DataItemsEditorWindow.instance.CurrentItem == null)
         {
             ShowItemsTypesButtons(CreateItemTypeInstance);
         }
@@ -156,11 +135,11 @@ private void OnDisable() {
                 return;
             }
 
-            CurrentItem.ShowFields();
+            DataItemsEditorWindow.instance.CurrentItem.ShowFields();
 
             if (GUILayout.Button("ADD"))
             {
-                ItemsScriptableObject.Instance.AddItemInstance(CurrentItem);
+                ItemsScriptableObject.Instance.AddItemInstance(DataItemsEditorWindow.instance.CurrentItem);
                 ResetSelectedItem();
             }
         }
@@ -169,7 +148,7 @@ private void OnDisable() {
 
     private void ResetSelectedItem()
     {
-        CurrentItem = null;
+        DataItemsEditorWindow.instance.CurrentItem = null;
     }
 
     Vector2 scrollPos;
@@ -195,19 +174,19 @@ private void OnDisable() {
                                     GUILayout.BeginHorizontal();
                                     if(GUILayout.Button("Del"))
                                     {
-                                        if(CurrentItem != null && CurrentItem.Id == item.Id)
+                                        if(DataItemsEditorWindow.instance.CurrentItem != null && DataItemsEditorWindow.instance.CurrentItem.Id == item.Id)
                                         {
                                             ResetSelectedItem();
-                                            currentState = State.NONE;
+                                            DataItemsEditorWindow.instance.CurrentState = DataItemsEditorWindow.State.NONE;
                                         }
                                         ItemsScriptableObject.Instance.RemoveItemInstance(item);
                                         break;
                                     }
                                     if(GUILayout.Button("Mod"))
                                     {
-                                        CurrentState = ItemsEditorWindow.State.MODIFY;
-                                        CurrentItem = (ItemInfo)CreateInstance(item.GetType());
-                                        CurrentItem.CopyValues(item);
+                                        DataItemsEditorWindow.instance.CurrentState = DataItemsEditorWindow.State.MODIFY;
+                                        DataItemsEditorWindow.instance.CurrentItem = (ItemInfo)CreateInstance(item.GetType());
+                                        DataItemsEditorWindow.instance.CurrentItem.CopyValues(item);
                                     }
                                     GUILayout.EndHorizontal();
                             GUILayout.EndArea();
@@ -215,7 +194,7 @@ private void OnDisable() {
                         GUILayout.EndVertical();
 
                     w++;
-                    if(w > (Screen.width-createWidth-10)/100-1)
+                    if(w > (Screen.width-DataItemsEditorWindow.instance.CreateWidth-10)/100-1)
                     {
                         w = 0;
                         h++;
@@ -231,7 +210,7 @@ private void OnDisable() {
     {
         GUILayout.Label("Items Types");
         GUILayout.BeginHorizontal();
-        foreach (var t in itemInfoTypes)
+        foreach (var t in DataItemsEditorWindow.instance.ItemInfoTypes)
         {
             if (GUILayout.Button(t.ToString()))
             {
@@ -245,15 +224,15 @@ private void OnDisable() {
     {
         int itemId = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
 
-        CurrentItem = (ItemInfo)CreateInstance(t);
-        CurrentItem.Id = itemId;
-        CurrentItem.Icon = Resources.LoadAll<Sprite>("")[0];
+        DataItemsEditorWindow.instance.CurrentItem = (ItemInfo)CreateInstance(t);
+        DataItemsEditorWindow.instance.CurrentItem.Id = itemId;
+        DataItemsEditorWindow.instance.CurrentItem.Icon = Resources.LoadAll<Sprite>("")[0];
     }
 
     private void ItemTypeFilter(Type t)
     {
-        items.Clear();
-        items.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.GetType().Equals(t)));
+        DataItemsEditorWindow.instance.Items.Clear();
+        DataItemsEditorWindow.instance.Items.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.GetType().Equals(t)));
     }
 
     public static string TextField(string label, string text)
