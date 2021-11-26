@@ -66,21 +66,8 @@ public class ItemsEditorWindow : EditorWindow
             {
                 DataItemsEditorWindow.instance.ReverseItemList();
             }
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Sort By: ");
-            if (GUILayout.Button("ID"))
-            {
-                viewItemsEditorWindow.SortItems(Comparer<ItemInfo>.Create((x,y) => x.Id.CompareTo(y.Id)));
-            }
-            if (GUILayout.Button("NAME"))
-            {
-                viewItemsEditorWindow.SortItems(Comparer<ItemInfo>.Create((x,y) => x.ItemName.CompareTo(y.ItemName)));
-            }
-            if (GUILayout.Button("TYPE"))
-            {
-                viewItemsEditorWindow.SortItems(Comparer<ItemInfo>.Create((x,y) => x.ItemType.CompareTo(y.ItemType)));
-            }
-            GUILayout.EndHorizontal();
+
+            viewItemsEditorWindow.ShowSortingButtons();
         }
 
         EditorGUIUtility.labelWidth = 80;

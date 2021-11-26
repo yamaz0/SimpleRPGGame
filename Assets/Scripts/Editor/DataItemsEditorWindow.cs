@@ -90,6 +90,11 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
         }
     }
 
+    public void SortItems(Comparer<ItemInfo> comparer)
+    {
+        Items.Sort(comparer);
+    }
+
     public void CreateItemTypeInstance(Type t)
     {
         int itemId = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;

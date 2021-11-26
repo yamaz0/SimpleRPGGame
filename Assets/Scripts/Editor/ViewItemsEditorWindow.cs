@@ -39,11 +39,25 @@ public class ViewItemsEditorWindow
             DataItemsEditorWindow.instance.Items.AddRange(filterList);
         }
     }
-
-    public void SortItems(Comparer<ItemInfo> comparer)
+    public void ShowSortingButtons()
     {
-        DataItemsEditorWindow.instance.Items.Sort(comparer);
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("Sort By: ");
+        if (GUILayout.Button("ID"))
+        {
+            DataItemsEditorWindow.instance.SortItems(Comparer<ItemInfo>.Create((x, y) => x.Id.CompareTo(y.Id)));
+        }
+        if (GUILayout.Button("NAME"))
+        {
+            DataItemsEditorWindow.instance.SortItems(Comparer<ItemInfo>.Create((x, y) => x.ItemName.CompareTo(y.ItemName)));
+        }
+        if (GUILayout.Button("TYPE"))
+        {
+            DataItemsEditorWindow.instance.SortItems(Comparer<ItemInfo>.Create((x, y) => x.ItemType.CompareTo(y.ItemType)));
+        }
+        GUILayout.EndHorizontal();
     }
+
 
     public void ShowItems(List<ItemInfo> items)
     {
