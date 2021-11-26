@@ -22,6 +22,8 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     private bool isShowAllFields = false;
     private string searchString = string.Empty;
     private string searchStringField = string.Empty;
+    private System.Type filterType = null;
+    private Comparer<ItemInfo> sortedMethod = Comparer<ItemInfo>.Create((x, y) => x.Id.CompareTo(y.Id));
     private List<ItemInfo> items = new List<ItemInfo>();
 
     private List<Type> itemInfoTypes;
@@ -42,6 +44,8 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     public int CreateWidth { get => createWidth; set => createWidth = value; }
     public int BeginAreaY { get => itemsViewStartY; set => itemsViewStartY = value; }
     public bool IsShowAllFields { get => isShowAllFields; set => isShowAllFields = value; }
+    public Type FilterType { get => filterType; set => filterType = value; }
+    public Comparer<ItemInfo> SortedMethod { get => sortedMethod; set => sortedMethod = value; }
 
     public void ChangeState(State s)
     {
@@ -92,6 +96,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
 
     public void SortItems(Comparer<ItemInfo> comparer)
     {
+        sortedMethod = comparer;
         Items.Sort(comparer);
     }
 

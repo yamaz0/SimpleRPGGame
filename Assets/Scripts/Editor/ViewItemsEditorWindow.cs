@@ -11,20 +11,13 @@ public class ViewItemsEditorWindow
 
     public void Init()
     {
-        ItemTypeFilter(null);
+        RefreshLists();
     }
 
     public void RefreshLists()
     {
-        for (int i = filterList.Count - 1; i >= 0 ; i--)
-        {
-            if(filterList[i] == null)
-            {
-                filterList.RemoveAt(i);
-                break;
-            }
-        }
-        SearchItems();
+        ItemTypeFilter(DataItemsEditorWindow.instance.FilterType);
+        DataItemsEditorWindow.instance.SortItems(DataItemsEditorWindow.instance.SortedMethod);
     }
 
     public void SearchItems()
@@ -131,6 +124,7 @@ public class ViewItemsEditorWindow
 
     public void ItemTypeFilter(System.Type t)
     {
+        DataItemsEditorWindow.instance.FilterType = t;
         filterList.Clear();
 
         if(t == null)
