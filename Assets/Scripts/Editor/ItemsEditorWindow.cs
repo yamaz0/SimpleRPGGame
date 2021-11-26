@@ -13,13 +13,14 @@ public class ItemsEditorWindow : EditorWindow
     ViewItemsEditorWindow viewItemsEditorWindow = new ViewItemsEditorWindow();
     private void OnEnable()
     {
-        ItemsScriptableObject.Instance.OnChangedItems += viewItemsEditorWindow.SearchItems;
+        viewItemsEditorWindow.Init();
+        ItemsScriptableObject.Instance.OnChangedItems += viewItemsEditorWindow.RefreshLists;
         DataItemsEditorWindow.instance.ItemInfoTypes = Assembly.GetAssembly(typeof(ItemInfo)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(ItemInfo))).ToList();
     }
 
     private void OnDisable()
     {
-        ItemsScriptableObject.Instance.OnChangedItems -= viewItemsEditorWindow.SearchItems;
+        ItemsScriptableObject.Instance.OnChangedItems -= viewItemsEditorWindow.RefreshLists;
     }
 
     [MenuItem("ProjektMagic/test")]
@@ -56,6 +57,10 @@ public class ItemsEditorWindow : EditorWindow
         if (DataItemsEditorWindow.instance.IsShowFilter == true)
         {
             createItemsEditorWindow.ShowItemsTypesButtons(viewItemsEditorWindow.ItemTypeFilter);
+            if (GUILayout.Button("ALL"))
+            {
+                viewItemsEditorWindow.ItemTypeFilter(null);
+            }
 
             if (GUILayout.Button("Change order"))
             {
@@ -103,7 +108,6 @@ public class ItemsEditorWindow : EditorWindow
             GUI.FocusControl(null);
         }
     }
-
 
     public static string TextField(string label, string text)
     {

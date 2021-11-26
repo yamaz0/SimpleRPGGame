@@ -6,19 +6,37 @@ using UnityEditor;
 public class ViewItemsEditorWindow
 {
     Vector2 scrollPos;
-    bool isShowAll = false;
+    bool isShowAllFields = false;
+    List<ItemInfo> filterList = new List<ItemInfo>();
+
+    public void Init()
+    {
+        ItemTypeFilter(null);
+    }
+
+    public void RefreshLists()
+    {
+        for (int i = filterList.Count - 1; i >= 0 ; i--)
+        {
+            if(filterList[i] == null)
+            {
+                filterList.RemoveAt(i);
+                break;
+            }
+        }
+        SearchItems();
+    }
 
     public void SearchItems()
     {
-        isShowAll = false;
         DataItemsEditorWindow.instance.Items.Clear();
         if (string.IsNullOrEmpty(DataItemsEditorWindow.instance.SearchString) == false)
         {
-            DataItemsEditorWindow.instance.Items.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.ItemName.Contains(DataItemsEditorWindow.instance.SearchString)));
+            DataItemsEditorWindow.instance.Items.AddRange(filterList.FindAll((x) => x.ItemName.Contains(DataItemsEditorWindow.instance.SearchString)));
         }
         else
         {
-            DataItemsEditorWindow.instance.Items.AddRange(ItemsScriptableObject.Instance.Items);
+            DataItemsEditorWindow.instance.Items.AddRange(filterList);
         }
     }
 
@@ -45,7 +63,7 @@ public class ViewItemsEditorWindow
                 }
                         GUILayout.BeginVertical();
                             GUILayout.BeginArea(new Rect(100*w, 150*h, 100, 150));
-                            if(isShowAll == true)
+                            if(isShowAllFields == true)
                             {
                                 item.ShowAllItemInfo();
                             }
@@ -98,9 +116,20 @@ public class ViewItemsEditorWindow
 
     public void ItemTypeFilter(System.Type t)
     {
-        isShowAll = true;
-        DataItemsEditorWindow.instance.Items.Clear();
-        DataItemsEditorWindow.instance.Items.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.GetType().Equals(t)));
+        filterList.Clear();
+
+        if(t == null)
+        {
+            filterList.AddRange(ItemsScriptableObject.Instance.Items);
+            isShowAllFields = false;
+        }
+        else
+        {
+            filterList.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.GetType().Equals(t)));
+            isShowAllFields = true;
+        }
+
+        SearchItems();
     }
 
 }

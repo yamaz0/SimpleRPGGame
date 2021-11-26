@@ -80,7 +80,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
         IsShowFilter = !IsShowFilter;
         if(IsShowFilter == true)
         {
-            BeginAreaY = 200;
+            BeginAreaY = 220;
         }
         else
         {
