@@ -5,9 +5,9 @@ using UnityEditor;
 
 public class ViewItemsEditorWindow
 {
-
     Vector2 scrollPos;
     bool isShowAll = false;
+
     public void SearchItems()
     {
         isShowAll = false;
@@ -22,10 +22,16 @@ public class ViewItemsEditorWindow
         }
     }
 
+    public void SortItems(Comparer<ItemInfo> comparer)
+    {
+        DataItemsEditorWindow.instance.Items.Sort(comparer);
+    }
+
     public void ShowItems(List<ItemInfo> items)
     {
         if (items != null)
         {
+            GUILayout.BeginArea(new Rect(0, DataItemsEditorWindow.instance.BeginAreaY, Screen.width - DataItemsEditorWindow.instance.CreateWidth, Screen.height));
             scrollPos = GUILayout.BeginScrollView(scrollPos,false,true);
 
             int w = 0;
@@ -49,20 +55,17 @@ public class ViewItemsEditorWindow
                                     GUILayout.BeginHorizontal();
                                     if(GUILayout.Button("Del"))
                                     {
-                                        if(DataItemsEditorWindow.instance.CurrentItem != null && DataItemsEditorWindow.instance.CurrentItem.Id == item.Id)
-                                        {
-                                            DataItemsEditorWindow.instance.ResetSelectedItem();
-                                            DataItemsEditorWindow.instance.ChangeState(DataItemsEditorWindow.State.NONE);
-                                        }
-                                        ItemsScriptableObject.Instance.RemoveItemInstance(item);
+                                        DataItemsEditorWindow.instance.RemoveItem(item);
                                         break;
                                     }
-                                    if(GUILayout.Button("Mod"))
+                                    if (GUILayout.Button("Mod"))
                                     {
                                         DataItemsEditorWindow.instance.ChangeState(DataItemsEditorWindow.State.MODIFY);
+
                                         ItemInfo itemInfoCopy = (ItemInfo)ScriptableObject.CreateInstance(item.GetType());
                                         itemInfoCopy.CopyValues(item);
-                                        DataItemsEditorWindow.instance.CurrentItem = itemInfoCopy;
+
+                                        DataItemsEditorWindow.instance.SetCurrentSelectItem(itemInfoCopy);
                                     }
                                     GUILayout.EndHorizontal();
                             GUILayout.EndArea();
@@ -79,6 +82,17 @@ public class ViewItemsEditorWindow
             };
 
             GUILayout.EndScrollView();
+            GUILayout.EndArea();
+        }
+    }
+
+    public void ShowSearch()
+    {
+        DataItemsEditorWindow.instance.SearchStringField = EditorGUILayout.TextField(DataItemsEditorWindow.instance.SearchStringField);
+        if (GUILayout.Button("Search"))
+        {
+            DataItemsEditorWindow.instance.SearchString = DataItemsEditorWindow.instance.SearchStringField;
+            SearchItems();
         }
     }
 

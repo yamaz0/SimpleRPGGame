@@ -41,7 +41,7 @@ public class ItemsScriptableObject: ScriptableObject
         OnChangedItems();
     }
 
-    public void ModifyItemInstance(ItemInfo item)
+    public void UpdateItemInstance(ItemInfo item)
     {
         GetItemInfoById(item.Id).CopyValues(item);
         SaveAndRefresh();

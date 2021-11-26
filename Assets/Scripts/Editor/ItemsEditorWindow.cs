@@ -41,63 +41,69 @@ public class ItemsEditorWindow : EditorWindow
             Debug.Log(ItemsScriptableObject.Instance.Items.Count);
         }
 
-        if(GUILayout.Button("Create"))
+        if (GUILayout.Button("Create"))
         {
             DataItemsEditorWindow.instance.ChangeState(DataItemsEditorWindow.State.CREATE);
             DataItemsEditorWindow.instance.ResetSelectedItem();
         }
-        if(GUILayout.Button("Show/Hide filtres"))
+
+        viewItemsEditorWindow.ShowSearch();
+
+        if (GUILayout.Button("Show/Hide filtres"))
         {
-            DataItemsEditorWindow.instance.IsShowFilter = !DataItemsEditorWindow.instance.IsShowFilter;
+            DataItemsEditorWindow.instance.ShowHideItemFilter();
         }
-        if(DataItemsEditorWindow.instance.IsShowFilter == true)
+        if (DataItemsEditorWindow.instance.IsShowFilter == true)
         {
             createItemsEditorWindow.ShowItemsTypesButtons(viewItemsEditorWindow.ItemTypeFilter);
 
-            if(GUILayout.Button("Change order"))
+            if (GUILayout.Button("Change order"))
             {
                 DataItemsEditorWindow.instance.ReverseItemList();
             }
-
-            DataItemsEditorWindow.instance.SearchStringField = UnityEditor.EditorGUILayout.TextField(DataItemsEditorWindow.instance.SearchStringField);
-
-            if(GUILayout.Button("Search"))
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Sort By: ");
+            if (GUILayout.Button("ID"))
             {
-                DataItemsEditorWindow.instance.SearchString = DataItemsEditorWindow.instance.SearchStringField;
-                viewItemsEditorWindow.SearchItems();
+                viewItemsEditorWindow.SortItems(Comparer<ItemInfo>.Create((x,y) => x.Id.CompareTo(y.Id)));
             }
+            if (GUILayout.Button("NAME"))
+            {
+                viewItemsEditorWindow.SortItems(Comparer<ItemInfo>.Create((x,y) => x.ItemName.CompareTo(y.ItemName)));
+            }
+            if (GUILayout.Button("TYPE"))
+            {
+                viewItemsEditorWindow.SortItems(Comparer<ItemInfo>.Create((x,y) => x.ItemType.CompareTo(y.ItemType)));
+            }
+            GUILayout.EndHorizontal();
         }
 
-        DataItemsEditorWindow.instance.CreateWidth = 300;
         EditorGUIUtility.labelWidth = 80;
 
-        GUILayout.BeginArea(new Rect(Screen.width-DataItemsEditorWindow.instance.CreateWidth,100,DataItemsEditorWindow.instance.CreateWidth,Screen.height));
-            switch (DataItemsEditorWindow.instance.CurrentState)
-            {
-                case DataItemsEditorWindow.State.NONE:
-                    DataItemsEditorWindow.instance.CreateWidth=0;
-                    break;
-                case DataItemsEditorWindow.State.CREATE:
-                    createItemsEditorWindow.ShowBackButton();
-                    createItemsEditorWindow.ShowCreateItems();
-                    break;
-                case DataItemsEditorWindow.State.MODIFY:
-                    createItemsEditorWindow.Modify();
-                    break;
-                default:
-                    break;
-            }
+        GUILayout.BeginArea(new Rect(Screen.width - DataItemsEditorWindow.instance.CreateWidth, DataItemsEditorWindow.instance.BeginAreaY, DataItemsEditorWindow.instance.CreateWidth, Screen.height));
+        switch (DataItemsEditorWindow.instance.CurrentState)
+        {
+            case DataItemsEditorWindow.State.NONE:
+                break;
+            case DataItemsEditorWindow.State.CREATE:
+                createItemsEditorWindow.ShowCreateItems();
+                break;
+            case DataItemsEditorWindow.State.MODIFY:
+                createItemsEditorWindow.Modify();
+                break;
+            default:
+                break;
+        }
         GUILayout.EndArea();
 
-        GUILayout.BeginArea(new Rect(0,100,Screen.width-DataItemsEditorWindow.instance.CreateWidth,Screen.height));
         viewItemsEditorWindow.ShowItems(DataItemsEditorWindow.instance.Items);
-        GUILayout.EndArea();
 
-        if (GUI.Button(new Rect(0,0,Screen.width,Screen.height), "", GUIStyle.none))
+        if (GUI.Button(new Rect(0, 0, Screen.width, Screen.height), "", GUIStyle.none))
         {
             GUI.FocusControl(null);
         }
     }
+
 
     public static string TextField(string label, string text)
     {

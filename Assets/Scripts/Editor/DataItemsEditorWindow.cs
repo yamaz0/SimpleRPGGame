@@ -28,6 +28,8 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     private State previusState = new State();
     private ItemInfo currentItem = null;
 
+    private int itemsViewStartY = 100;
+
     public bool IsShowFilter { get => isShowFilter; set => isShowFilter = value; }
     public string SearchString { get => searchString; set => searchString = value; }
     public string SearchStringField { get => searchStringField; set => searchStringField = value; }
@@ -37,20 +39,79 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     public State PreviusState { get => previusState; set => previusState = value; }
     public ItemInfo CurrentItem { get => currentItem; set => currentItem = value; }
     public int CreateWidth { get => createWidth; set => createWidth = value; }
+    public int BeginAreaY { get => itemsViewStartY; set => itemsViewStartY = value; }
 
     public void ChangeState(State s)
     {
         PreviusState = CurrentState;
         CurrentState = s;
+        switch (CurrentState)
+        {
+            case State.NONE:
+                CreateWidth = 0;
+                break;
+            case State.CREATE:
+                CreateWidth = 300;
+                break;
+            case State.MODIFY:
+                CreateWidth = 300;
+                break;
+            default:
+                break;
+        }
     }
+    public void SetCurrentSelectItem(ItemInfo item)
+    {
+        CurrentItem = item;
+    }
+
     public void ResetSelectedItem()
     {
-        CurrentItem = null;
+        SetCurrentSelectItem(null);
     }
 
     public void ReverseItemList()
     {
         Items.Reverse();
+    }
+
+    public void ShowHideItemFilter()
+    {
+        IsShowFilter = !IsShowFilter;
+        if(IsShowFilter == true)
+        {
+            BeginAreaY = 200;
+        }
+        else
+        {
+            BeginAreaY = 110;
+        }
+    }
+
+    public void CreateItemTypeInstance(Type t)
+    {
+        int itemId = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
+
+        ItemInfo item = (ItemInfo)CreateInstance(t);
+        item.Id = itemId;
+        item.Icon = Resources.LoadAll<Sprite>("")[0];
+
+        SetCurrentSelectItem(item);
+    }
+
+    public void SaveItemInstance()
+    {
+        ItemsScriptableObject.Instance.UpdateItemInstance(CurrentItem);
+    }
+
+    public void RemoveItem(ItemInfo item)
+    {
+        if (CurrentItem != null && CurrentItem.Id == item.Id)
+        {
+            ResetSelectedItem();
+            ChangeState(State.NONE);
+        }
+        ItemsScriptableObject.Instance.RemoveItemInstance(item);
     }
 
 }

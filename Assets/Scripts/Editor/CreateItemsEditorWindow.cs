@@ -12,15 +12,17 @@ public class CreateItemsEditorWindow
     {
         if (GUILayout.Button("X",GUILayout.Width(50)))
         {
-            DataItemsEditorWindow.instance.CurrentState = DataItemsEditorWindow.State.NONE;
+            DataItemsEditorWindow.instance.ChangeState(DataItemsEditorWindow.State.NONE);
         }
     }
 
     public void ShowCreateItems()
     {
+        ShowBackButton();
+
         if(DataItemsEditorWindow.instance.CurrentItem == null)
         {
-            ShowItemsTypesButtons(CreateItemTypeInstance);
+            ShowItemsTypesButtons(DataItemsEditorWindow.instance.CreateItemTypeInstance);
         }
         else
         {
@@ -41,7 +43,6 @@ public class CreateItemsEditorWindow
         // createItemsEditorWindow.ShowItemsCreator();
     }
 
-
     public void ShowItemsTypesButtons(Action<Type> OnButtonTypeClicked)
     {
         GUILayout.Label("Items Types");
@@ -56,23 +57,15 @@ public class CreateItemsEditorWindow
         GUILayout.EndHorizontal();
     }
 
-
-    public void CreateItemTypeInstance(Type t)
-    {
-        int itemId = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
-
-        DataItemsEditorWindow.instance.CurrentItem = (ItemInfo)ScriptableObject.CreateInstance(t);
-        DataItemsEditorWindow.instance.CurrentItem.Id = itemId;
-        DataItemsEditorWindow.instance.CurrentItem.Icon = Resources.LoadAll<Sprite>("")[0];
-    }
-
     public void Modify()
     {
         ShowBackButton();
+
         DataItemsEditorWindow.instance.CurrentItem.ShowFields();
+
         if (GUILayout.Button("Save"))
         {
-            ItemsScriptableObject.Instance.ModifyItemInstance(DataItemsEditorWindow.instance.CurrentItem);
+            DataItemsEditorWindow.instance.SaveItemInstance();
         }
     }
 }
