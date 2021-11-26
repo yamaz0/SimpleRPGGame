@@ -19,6 +19,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     private int createWidth = 300;
 
     private bool isShowFilter = false;
+    private bool isShowAllFields = false;
     private string searchString = string.Empty;
     private string searchStringField = string.Empty;
     private List<ItemInfo> items = new List<ItemInfo>();
@@ -40,6 +41,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     public ItemInfo CurrentItem { get => currentItem; set => currentItem = value; }
     public int CreateWidth { get => createWidth; set => createWidth = value; }
     public int BeginAreaY { get => itemsViewStartY; set => itemsViewStartY = value; }
+    public bool IsShowAllFields { get => isShowAllFields; set => isShowAllFields = value; }
 
     public void ChangeState(State s)
     {

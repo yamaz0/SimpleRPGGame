@@ -6,7 +6,7 @@ using UnityEditor;
 public class ViewItemsEditorWindow
 {
     Vector2 scrollPos;
-    bool isShowAllFields = false;
+
     List<ItemInfo> filterList = new List<ItemInfo>();
 
     public void Init()
@@ -49,11 +49,12 @@ public class ViewItemsEditorWindow
     {
         if (items != null)
         {
-            GUILayout.BeginArea(new Rect(0, DataItemsEditorWindow.instance.BeginAreaY, Screen.width - DataItemsEditorWindow.instance.CreateWidth, Screen.height));
+            GUILayout.BeginArea(new Rect(0, DataItemsEditorWindow.instance.BeginAreaY, Screen.width - DataItemsEditorWindow.instance.CreateWidth, Screen.height - 25 - DataItemsEditorWindow.instance.BeginAreaY));
             scrollPos = GUILayout.BeginScrollView(scrollPos,false,true);
 
             int w = 0;
             int h = 0;
+            float expand = DataItemsEditorWindow.instance.IsShowAllFields == true ? 1.2f : 1.0f;
 
             foreach (var item in items)
             {
@@ -62,8 +63,8 @@ public class ViewItemsEditorWindow
                     GUILayout.BeginHorizontal();
                 }
                         GUILayout.BeginVertical();
-                            GUILayout.BeginArea(new Rect(100*w, 150*h, 100, 150));
-                            if(isShowAllFields == true)
+                            GUILayout.BeginArea(new Rect(100*w, 150*expand*h, 100, 150));
+                            if(DataItemsEditorWindow.instance.IsShowAllFields == true)
                             {
                                 item.ShowAllItemInfo();
                             }
@@ -121,12 +122,12 @@ public class ViewItemsEditorWindow
         if(t == null)
         {
             filterList.AddRange(ItemsScriptableObject.Instance.Items);
-            isShowAllFields = false;
+            DataItemsEditorWindow.instance.IsShowAllFields = false;
         }
         else
         {
             filterList.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.GetType().Equals(t)));
-            isShowAllFields = true;
+            DataItemsEditorWindow.instance.IsShowAllFields = true;
         }
 
         SearchItems();
