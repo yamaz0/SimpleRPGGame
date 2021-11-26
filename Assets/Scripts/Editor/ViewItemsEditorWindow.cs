@@ -32,6 +32,7 @@ public class ViewItemsEditorWindow
             DataItemsEditorWindow.instance.Items.AddRange(filterList);
         }
     }
+
     public void ShowSortingButtons()
     {
         GUILayout.BeginHorizontal();
@@ -51,6 +52,14 @@ public class ViewItemsEditorWindow
         GUILayout.EndHorizontal();
     }
 
+    public void ShowChangeSortOrder()
+    {
+        if (GUILayout.Button("Change order"))
+        {
+            DataItemsEditorWindow.instance.IsSortDescending = !DataItemsEditorWindow.instance.IsSortDescending;
+            DataItemsEditorWindow.instance.ReverseItemList();
+        }
+    }
 
     public void ShowItems(List<ItemInfo> items)
     {

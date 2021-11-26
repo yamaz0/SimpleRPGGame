@@ -24,6 +24,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     private string searchStringField = string.Empty;
     private System.Type filterType = null;
     private Comparer<ItemInfo> sortedMethod = Comparer<ItemInfo>.Create((x, y) => x.Id.CompareTo(y.Id));
+    private bool isSortDescending = false;
     private List<ItemInfo> items = new List<ItemInfo>();
 
     private List<Type> itemInfoTypes;
@@ -46,6 +47,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     public bool IsShowAllFields { get => isShowAllFields; set => isShowAllFields = value; }
     public Type FilterType { get => filterType; set => filterType = value; }
     public Comparer<ItemInfo> SortedMethod { get => sortedMethod; set => sortedMethod = value; }
+    public bool IsSortDescending { get => isSortDescending; set => isSortDescending = value; }
 
     public void ChangeState(State s)
     {
@@ -98,6 +100,11 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     {
         sortedMethod = comparer;
         Items.Sort(comparer);
+
+        if (IsSortDescending == true)
+        {
+            ReverseItemList();
+        }
     }
 
     public void CreateItemTypeInstance(Type t)

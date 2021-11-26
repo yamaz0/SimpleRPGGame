@@ -61,11 +61,7 @@ public class ItemsEditorWindow : EditorWindow
             {
                 viewItemsEditorWindow.ItemTypeFilter(null);
             }
-
-            if (GUILayout.Button("Change order"))
-            {
-                DataItemsEditorWindow.instance.ReverseItemList();
-            }
+            viewItemsEditorWindow.ShowChangeSortOrder();
 
             viewItemsEditorWindow.ShowSortingButtons();
         }
@@ -95,6 +91,7 @@ public class ItemsEditorWindow : EditorWindow
             GUI.FocusControl(null);
         }
     }
+
 
     public static string TextField(string label, string text)
     {
