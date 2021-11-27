@@ -16,7 +16,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     }
 
     [SerializeField]
-    private int createWidth = 300;
+    private int createWidth = 0;
 
     private bool isShowFilter = false;
     private bool isShowAllFields = false;
@@ -32,7 +32,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     private State previusState = new State();
     private ItemInfo currentItem = null;
 
-    private int itemsViewStartY = 100;
+    private int itemsViewStartY = 110;
 
     public bool IsShowFilter { get => isShowFilter; set => isShowFilter = value; }
     public string SearchString { get => searchString; set => searchString = value; }
@@ -86,7 +86,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     public void ShowHideItemFilter()
     {
         IsShowFilter = !IsShowFilter;
-        if(IsShowFilter == true)
+        if (IsShowFilter == true)
         {
             BeginAreaY = 220;
         }
