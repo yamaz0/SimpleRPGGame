@@ -6,7 +6,7 @@ using UnityEngine;
 public class Character
 {
     [SerializeField]
-    private Attributes attributes;
+    private Attributes attributes = new Attributes();
     [SerializeField]
     private List<int> knownSpellsId;
 
@@ -21,17 +21,17 @@ public class Character
         }
     }
 
-    public List<Attribute> GetAttributes()
-    {
-        return Attributes.AttributesList;
-    }
+    // public List<Attribute> GetAttributes()
+    // {
+    //     return Attributes.AttributesList;
+    // }
 
     public void CopyCharacter(Character characterCopy)
     {
-        for (int i = 0; i < Attributes.AttributesList.Count; i++)
-        {
-            Attributes.AttributesList[i].SetLevel(characterCopy.Attributes.AttributesList[i].Value);
-        }
+        // for (int i = 0; i < Attributes.AttributesList.Count; i++)
+        // {
+            // Attributes.AttributesList[i].SetLevel(characterCopy.Attributes.AttributesList[i].Value);
+        // }
 
         KnownSpellsId = new List<int>();
         KnownSpellsId.AddRange(characterCopy.KnownSpellsId);

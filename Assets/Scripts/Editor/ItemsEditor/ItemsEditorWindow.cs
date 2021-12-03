@@ -23,11 +23,11 @@ public class ItemsEditorWindow : EditorWindow
         ItemsScriptableObject.Instance.OnChangedItems -= viewItemsEditorWindow.RefreshLists;
     }
 
-    [MenuItem("ProjektMagic/test")]
+    [MenuItem("ProjektMagic/ItemsEditor")]
     private static void ShowWindow()
     {
         ItemsEditorWindow window = GetWindow<ItemsEditorWindow>();
-        window.titleContent = new GUIContent("test");
+        window.titleContent = new GUIContent("ItemsEditor");
         window.Show();
     }
 

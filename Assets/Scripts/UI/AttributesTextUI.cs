@@ -14,14 +14,14 @@ public List<AttributeTextController> textControllers;
     public void Init()
     {
         textControllers.Clear();
-        List<Attribute> attributesList = Player.Instance.Character.GetAttributes();
+        // List<Attribute> attributesList = Player.Instance.Character.GetAttributes();
 
-        for (int i = 0; i < attributesList.Count; i++)
-        {
-            AttributeTextController attributeTextController = GameObject.Instantiate(attributeTextPrefab,attributesTextContent);
-            attributeTextController.Initialize(attributesList[i]);
-            textControllers.Add(attributeTextController);
-        }
+        // for (int i = 0; i < attributesList.Count; i++)
+        // {
+        //     AttributeTextController attributeTextController = GameObject.Instantiate(attributeTextPrefab,attributesTextContent);
+        //     attributeTextController.Initialize(attributesList[i]);
+        //     textControllers.Add(attributeTextController);
+        // }
     }
     public void DetachAll()
     {

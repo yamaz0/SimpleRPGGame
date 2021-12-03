@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[Effect]
 [System.Serializable]
 public class HealingEffect : SpellEffect
 {

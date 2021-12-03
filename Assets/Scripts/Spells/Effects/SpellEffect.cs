@@ -50,9 +50,3 @@ public abstract class SpellEffect
     //
 
 }
-
-[AttributeUsage(AttributeTargets.Class)]
-public class Effect : System.Attribute
-{
-
-}
