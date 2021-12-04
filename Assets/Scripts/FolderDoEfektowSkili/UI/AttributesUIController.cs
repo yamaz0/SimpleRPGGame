@@ -5,9 +5,22 @@ using UnityEngine;
 public class AttributesUIController : MonoBehaviour
 {
     [SerializeField]
-    List<AttributeUIController> attributes;
+    private List<AttributeUIController> attributeUIObjects;
 
-    private void Start() {
-        attributes.ForEach(x=>x.Init());
+    public List<AttributeUIController> AttributeUIObjects { get => attributeUIObjects; private set => attributeUIObjects = value; }
+
+    private void Start()
+    {
+        AttributeUIObjects.ForEach(x => x.Init());
+    }
+
+    private void OnEnable()
+    {
+        AttributeUIObjects.ForEach(x => x.AttachedEvents());
+    }
+
+    private void OnDisable()
+    {
+        AttributeUIObjects.ForEach(x => x.DetachEvents());
     }
 }

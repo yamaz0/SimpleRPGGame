@@ -9,9 +9,12 @@ public class ModificatorsNamesSO : ScriptableSingleton<ModificatorsNamesSO>
     private List<string> names = new List<string>();
 
     public List<string> Names { get => names; set => names = value; }
-private void OnEnable() {
-    Init();
-}
+
+    private void OnEnable()
+    {
+        Init();
+    }
+
     public void Init()
     {
         Names.Clear();

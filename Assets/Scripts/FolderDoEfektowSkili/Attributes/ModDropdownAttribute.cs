@@ -16,9 +16,7 @@ public class DropdownPropertyDrawer : PropertyDrawer
     private int selectedIndex = 0;
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        List<string> list = null;
-
-        list = ModificatorsNamesSO.instance.Names;
+        List<string> list = ModificatorsNamesSO.instance.Names;
 
         if (string.IsNullOrEmpty(property.stringValue) || property.stringValue != list[selectedIndex])
         {
