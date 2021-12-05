@@ -12,7 +12,10 @@ public class ModificatorsNamesSO : ScriptableSingleton<ModificatorsNamesSO>
 
     private void OnEnable()
     {
-        Init();
+        if(Names.Count == 0)
+        {
+            Init();
+        }
     }
 
     public void Init()

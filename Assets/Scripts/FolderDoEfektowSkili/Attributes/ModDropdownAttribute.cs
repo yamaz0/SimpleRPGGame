@@ -14,10 +14,16 @@ sealed class ModDropdownAttribute : PropertyAttribute
 public class DropdownPropertyDrawer : PropertyDrawer
 {
     private int selectedIndex = 0;
+    private List<string> list;
+
+    public DropdownPropertyDrawer()
+    {
+        list = ModificatorsNamesSO.instance.Names;
+        if(ModificatorsNamesSO.instance.Names.Count == 0) ModificatorsNamesSO.instance.Init();
+    }
+
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        List<string> list = ModificatorsNamesSO.instance.Names;
-
         if (string.IsNullOrEmpty(property.stringValue) || property.stringValue != list[selectedIndex])
         {
             selectedIndex = list.FindIndex(x => x.Equals(property.stringValue));
