@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ItemInfo : ScriptableObject
+public class ItemInfo : IIdable, INameable
 {
     [SerializeField]
-    private string itemName;
+    private string name;
     [SerializeField]
     private int id;
     [SerializeField]
@@ -14,19 +14,20 @@ public class ItemInfo : ScriptableObject
     [SerializeField]
     private ItemsManager.ItemType itemType;
 
-    public string ItemName { get => itemName; set { itemName = value; name = value; } }
+    public string Name { get => name; set => name = value; }
     public int Id { get => id; set => id = value; }
     public ItemsManager.ItemType ItemType { get => itemType; set => itemType = value; }
     public Sprite Icon { get => icon; set => icon = value; }
 
-    private void OnEnable()
+    public virtual Item CreateItem()
     {
-        //  hideFlags = HideFlags.HideAndDontSave;
+        return null;
     }
+
     public virtual void CopyValues(ItemInfo item)
     {
         Id = item.Id;
-        ItemName = item.ItemName;
+        Name = item.Name;
         icon = item.Icon;
     }
 
@@ -34,7 +35,7 @@ public class ItemInfo : ScriptableObject
     public virtual void ShowFields()
     {
         GUILayout.Label("Id: " + Id.ToString());
-        ItemName = UnityEditor.EditorGUILayout.TextField("Name: ", ItemName);
+        Name = UnityEditor.EditorGUILayout.TextField("Name: ", Name);
         Icon = (Sprite)UnityEditor.EditorGUILayout.ObjectField("Sprite: ",Icon,typeof(Sprite),false);
     }
 
@@ -42,7 +43,7 @@ public class ItemInfo : ScriptableObject
     {
         GUILayout.Box(Icon.texture,GUILayout.Width(100),GUILayout.Height(50));
         GUILayout.Label("Id: " + Id.ToString());
-        GUILayout.Label(ItemName);
+        GUILayout.Label(Name);
         GUILayout.Label("Type: " + ItemType.ToString());
     }
 

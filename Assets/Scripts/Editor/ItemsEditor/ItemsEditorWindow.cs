@@ -35,7 +35,7 @@ public class ItemsEditorWindow : EditorWindow
     {
         if (GUILayout.Button("clear"))
         {
-            ItemsScriptableObject.Instance.Items.ForEach(x => DestroyImmediate(x, true));
+            // ItemsScriptableObject.Instance.Items.ForEach(x => DestroyImmediate(x, true));
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             ItemsScriptableObject.Instance.Items.Clear();

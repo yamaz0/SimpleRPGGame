@@ -36,7 +36,7 @@ public class CreateItemsEditorWindow
 
             if (GUILayout.Button("ADD"))
             {
-                ItemsScriptableObject.Instance.AddItemInstance(DataItemsEditorWindow.instance.CurrentItem);
+                ItemsScriptableObject.Instance.AddItem(DataItemsEditorWindow.instance.CurrentItem);
                 DataItemsEditorWindow.instance.ResetSelectedItem();
             }
         }

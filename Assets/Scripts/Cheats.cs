@@ -93,24 +93,28 @@ if(string.IsNullOrEmpty(searchPropertyName)) break;
  [MenuItem("DoSomething/TimeCouting")]
     static void TimeCouting()
     {
-        // System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-        // System.TimeSpan t=new System.TimeSpan();
-        //     ItemsManager instance = ItemsManager.Instance;
+    //     System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+    //     System.TimeSpan t=new System.TimeSpan();
+    //     // ItemsManager instance = ItemsManager.Instance;
+    //     List<ModificatorInfo> modyficatorsInfo = ModificatorsSO.Instance.ModyficatorsInfo;
 
 
 
-        // t= new System.TimeSpan();
-        // for (int i = 0; i < 1; i++)
-        // {
-        //     sw = System.Diagnostics.Stopwatch.StartNew();
-        //     sw.Start();
+    //     t = new System.TimeSpan();
+    //     for (int i = 0; i < 10000; i++)
+    //     {
+    //         sw = System.Diagnostics.Stopwatch.StartNew();
+    //         sw.Start();
 
-        //     BookItem item2 = instance.CreateBookItem(0);
+    //     foreach (ModificatorInfo info in modyficatorsInfo)
+    //     {
+    //         Modificator propertyInfo = ModificatorsSO.GetModifier(Player.Instance.Character, info);
+    //     }
 
-        //     sw.Stop();
-        //     t+=sw.Elapsed;
-        // }
-        // Debug.Log("Elapsed2="+t);
+    //         sw.Stop();
+    //         t+=sw.Elapsed;
+    //     }
+    //     Debug.Log("Elapsed2="+t);
     }
 
 }

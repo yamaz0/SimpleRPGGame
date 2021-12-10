@@ -8,10 +8,7 @@ public class Player : Singleton<Player>
     private Character character;
     [SerializeField]
     private float speed;
-    [SerializeField]
-    private Inventory inventory;
     public Character Character { get => character; set => character = value; }
-    public Inventory Inventory { get => inventory; set => inventory = value; }
 
     public void LoadData()
     {
@@ -26,7 +23,7 @@ public class Player : Singleton<Player>
     private void Start()
     {
         // LoadData();
-        Inventory = new Inventory();
+        // Inventory = new Inventory();
     }
 
     public void KnowledgeAdd()

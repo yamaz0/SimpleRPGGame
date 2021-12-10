@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class QuestItemInfo: ItemInfo
+public class QuestItemInfo : ItemInfo
 {
     [SerializeField]
     private int questId;
@@ -12,6 +12,11 @@ public class QuestItemInfo: ItemInfo
     public QuestItemInfo()
     {
         ItemType = ItemsManager.ItemType.QUEST;
+    }
+
+    public override Item CreateItem()
+    {
+        return new QuestItem(this);
     }
 
     public override void CopyValues(ItemInfo item)

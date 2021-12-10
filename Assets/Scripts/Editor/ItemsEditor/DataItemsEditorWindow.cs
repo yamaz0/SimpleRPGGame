@@ -111,7 +111,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
     {
         int itemId = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
 
-        ItemInfo item = (ItemInfo)CreateInstance(t);
+        ItemInfo item = (ItemInfo)System.Activator.CreateInstance(t);
         item.Id = itemId;
         item.Icon = Resources.LoadAll<Sprite>("")[0];
 

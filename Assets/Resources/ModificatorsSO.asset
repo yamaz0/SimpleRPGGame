@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24c46eb4cdfcd5488fffe50790adc38, type: 3}
   m_Name: ModificatorsSO
   m_EditorClassIdentifier: 
-  modyficatorsInfo:
-  - propertyName: Knowledge
-    nestesPropertyClass: Attributes
-  - propertyName: Concetration
-    nestesPropertyClass: Attributes
-  - propertyName: Will
-    nestesPropertyClass: Attributes
-  - propertyName: Mana
-    nestesPropertyClass: Attributes
+  modtypes:
+  - modTypeName: Attributes
+    modNames:
+    - Strength
+    - Dexterity
+    - Endurance
+  - modTypeName: Inventory
+    modNames:
+    - ItemsIds
+  - modTypeName: PlayerStatistics
+    modNames:
+    - DodgeChance
+    - BlockChance
+    - CritChance

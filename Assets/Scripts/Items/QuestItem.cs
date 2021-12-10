@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class QuestItem : Item
 {
-    // int questId;
+    int questId;
 
-    // public int QuestId { get => questId; set => questId = value; }
+    public int QuestId { get => questId; set => questId = value; }
 
-    // public QuestItem(QuestItemsScriptableObject.QuestItemInfo info):base(info.Id, info.Name, info.ItemType)
-    // {
-    //     QuestId = info.QuestId;
-    // }
+    public override void Use()
+    {
+Debug.Log("QuestItemUse");
+    }
+
+    public QuestItem(ItemInfo info)
+    {
+        Init(info);
+    }
+
+    protected override void Init(ItemInfo info)
+    {
+        base.Init(info);
+        QuestId = ((QuestItemInfo)info).QuestId;
+    }
 }

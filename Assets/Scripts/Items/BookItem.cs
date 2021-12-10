@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class BookItem : Item
 {
-//     int bookXp;
+    int bookXp;
 
-//     public int BookXp { get => bookXp; set => bookXp = value; }
-//     public void Use()
-//     {
-// Debug.Log("BookItemUse");
-//     }
+    public int BookXp { get => bookXp; set => bookXp = value; }
+    public override void Use()
+    {
+Debug.Log("BookItemUse");
+    }
 
-//     public BookItem(BookItemsScriptableObject.BookItemInfo info):base(info.Id, info.Name, info.ItemType)
-//     {
-//         BookXp = info.BookXp;
-//     }
+    public BookItem(ItemInfo info)
+    {
+        Init(info);
+    }
+
+    protected override void Init(ItemInfo info)
+    {
+        base.Init(info);
+        BookXp = ((BookItemInfo)info).BookXp;
+    }
 }

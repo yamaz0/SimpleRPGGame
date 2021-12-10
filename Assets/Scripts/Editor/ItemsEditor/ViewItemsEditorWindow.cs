@@ -25,7 +25,7 @@ public class ViewItemsEditorWindow
         DataItemsEditorWindow.instance.Items.Clear();
         if (string.IsNullOrEmpty(DataItemsEditorWindow.instance.SearchString) == false)
         {
-            DataItemsEditorWindow.instance.Items.AddRange(filterList.FindAll((x) => x.ItemName.Contains(DataItemsEditorWindow.instance.SearchString)));
+            DataItemsEditorWindow.instance.Items.AddRange(filterList.FindAll((x) => x.Name.Contains(DataItemsEditorWindow.instance.SearchString)));
         }
         else
         {
@@ -43,7 +43,7 @@ public class ViewItemsEditorWindow
         }
         if (GUILayout.Button("NAME"))
         {
-            DataItemsEditorWindow.instance.SortItems(Comparer<ItemInfo>.Create((x, y) => x.ItemName.CompareTo(y.ItemName)));
+            DataItemsEditorWindow.instance.SortItems(Comparer<ItemInfo>.Create((x, y) => x.Name.CompareTo(y.Name)));
         }
         if (GUILayout.Button("TYPE"))
         {
@@ -97,7 +97,7 @@ public class ViewItemsEditorWindow
                                     {
                                         DataItemsEditorWindow.instance.ChangeState(DataItemsEditorWindow.State.MODIFY);
 
-                                        ItemInfo itemInfoCopy = (ItemInfo)ScriptableObject.CreateInstance(item.GetType());
+                                        ItemInfo itemInfoCopy = (ItemInfo)System.Activator.CreateInstance(item.GetType());
                                         itemInfoCopy.CopyValues(item);
 
                                         DataItemsEditorWindow.instance.SetCurrentSelectItem(itemInfoCopy);

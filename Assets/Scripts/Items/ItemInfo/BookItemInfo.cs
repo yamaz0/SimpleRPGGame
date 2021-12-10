@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 [System.Serializable]
 public class BookItemInfo: ItemInfo
 {
@@ -12,6 +13,11 @@ public class BookItemInfo: ItemInfo
     public BookItemInfo()
     {
         ItemType = ItemsManager.ItemType.BOOK;
+    }
+
+    public override Item CreateItem()
+    {
+        return new BookItem(this);
     }
 
     public override void CopyValues(ItemInfo item)

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class AttributeUIController
 {
     [SerializeField]
-    [ModDropdown]
+    [ModDropdown("Attributes")]
     private string attributeName;
     [SerializeField]
     private Button button;
@@ -20,31 +20,38 @@ public class AttributeUIController
     public string AttributeName { get => attributeName; private set => attributeName = value; }
     public TextValueUI TextValue { get => textValue; private set => textValue = value; }
 
+    public Modificator CacheModificator { get; private set; }
+
     public void Init()
     {
-        TextValue.Init(AttributeName, ModificatorsManager.Instance.DictModyficators[AttributeName].Value.ToString());
-        // AttachedEvents();
+        CacheModificator = Player.Instance.Character.Attributes.GetAttribute(AttributeName);
+        TextValue.Init(AttributeName, CacheModificator.Value.ToString());
+        AttachedEvents();
     }
 
     public void AttachedEvents()
     {
-        Button.onClick.AddListener(AddValue);
-        ModificatorsManager.Instance.DictModyficators[AttributeName].OnLevelChanged += SetTextValue;
+        if (CacheModificator != null)
+        {
+            Button.onClick.AddListener(AddValue);
+            CacheModificator.OnLevelChanged += SetTextValue;
+        }
     }
 
     private void AddValue()
     {
-        ModificatorsManager.Instance.DictModyficators[attributeName].AddValue(1);
+        CacheModificator.AddValue(1);
     }
 
     public void DetachEvents()
     {
         Button.onClick.RemoveListener(AddValue);
-        ModificatorsManager.Instance.DictModyficators[AttributeName].OnLevelChanged -= SetTextValue;
+        CacheModificator.OnLevelChanged -= SetTextValue;
     }
 
     public void SetTextValue(float value)
     {
+        Debug.Log("teterete");
         TextValue.SetTextValue(value.ToString());
     }
 }

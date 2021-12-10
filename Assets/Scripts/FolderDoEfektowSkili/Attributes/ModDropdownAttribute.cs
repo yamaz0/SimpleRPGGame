@@ -5,39 +5,31 @@ using UnityEngine;
 using UnityEditor;
 // ModificatorsNamesSO
 [System.AttributeUsage(System.AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-sealed class ModDropdownAttribute : PropertyAttribute
+public class ModDropdownAttribute : PropertyAttribute
 {
-    public ModDropdownAttribute() { }
+    private string modtype;
+    public string Modtype { get => modtype; set => modtype = value; }
+
+    public ModDropdownAttribute(string name)
+    {
+        Modtype = name;
+    }
 }
 
 [CustomPropertyDrawer(typeof(ModDropdownAttribute))]
-public class DropdownPropertyDrawer : PropertyDrawer
+public class ModDropdownPropertyDrawer : DropdownPropertyDrawer
 {
-    private int selectedIndex = 0;
-    private List<string> list;
-
-    public DropdownPropertyDrawer()
+    public void Init()
     {
-        list = ModificatorsNamesSO.instance.Names;
-        if(ModificatorsNamesSO.instance.Names.Count == 0) ModificatorsNamesSO.instance.Init();
+        ModDropdownAttribute atb = attribute as ModDropdownAttribute;
+        ModificatorsSO.ModType modType = ModificatorsSO.Instance.Modtypes.Find(x => x.ModTypeName.Equals(atb.Modtype));
+        List.Clear();
+        List.AddRange(modType.ModNames);
     }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        if (string.IsNullOrEmpty(property.stringValue) || property.stringValue != list[selectedIndex])
-        {
-            selectedIndex = list.FindIndex(x => x.Equals(property.stringValue));
-            if (selectedIndex < 0) selectedIndex = 0;
-        }
-
-        if (list != null && list.Count != 0)
-        {
-            selectedIndex = EditorGUI.Popup(position, property.name, selectedIndex, list.ToArray());
-            property.stringValue = list[selectedIndex];
-        }
-        else
-        {
-            EditorGUI.PropertyField(position, property, label);
-        }
+        if(List == null || List.Count == 0) Init();
+        base.OnGUI(position, property, label);
     }
 }

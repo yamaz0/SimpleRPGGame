@@ -1,37 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemsScriptableObject", menuName = "ScriptableObjects/ItemsScriptableObject")]
-public class ItemsScriptableObject: ScriptableObject
+public class ItemsScriptableObject : ScriptableObject
 {
     private static ItemsScriptableObject instance;
 
     [SerializeReference]
     private List<ItemInfo> items;
 
-    public static ItemsScriptableObject Instance { get { if(instance == null) instance = Resources.LoadAll<ItemsScriptableObject>("")[0]; return instance; } }
+    public static ItemsScriptableObject Instance { get { if (instance == null) instance = Resources.LoadAll<ItemsScriptableObject>("")[0]; return instance; } }
 
     public List<ItemInfo> Items { get => items; set => items = value; }
 
 #if UNITY_EDITOR
-    public event System.Action OnChangedItems = delegate{};
-    public void AddItemInstance(ItemInfo item)
+    public event System.Action OnChangedItems = delegate { };
+    public void AddItem(ItemInfo item)
     {
-        ItemInfo itemInfoInstance = (ItemInfo)CreateInstance(item.GetType());
+        ItemInfo itemInfoInstance = (ItemInfo)System.Activator.CreateInstance(item.GetType());
         itemInfoInstance.CopyValues(item);
-        itemInfoInstance.name = itemInfoInstance.ItemName; ;
 
-        Instance.Items.Add(itemInfoInstance);
-        UnityEditor.AssetDatabase.AddObjectToAsset(itemInfoInstance, ItemsSO.Instance);
-        SaveAndRefresh();
+        Items.Add(itemInfoInstance);
+        // SaveAndRefresh();
     }
 
     private void SaveAndRefresh()
     {
         NotifyChangedItemsList();
-        UnityEditor.EditorUtility.SetDirty(ItemsScriptableObject.Instance);
-        UnityEditor.EditorUtility.SetDirty(ItemsSO.Instance);
+        UnityEditor.EditorUtility.SetDirty(Instance);
         UnityEditor.AssetDatabase.SaveAssets();
         UnityEditor.AssetDatabase.Refresh();
     }
@@ -44,15 +42,15 @@ public class ItemsScriptableObject: ScriptableObject
     public void UpdateItemInstance(ItemInfo item)
     {
         GetItemInfoById(item.Id).CopyValues(item);
-        SaveAndRefresh();
+        // SaveAndRefresh();
     }
 
     public void RemoveItemInstance(ItemInfo item)
     {
         ItemInfo itemToRemove = GetItemInfoById(item.Id);
         Items.Remove(itemToRemove);
-        DestroyImmediate(itemToRemove, true);
-        SaveAndRefresh();
+        // DestroyImmediate(itemToRemove, true);
+        // SaveAndRefresh();
     }
 #endif
 
@@ -60,7 +58,7 @@ public class ItemsScriptableObject: ScriptableObject
     {
         instance = Resources.LoadAll<ItemsScriptableObject>("")[0];
 
-        if(Items == null)
+        if (Items == null)
         {
             Items = new List<ItemInfo>();
         }
@@ -70,27 +68,35 @@ public class ItemsScriptableObject: ScriptableObject
 
     public ItemInfo GetItemInfoById(int id)
     {
-        foreach (ItemInfo nameInfo in Items)
-        {
-            if (nameInfo.Id == id)
-            {
-                return nameInfo;
-            }
-        }
-
-        return null;
+        return Items.GetElementById(id);
     }
 
     public ItemInfo GetItemInfoByName(string name)
     {
-        foreach (ItemInfo nameInfo in Items)
+        return Items.GetElementByName(name);
+    }
+}
+
+[UnityEditor.CustomEditor(typeof(ItemsScriptableObject))]
+public class ItemsScriptableObject1Editor : UnityEditor.Editor
+{
+    List<System.Type> types;
+    public ItemsScriptableObject1Editor()
+    {
+        types = System.Reflection.Assembly.GetAssembly(typeof(ItemInfo)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(ItemInfo))).ToList();
+    }
+    public override void OnInspectorGUI()
+    {
+        var script = (ItemsScriptableObject)target;
+
+        foreach (var t in types)
         {
-            if (nameInfo.ItemName == name)
+            string[] typeNames = t.ToString().Split('+');
+            if (GUILayout.Button($"Add {typeNames[typeNames.Length - 1]}", GUILayout.Height(40)))
             {
-                return nameInfo;
+                script.Items.Add(System.Activator.CreateInstance(t) as ItemInfo);
             }
         }
-
-        return null;
+        base.OnInspectorGUI();
     }
 }

@@ -2,22 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item
+public interface IIdable
+{
+    int Id{ get;}
+}
+
+public interface INameable
+{
+    string Name{ get;}
+}
+
+public abstract class Item : IIdable, INameable
 {
     [SerializeField]
     private string name;
     [SerializeField]
     private int id;
-    // [SerializeField]
-    // private ItemsManager.ItemType type;
+    [SerializeField]
+    private ItemsManager.ItemType type;
+    [SerializeField]
+    private Sprite icon;
 
-    // public string Name { get => name; set => name = value; }
-    // public int Id { get => id; set => id = value; }
-    // public ItemsManager.ItemType Type { get => type; set => type = value; }
-    // protected Item(int id, string name, ItemsManager.ItemType itemType)
-    // {
-    //     Id = id;
-    //     Name = name;
-    //     Type = itemType;
-    // }
+    public string Name { get => name; set => name = value; }
+    public int Id { get => id; set => id = value; }
+    public ItemsManager.ItemType Type { get => type; set => type = value; }
+    public Sprite Icon { get => icon; set => icon = value; }
+
+    public abstract void Use();
+    protected virtual void Init(ItemInfo info)
+    {
+        Id = info.Id;
+        Name = info.Name;
+        Type = info.ItemType;
+        Icon = info.Icon;
+    }
 }

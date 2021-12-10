@@ -1,55 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
     public List<Item> ItemList = new List<Item>();
-
-    public TMPro.TMP_Text textTemplate;
+    private List<GameObject> objects;
+    public Button textTemplate;
     public Transform content;
-private void Update() {
-    if(Input.GetKeyDown(KeyCode.I))
-    Initialize();
-}
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+            Initialize();
+    }
     public void Initialize()
     {
-        List<(ItemsManager.ItemType itemType, int id)> itemsIds = Player.Instance.Inventory.ItemsIds;
+        List<int> itemsIds = Player.Instance.Character.Inventory.ItemsIds;
         ItemList.Clear();
 
         for (int i = 0; i < itemsIds.Count; i++)
         {
-            (ItemsManager.ItemType itemType, int id) = itemsIds[i];
-            AddItem(itemType, id);
-            TMPro.TMP_Text tMP_Text = GameObject.Instantiate(textTemplate, content);
-            tMP_Text.text =  id.ToString();
+            AddItem(itemsIds[i]);
+            Button tMP_Text = GameObject.Instantiate(textTemplate, content);
+            tMP_Text.image.sprite = ItemList[i].Icon;
             tMP_Text.gameObject.SetActive(true);
+            ItemList[i].Use();
         }
     }
 
-    private void AddItem(ItemsManager.ItemType itemType, int id)
+    private void AddItem(int id)
     {
-        ItemsManager itemsManager = ItemsManager.Instance;
-        Item item = null;
-
-        // switch (itemType)
-        // {
-        //     case ItemsManager.ItemType.OTHER:
-        //         break;
-        //     case ItemsManager.ItemType.USE:
-        //         break;
-        //     case ItemsManager.ItemType.INGREDIENT:
-        //         break;
-        //     case ItemsManager.ItemType.BOOK:
-        //         item = itemsManager.CreateBookItem(id);
-        //         break;
-        //     case ItemsManager.ItemType.QUEST:
-        //         item = itemsManager.CreateQuestItem(id);
-        //         break;
-        //     default:
-        //         Debug.LogError("Item type incorrect!");
-        //         return;
-        // }
+        // ItemsManager itemsManager = ItemsManager.Instance;
+        ItemInfo itemInfo = ItemsScriptableObject.Instance.GetItemInfoById(id);
+        Item item = itemInfo.CreateItem();
         ItemList.Add(item);
     }
 }
