@@ -8,8 +8,8 @@ public interface IUseable
 }
 public class InteractObject : MonoBehaviour, IUseable
 {
-    [SerializeField]
-    private AttributesScriptableObject.MagicAttributes atribute;
+    // [SerializeField]
+    // private AttributesScriptableObject.MagicAttributes atribute;
     [SerializeField]
     private int value;
     [SerializeField]
