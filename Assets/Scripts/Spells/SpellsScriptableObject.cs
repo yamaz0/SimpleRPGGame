@@ -17,7 +17,7 @@ public class SpellsScriptableObject: ScriptableObject
     [RuntimeInitializeOnLoadMethod]
     private static void Init()
     {
-        instance = Resources.LoadAll<SpellsScriptableObject>("")[0];
+        // instance = Resources.LoadAll<SpellsScriptableObject>("")[0];
     }
 
     public SpellsScriptableObject()

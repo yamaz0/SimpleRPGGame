@@ -24,17 +24,17 @@ MonoBehaviour:
       type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
       data:
         name: kurrrrr
-        attributeName: Strength
+        attributeName: Dexterity
         value: 999
     00000001:
       type: {class: AddPlayerStatisticEffect, ns: , asm: Assembly-CSharp}
       data:
         name: waaaaaaaaa
-        statisticName: DodgeChance
+        statisticName: CritChance
         value: 999
     00000002:
       type: {class: AddItemEffect, ns: , asm: Assembly-CSharp}
       data:
         name: :O
-        itemId: 0
+        itemId: 1
         isRemove: 0
