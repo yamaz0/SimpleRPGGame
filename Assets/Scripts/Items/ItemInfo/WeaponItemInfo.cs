@@ -1,42 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 [System.Serializable]
-public class QuestItemInfo : ItemInfo
+public class WeaponItemInfo: ItemInfo
 {
-    private const string LABEL = "QuestId: ";
+    private const string LABEL = "Attack: ";
+
     [SerializeField]
-    private int questId;
+    private int attack;
 
-    public int QuestId { get => questId; set => questId = value; }
+    public int Attack { get => attack; set => attack = value; }
 
-    public QuestItemInfo()
+    public WeaponItemInfo()
     {
-        ItemType = ItemsManager.ItemType.QUEST;
+        ItemType = ItemsManager.ItemType.OTHER;
     }
 
     public override Item CreateItem()
     {
-        return new QuestItem(this);
+        return new WeaponItem(this);
     }
 
     public override void CopyValues(ItemInfo item)
     {
         base.CopyValues(item);
-        QuestId = ((QuestItemInfo)item).QuestId;
+        Attack = ((WeaponItemInfo)item).Attack;
     }
 
 #if UNITY_EDITOR
     public override void ShowFields()
     {
         base.ShowFields();
-        QuestId = UnityEditor.EditorGUILayout.IntField(LABEL, questId);
+        Attack = UnityEditor.EditorGUILayout.IntField(LABEL, attack);
     }
 
     public override void ShowAllItemInfo()
     {
         base.ShowAllItemInfo();
-        GUILayout.Label(LABEL + QuestId.ToString());
+        GUILayout.Label(LABEL + Attack.ToString());
     }
 #endif
 }

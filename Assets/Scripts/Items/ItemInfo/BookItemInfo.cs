@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class BookItemInfo: ItemInfo
 {
+    private const string LABEL = "BookXp: ";
     [SerializeField]
     private int bookXp;
 
@@ -30,13 +31,13 @@ public class BookItemInfo: ItemInfo
     public override void ShowFields()
     {
         base.ShowFields();
-        BookXp = UnityEditor.EditorGUILayout.IntField("BookXp: ", bookXp);
+        BookXp = UnityEditor.EditorGUILayout.IntField(LABEL, bookXp);
     }
 
     public override void ShowAllItemInfo()
     {
         base.ShowAllItemInfo();
-        GUILayout.Label("BookXp: " + BookXp.ToString());
+        GUILayout.Label(LABEL + BookXp.ToString());
     }
 #endif
 }

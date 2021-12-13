@@ -32,6 +32,7 @@ public class ItemsManager : Singleton<ItemsManager>
         USE,
         INGREDIENT,
         BOOK,
-        QUEST
+        QUEST,
+        EQUIPMENT
     }
 }

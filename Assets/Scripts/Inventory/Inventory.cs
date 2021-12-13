@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable][ModificatorType]
+[System.Serializable]
+[ModificatorType]
 public class Inventory
 {
     [SerializeField]
     private List<int> itemsIds;
+
     [Modificator]
     public List<int> ItemsIds { get => itemsIds; set => itemsIds = value; }
 
