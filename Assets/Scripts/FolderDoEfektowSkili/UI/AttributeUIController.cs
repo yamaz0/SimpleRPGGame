@@ -51,7 +51,6 @@ public class AttributeUIController
 
     public void SetTextValue(float value)
     {
-        Debug.Log("teterete");
         TextValue.SetTextValue(value.ToString());
     }
 }

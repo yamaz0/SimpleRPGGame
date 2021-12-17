@@ -14,11 +14,12 @@ public class Character
     // [SerializeField]
     // private Dictionary<string, Modificator> dictModyficators = new Dictionary<string, Modificator>();
     [SerializeField]
-    private Inventory inventory;
+    private InventoryController inventoryController;
+    // private Inventory inventory;
 
     public Attributes Attributes { get => attributes; set => attributes = value; }
     public List<int> KnownSpellsId { get => knownSpellsId; set => knownSpellsId = value; }
-    public Inventory Inventory { get => inventory; set => inventory = value; }
+    public InventoryController InventoryController { get => inventoryController; set => inventoryController = value; }
     public PlayerStatistics PlayerStatistics { get => playerStatistics; set => playerStatistics = value; }
 
     // public Dictionary<string, Modificator> DictModyficators { get => dictModyficators; private set => dictModyficators = value; }

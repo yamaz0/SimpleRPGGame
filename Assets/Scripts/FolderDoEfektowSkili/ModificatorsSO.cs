@@ -15,13 +15,24 @@ public class ModificatorsSO : ScriptableObject
     private List<ModType> modtypes;
 
     // public List<ModificatorInfo> ModyficatorsInfo { get => modyficatorsInfo; set => modyficatorsInfo = value; }
-    public static ModificatorsSO Instance { get => instance; set => instance = value; }
+    public static ModificatorsSO Instance
+    {
+        get { if (instance == null) LoadInstance(); return instance; }
+        set => instance = value;
+    }
+
     public List<ModType> Modtypes { get => modtypes; set => modtypes = value; }
 
     private void OnEnable()
     {
-        Instance = Resources.LoadAll<ModificatorsSO>("")[0];
+        if (Instance == null)
+            LoadInstance();
         // FillModifiersList();
+    }
+
+    private static void LoadInstance()
+    {
+        instance = Resources.LoadAll<ModificatorsSO>("")[0];
     }
 
     public static string GetClassDetails(Type t, ref string searchPropertyName, string str = null)

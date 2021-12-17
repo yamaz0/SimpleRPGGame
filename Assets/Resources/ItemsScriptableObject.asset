@@ -49,7 +49,7 @@ MonoBehaviour:
       data:
         name: Helmet
         id: 3
-        icon: {fileID: 21300000, guid: 5b54b64aa03a6418fa2cf8b50928ceb9, type: 3}
+        icon: {fileID: 21300000, guid: 781a9d9a24eca4965a926dd5464f380c, type: 3}
         itemType: 5
         defense: 1
         equipmentType: 0

@@ -10751,8 +10751,22 @@ MonoBehaviour:
       critChance:
         value: 0
     knownSpellsId: 00000000010000000200000003000000
-    inventory:
-      itemsIds: 
+    inventoryController:
+      inventory:
+        slots: []
+      equipement:
+        helmetSlot:
+          itemId: -1
+        armorSlot:
+          itemId: -1
+        legsSlot:
+          itemId: -1
+        bootsSlot:
+          itemId: -1
+        shieldSlot:
+          itemId: -1
+        weaponSlot:
+          itemId: -1
 --- !u!4 &1730599732
 Transform:
   m_ObjectHideFlags: 0
@@ -11468,10 +11482,24 @@ MonoBehaviour:
         value: 0
       critChance:
         value: 0
-    knownSpellsId: 00000000010000000200000003000000
-    inventory:
-      itemsIds: 
-  speed: 5
+    knownSpellsId: 
+    inventoryController:
+      inventory:
+        slots: []
+      equipement:
+        helmetSlot:
+          itemId: -1
+        armorSlot:
+          itemId: -1
+        legsSlot:
+          itemId: -1
+        bootsSlot:
+          itemId: -1
+        shieldSlot:
+          itemId: -1
+        weaponSlot:
+          itemId: -1
+  speed: 0
 --- !u!4 &1919726951
 Transform:
   m_ObjectHideFlags: 0

@@ -5,35 +5,62 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public List<Item> ItemList = new List<Item>();
-    private List<GameObject> objects;
-    public Button textTemplate;
+    private List<Slot> objects = new List<Slot>(10);
+    public Slot slotTemplate;
     public Transform content;
-    private void Update()
+
+    public List<Slot> Objects { get => objects; set => objects = value; }
+
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.I))
+    //         Initialize();
+    // }
+
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-            Initialize();
+        Objects = new List<Slot>();
+        Player.Instance.Character.InventoryController.Inventory.OnInventoryChanged += Refresh;
+        Refresh(0);
     }
-    public void Initialize()
+    private void OnDisable()
     {
-        List<int> itemsIds = Player.Instance.Character.Inventory.ItemsIds;
-        ItemList.Clear();
+        Player.Instance.Character.InventoryController.Inventory.OnInventoryChanged -= Refresh;
+    }
+
+    public void Refresh(int zmiennaDoUsuniecia)
+    {
+        if (Objects.Count != 0)
+        {
+            for (int i = Objects.Count - 1; i >= 0; i--)
+            {
+                Destroy(Objects[i].gameObject);
+            }
+            Objects.Clear();
+        }
+        List<int> itemsIds = Player.Instance.Character.InventoryController.Inventory.ItemsId;
 
         for (int i = 0; i < itemsIds.Count; i++)
         {
-            AddItem(itemsIds[i]);
-            Button tMP_Text = GameObject.Instantiate(textTemplate, content);
-            tMP_Text.image.sprite = ItemList[i].Icon;
-            tMP_Text.gameObject.SetActive(true);
-            ItemList[i].Use();
+            CreateNewSlot(itemsIds[i]);
         }
     }
 
-    private void AddItem(int id)
+    private void CreateNewSlot(int id)
+    {
+        Item item = CreateItem(id);
+
+        Slot slot = GameObject.Instantiate(slotTemplate, content);
+        slot.Init(item);
+        slot.gameObject.SetActive(true);
+
+        Objects.Add(slot);
+    }
+
+    private Item CreateItem(int id)
     {
         // ItemsManager itemsManager = ItemsManager.Instance;
         ItemInfo itemInfo = ItemsScriptableObject.Instance.GetItemInfoById(id);
-        Item item = itemInfo.CreateItem();
-        ItemList.Add(item);
+        return itemInfo.CreateItem();
     }
 }

@@ -1,75 +1,64 @@
 using UnityEngine;
 
+[System.Serializable]
 public class Equipement
 {
-    private const int NONE_EQUIP = -1;
     [SerializeField]
-    private Slot helmetSlot = new Slot(NONE_EQUIP);
+    private int helmetSlot = -1;
     [SerializeField]
-    private Slot armorSlot = new Slot(NONE_EQUIP);
+    private int armorSlot = -1;
     [SerializeField]
-    private Slot legsSlot = new Slot(NONE_EQUIP);
+    private int legsSlot = -1;
     [SerializeField]
-    private Slot bootsSlot = new Slot(NONE_EQUIP);
+    private int bootsSlot = -1;
     [SerializeField]
-    private Slot shieldSlot = new Slot(NONE_EQUIP);
+    private int shieldSlot = -1;
     [SerializeField]
-    private Slot weaponSlot = new Slot(NONE_EQUIP);
+    private int weaponSlot = -1;
 
-    public Slot HelmetSlot { get => helmetSlot; set => helmetSlot = value; }
-    public Slot ArmorSlot { get => armorSlot; set => armorSlot = value; }
-    public Slot LegsSlot { get => legsSlot; set => legsSlot = value; }
-    public Slot BootsSlot { get => bootsSlot; set => bootsSlot = value; }
-    public Slot ShieldSlot { get => shieldSlot; set => shieldSlot = value; }
-    public Slot WeaponSlot { get => weaponSlot; set => weaponSlot = value; }
+    public int HelmetSlot { get => helmetSlot; set => helmetSlot = value; }
+    public int ArmorSlot { get => armorSlot; set => armorSlot = value; }
+    public int LegsSlot { get => legsSlot; set => legsSlot = value; }
+    public int BootsSlot { get => bootsSlot; set => bootsSlot = value; }
+    public int ShieldSlot { get => shieldSlot; set => shieldSlot = value; }
+    public int WeaponSlot { get => weaponSlot; set => weaponSlot = value; }
 
-    public void WearItem(EquipItemInfo item, EqType type)
+    public int EquipItem(int id, EqType type)
     {
-        // if(item.)
-        Slot targetEquipmentSlot = GetEquipemntByType(type);
-
-        if (targetEquipmentSlot != null)
-        {
-            if (targetEquipmentSlot.Id != NONE_EQUIP)
-            {
-                Player.Instance.Character.Inventory.AddItem(targetEquipmentSlot.Id);
-            }
-
-            targetEquipmentSlot.Id = item.Id;
-        }
-    }
-
-    public Slot GetEquipemntByType(EqType type)
-    {
+        int oldItemId = Constants.NONE_EQUIP_ID;
         switch (type)
         {
             case EqType.HELMET:
-                return HelmetSlot;
+                oldItemId = HelmetSlot;
+                HelmetSlot = id;
+                break;
             case EqType.ARMOR:
-                return ArmorSlot;
+                oldItemId = ArmorSlot;
+                ArmorSlot = id;
+                break;
             case EqType.LEGS:
-                return LegsSlot;
+                oldItemId = LegsSlot;
+                LegsSlot = id;
+                break;
             case EqType.BOOTS:
-                return BootsSlot;
+                oldItemId = BootsSlot;
+                BootsSlot = id;
+                break;
             case EqType.SHIELD:
-                return ShieldSlot;
+                oldItemId = ShieldSlot;
+                ShieldSlot = id;
+                break;
             case EqType.WEAPON:
-                return WeaponSlot;
+                oldItemId = WeaponSlot;
+                WeaponSlot = id;
+                break;
             default:
-                return null;
+                Debug.LogError("Equipment type error. Cant equip item");
+                break;
         }
+
+        return oldItemId;
     }
 
     public enum EqType { HELMET, ARMOR, LEGS, BOOTS, SHIELD, WEAPON };
-}
-
-public class Slot
-{
-    private int id;
-
-    public int Id { get => id; set => id = value; }
-    public Slot(int itemId)
-    {
-        Id = itemId;
-    }
 }

@@ -70,8 +70,8 @@ public class AddItemEffect : Effect
     public override void Execute(Character character)
     {
         if (IsRemove == true)
-            character.Inventory.RemoveItem(ItemId);
+            character.InventoryController.RemoveItem(ItemId);
         else
-            character.Inventory.AddItem(ItemId);
+            character.InventoryController.AddItem(ItemId);
     }
 }

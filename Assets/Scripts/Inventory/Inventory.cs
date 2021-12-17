@@ -7,23 +7,45 @@ using UnityEngine;
 public class Inventory
 {
     [SerializeField]
-    private List<int> itemsIds;
+    private List<int> itemsId;
 
     [Modificator]
-    public List<int> ItemsIds { get => itemsIds; set => itemsIds = value; }
+    public List<int> ItemsId { get => itemsId; private set => itemsId = value; }
+
+    public event System.Action<int> OnInventoryChanged = delegate { };
 
     public Inventory()
     {
-        ItemsIds = new List<int>();
+        ItemsId = new List<int>();
+    }
+
+    public bool CheckHasItem(int id)
+    {
+        return ItemsId.Contains(id);
     }
 
     public void AddItem(int id)
     {
-        ItemsIds.Add(id);
+        ItemsId.Add(id);
+        NotifyInventoryChanged(id);
     }
 
-    public void RemoveItem(int id)
+    public bool RemoveItem(int id)
     {
-        ItemsIds.Remove(id);
+        for (int i = 0; i < ItemsId.Count; i++)
+        {
+            if (ItemsId[i] == id)
+            {
+                ItemsId.RemoveAt(i);
+                NotifyInventoryChanged(id);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void NotifyInventoryChanged(int id)
+    {
+        OnInventoryChanged(id);
     }
 }

@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class EquipItem : Item
 {
+    [SerializeField]
     private int defense;
+    [SerializeField]
+    private Equipement.EqType equipmentType;
 
     public int Defense { get => defense; set => defense = value; }
+    public Equipement.EqType EquipmentType { get => equipmentType; set => equipmentType = value; }
 
     public override void Use()
     {
