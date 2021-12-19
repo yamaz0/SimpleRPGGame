@@ -4,17 +4,17 @@ using UnityEngine;
 public class Equipement
 {
     [SerializeField]
-    private int helmetSlot = -1;
+    private int helmetSlot = Constants.NONE_EQUIP_ID;
     [SerializeField]
-    private int armorSlot = -1;
+    private int armorSlot = Constants.NONE_EQUIP_ID;
     [SerializeField]
-    private int legsSlot = -1;
+    private int legsSlot = Constants.NONE_EQUIP_ID;
     [SerializeField]
-    private int bootsSlot = -1;
+    private int bootsSlot = Constants.NONE_EQUIP_ID;
     [SerializeField]
-    private int shieldSlot = -1;
+    private int shieldSlot = Constants.NONE_EQUIP_ID;
     [SerializeField]
-    private int weaponSlot = -1;
+    private int weaponSlot = Constants.NONE_EQUIP_ID;
 
     public int HelmetSlot { get => helmetSlot; set => helmetSlot = value; }
     public int ArmorSlot { get => armorSlot; set => armorSlot = value; }

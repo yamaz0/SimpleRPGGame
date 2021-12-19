@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e17443041dfda9b48bd9e007fcd8158a, type: 3}
-  m_Name: SkillObject
+  m_Name: SkillObject 1
   m_EditorClassIdentifier: 
   skill:
     skillName: oooo
@@ -21,20 +21,20 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
-      data:
-        name: kurrrrr
-        attributeName: Dexterity
-        value: 999
-    00000001:
-      type: {class: AddPlayerStatisticEffect, ns: , asm: Assembly-CSharp}
-      data:
-        name: waaaaaaaaa
-        statisticName: CritChance
-        value: 999
-    00000002:
       type: {class: AddItemEffect, ns: , asm: Assembly-CSharp}
       data:
         name: :O
         itemId: 3
+        isRemove: 0
+    00000001:
+      type: {class: AddItemEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: dd
+        itemId: 6
+        isRemove: 0
+    00000002:
+      type: {class: AddItemEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: sd
+        itemId: 7
         isRemove: 0

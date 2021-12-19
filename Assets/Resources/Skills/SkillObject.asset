@@ -37,4 +37,4 @@ MonoBehaviour:
       data:
         name: :O
         itemId: 3
-        isRemove: 0
+        isRemove: 1

@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    private List<Slot> objects = new List<Slot>(10);
-    public Slot slotTemplate;
+    private List<SlotInventory> objects = new List<SlotInventory>(10);
+    public SlotInventory slotTemplate;
     public Transform content;
 
-    public List<Slot> Objects { get => objects; set => objects = value; }
+    public List<SlotInventory> Objects { get => objects; set => objects = value; }
 
     // private void Update()
     // {
@@ -19,13 +19,13 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
-        Objects = new List<Slot>();
-        Player.Instance.Character.InventoryController.Inventory.OnInventoryChanged += Refresh;
+        Objects = new List<SlotInventory>();
+        Player.Instance.Character.InventoryController.OnInventoryChanged += Refresh;
         Refresh(0);
     }
     private void OnDisable()
     {
-        Player.Instance.Character.InventoryController.Inventory.OnInventoryChanged -= Refresh;
+        Player.Instance.Character.InventoryController.OnInventoryChanged -= Refresh;
     }
 
     public void Refresh(int zmiennaDoUsuniecia)
@@ -50,7 +50,7 @@ public class InventoryUI : MonoBehaviour
     {
         Item item = CreateItem(id);
 
-        Slot slot = GameObject.Instantiate(slotTemplate, content);
+        SlotInventory slot = GameObject.Instantiate(slotTemplate, content);
         slot.Init(item);
         slot.gameObject.SetActive(true);
 

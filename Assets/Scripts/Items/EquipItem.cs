@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class EquipItem : Item
+public interface IEquipable
+{
+    public void Equip();
+}
+public class EquipItem : Item, IEquipable
 {
     [SerializeField]
     private int defense;
@@ -14,7 +17,7 @@ public class EquipItem : Item
 
     public override void Use()
     {
-        Debug.Log("ArmorItemUse");
+        Equip();
     }
 
     public EquipItem(ItemInfo info)
@@ -26,5 +29,11 @@ public class EquipItem : Item
     {
         base.Init(info);
         Defense = ((EquipItemInfo)info).Defense;
+        EquipmentType = ((EquipItemInfo)info).EquipmentType;
+    }
+
+    public void Equip()
+    {
+        Player.Instance.Character.InventoryController.EquipItem(this, EquipmentType);
     }
 }

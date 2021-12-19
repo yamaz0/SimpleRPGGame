@@ -12,7 +12,6 @@ public class Inventory
     [Modificator]
     public List<int> ItemsId { get => itemsId; private set => itemsId = value; }
 
-    public event System.Action<int> OnInventoryChanged = delegate { };
 
     public Inventory()
     {
@@ -27,7 +26,6 @@ public class Inventory
     public void AddItem(int id)
     {
         ItemsId.Add(id);
-        NotifyInventoryChanged(id);
     }
 
     public bool RemoveItem(int id)
@@ -37,15 +35,10 @@ public class Inventory
             if (ItemsId[i] == id)
             {
                 ItemsId.RemoveAt(i);
-                NotifyInventoryChanged(id);
                 return true;
             }
         }
         return false;
     }
 
-    private void NotifyInventoryChanged(int id)
-    {
-        OnInventoryChanged(id);
-    }
 }

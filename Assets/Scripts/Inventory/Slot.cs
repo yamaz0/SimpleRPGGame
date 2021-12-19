@@ -7,42 +7,12 @@ public class Slot : MonoBehaviour
     private Image icon;
     public Item ItemCache { get; set; }
 
-    // public event System.Action OnItemChanged = delegate { };
-
     public void Init(Item item)
     {
         ItemCache = item;
-        icon.sprite = ItemCache.Icon;
+        if (ItemCache != null)
+            icon.sprite = ItemCache.Icon;
+        else
+            icon.sprite = Resources.LoadAll<Sprite>("")[0];
     }
-
-    public void RemoveItem()
-    {
-        // ItemId = Constants.NONE_EQUIP_ID;
-        // ItemCache = null;
-    }
-
-    public void SetItem(int id)
-    {
-        // ItemId = id;
-        // CreateItemCache();
-        // NotifyItemChanged();
-    }
-
-    // public void SetItem(ref Item item)
-    // {
-    //     ItemId = item.Id;
-    //     // Item tmp = ItemCache;
-    //     // ItemCache = item;
-    //     // item = tmp;
-    // }
-
-    // private void CreateItemCache()
-    // {
-    // ItemCache = ItemsScriptableObject.Instance.GetItemInfoById(ItemId).CreateItem();
-    // }
-
-    // private void NotifyItemChanged()
-    // {
-    //     OnItemChanged();
-    // }
 }

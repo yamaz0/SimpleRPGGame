@@ -18,6 +18,12 @@ MonoBehaviour:
   - id: 2
   - id: 3
   - id: 4
+  - id: 5
+  - id: 6
+  - id: 7
+  - id: 8
+  - id: 9
+  - id: 10
   references:
     version: 1
     00000000:
@@ -57,8 +63,62 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         name: Armor
-        id: 0
+        id: 4
         icon: {fileID: 21300000, guid: da468f356abb846bcaf3a1b64c5c26d2, type: 3}
         itemType: 5
         defense: 2
         equipmentType: 1
+    00000005:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        name: NoneHelmet
+        id: 5
+        icon: {fileID: 21300000, guid: d6113e1a238296b4a9d34d46933f7171, type: 3}
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    00000006:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        name: NoneArmor
+        id: 6
+        icon: {fileID: 21300000, guid: 5b54b64aa03a6418fa2cf8b50928ceb9, type: 3}
+        itemType: 5
+        defense: 1
+        equipmentType: 1
+    00000007:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        name: NoneLegs
+        id: 7
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        itemType: 5
+        defense: 0
+        equipmentType: 2
+    00000008:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        name: NoneBoots
+        id: 8
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        itemType: 5
+        defense: 0
+        equipmentType: 3
+    00000009:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        name: NoneWeapon
+        id: 9
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        itemType: 5
+        defense: 0
+        equipmentType: 5
+    0000000A:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        name: NoneShield
+        id: 10
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        itemType: 5
+        defense: 0
+        equipmentType: 4
