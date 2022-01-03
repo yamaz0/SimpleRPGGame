@@ -6,7 +6,6 @@ public class WeaponItem : Item, IEquipable, IUseable
 {
     private int attack;
     private float attackSpeed;
-    private bool isTwoHanded = false; // do wykorzystania potem
 
     public int Attack { get => attack; set => attack = value; }
     public float AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
@@ -15,15 +14,9 @@ public class WeaponItem : Item, IEquipable, IUseable
     {
         InventoryController inventoryController = Player.Instance.Character.InventoryController;
         int leftHandItemId = inventoryController.Equipement.GetItemIdByType(Equipement.EqType.HandLeft);
+        Equipement.EqType EquipSlotType = leftHandItemId == Constants.NONE_EQUIP_ID ? Equipement.EqType.HandLeft : Equipement.EqType.HandRight;
 
-        if (leftHandItemId == Constants.NONE_EQUIP_ID)
-        {
-            Equip(Equipement.EqType.HandLeft);
-        }
-        else//TODO tutaj rozbudować o two handed bo nie mozna miec drugiego miecza jesli jest dwureczny
-        {
-            Equip(Equipement.EqType.HandRight);
-        }
+        Equip(EquipSlotType);
     }
 
     public WeaponItem(ItemInfo info)
@@ -41,6 +34,9 @@ public class WeaponItem : Item, IEquipable, IUseable
     public void Equip(Equipement.EqType type)
     {
         if (type == Equipement.EqType.HandLeft || type == Equipement.EqType.HandRight)
-            Player.Instance.Character.InventoryController.EquipItem(this, type);
+        {
+            InventoryController inventoryController = Player.Instance.Character.InventoryController;
+            inventoryController.EquipItem(this, type);
+        }
     }
 }
