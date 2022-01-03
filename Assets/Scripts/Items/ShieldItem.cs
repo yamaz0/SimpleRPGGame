@@ -12,7 +12,7 @@ public class ShieldItem : Item, IEquipable, IUseable
 
     public void Use()
     {
-        Equip();
+        Equip(Equipement.EqType.HandRight);
     }
 
     public ShieldItem(ItemInfo info)
@@ -27,8 +27,9 @@ public class ShieldItem : Item, IEquipable, IUseable
         BlockChance = ((ShieldItemInfo)info).BlockChance;
     }
 
-    public void Equip()
+    public void Equip(Equipement.EqType type)
     {
-        Player.Instance.Character.InventoryController.EquipItem(this, Equipement.EqType.HandRight);
+        if (type == Equipement.EqType.HandLeft || type == Equipement.EqType.HandRight)
+            Player.Instance.Character.InventoryController.EquipItem(this, type);
     }
 }

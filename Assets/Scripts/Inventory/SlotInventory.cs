@@ -42,7 +42,7 @@ public class SlotInventory : Slot, IBeginDragHandler, IDragHandler, IDropHandler
                 IEquipable tmp = ItemCache as IEquipable;
                 if (tmp != null)
                 {
-                    tmp.Equip();
+                    tmp.Equip(slot.Eqtype);
                     break;
                 }
                 //else nie mozna ubrac komunikat

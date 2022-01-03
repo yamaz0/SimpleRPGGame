@@ -13,7 +13,17 @@ public class WeaponItem : Item, IEquipable, IUseable
 
     public void Use()
     {
-        Equip();
+        InventoryController inventoryController = Player.Instance.Character.InventoryController;
+        int leftHandItemId = inventoryController.Equipement.GetItemIdByType(Equipement.EqType.HandLeft);
+
+        if (leftHandItemId == Constants.NONE_EQUIP_ID)
+        {
+            Equip(Equipement.EqType.HandLeft);
+        }
+        else//TODO tutaj rozbudować o two handed bo nie mozna miec drugiego miecza jesli jest dwureczny
+        {
+            Equip(Equipement.EqType.HandRight);
+        }
     }
 
     public WeaponItem(ItemInfo info)
@@ -28,18 +38,9 @@ public class WeaponItem : Item, IEquipable, IUseable
         AttackSpeed = ((WeaponItemInfo)info).AttackSpeed;
     }
 
-    public void Equip()
+    public void Equip(Equipement.EqType type)
     {
-        InventoryController inventoryController = Player.Instance.Character.InventoryController;
-        int leftHandItemId = inventoryController.Equipement.GetItemIdByType(Equipement.EqType.HandLeft);
-
-        if(leftHandItemId == Constants.NONE_EQUIP_ID)
-        {
-            inventoryController.EquipItem(this, Equipement.EqType.HandLeft);
-        }
-        else//TODO tutaj rozbudować o two handed bo nie mozna miec drugiego miecza jesli jest dwureczny
-        {
-            inventoryController.EquipItem(this, Equipement.EqType.HandRight);
-        }
+        if (type == Equipement.EqType.HandLeft || type == Equipement.EqType.HandRight)
+            Player.Instance.Character.InventoryController.EquipItem(this, type);
     }
 }
