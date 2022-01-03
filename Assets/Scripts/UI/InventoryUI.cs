@@ -21,14 +21,14 @@ public class InventoryUI : MonoBehaviour
     {
         Objects = new List<SlotInventory>();
         Player.Instance.Character.InventoryController.OnInventoryChanged += Refresh;
-        Refresh(0);
+        Refresh();
     }
     private void OnDisable()
     {
         Player.Instance.Character.InventoryController.OnInventoryChanged -= Refresh;
     }
 
-    public void Refresh(int zmiennaDoUsuniecia)
+    public void Refresh()
     {
         if (Objects.Count != 0)
         {

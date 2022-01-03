@@ -8,16 +8,16 @@ public class InventoryController
     [SerializeField]
     private Inventory inventory = new Inventory();
     [SerializeField]
-    private Equipement equipement;
+    private Equipement equipement = new Equipement();
 
     public Inventory Inventory { get => inventory; private set => inventory = value; }
     public Equipement Equipement { get => equipement; private set => equipement = value; }
-    public event System.Action<int> OnInventoryChanged = delegate { };
+    public event System.Action OnInventoryChanged = delegate { };
 
     public void AddItem(int itemId)
     {
         Inventory.AddItem(itemId);
-        NotifyInventoryChanged(itemId);
+        NotifyInventoryChanged();
     }
 
     public bool RemoveItem(int itemId)
@@ -25,7 +25,7 @@ public class InventoryController
         bool isRemoved = Inventory.RemoveItem(itemId);
         if (isRemoved == true)
         {
-            NotifyInventoryChanged(itemId);
+            NotifyInventoryChanged();
         }
         return isRemoved;
     }
@@ -39,8 +39,8 @@ public class InventoryController
             AddItem(oldEquipItemId);
         }
     }
-    private void NotifyInventoryChanged(int id)
+    private void NotifyInventoryChanged()
     {
-        OnInventoryChanged(id);
+        OnInventoryChanged();
     }
 }

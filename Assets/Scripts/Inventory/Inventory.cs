@@ -15,7 +15,8 @@ public class Inventory
 
     public Inventory()
     {
-        ItemsId = new List<int>();
+        if (ItemsId == null)
+            ItemsId = new List<int>();
     }
 
     public bool CheckHasItem(int id)

@@ -73,7 +73,7 @@ MonoBehaviour:
       data:
         name: NoneHelmet
         id: 5
-        icon: {fileID: 21300000, guid: d6113e1a238296b4a9d34d46933f7171, type: 3}
+        icon: {fileID: 21300000, guid: 86823c3252463409989c0bb247d92a60, type: 3}
         itemType: 5
         defense: 0
         equipmentType: 0
@@ -91,7 +91,8 @@ MonoBehaviour:
       data:
         name: NoneLegs
         id: 7
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        icon: {fileID: -5020785835753586017, guid: 3e6a24bbaa0660d428ce353560a579ca,
+          type: 3}
         itemType: 5
         defense: 0
         equipmentType: 2
