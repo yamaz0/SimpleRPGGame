@@ -28,7 +28,6 @@ public abstract class Item : IIdable, INameable
     public ItemsManager.ItemType Type { get => type; set => type = value; }
     public Sprite Icon { get => icon; set => icon = value; }
 
-    public abstract void Use();
     protected virtual void Init(ItemInfo info)
     {
         Id = info.Id;
@@ -36,4 +35,6 @@ public abstract class Item : IIdable, INameable
         Type = info.ItemType;
         Icon = info.Icon;
     }
+
+    // public abstract string GetFullText(); // do tooltipa czy cos
 }

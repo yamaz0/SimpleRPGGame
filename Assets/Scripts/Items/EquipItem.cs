@@ -5,7 +5,11 @@ public interface IEquipable
 {
     public void Equip();
 }
-public class EquipItem : Item, IEquipable
+public interface IUseable
+{
+    public void Use();
+}
+public class EquipItem : Item, IEquipable, IUseable
 {
     [SerializeField]
     private int defense;
@@ -15,7 +19,7 @@ public class EquipItem : Item, IEquipable
     public int Defense { get => defense; set => defense = value; }
     public Equipement.EqType EquipmentType { get => equipmentType; set => equipmentType = value; }
 
-    public override void Use()
+    public void Use()
     {
         Equip();
     }

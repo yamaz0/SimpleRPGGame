@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IUseable
+public interface IInteractable
 {
     void Use();
 }
-public class InteractObject : MonoBehaviour, IUseable
+public class InteractObject : MonoBehaviour, IInteractable
 {
     // [SerializeField]
     // private AttributesScriptableObject.MagicAttributes atribute;

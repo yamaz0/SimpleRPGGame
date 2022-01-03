@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BookItem : Item
+public class BookItem : Item, IUseable
 {
     int bookXp;
 
     public int BookXp { get => bookXp; set => bookXp = value; }
-    public override void Use()
+    public void Use()
     {
-Debug.Log("BookItemUse");
+        Debug.Log("BookItemUse");
     }
 
     public BookItem(ItemInfo info)

@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestItem : Item
+public class QuestItem : Item, IUseable
 {
     int questId;
 
     public int QuestId { get => questId; set => questId = value; }
 
-    public override void Use()
+    public void Use()
     {
-Debug.Log("QuestItemUse");
+        Debug.Log("QuestItemUse");
     }
 
     public QuestItem(ItemInfo info)

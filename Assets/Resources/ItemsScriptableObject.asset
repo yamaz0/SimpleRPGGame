@@ -24,6 +24,8 @@ MonoBehaviour:
   - id: 8
   - id: 9
   - id: 10
+  - id: 11
+  - id: 12
   references:
     version: 1
     00000000:
@@ -106,20 +108,40 @@ MonoBehaviour:
         defense: 0
         equipmentType: 3
     00000009:
-      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
-        name: NoneWeapon
-        id: 9
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        name: sw
+        id: 11
+        icon: {fileID: 21300000, guid: 86823c3252463409989c0bb247d92a60, type: 3}
         itemType: 5
         defense: 0
-        equipmentType: 5
+        blockChance: 0
     0000000A:
-      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
-        name: NoneShield
-        id: 10
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        name: sh
+        id: 12
+        icon: {fileID: 8760534971004201820, guid: 3e6a24bbaa0660d428ce353560a579ca,
+          type: 3}
+        itemType: 5
+        attack: 0
+        attackSpeed: 0
+    0000000B:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        name: sword
+        id: 13
+        icon: {fileID: 21300000, guid: da468f356abb846bcaf3a1b64c5c26d2, type: 3}
         itemType: 5
         defense: 0
-        equipmentType: 4
+        blockChance: 0
+    0000000C:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        name: shield
+        id: 14
+        icon: {fileID: -3114753951649970509, guid: 3e6a24bbaa0660d428ce353560a579ca,
+          type: 3}
+        itemType: 5
+        attack: 0
+        attackSpeed: 0

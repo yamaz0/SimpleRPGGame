@@ -32,24 +32,18 @@ public class SlotInventory : Slot, IBeginDragHandler, IDragHandler, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("end");
-        System.Collections.Generic.List<RaycastResult> res = new System.Collections.Generic.List<RaycastResult>();
+        List<RaycastResult> res = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, res);
         for (int i = 0; i < res.Count; i++)
         {
             SlotEquipment slot = res[i].gameObject.GetComponent<SlotEquipment>();
             if (slot != null)
             {
-                EquipItem tmp = ItemCache as EquipItem;
-                if (tmp != null && slot.Eqtype == tmp.EquipmentType)
+                IEquipable tmp = ItemCache as IEquipable;
+                if (tmp != null)
                 {
-                    // Item tmp = ItemCache;
-                    if (slot.ItemCache != null)
-                        Init(slot.ItemCache);
-
-                    slot.Init(tmp);
-                    Player.Instance.Character.InventoryController.EquipItem(tmp, tmp.EquipmentType);
+                    tmp.Equip();
                     break;
-                    //
                 }
                 //else nie mozna ubrac komunikat
             }
@@ -66,7 +60,9 @@ public class SlotInventory : Slot, IBeginDragHandler, IDragHandler, IDropHandler
     }
     private void DoubleClick()
     {
-        ItemCache.Use();
+        IUseable useable = ItemCache as IUseable;
+        if (useable != null)
+            useable.Use();
     }
 
     public void OnPointerDown(PointerEventData eventData)
