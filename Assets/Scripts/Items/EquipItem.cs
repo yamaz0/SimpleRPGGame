@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public interface IEquipable
 {
-    public void Equip(Equipement.EqType type);
+    public bool Equip(Equipement.EqType type);
 }
 public interface IUseable
 {
@@ -36,9 +36,13 @@ public class EquipItem : Item, IEquipable, IUseable
         EquipmentType = ((EquipItemInfo)info).EquipmentType;
     }
 
-    public void Equip(Equipement.EqType type)
+    public bool Equip(Equipement.EqType type)
     {
         if (type == EquipmentType)
+        {
             Player.Instance.Character.InventoryController.EquipItem(this, type);
+            return true;
+        }
+        return false;
     }
 }

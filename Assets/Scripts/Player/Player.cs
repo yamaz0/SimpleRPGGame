@@ -24,6 +24,7 @@ public class Player : Singleton<Player>
     {
         // LoadData();
         // Inventory = new Inventory();
+        Character.Initialize();
     }
 
     public void KnowledgeAdd()

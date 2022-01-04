@@ -27,9 +27,21 @@ public class ShieldItem : Item, IEquipable, IUseable
         BlockChance = ((ShieldItemInfo)info).BlockChance;
     }
 
-    public void Equip(Equipement.EqType type)
+    public bool Equip(Equipement.EqType type)
     {
-        if (type == Equipement.EqType.HandLeft || type == Equipement.EqType.HandRight)
-            Player.Instance.Character.InventoryController.EquipItem(this, type);
+        if (type == Equipement.EqType.HandRight)
+        {
+            InventoryController inventoryController = Player.Instance.Character.InventoryController;
+
+            Item item = inventoryController.GetItemByType(type);
+
+            if (item != null || inventoryController.IsTwoHandedEquip == false)
+            {
+                inventoryController.EquipItem(this, type);
+                inventoryController.IsTwoHandedEquip = false;
+                return true;
+            }
+        }
+        return false;
     }
 }

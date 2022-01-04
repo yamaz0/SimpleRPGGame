@@ -18,7 +18,6 @@ public class SlotInventory : Slot, IBeginDragHandler, IDragHandler, IDropHandler
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("start");
         StartPos = transform.position;
         Index = transform.GetSiblingIndex();
         transform.SetAsLastSibling();
@@ -31,7 +30,6 @@ public class SlotInventory : Slot, IBeginDragHandler, IDragHandler, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("end");
         List<RaycastResult> res = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, res);
         for (int i = 0; i < res.Count; i++)
@@ -42,10 +40,17 @@ public class SlotInventory : Slot, IBeginDragHandler, IDragHandler, IDropHandler
                 IEquipable tmp = ItemCache as IEquipable;
                 if (tmp != null)
                 {
-                    tmp.Equip(slot.Eqtype);
+                    bool isEquip = tmp.Equip(slot.Eqtype);
+                    if (isEquip == false)
+                    {
+                        Debug.Log("cant wear");
+                    }
                     break;
                 }
-                //else nie mozna ubrac komunikat
+                else
+                {
+                    Debug.Log("its not equipable");
+                }
             }
         }
         transform.SetSiblingIndex(Index);

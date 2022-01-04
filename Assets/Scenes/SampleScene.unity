@@ -446,6 +446,48 @@ MonoBehaviour:
   - {fileID: 1869214123}
   - {fileID: 1956476192}
   - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
 --- !u!1 &103841036
 GameObject:
   m_ObjectHideFlags: 0
@@ -12065,7 +12107,8 @@ MonoBehaviour:
       inventory:
         itemsId: 
       equipement:
-        equipmentSlots: 000000000000000000000000000000000000000000000000
+        itemsId: 000000000000000000000000000000000000000000000000
+      isTwoHandedEquip: 0
 --- !u!4 &1730599732
 Transform:
   m_ObjectHideFlags: 0
@@ -13030,7 +13073,8 @@ MonoBehaviour:
       inventory:
         itemsId: 
       equipement:
-        equipmentSlots: ffffffffffffffffffffffffffffffffffffffffffffffff
+        itemsId: ffffffffffffffffffffffffffffffffffffffffffffffff
+      isTwoHandedEquip: 0
   speed: 5
 --- !u!4 &1919726951
 Transform:

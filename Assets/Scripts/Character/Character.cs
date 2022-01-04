@@ -29,15 +29,10 @@ public class Character
     //     Initialize();
     // }
 
-    // public void Initialize()
-    // {
-    //     DictModyficators.Clear();
-    //     foreach (ModificatorInfo info in ModificatorsSO.Instance.ModyficatorsInfo)
-    //     {
-    //         Modificator propertyInfo = ModificatorsSO.GetModifier(this, info);
-    //         DictModyficators.Add(info.PropertyName, propertyInfo);
-    //     }
-    // }
+    public void Initialize()
+    {
+        InventoryController.Init();
+    }
     public void AddSpell(int id)
     {
         if (KnownSpellsId.Contains(id) == false)

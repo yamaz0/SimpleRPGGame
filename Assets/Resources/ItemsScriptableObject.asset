@@ -26,6 +26,7 @@ MonoBehaviour:
   - id: 10
   - id: 11
   - id: 12
+  - id: 13
   references:
     version: 1
     00000000:
@@ -124,8 +125,10 @@ MonoBehaviour:
         icon: {fileID: 8760534971004201820, guid: 3e6a24bbaa0660d428ce353560a579ca,
           type: 3}
         itemType: 5
+        weaponType: 0
         attack: 0
         attackSpeed: 0
+        twoHanded: 0
     0000000B:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
@@ -143,5 +146,18 @@ MonoBehaviour:
         icon: {fileID: -3114753951649970509, guid: 3e6a24bbaa0660d428ce353560a579ca,
           type: 3}
         itemType: 5
+        weaponType: 1
         attack: 0
         attackSpeed: 0
+        twoHanded: 0
+    0000000D:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        name: ssss
+        id: 15
+        icon: {fileID: 21300000, guid: d4fd9a785b43f4479a077f9adbaf5a47, type: 3}
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0

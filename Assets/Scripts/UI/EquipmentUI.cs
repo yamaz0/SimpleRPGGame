@@ -13,7 +13,12 @@ public class EquipmentUI : MonoBehaviour
     private void Start()
     {
         Refresh();
-        Player.Instance.Character.InventoryController.OnInventoryChanged += Refresh;
+        Player.Instance.Character.InventoryController.Equipement.OnEquipmentChanged += Refresh;
+    }
+
+    private void OnDisable()
+    {
+        Player.Instance.Character.InventoryController.Equipement.OnEquipmentChanged -= Refresh;
     }
 
     private void OnValidate()
@@ -24,14 +29,11 @@ public class EquipmentUI : MonoBehaviour
 
     private void Refresh()
     {
-        Equipement equipement = Player.Instance.Character.InventoryController.Equipement;
+        InventoryController equipement = Player.Instance.Character.InventoryController;
 
         foreach (var s in EquipmentSlots)
         {
-            int id = equipement.GetItemIdByType(s.Eqtype);
-            ItemInfo itemInfo = ItemsScriptableObject.Instance.GetItemInfoById(id);
-            Item i = itemInfo?.CreateItem();
-            s.Init(i);
+            s.Init(equipement.GetItemByType(s.Eqtype));
         }
     }
 

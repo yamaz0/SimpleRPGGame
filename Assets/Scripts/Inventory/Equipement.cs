@@ -1,25 +1,60 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class Equipement
 {
     [SerializeField]
-    private int[] equipmentSlots = new int[Constants.EQUIPMENT_SLOTS_NUMBER];
+    private int[] itemsId;
 
-    ///<summary>
-    ///Set new item id and return old item id.
-    ///</summary>
-    public int EquipItem(int id, EqType type)
+    public List<Item> Items { get; set; }
+
+    public event System.Action OnEquipmentChanged = delegate { };
+
+    public void Init()
     {
-        int oldItemId = equipmentSlots[(int)type];
-        equipmentSlots[(int)type] = id;
+        if (itemsId == null)
+        {
+            itemsId = new int[Constants.EQUIPMENT_SLOTS_NUMBER];
+            for (int i = 0; i < Constants.EQUIPMENT_SLOTS_NUMBER; i++)
+            {
+                itemsId[i] = Constants.NONE_EQUIP_ID;
+            }
+        }
 
-        return oldItemId;
+        Items = new List<Item>(Constants.EQUIPMENT_SLOTS_NUMBER);
+
+        foreach (var itemId in itemsId)
+        {
+            Item item = ItemsScriptableObject.Instance.GetItemInfoById(itemId)?.CreateItem();
+            Items.Add(item);
+        }
     }
 
-    public int GetItemIdByType(EqType type)
+    ///<summary>
+    ///Set new item and return old item.
+    ///</summary>
+    public Item EquipItem(Item item, EqType type)
     {
-        return equipmentSlots[(int)type];
+        int id = item != null ? item.Id : Constants.NONE_EQUIP_ID;
+        Item oldItem = Items[(int)type];
+
+        itemsId[(int)type] = id;
+        Items[(int)type] = item;
+
+        NotifyEquipmentChanged();
+
+        return oldItem;
+    }
+
+    private void NotifyEquipmentChanged()
+    {
+        OnEquipmentChanged();
+    }
+
+    public Item GetItemByType(EqType type)
+    {
+        return Items[(int)type];
     }
 
     public enum EqType { Helmet, Armor, Legs, Boots, HandLeft, HandRight };

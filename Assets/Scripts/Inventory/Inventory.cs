@@ -12,34 +12,55 @@ public class Inventory
     [Modificator]
     public List<int> ItemsId { get => itemsId; private set => itemsId = value; }
 
+    public List<Item> Items { get; set; }
 
-    public Inventory()
+    public event System.Action OnInventoryChanged = delegate { };
+
+    public void Init()
     {
         if (ItemsId == null)
             ItemsId = new List<int>();
-    }
 
-    public bool CheckHasItem(int id)
-    {
-        return ItemsId.Contains(id);
-    }
+        Items = new List<Item>();
 
-    public void AddItem(int id)
-    {
-        ItemsId.Add(id);
-    }
-
-    public bool RemoveItem(int id)
-    {
         for (int i = 0; i < ItemsId.Count; i++)
         {
-            if (ItemsId[i] == id)
+            Item item = ItemsScriptableObject.Instance.GetItemInfoById(ItemsId[i])?.CreateItem();
+            Items.Add(item);
+        }
+    }
+
+    public void AddItem(Item item)
+    {
+        ItemsId.Add(item.Id);
+        Items.Add(item);
+
+        NotifyInventoryChanged();
+    }
+
+    public bool RemoveItem(System.Predicate<Item> match)
+    {
+        for (int i = 0; i < Items.Count; i++)
+        {
+            if (match(Items[i]) == true)
             {
-                ItemsId.RemoveAt(i);
+                RemoveItemsAtIndex(i);
                 return true;
             }
         }
         return false;
     }
 
+    private void RemoveItemsAtIndex(int i)
+    {
+        ItemsId.RemoveAt(i);
+        Items.RemoveAt(i);
+
+        NotifyInventoryChanged();
+    }
+
+    private void NotifyInventoryChanged()
+    {
+        OnInventoryChanged();
+    }
 }

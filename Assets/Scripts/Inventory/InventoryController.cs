@@ -9,38 +9,66 @@ public class InventoryController
     private Inventory inventory = new Inventory();
     [SerializeField]
     private Equipement equipement = new Equipement();
+    [SerializeField]
+    private bool isTwoHandedEquip;
 
-    public Inventory Inventory { get => inventory; private set => inventory = value; }
-    public Equipement Equipement { get => equipement; private set => equipement = value; }
-    public event System.Action OnInventoryChanged = delegate { };
+    public Inventory Inventory { get => inventory; set => inventory = value; }
+    public Equipement Equipement { get => equipement; set => equipement = value; }
+    public bool IsTwoHandedEquip { get => isTwoHandedEquip; set => isTwoHandedEquip = value; }
+
+    public void Init()
+    {
+        Equipement.Init();
+        Inventory.Init();
+    }
 
     public void AddItem(int itemId)
     {
-        Inventory.AddItem(itemId);
-        NotifyInventoryChanged();
+        Item item = ItemsScriptableObject.Instance.GetItemInfoById(itemId).CreateItem();
+        AddItem(item);
+    }
+
+    public void AddItem(Item item)
+    {
+        Inventory.AddItem(item);
+    }
+
+    public bool RemoveItem(Item item)
+    {
+        return Inventory.RemoveItem(x => x.Equals(item));
     }
 
     public bool RemoveItem(int itemId)
     {
-        bool isRemoved = Inventory.RemoveItem(itemId);
-        if (isRemoved == true)
-        {
-            NotifyInventoryChanged();
-        }
-        return isRemoved;
+        return Inventory.RemoveItem(x => x.Id.Equals(itemId));
     }
 
-    public void EquipItem(Item i, Equipement.EqType type)
+    public Item GetItemByType(Equipement.EqType type)
     {
-        int oldEquipItemId = Equipement.EquipItem(i.Id, type);
-        RemoveItem(i.Id);
-        if (oldEquipItemId != Constants.NONE_EQUIP_ID)
+        return Equipement.GetItemByType(type);
+    }
+
+    public void EquipItem(Item item, Equipement.EqType type)
+    {
+        Item oldEquipItem = Equipement.EquipItem(item, type);
+
+        if (oldEquipItem != null)
         {
-            AddItem(oldEquipItemId);
+            AddItem(oldEquipItem);
+        }
+        if (item != null)
+        {
+            RemoveItem(item);
         }
     }
-    private void NotifyInventoryChanged()
+
+    public void AddInventoryEvent(System.Action action)
     {
-        OnInventoryChanged();
+        Inventory.OnInventoryChanged += action;
+    }
+
+    public void AddEquipmentEvent(System.Action action)
+    {
+        Equipement.OnEquipmentChanged += action;
     }
 }

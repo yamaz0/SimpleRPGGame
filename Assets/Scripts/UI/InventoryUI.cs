@@ -20,12 +20,13 @@ public class InventoryUI : MonoBehaviour
     private void Start()
     {
         Objects = new List<SlotInventory>();
-        Player.Instance.Character.InventoryController.OnInventoryChanged += Refresh;
+        Player.Instance.Character.InventoryController.Inventory.OnInventoryChanged += Refresh;
         Refresh();
     }
+
     private void OnDisable()
     {
-        Player.Instance.Character.InventoryController.OnInventoryChanged -= Refresh;
+        Player.Instance.Character.InventoryController.Inventory.OnInventoryChanged -= Refresh;
     }
 
     public void Refresh()
@@ -38,18 +39,16 @@ public class InventoryUI : MonoBehaviour
             }
             Objects.Clear();
         }
-        List<int> itemsIds = Player.Instance.Character.InventoryController.Inventory.ItemsId;
+        List<Item> items = Player.Instance.Character.InventoryController.Inventory.Items;
 
-        for (int i = 0; i < itemsIds.Count; i++)
+        foreach (var item in items)
         {
-            CreateNewSlot(itemsIds[i]);
+            CreateNewSlot(item);
         }
     }
 
-    private void CreateNewSlot(int id)
+    private void CreateNewSlot(Item item)
     {
-        Item item = CreateItem(id);
-
         SlotInventory slot = GameObject.Instantiate(slotTemplate, content);
         slot.Init(item);
         slot.gameObject.SetActive(true);
@@ -57,10 +56,4 @@ public class InventoryUI : MonoBehaviour
         Objects.Add(slot);
     }
 
-    private Item CreateItem(int id)
-    {
-        // ItemsManager itemsManager = ItemsManager.Instance;
-        ItemInfo itemInfo = ItemsScriptableObject.Instance.GetItemInfoById(id);
-        return itemInfo.CreateItem();
-    }
 }
