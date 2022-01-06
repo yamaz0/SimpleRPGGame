@@ -18,6 +18,7 @@ MonoBehaviour:
     - id: 0
     - id: 1
     - id: 2
+    - id: 3
   references:
     version: 1
     00000000:
@@ -37,4 +38,10 @@ MonoBehaviour:
       data:
         name: :O
         itemId: 3
+        isRemove: 1
+    00000003:
+      type: {class: AddItemEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        itemId: 15
         isRemove: 1

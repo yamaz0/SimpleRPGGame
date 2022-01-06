@@ -126,8 +126,8 @@ MonoBehaviour:
           type: 3}
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 1
+        attackSpeed: 1
         twoHanded: 0
     0000000B:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
@@ -160,4 +160,4 @@ MonoBehaviour:
         weaponType: 0
         attack: 0
         attackSpeed: 0
-        twoHanded: 0
+        twoHanded: 1

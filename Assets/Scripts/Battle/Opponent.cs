@@ -6,63 +6,49 @@ using UnityEngine;
 public class Opponent : MonoBehaviour
 {
     private Character character;
-    public float hp = 100;
-    private int exhaustedTurn = 0;
+    public float hp = 10;
+    private float exhaustedTurn = 0;
 
-    public  Animator anim;
-    public  OpponentSpriteController spritesController;
+    private float damage=1;
+    private float attackspeed = 1;
+    private float defence;
+    private float blockChange;
+
+
+    public Animator anim;
+    public OpponentSpriteController spritesController;
 
     public Character Character { get => character; set => character = value; }
+    public float Exhausted { get => exhaustedTurn; set => exhaustedTurn = value; }
+    public float Damage { get => damage; set => damage = value; }
+    public float Defence { get => defence; set => defence = value; }
+    public float Attackspeed { get => attackspeed; set => attackspeed = value; }
+    public float BlockChange { get => blockChange; set => blockChange = value; }
 
-    public void Initialize(Character characterToCopy)
+    public void Initialize(Character character)
     {
-        character = new Character();
-        character.CopyCharacter(characterToCopy);
+        this.character = character;
+        Item item1 = Character.InventoryController.GetItemByType(Equipement.EqType.HandLeft);
+
+        if (item1 is WeaponItem wi)
+        {
+            Damage += wi.Attack;
+            Attackspeed += wi.AttackSpeed;
+        }
+        else if (item1 is ShieldItem si)
+        {
+            Defence += si.Defense;
+            BlockChange += si.BlockChance;
+        }
     }
 
-    public bool CheckReadyToCast()
+    public bool CheckReady()
     {
-        return exhaustedTurn <= 0;
+        return Exhausted <= 0;
     }
 
     public void Attack()
     {
         anim.Play("Attack");
-    }
-
-    public void Defend()
-    {
-        anim.Play("Defend");
-    }
-
-    public void AddEffect()
-    {
-        // spellEffect.Execute(this);
-
-        // if(spellEffect.IsSingleUse == false)//jesli nie ma dzialac tylko raz, od razu
-        // {
-        //     SpellEffects.Add(spellEffect);
-        // }
-    }
-
-    public void ExecuteEffects()
-    {
-        // for (int i = SpellEffects.Count - 1; i >= 0 ; i--)
-        // {
-        //     SpellEffect currentSpellEffect = SpellEffects[i];
-        //     bool isActive = currentSpellEffect.CheckDurationEffect();
-
-        //     if(isActive == false)
-        //     {
-        //         currentSpellEffect.RemoveEffect(this);
-        //         SpellEffects.RemoveAt(i);
-        //         continue;
-        //     }
-
-        //     if(currentSpellEffect.IsRepeatable)//jesli efekt jest powtarzalny np dmg w czasie
-        //     {
-        //         currentSpellEffect.Execute(this);
-        //     }
-        // }
     }
 }

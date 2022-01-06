@@ -14,7 +14,7 @@ public class BattleManager : Singleton<BattleManager>
 
     [SerializeField]
     private DuelController duelController;
-
+public bool walka;
     public void StartBattle(Character characterFirst, Character characterSecound)
     {
         duelController = Instantiate(duelControllerPrefab);
@@ -27,7 +27,7 @@ public class BattleManager : Singleton<BattleManager>
         {
             StartBattle(player.Character,enemy.Character);
         }
-        if (Input.GetKeyDown(KeyCode.T))
+        if (walka)
             duelController.DoTurn();
     }
 }
