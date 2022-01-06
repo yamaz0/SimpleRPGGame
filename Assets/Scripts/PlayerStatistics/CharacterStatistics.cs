@@ -33,17 +33,22 @@ public class CharacterStatistics
     public Modificator BlockChance { get => blockChance; set => blockChance = value; }
     [Modificator]
     public Modificator CritChance { get => critChance; set => critChance = value; }
+    [Modificator]
     public Modificator AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
 
     public Modificator GetStatistic(string attributeName)
     {
         switch (attributeName)
         {
+            case "Hp": return Hp;
+            case "Damage": return Damage;
+            case "Defence": return Defence;
             case "DodgeChance": return DodgeChance;
             case "BlockChance": return BlockChance;
             case "CritChance": return CritChance;
+            case "AttackSpeed": return AttackSpeed;
             default:
-                Debug.LogError("PlayerStatistics name not exist!");
+                Debug.LogError($"Character statistic: {attributeName} name not exist!");
                 return null;
         }
     }
