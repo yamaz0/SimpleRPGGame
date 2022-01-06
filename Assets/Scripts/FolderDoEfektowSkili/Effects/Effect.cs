@@ -24,7 +24,7 @@ public class Effect : IEffect
 public class AddAttributeEffect : Effect
 {
     [SerializeField]
-    [ModDropdown("Attributes")]
+    [ModDropdown(nameof(Attributes))]
     private string attributeName;
     [SerializeField]
     private float value;
@@ -39,10 +39,10 @@ public class AddAttributeEffect : Effect
 }
 
 [System.Serializable]
-public class AddPlayerStatisticEffect : Effect
+public class AddCharacterStatisticEffect : Effect
 {
     [SerializeField]
-    [ModDropdown("PlayerStatistics")]
+    [ModDropdown(nameof(CharacterStatistics))]
     private string statisticName;
     [SerializeField]
     private float value;
@@ -51,7 +51,7 @@ public class AddPlayerStatisticEffect : Effect
 
     public override void Execute(Character character)
     {
-        Modificator modificator = character.PlayerStatistics.GetStatistic(statisticName);
+        Modificator modificator = character.Statistics.GetStatistic(statisticName);
         modificator.AddValue(value);
     }
 }

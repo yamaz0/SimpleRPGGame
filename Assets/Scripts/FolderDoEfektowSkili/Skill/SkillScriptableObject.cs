@@ -16,25 +16,29 @@ public class SkillScriptableObject : ScriptableObject
 
     public Skill Skill { get => skill; set => skill = value; }
 }
- [UnityEditor.CustomEditor(typeof(SkillScriptableObject))]
- public class SkillObjectEditor : UnityEditor.Editor
+[UnityEditor.CustomEditor(typeof(SkillScriptableObject))]
+public class SkillObjectEditor : UnityEditor.Editor
 {
     List<System.Type> types;
+    bool showPosition;
     public SkillObjectEditor()
     {
         types = System.Reflection.Assembly.GetAssembly(typeof(Effect)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(Effect))).ToList();
     }
     public override void OnInspectorGUI()
+    {
+        var script = (SkillScriptableObject)target;
+        showPosition = UnityEditor.EditorGUILayout.Foldout(showPosition, "Add effects buttons");
+        if (showPosition)
         {
-            base.OnInspectorGUI();
-            var script = (SkillScriptableObject)target;
-
             foreach (var t in types)
             {
-                if(GUILayout.Button($"Add {t.ToString()}", GUILayout.Height(40)))
+                if (GUILayout.Button($"{t.ToString()}", GUILayout.Height(40)))
                 {
                     script.Skill.AddEffect(System.Activator.CreateInstance(t) as Effect);
                 }
             }
         }
- }
+        base.OnInspectorGUI();
+    }
+}

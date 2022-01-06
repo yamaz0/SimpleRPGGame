@@ -584,6 +584,84 @@ MonoBehaviour:
   - {fileID: 1869214123}
   - {fileID: 1956476192}
   - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
 --- !u!1 &103841036
 GameObject:
   m_ObjectHideFlags: 0
@@ -12171,7 +12249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1730599731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12192,19 +12270,27 @@ MonoBehaviour:
         value: 1
       endurance:
         value: 1
-    playerStatistics:
-      dodgeChance:
-        value: 0
-      blockChance:
-        value: 0
-      critChance:
-        value: 0
     inventoryController:
       inventory:
         itemsId: 
       equipement:
         itemsId: ffffffffffffffffffffffffffffffffffffffff0c000000
       isTwoHandedEquip: 0
+    statistics:
+      hp:
+        value: 100
+      damage:
+        value: 1
+      attackSpeed:
+        value: 1
+      defence:
+        value: 0
+      dodgeChance:
+        value: 0
+      blockChance:
+        value: 0
+      critChance:
+        value: 0
 --- !u!4 &1730599732
 Transform:
   m_ObjectHideFlags: 0
@@ -13157,19 +13243,27 @@ MonoBehaviour:
         value: 1
       endurance:
         value: 1
-    playerStatistics:
-      dodgeChance:
-        value: 0
-      blockChance:
-        value: 0
-      critChance:
-        value: 0
     inventoryController:
       inventory:
         itemsId: 
       equipement:
         itemsId: ffffffffffffffffffffffffffffffffffffffff0c000000
       isTwoHandedEquip: 0
+    statistics:
+      hp:
+        value: 100
+      damage:
+        value: 1
+      attackSpeed:
+        value: 1
+      defence:
+        value: 0
+      dodgeChance:
+        value: 0
+      blockChance:
+        value: 0
+      critChance:
+        value: 0
   speed: 5
 --- !u!4 &1919726951
 Transform:
