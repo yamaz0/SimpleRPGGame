@@ -13,7 +13,7 @@ public class Modificator
     [field: NonSerialized]
     public event Action<float> OnLevelChanged = delegate { };
 
-    public Modificator(float modValue= 0)
+    public Modificator(float modValue = 0)
     {
         SetValue(modValue);
     }
@@ -27,7 +27,7 @@ public class Modificator
     {
         Value = modValue;
 
-        if(isNotify == true)
+        if (isNotify == true)
         {
             NotifyLevelChanged();
         }
