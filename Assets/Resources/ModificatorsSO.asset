@@ -18,9 +18,6 @@ MonoBehaviour:
     - Strength
     - Dexterity
     - Endurance
-  - modTypeName: Inventory
-    modNames:
-    - ItemsId
   - modTypeName: CharacterStatistics
     modNames:
     - Hp
@@ -29,3 +26,7 @@ MonoBehaviour:
     - DodgeChance
     - BlockChance
     - CritChance
+    - AttackSpeed
+  - modTypeName: Inventory
+    modNames:
+    - ItemsId
