@@ -13,4 +13,16 @@ public class MulOperatorEffect : OperatorEffect
         Modificator modificator = character.Statistics.GetStatistic(attributeName);
         return modificator.Value * value;
     }
+
+    public override void ViewInfo()
+    {
+        UnityEditor.EditorGUILayout.LabelField($"attributeName :{attributeName}");
+        UnityEditor.EditorGUILayout.LabelField($"Value to mul :{value}");
+    }
+
+    public override void ViewFields()
+    {
+        attributeName = UnityEditor.EditorGUILayout.TextField("attributeName", attributeName);
+        value = UnityEditor.EditorGUILayout.FloatField("value", value);
+    }
 }

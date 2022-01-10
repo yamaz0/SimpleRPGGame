@@ -13,12 +13,31 @@ MonoBehaviour:
   m_Name: AbilityScriptableObject
   m_EditorClassIdentifier: 
   abilities:
-  - name: 
+  - name: Atak
     id: 0
     icon: {fileID: 21300000, guid: d6113e1a238296b4a9d34d46933f7171, type: 3}
     twoCharacterEffects:
-    - name: atak efekt
-      isSingleUse: 1
+    - id: 0
     oneCharacterEffects: []
     durationTime: 0
     isSingleUse: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: efe1
+        isSingleUse: 1
+        operators:
+        - id: 1
+        - id: 2
+        atak: 0.66
+    00000001:
+      type: {class: AddConstOperatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        value: 1.77
+    00000002:
+      type: {class: MulOperatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        attributeName: Strength
+        value: 6.58

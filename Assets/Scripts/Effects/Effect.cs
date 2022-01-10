@@ -18,6 +18,18 @@ public class Effect
     [SerializeField]
     private bool isSingleUse;
 
-    public bool IsSingleUse { get => isSingleUse; set => isSingleUse = value; }
     public string Name { get => name; set => name = value; }
+    public bool IsSingleUse { get => isSingleUse; set => isSingleUse = value; }
+
+    public virtual void ViewInfo()
+    {
+        GUILayout.Label("Name: " + Name.ToString());
+        GUILayout.Label("IsSingleUse: " + IsSingleUse.ToString());
+    }
+    public virtual void ViewFields()
+    {
+        Name = UnityEditor.EditorGUILayout.TextField("Name", Name);
+        IsSingleUse = UnityEditor.EditorGUILayout.Toggle("IsSingleUse", IsSingleUse);
+    }
+
 }

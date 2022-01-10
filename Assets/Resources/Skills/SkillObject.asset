@@ -13,14 +13,23 @@ MonoBehaviour:
   m_Name: SkillObject
   m_EditorClassIdentifier: 
   skill:
-    skillName: 
+    skillName: testowy atrybuty
     efects:
     - id: 0
+    - id: 1
   references:
     version: 1
     00000000:
       type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
       data:
         name: Add Damage
+        isSingleUse: 0
         statisticName: Damage
         value: 10
+    00000001:
+      type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: str
+        isSingleUse: 1
+        attributeName: Strength
+        value: 99
