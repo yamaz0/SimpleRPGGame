@@ -37,7 +37,7 @@ public class AttackEffect : TwoCharacterEffect
     }
 
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR//to i wszystkie inne tego typu rzeczy przerzucić do osobnych klas typu EffectEditor, itemEditor itd
     public override void ViewInfo()
     {
         base.ViewInfo();
