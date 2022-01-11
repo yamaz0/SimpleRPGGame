@@ -35,7 +35,9 @@ public class SkillObjectEditor : UnityEditor.Editor
             {
                 if (GUILayout.Button($"{t.ToString()}", GUILayout.Height(40)))
                 {
-                    script.Skill.AddEffect(System.Activator.CreateInstance(t) as OneCharacterEffect);
+                    OneCharacterEffect e = System.Activator.CreateInstance(t) as OneCharacterEffect;
+                    e.Name = t.ToString();
+                    script.Skill.AddEffect(e);
                 }
             }
         }

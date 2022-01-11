@@ -17,6 +17,7 @@ MonoBehaviour:
     efects:
     - id: 0
     - id: 1
+    - id: 2
   references:
     version: 1
     00000000:
@@ -33,3 +34,10 @@ MonoBehaviour:
         isSingleUse: 1
         attributeName: Strength
         value: 99
+    00000002:
+      type: {class: AddAbilityEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: AddAbilityEffect
+        isSingleUse: 0
+        abilityId: 1
+        isRemove: 0

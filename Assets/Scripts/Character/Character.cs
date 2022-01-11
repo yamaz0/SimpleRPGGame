@@ -11,6 +11,8 @@ public class Character
     // private Dictionary<string, Modificator> dictModyficators = new Dictionary<string, Modificator>();
     [SerializeField]
     private InventoryController inventoryController;
+    [SerializeField]
+    private Abilities abilities;
 
     [SerializeField]
     private CharacterStatistics statistics = new CharacterStatistics();
@@ -18,6 +20,7 @@ public class Character
     public Attributes Attributes { get => attributes; set => attributes = value; }
     public InventoryController InventoryController { get => inventoryController; set => inventoryController = value; }
     public CharacterStatistics Statistics { get => statistics; set => statistics = value; }
+    public Abilities Abilities { get => abilities; set => abilities = value; }
 
     // public Dictionary<string, Modificator> DictModyficators { get => dictModyficators; private set => dictModyficators = value; }
 

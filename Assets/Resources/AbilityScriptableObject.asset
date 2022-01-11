@@ -21,8 +21,8 @@ MonoBehaviour:
     oneCharacterEffects: []
     durationTime: 0
     isSingleUse: 0
-  - name: HPBoost
-    id: 0
+  - name: test
+    id: 1
     icon: {fileID: 21300000, guid: d6113e1a238296b4a9d34d46933f7171, type: 3}
     twoCharacterEffects:
     - id: 0

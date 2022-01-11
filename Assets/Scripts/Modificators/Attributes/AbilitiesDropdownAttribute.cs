@@ -3,21 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-// ModificatorsNamesSO
+
 [System.AttributeUsage(System.AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public class ItemDropdownAttribute : PropertyAttribute
+public class AbilitiesDropdownAttribute : PropertyAttribute
 {
 }
 
-[CustomPropertyDrawer(typeof(ItemDropdownAttribute))]
-public class ItemDropdownPropertyDrawer : DropdownPropertyDrawer
+[CustomPropertyDrawer(typeof(AbilitiesDropdownAttribute))]
+public class AbilitiesDropdownPropertyDrawer : DropdownPropertyDrawer
 {
     public void Init()
     {
         List.Clear();
-        foreach (var item in ItemsScriptableObject.Instance.Items)
+        foreach (var ability in AbilityScriptableObject.Instance.Abilities)
         {
-            List.Add(item.Name);
+            List.Add(ability.Name);
         }
     }
 
@@ -25,18 +25,18 @@ public class ItemDropdownPropertyDrawer : DropdownPropertyDrawer
     {
         if (List == null || List.Count == 0) Init();
 
-        ItemInfo itemInfo = ItemsScriptableObject.Instance.GetItemInfoById(property.intValue);
+        AbilityInfo abilityInfo = AbilityScriptableObject.Instance.GetAbilityInfoById(property.intValue);
 
-        if (itemInfo != null && itemInfo.Name != List[SelectedIndex])
+        if (abilityInfo != null && abilityInfo.Name != List[SelectedIndex])
         {
-            SelectedIndex = List.FindIndex(x => x.Equals(itemInfo.Name));
+            SelectedIndex = List.FindIndex(x => x.Equals(abilityInfo.Name));
             if (SelectedIndex < 0) SelectedIndex = 0;
         }
 
         if (List != null && List.Count != 0)
         {
             SelectedIndex = EditorGUI.Popup(position, property.name, SelectedIndex, List.ToArray());
-            property.intValue = ItemsScriptableObject.Instance.GetItemInfoByName(List[SelectedIndex]).Id;
+            property.intValue = AbilityScriptableObject.Instance.GetAbilityInfoByName(List[SelectedIndex]).Id;
         }
         else
         {

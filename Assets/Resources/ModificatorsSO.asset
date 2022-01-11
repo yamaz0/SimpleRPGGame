@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: ModificatorsSO
   m_EditorClassIdentifier: 
   modtypes:
+  - modTypeName: Abilities
+    modNames:
+    - KnownAbilities
   - modTypeName: Attributes
     modNames:
     - Strength
