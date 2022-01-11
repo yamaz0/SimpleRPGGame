@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ModificatorType]
+[System.Serializable]
 public class Abilities
 {
     [SerializeField]
