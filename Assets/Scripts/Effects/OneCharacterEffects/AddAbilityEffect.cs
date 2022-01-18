@@ -15,9 +15,9 @@ public class AddAbilityEffect : OneCharacterEffect
     public override void Execute(Character character)
     {
         if (IsRemove == false)
-            character.Abilities.KnownAbilities.Add(AbilityId);
+            character.Abilities.AddAbility(AbilityId);
         else
-            character.Abilities.KnownAbilities.Remove(AbilityId);
+            character.Abilities.RemoveAbility(AbilityId);
     }
 
     public override void Remove(Character character)
