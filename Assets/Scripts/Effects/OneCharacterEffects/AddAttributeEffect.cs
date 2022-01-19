@@ -15,7 +15,7 @@ public class AddAttributeEffect : OneCharacterEffect
     public override void Execute(Character character)
     {
         Modificator modificator = character.Attributes.GetAttribute(attributeName);
-        modificator.AddValue(value);
+        modificator.AddValue(value, IsPersistent);
     }
 
     public override void Remove(Character character)

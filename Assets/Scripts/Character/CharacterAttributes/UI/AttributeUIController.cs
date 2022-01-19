@@ -25,7 +25,7 @@ public class AttributeUIController
     public void Init()
     {
         CacheModificator = Player.Instance.Character.Attributes.GetAttribute(AttributeName);
-        TextValue.Init(AttributeName, CacheModificator.Value.ToString());
+        TextValue.Init(AttributeName, CacheModificator.BaseValue.ToString());
         AttachedEvents();
     }
 
@@ -34,19 +34,19 @@ public class AttributeUIController
         if (CacheModificator != null)
         {
             Button.onClick.AddListener(AddValue);
-            CacheModificator.OnLevelChanged += SetTextValue;
+            CacheModificator.OnValueChanged += SetTextValue;
         }
     }
 
     private void AddValue()
     {
-        CacheModificator.AddValue(1);
+        CacheModificator.AddValue(1, true);
     }
 
     public void DetachEvents()
     {
         Button.onClick.RemoveListener(AddValue);
-        CacheModificator.OnLevelChanged -= SetTextValue;
+        CacheModificator.OnValueChanged -= SetTextValue;
     }
 
     public void SetTextValue(float value)

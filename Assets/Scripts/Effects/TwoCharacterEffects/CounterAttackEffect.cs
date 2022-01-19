@@ -15,12 +15,12 @@ public class CounterAttackEffect : TwoCharacterEffect
     {
         CacheAtackerCharacter = atacker;
         CacheAtackedCharacter = atacked;
-        atacked.Statistics.Hp.OnLevelChanged += TryReflectDamage;//DO POPRAWY BO NIE MOZE BYC EVENT HP TYLKO ON ATTACK EVENT CZY COS
+        atacked.Statistics.Hp.OnValueChanged += TryReflectDamage;//DO POPRAWY BO NIE MOZE BYC EVENT HP TYLKO ON ATTACK EVENT CZY COS
     }
 
     public override void Remove(Character atacker, Character atacked)
     {
-        atacked.Statistics.Hp.OnLevelChanged -= TryReflectDamage;
+        atacked.Statistics.Hp.OnValueChanged -= TryReflectDamage;
     }
 
     public void TryReflectDamage(float damage)

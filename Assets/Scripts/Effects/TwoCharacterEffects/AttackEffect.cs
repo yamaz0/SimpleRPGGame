@@ -27,7 +27,7 @@ public class AttackEffect : TwoCharacterEffect
             CacheValue += op.Calc(atacker);
         }
 
-        atacked.Statistics.Hp.AddValue(-CacheValue);
+        atacked.Statistics.Hp.AddValue(-CacheValue,false);
     }
 
     public override void Remove(Character atacker, Character atacked)

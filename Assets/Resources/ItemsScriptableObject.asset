@@ -113,7 +113,7 @@ MonoBehaviour:
       data:
         name: sw
         id: 11
-        icon: {fileID: 21300000, guid: 86823c3252463409989c0bb247d92a60, type: 3}
+        icon: {fileID: 21300000, guid: d08d14a2969b743b1a8b14dc46e0e8fa, type: 3}
         itemType: 5
         defense: 0
         blockChance: 0
@@ -127,14 +127,14 @@ MonoBehaviour:
         itemType: 5
         weaponType: 0
         attack: 1
-        attackSpeed: 1
+        attackSpeed: 2
         twoHanded: 0
     0000000B:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         name: sword
         id: 13
-        icon: {fileID: 21300000, guid: da468f356abb846bcaf3a1b64c5c26d2, type: 3}
+        icon: {fileID: 21300000, guid: 5b54b64aa03a6418fa2cf8b50928ceb9, type: 3}
         itemType: 5
         defense: 0
         blockChance: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
         itemType: 5
         weaponType: 1
         attack: 0
-        attackSpeed: 0
+        attackSpeed: 1
         twoHanded: 0
     0000000D:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
@@ -159,5 +159,5 @@ MonoBehaviour:
         itemType: 5
         weaponType: 0
         attack: 0
-        attackSpeed: 0
+        attackSpeed: 1
         twoHanded: 1

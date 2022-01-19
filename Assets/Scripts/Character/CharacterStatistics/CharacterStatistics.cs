@@ -7,7 +7,7 @@ using UnityEngine;
 public class CharacterStatistics
 {
     [SerializeField]
-    private Modificator hp = new Modificator(100);
+    private Modificator maxHp = new Modificator(100);
     [SerializeField]
     private Modificator damage = new Modificator(1);
     [SerializeField]
@@ -22,8 +22,6 @@ public class CharacterStatistics
     private Modificator critChance = new Modificator(0);
 
     [Modificator]
-    public Modificator Hp { get => hp; set => hp = value; }
-    [Modificator]
     public Modificator Damage { get => damage; set => damage = value; }
     [Modificator]
     public Modificator Defence { get => defence; set => defence = value; }
@@ -35,6 +33,11 @@ public class CharacterStatistics
     public Modificator CritChance { get => critChance; set => critChance = value; }
     [Modificator]
     public Modificator AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
+    [Modificator]
+    public Modificator MaxHp { get => maxHp; set => maxHp = value; }
+    public Modificator Hp { get;set; }
+    public Modificator Attack { get;set; }
+    public Modificator Armor { get;set; }
 
     public Modificator GetStatistic(string attributeName)
     {
@@ -47,6 +50,9 @@ public class CharacterStatistics
             case "BlockChance": return BlockChance;
             case "CritChance": return CritChance;
             case "AttackSpeed": return AttackSpeed;
+            case "MaxHp": return MaxHp;
+            case "Attack": return Attack;
+            case "Armor": return Armor;
             default:
                 Debug.LogError($"Character statistic: {attributeName} name not exist!");
                 return null;

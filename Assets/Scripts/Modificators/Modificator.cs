@@ -7,25 +7,45 @@ using UnityEngine;
 public class Modificator
 {
     [SerializeField]
-    private float value;
-    public float Value { get => value; private set => this.value = value; }
+    private float baseValue;
+    public float BaseValue { get => baseValue; private set => baseValue = value; }
+    public float TmpValue { get; private set; }
+    public float Value { get => BaseValue + TmpValue; }
 
     [field: NonSerialized]
-    public event Action<float> OnLevelChanged = delegate { };
+    public event Action<float> OnValueChanged = delegate { };
 
     public Modificator(float modValue = 0)
     {
-        SetValue(modValue);
+        SetValue(modValue, true);
     }
 
-    public void AddValue(float modValue)
+    public void AddValue(float modValue, bool isPersistent)
     {
-        SetValue(Value + modValue);
+        if (isPersistent == true)
+        {
+            SetBaseValue(BaseValue + modValue);
+        }
+        else
+        {
+            SetValue(TmpValue + modValue);
+        }
+
     }
 
     public void SetValue(float modValue, bool isNotify = true)
     {
-        Value = modValue;
+        TmpValue = modValue;
+
+        if (isNotify == true)
+        {
+            NotifyLevelChanged();
+        }
+    }
+
+    public void SetBaseValue(float modValue, bool isNotify = true)
+    {
+        BaseValue = modValue;
 
         if (isNotify == true)
         {
@@ -35,6 +55,6 @@ public class Modificator
 
     private void NotifyLevelChanged()
     {
-        OnLevelChanged(Value);
+        OnValueChanged(BaseValue);
     }
 }

@@ -5,29 +5,43 @@ using UnityEngine;
 public class OpponentSpriteController : MonoBehaviour
 {
     [SerializeField]
-    private SpriteRenderer attack;
+    private SpriteRenderer leftHandSprite;
     [SerializeField]
-    private SpriteRenderer defend;
+    private SpriteRenderer rightHandSprite;
     [SerializeField]
-    private SpriteRenderer spellEffect;
+    private SpriteRenderer helmetSprite;
     [SerializeField]
-    private SpriteRenderer targetEffect;
+    private SpriteRenderer armorSprite;
+    [SerializeField]
+    private SpriteRenderer legsSprite;
+    [SerializeField]
+    private SpriteRenderer bootsSprite;
 
-    public void SetAttackSprite(Sprite sprite)
+    public void SetItemSprite(Equipement.EqType equipType, Sprite sprite)
     {
-        attack.sprite = sprite;
+        switch (equipType)
+        {
+            case Equipement.EqType.Helmet:
+                helmetSprite.sprite = sprite;
+                break;
+            case Equipement.EqType.Armor:
+                armorSprite.sprite = sprite;
+                break;
+            case Equipement.EqType.Legs:
+                legsSprite.sprite = sprite;
+                break;
+            case Equipement.EqType.Boots:
+                bootsSprite.sprite = sprite;
+                break;
+            case Equipement.EqType.HandLeft:
+                leftHandSprite.sprite = sprite;
+                break;
+            case Equipement.EqType.HandRight:
+                rightHandSprite.sprite = sprite;
+                break;
+            default:
+                Debug.LogError("ErrorType");
+                return;
+        }
     }
-    public void SetDefendSprite(Sprite sprite)
-    {
-        defend.sprite = sprite;
-    }
-    public void SetSpellEffectSprite(Sprite sprite)
-    {
-        spellEffect.sprite = sprite;
-    }
-    public void SetTargetEffectSprite(Sprite sprite)
-    {
-        targetEffect.sprite = sprite;
-    }
-
 }

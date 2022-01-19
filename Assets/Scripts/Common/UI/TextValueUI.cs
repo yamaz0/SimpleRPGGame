@@ -18,6 +18,11 @@ public class TextValueUI : MonoBehaviour
         SetTextValue(value);
     }
 
+    public void SetTextValue(float value)
+    {
+        SetTextValue(value.ToString("N0"));
+    }
+
     public void SetTextValue(string value)
     {
         ValueText.SetText(value);

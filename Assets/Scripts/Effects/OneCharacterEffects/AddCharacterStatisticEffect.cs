@@ -15,7 +15,7 @@ public class AddCharacterStatisticEffect : OneCharacterEffect
     public override void Execute(Character character)
     {
         Modificator modificator = character.Statistics.GetStatistic(statisticName);
-        modificator.AddValue(value);
+        modificator.AddValue(value, IsPersistent);
     }
 
     public override void Remove(Character character)

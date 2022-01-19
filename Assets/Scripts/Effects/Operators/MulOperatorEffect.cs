@@ -11,7 +11,7 @@ public class MulOperatorEffect : OperatorEffect
     public override float Calc(Character character)
     {
         Modificator modificator = character.Statistics.GetStatistic(attributeName);
-        return modificator.Value * value;
+        return modificator.BaseValue * value;
     }
 
     public override void ViewInfo()

@@ -61,14 +61,4 @@ public class InventoryController
             RemoveItem(item);
         }
     }
-
-    public void AddInventoryEvent(System.Action action)
-    {
-        Inventory.OnInventoryChanged += action;
-    }
-
-    public void AddEquipmentEvent(System.Action action)
-    {
-        Equipement.OnEquipmentChanged += action;
-    }
 }

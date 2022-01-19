@@ -1,6 +1,13 @@
+using UnityEngine;
+
 [System.Serializable]
-public  class OneCharacterEffect : Effect
+public class OneCharacterEffect : Effect
 {
-    public virtual void Execute(Character character){}
-    public virtual  void Remove(Character character){}
+    [SerializeField]
+    private bool isPersistent;
+
+    public bool IsPersistent { get => isPersistent; set => isPersistent = value; }
+
+    public virtual void Execute(Character character) { }
+    public virtual void Remove(Character character) { }
 }

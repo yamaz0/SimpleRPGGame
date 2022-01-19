@@ -14,20 +14,22 @@ public class Opponent : MonoBehaviour
     public Character Character { get => character; set => character = value; }
     public float Exhausted { get => exhaustedTurn; set => exhaustedTurn = value; }
 
+    public enum FightStyle { OneHandWeapon, TwoHandWeapon, DualWield }
+
     public void Initialize(Character character)
     {
         this.character = character;
-        Item item1 = Character.InventoryController.GetItemByType(Equipement.EqType.HandLeft);
+        SetSprites();
+        character.Statistics.Hp.SetBaseValue(character.Statistics.MaxHp.Value);
+    }
 
-        if (item1 is WeaponItem wi)
+    private void SetSprites()
+    {
+        foreach (Equipement.EqType t in (Equipement.EqType[])System.Enum.GetValues(typeof(Equipement.EqType)))
         {
-            Character.Statistics.Damage.AddValue(wi.Attack);
-            Character.Statistics.AttackSpeed.AddValue(wi.AttackSpeed);
-        }
-        else if (item1 is ShieldItem si)
-        {
-            Character.Statistics.Defence.AddValue(si.Defense);
-            Character.Statistics.BlockChance.AddValue(si.BlockChance);
+            Item item = Character.InventoryController.GetItemByType(t);
+            if (item != null)
+                spritesController.SetItemSprite(t, item.Icon);
         }
     }
 
@@ -38,6 +40,6 @@ public class Opponent : MonoBehaviour
 
     public void Attack()
     {
-        anim.Play("Attack");
+        anim.Play("OneHandWeapon");
     }
 }

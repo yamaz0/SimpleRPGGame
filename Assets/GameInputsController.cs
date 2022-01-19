@@ -35,6 +35,24 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""BattleTets"",
+                    ""type"": ""Button"",
+                    ""id"": ""803bc73a-3e18-4849-b599-541c24ab915f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a14ebe3-7765-4514-8ba8-7ced82493cfc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -167,6 +185,28 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""groups"": ""Joystick"",
                     ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""845f0937-d255-49c2-917a-793b1c2e89c1"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""BattleTets"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4921d1c1-4c63-4304-a0c5-6ba5fa59a4d7"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -755,6 +795,8 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_BattleTets = m_Player.FindAction("BattleTets", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -827,11 +869,15 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_BattleTets;
+    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @GameInputsController m_Wrapper;
         public PlayerActions(@GameInputsController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @BattleTets => m_Wrapper.m_Player_BattleTets;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -844,6 +890,12 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @BattleTets.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBattleTets;
+                @BattleTets.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBattleTets;
+                @BattleTets.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBattleTets;
+                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -851,6 +903,12 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @BattleTets.started += instance.OnBattleTets;
+                @BattleTets.performed += instance.OnBattleTets;
+                @BattleTets.canceled += instance.OnBattleTets;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -1008,6 +1066,8 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnBattleTets(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
