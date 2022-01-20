@@ -18,9 +18,10 @@ public class Opponent : MonoBehaviour
 
     public void Initialize(Character character)
     {
-        this.character = character;
+        Character = character;
         SetSprites();
-        character.Statistics.Hp.SetBaseValue(character.Statistics.MaxHp.Value);
+        Character.UpdateEqStatsMod();
+        Character.Statistics.Hp.SetBaseValue(character.Statistics.MaxHp.Value);
     }
 
     private void SetSprites()

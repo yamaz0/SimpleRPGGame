@@ -22,6 +22,7 @@ public class Character
     public void Initialize()
     {
         InventoryController.Init();
+        InventoryController.Equipement.OnEquipmentChanged += UpdateEqStatsMod;
     }
 
     public void UpdateEqStatsMod()
@@ -50,8 +51,8 @@ public class Character
                 def += si.Defense;
             }
         }
-        Statistics.Armor.SetValue(def);
-        Statistics.Attack.SetValue(atk);
+        Statistics.Defence.SetValue(def);
+        Statistics.Damage.SetValue(atk);
         Statistics.AttackSpeed.SetValue(atcSpeed);
         Statistics.BlockChance.SetValue(blockChance);
     }

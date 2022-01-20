@@ -17,7 +17,7 @@ public class Modificator
 
     public Modificator(float modValue = 0)
     {
-        SetValue(modValue, true);
+        SetBaseValue(modValue, true);
     }
 
     public void AddValue(float modValue, bool isPersistent)
@@ -55,6 +55,6 @@ public class Modificator
 
     private void NotifyLevelChanged()
     {
-        OnValueChanged(BaseValue);
+        OnValueChanged(Value);
     }
 }

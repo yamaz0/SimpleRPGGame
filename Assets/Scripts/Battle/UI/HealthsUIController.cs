@@ -13,7 +13,7 @@ public class HealthsUIController : MonoBehaviour
     {
         op1.Character.Statistics.Hp.OnValueChanged += hp1.SetTextValue;
         op2.Character.Statistics.Hp.OnValueChanged += hp2.SetTextValue;
-        hp1.Init("Health: ", op1.Character.Statistics.Hp.BaseValue.ToString());
-        hp2.Init("Health: ", op1.Character.Statistics.Hp.BaseValue.ToString());
+        hp1.Init("Health: ", op1.Character.Statistics.Hp.Value.ToString());
+        hp2.Init("Health: ", op2.Character.Statistics.Hp.Value.ToString());
     }
 }

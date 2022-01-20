@@ -20,6 +20,8 @@ public class CharacterStatistics
     private Modificator blockChance = new Modificator(0);
     [SerializeField]
     private Modificator critChance = new Modificator(0);
+    [SerializeField]
+    private Modificator hp = new Modificator(0);
 
     [Modificator]
     public Modificator Damage { get => damage; set => damage = value; }
@@ -35,9 +37,7 @@ public class CharacterStatistics
     public Modificator AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
     [Modificator]
     public Modificator MaxHp { get => maxHp; set => maxHp = value; }
-    public Modificator Hp { get;set; }
-    public Modificator Attack { get;set; }
-    public Modificator Armor { get;set; }
+    public Modificator Hp { get => hp; set => hp = value; }
 
     public Modificator GetStatistic(string attributeName)
     {
@@ -51,8 +51,6 @@ public class CharacterStatistics
             case "CritChance": return CritChance;
             case "AttackSpeed": return AttackSpeed;
             case "MaxHp": return MaxHp;
-            case "Attack": return Attack;
-            case "Armor": return Armor;
             default:
                 Debug.LogError($"Character statistic: {attributeName} name not exist!");
                 return null;

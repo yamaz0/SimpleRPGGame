@@ -23,13 +23,13 @@ MonoBehaviour:
     - Endurance
   - modTypeName: CharacterStatistics
     modNames:
-    - Hp
     - Damage
     - Defence
     - DodgeChance
     - BlockChance
     - CritChance
     - AttackSpeed
+    - MaxHp
   - modTypeName: Inventory
     modNames:
     - ItemsId

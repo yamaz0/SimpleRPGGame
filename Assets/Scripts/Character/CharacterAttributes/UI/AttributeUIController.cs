@@ -25,7 +25,7 @@ public class AttributeUIController
     public void Init()
     {
         CacheModificator = Player.Instance.Character.Attributes.GetAttribute(AttributeName);
-        TextValue.Init(AttributeName, CacheModificator.BaseValue.ToString());
+        TextValue.Init(AttributeName, CacheModificator.Value.ToString());
         AttachedEvents();
     }
 

@@ -115,7 +115,7 @@ MonoBehaviour:
         id: 11
         icon: {fileID: 21300000, guid: d08d14a2969b743b1a8b14dc46e0e8fa, type: 3}
         itemType: 5
-        defense: 0
+        defense: 10
         blockChance: 0
     0000000A:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
@@ -126,8 +126,8 @@ MonoBehaviour:
           type: 3}
         itemType: 5
         weaponType: 0
-        attack: 1
-        attackSpeed: 2
+        attack: 10
+        attackSpeed: 3
         twoHanded: 0
     0000000B:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
@@ -136,7 +136,7 @@ MonoBehaviour:
         id: 13
         icon: {fileID: 21300000, guid: 5b54b64aa03a6418fa2cf8b50928ceb9, type: 3}
         itemType: 5
-        defense: 0
+        defense: 1
         blockChance: 0
     0000000C:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
@@ -147,8 +147,8 @@ MonoBehaviour:
           type: 3}
         itemType: 5
         weaponType: 1
-        attack: 0
-        attackSpeed: 1
+        attack: 5
+        attackSpeed: 2
         twoHanded: 0
     0000000D:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
@@ -158,6 +158,6 @@ MonoBehaviour:
         icon: {fileID: 21300000, guid: d4fd9a785b43f4479a077f9adbaf5a47, type: 3}
         itemType: 5
         weaponType: 0
-        attack: 0
+        attack: 3
         attackSpeed: 1
         twoHanded: 1

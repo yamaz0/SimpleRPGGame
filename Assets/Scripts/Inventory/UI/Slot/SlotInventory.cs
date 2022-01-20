@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class SlotInventory : Slot, IBeginDragHandler, IDragHandler, IDropHandler, IPointerDownHandler, IPointerUpHandler
 {
@@ -25,7 +26,7 @@ public class SlotInventory : Slot, IBeginDragHandler, IDragHandler, IDropHandler
     }
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        transform.position = Mouse.current.position.ReadValue();
     }
 
     public void OnDrop(PointerEventData eventData)
