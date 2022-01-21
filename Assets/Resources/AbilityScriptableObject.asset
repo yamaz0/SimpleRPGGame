@@ -15,31 +15,28 @@ MonoBehaviour:
   abilities:
   - name: Atak1
     id: 0
-    icon: {fileID: 21300000, guid: d6113e1a238296b4a9d34d46933f7171, type: 3}
+    icon: {fileID: 21300000, guid: a1477bedf691446499d9ff854112bf96, type: 3}
     twoOponentBattleEffects:
     - id: 0
     oneCharacterEffects: []
     durationTime: 0
     exahustTime: 15
-    isOnStartUse: 0
   - name: countra
     id: 1
-    icon: {fileID: 21300000, guid: d6113e1a238296b4a9d34d46933f7171, type: 3}
+    icon: {fileID: 21300000, guid: da468f356abb846bcaf3a1b64c5c26d2, type: 3}
     twoOponentBattleEffects:
     - id: 1
     oneCharacterEffects: []
     durationTime: 5
     exahustTime: 10
-    isOnStartUse: 1
   - name: attack2
     id: 2
-    icon: {fileID: 21300000, guid: d6113e1a238296b4a9d34d46933f7171, type: 3}
+    icon: {fileID: 21300000, guid: 5b54b64aa03a6418fa2cf8b50928ceb9, type: 3}
     twoOponentBattleEffects:
     - id: 2
     oneCharacterEffects: []
     durationTime: 0
     exahustTime: 5
-    isOnStartUse: 0
   references:
     version: 1
     00000000:

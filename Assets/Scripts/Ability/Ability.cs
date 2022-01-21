@@ -2,36 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AbilityState { Ready, InUse, Exhaust }
+
 public class Ability : ITwoCharacterEffect
 {
     [SerializeField]
     private AbilityInfo abilityInfo;
-    public int DurationTime { get; set; }
-    public int ExhaustTime { get; set; }
+    public TurnTimer DurationTimer { get; set; }
+    public TurnTimer ExhaustTimer { get; set; }
 
     public AbilityInfo AbilityInfo { get => abilityInfo; set => abilityInfo = value; }
+    public AbilityState State { get; set; }
+
+    public event System.Action<AbilityState> OnStateChanged = delegate { };
 
     public Ability(AbilityInfo info)
     {
         AbilityInfo = info;
-        DurationTime = AbilityInfo.DurationTime;
+        DurationTimer = new TurnTimer(AbilityInfo.DurationTime);
+        ExhaustTimer = new TurnTimer(AbilityInfo.ExahustTime);
     }
 
-    public bool CheckDurationTime()
+    public void UpdateTime()
     {
-        DurationTime--;
-        return DurationTime <= 0;
+        switch (State)
+        {
+            case AbilityState.Ready:
+                return;
+            case AbilityState.InUse:
+                TryChangeState(DurationTimer, AbilityState.Exhaust);
+                break;
+            case AbilityState.Exhaust:
+                TryChangeState(ExhaustTimer, AbilityState.Ready);
+                break;
+            default:
+                Debug.LogError("Wrong AbilityState state!");
+                break;
+        }
     }
 
-    public bool CheckExhaustTime()
+    private void TryChangeState(TurnTimer timer, AbilityState state)
     {
-        ExhaustTime--;
-        return ExhaustTime <= 0;
+        if (timer.CheckTime() == true)
+        {
+            timer.Reset();
+            ChangeState(state);
+        }
+    }
+
+    private void ChangeState(AbilityState abilityState)
+    {
+        State = abilityState;
+        OnStateChanged(State);
     }
 
     public void Execute(Opponent attacker, Opponent attacked)
     {
-        DurationTime = AbilityInfo.DurationTime;
+        ChangeState(AbilityState.InUse);
 
         foreach (var effect in AbilityInfo.TwoOponentBattleEffects)
         {
@@ -45,8 +72,6 @@ public class Ability : ITwoCharacterEffect
 
     public void RemoveEffects(Opponent attacker, Opponent attacked)
     {
-        ExhaustTime = AbilityInfo.ExahustTime;
-
         foreach (var effect in AbilityInfo.TwoOponentBattleEffects)
         {
             effect.Remove(attacker, attacked);

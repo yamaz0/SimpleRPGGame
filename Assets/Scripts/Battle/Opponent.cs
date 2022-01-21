@@ -7,16 +7,21 @@ public class Opponent : MonoBehaviour
 {
     private Character character;
     private float exhaustedTime = 1;
-
-    public Animator anim;
-    public OpponentSpriteController spritesController;
+    [SerializeField]
+    private AbilityBattleUIController abilityBattleUIController;
+    [SerializeField]
+    private Animator anim;
+    [SerializeField]
+    private OpponentSpriteController spritesController;
 
     public Character Character { get => character; set => character = value; }
     public float ExhaustedTime { get => exhaustedTime; set => exhaustedTime = value; }
     public List<Ability> Abilities { get; set; }
-    public List<Ability> AbilitiesInUse { get; set; }
-    public List<Ability> AbilitiesExhausted { get; set; }
+    public List<Ability> AbilitiesLosuLosu { get; set; }
     public Opponent CacheOpponent { get; set; }
+    public Animator Anim { get => anim; set => anim = value; }
+    public OpponentSpriteController SpritesController { get => spritesController; set => spritesController = value; }
+
     public event System.Action OnCharacterAttacked = delegate { };
 
     public enum FightStyle { OneHandWeapon, TwoHandWeapon, DualWield }
@@ -25,30 +30,32 @@ public class Opponent : MonoBehaviour
     {
         Character = character;
         CacheOpponent = opponent;
-        spritesController.SetSprites(Character);
+        SpritesController.SetSprites(Character);
         Character.UpdateEqStatsMod();
         Character.Statistics.Hp.SetBaseValue(character.Statistics.MaxHp.Value);
         InitializeAbilities();
+        abilityBattleUIController.Init(Abilities);
     }
 
     private void InitializeAbilities()
     {
-        AbilitiesInUse = new List<Ability>();
         Abilities = new List<Ability>();
-        AbilitiesExhausted = new List<Ability>();
+        AbilitiesLosuLosu = new List<Ability>();
         Abilities abilities = Character.Abilities;
         List<int> knownAbilities = abilities.KnownAbilities;
         foreach (var abilityId in knownAbilities)
         {
             Ability ability = abilities.GetAbility(abilityId);
+            ability.OnStateChanged += changedState => UpdateAbility(ability, changedState);
             Abilities.Add(ability);
+            AbilitiesLosuLosu.Add(ability);
         }
     }
 
     public void DoTurn()
     {
         ExhaustedTime--;
-        if (CheckReady() == true)
+        if (CheckReadyToAttack() == true)
         {
             Attack();
             Debug.Log("AttackTurn");
@@ -58,8 +65,7 @@ public class Opponent : MonoBehaviour
             //losu losu skila
             TryUseRandomAbility();
         }
-        UpdateAbilitiesDuration();
-        UpdateAbilitiesExhaust();
+        UpdateAbilities();
     }
 
     public void TryUseRandomAbility()
@@ -68,40 +74,34 @@ public class Opponent : MonoBehaviour
         if (randomAbility != null)
         {
             Debug.Log("randomAbility");
-            UseAbility(randomAbility);
+            randomAbility.Execute(this, CacheOpponent);
         }
     }
 
-    public void UseAbility(Ability ability)
+    public void UpdateAbility(Ability ability, AbilityState abilityState)
     {
-        ability.Execute(this, CacheOpponent);
-        AbilitiesInUse.Add(ability);
-        Abilities.Remove(ability);
-    }
-
-    public void UpdateAbilitiesDuration()
-    {
-        for (int i = AbilitiesInUse.Count - 1; i >= 0; i--)
+        switch (abilityState)
         {
-            if (AbilitiesInUse[i].CheckDurationTime())
-            {
-                AbilitiesInUse[i].RemoveEffects(this, CacheOpponent);
-                AbilitiesExhausted.Add(AbilitiesInUse[i]);
-                AbilitiesInUse.Remove(AbilitiesInUse[i]);
-            }
+            case AbilityState.Ready:
+                AbilitiesLosuLosu.Add(ability);
+                break;
+            case AbilityState.InUse:
+                AbilitiesLosuLosu.Remove(ability);
+                break;
+            case AbilityState.Exhaust:
+                ability.RemoveEffects(this, CacheOpponent);
+                break;
+            default:
+                Debug.LogError("AbilityState not exist!");
+                break;
         }
     }
 
-    public void UpdateAbilitiesExhaust()
+    public void UpdateAbilities()
     {
-        for (int i = AbilitiesExhausted.Count - 1; i >= 0; i--)
+        for (int i = Abilities.Count - 1; i >= 0; i--)
         {
-            AbilitiesExhausted[i].ExhaustTime--;
-            if (AbilitiesExhausted[i].ExhaustTime <= 0)
-            {
-                Abilities.Add(AbilitiesExhausted[i]);
-                AbilitiesExhausted.Remove(AbilitiesExhausted[i]);
-            }
+            Abilities[i].UpdateTime();
         }
     }
 
@@ -109,14 +109,14 @@ public class Opponent : MonoBehaviour
     {
         Ability randomAbility = null;
 
-        if (Abilities.Count > 0)
+        if (AbilitiesLosuLosu.Count > 0)
         {
-            randomAbility = Abilities[Random.Range(0, Abilities.Count)];
+            randomAbility = AbilitiesLosuLosu[Random.Range(0, AbilitiesLosuLosu.Count)];
         }
         return randomAbility;
     }
 
-    public bool CheckReady()
+    public bool CheckReadyToAttack()
     {
         return ExhaustedTime <= 0;
     }
@@ -126,6 +126,6 @@ public class Opponent : MonoBehaviour
         ExhaustedTime = Character.Statistics.AttackSpeed.Value * Random.Range(0.9f, 1.1f);
         CacheOpponent.Character.Statistics.Hp.AddValue(-Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f), false);
         OnCharacterAttacked();
-        anim.Play("OneHandWeapon");
+        Anim.Play("OneHandWeapon");
     }
 }
