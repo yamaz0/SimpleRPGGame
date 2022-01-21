@@ -13,39 +13,49 @@ MonoBehaviour:
   m_Name: AbilityScriptableObject
   m_EditorClassIdentifier: 
   abilities:
-  - name: Atak
+  - name: Atak1
     id: 0
     icon: {fileID: 21300000, guid: d6113e1a238296b4a9d34d46933f7171, type: 3}
-    twoCharacterEffects:
+    twoOponentBattleEffects:
     - id: 0
     oneCharacterEffects: []
     durationTime: 0
-    isSingleUse: 0
-  - name: test
+    exahustTime: 15
+    isOnStartUse: 0
+  - name: countra
     id: 1
     icon: {fileID: 21300000, guid: d6113e1a238296b4a9d34d46933f7171, type: 3}
-    twoCharacterEffects:
-    - id: 0
+    twoOponentBattleEffects:
+    - id: 1
+    oneCharacterEffects: []
+    durationTime: 5
+    exahustTime: 10
+    isOnStartUse: 1
+  - name: attack2
+    id: 2
+    icon: {fileID: 21300000, guid: d6113e1a238296b4a9d34d46933f7171, type: 3}
+    twoOponentBattleEffects:
+    - id: 2
     oneCharacterEffects: []
     durationTime: 0
-    isSingleUse: 0
+    exahustTime: 5
+    isOnStartUse: 0
   references:
     version: 1
     00000000:
       type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
       data:
-        name: efe1
-        isSingleUse: 1
-        operators:
-        - id: 1
-        - id: 2
-        atak: 0.66
+        name: 
+        operators: []
+        atak: 20
     00000001:
-      type: {class: AddConstOperatorEffect, ns: , asm: Assembly-CSharp}
+      type: {class: CounterAttackEffect, ns: , asm: Assembly-CSharp}
       data:
-        value: 1.77
+        name: 
+        chanceCounterPercent: 60
     00000002:
-      type: {class: MulOperatorEffect, ns: , asm: Assembly-CSharp}
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
       data:
-        attributeName: Strength
-        value: 6.58
+        name: 
+        operators: []
+        atak: 1

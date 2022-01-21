@@ -12,45 +12,24 @@ public class DuelController : MonoBehaviour
 
     public void Initialize(Character characterFirst, Character characterSecound)
     {
-        op1.Initialize(characterFirst);
-        op2.Initialize(characterSecound);
+        op1.Initialize(characterFirst, op2);
+        op2.Initialize(characterSecound, op1);
         hpui.Init(op1, op2);
     }
 
     public void DoTurn()//TODO ogarnac lepszy sposob robienia tury
     {
-        TryAttack(op1, op2);
-        TryAttack(op2, op1);
-        op1.Exhausted -= Time.deltaTime;
-        op2.Exhausted -= Time.deltaTime;
-        if (op1.Character.Statistics.Hp.Value <= 0) Debug.Log("op1 przegral");
-        if (op2.Character.Statistics.Hp.Value <= 0) Debug.Log("op2 przegral");
-    }
+        op1.DoTurn();
+        op2.DoTurn();
 
-    private void TryAttack(Opponent attacker, Opponent attacked)
-    {
-        if (CheckOponentReady(attacker) == true)
+// do zmiany ale na razie tak do testu
+        if (op1.Character.Statistics.Hp.Value <= 0)
         {
-            attacker.Attack();
-            attacker.Exhausted = attacker.Character.Statistics.AttackSpeed.Value * Random.Range(0.9f, 1.1f);
-            attacked.Character.Statistics.Hp.AddValue(-attacker.Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f),false);
+            BattleManager.Instance.walka = false;
+            Debug.Log("op1 przegral");
         }
+        if (op2.Character.Statistics.Hp.Value <= 0) { Debug.Log("op2 przegral"); BattleManager.Instance.walka = false; }
     }
 
-    private void AddEffectToOponents(Opponent receiverOp, Opponent targetOp)
-    {
-        AddEffectsToOponent(receiverOp);
-        AddEffectsToOponent(targetOp);
-    }
-
-    private void AddEffectsToOponent(Opponent opponent)
-    {
-
-    }
-
-    public bool CheckOponentReady(Opponent op)
-    {
-        return op.CheckReady();
-    }
 
 }

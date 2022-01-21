@@ -20,7 +20,7 @@ public class AbilityEditorWindow : EditorWindow
     }
     private void OnEnable()
     {
-        effectTypes = System.Reflection.Assembly.GetAssembly(typeof(TwoCharacterEffect)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(TwoCharacterEffect))).ToList();
+        effectTypes = System.Reflection.Assembly.GetAssembly(typeof(TwoOponentBattleEffect)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(TwoOponentBattleEffect))).ToList();
 
     }
     private void OnGUI()
@@ -61,7 +61,7 @@ public class AbilityEditorWindow : EditorWindow
                 GUILayout.Label("Id: " + currentInfo.Id.ToString());
                 GUILayout.Label("Name: " + currentInfo.Name);
                 GUILayout.Label("TwoCharacterEffects: ");
-                foreach (var e in currentInfo.TwoCharacterEffects)
+                foreach (var e in currentInfo.TwoOponentBattleEffects)
                 {
                     e.ViewInfo();
                 }
@@ -72,7 +72,7 @@ public class AbilityEditorWindow : EditorWindow
                 GUILayout.Label("Id: " + currentInfo.Id.ToString());
                 GUILayout.Label("Name: " + currentInfo.Name);
                 GUILayout.Label("TwoCharacterEffects: ");
-                foreach (var e in currentInfo.TwoCharacterEffects)
+                foreach (var e in currentInfo.TwoOponentBattleEffects)
                 {
                     e.ViewFields();
                 }
@@ -89,7 +89,7 @@ public class AbilityEditorWindow : EditorWindow
         {
             if (GUILayout.Button(t.ToString()))
             {
-                info.TwoCharacterEffects.Add(System.Activator.CreateInstance(t) as TwoCharacterEffect);
+                info.TwoOponentBattleEffects.Add(System.Activator.CreateInstance(t) as TwoOponentBattleEffect);
             }
         }
         GUILayout.EndHorizontal();

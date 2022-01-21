@@ -2,47 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability: ITwoCharacterEffect
+public class Ability : ITwoCharacterEffect
 {
     [SerializeField]
     private AbilityInfo abilityInfo;
-    public float TimeToEnd { get; set; }
+    public int DurationTime { get; set; }
+    public int ExhaustTime { get; set; }
 
     public AbilityInfo AbilityInfo { get => abilityInfo; set => abilityInfo = value; }
 
     public Ability(AbilityInfo info)
     {
         AbilityInfo = info;
-        TimeToEnd = AbilityInfo.DurationTime;
+        DurationTime = AbilityInfo.DurationTime;
     }
 
-    public bool CheckTime(float time)
+    public bool CheckDurationTime()
     {
-        TimeToEnd -= time;
-        return TimeToEnd <= 0;
+        DurationTime--;
+        return DurationTime <= 0;
     }
 
-    public void Execute(Character character,Character character2)
+    public bool CheckExhaustTime()
     {
-        foreach (var effect in AbilityInfo.TwoCharacterEffects)
+        ExhaustTime--;
+        return ExhaustTime <= 0;
+    }
+
+    public void Execute(Opponent attacker, Opponent attacked)
+    {
+        DurationTime = AbilityInfo.DurationTime;
+
+        foreach (var effect in AbilityInfo.TwoOponentBattleEffects)
         {
-            effect.Execute(character,character2);
+            effect.Execute(attacker, attacked);
         }
         foreach (var effect in AbilityInfo.OneCharacterEffects)
         {
-            effect.Execute(character);
+            effect.Execute(attacker.Character);
         }
     }
 
-    public void RemoveEffects(Character character,Character character2)
+    public void RemoveEffects(Opponent attacker, Opponent attacked)
     {
-        foreach (var effect in AbilityInfo.TwoCharacterEffects)
+        ExhaustTime = AbilityInfo.ExahustTime;
+
+        foreach (var effect in AbilityInfo.TwoOponentBattleEffects)
         {
-            effect.Remove(character,character2);
+            effect.Remove(attacker, attacked);
         }
         foreach (var effect in AbilityInfo.OneCharacterEffects)
         {
-            effect.Remove(character);
+            effect.Remove(attacker.Character);
         }
     }
 }

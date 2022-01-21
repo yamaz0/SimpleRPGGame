@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 [System.Serializable]
-public class AttackEffect : TwoCharacterEffect
+public class AttackEffect : TwoOponentBattleEffect
 {
     [SerializeReference]
     private List<OperatorEffect> operators = new List<OperatorEffect>();
@@ -15,25 +15,22 @@ public class AttackEffect : TwoCharacterEffect
     public float CacheValue { get; set; }
     public float Atak { get => atak; set => atak = value; }
 
-    public AttackEffect()
+    public override void Execute(Opponent atacker, Opponent atacked)
     {
-        IsSingleUse = true;
-    }
-
-    public override void Execute(Character atacker, Character atacked)
-    {
+        CacheValue = Atak;
         foreach (var op in Operators)
         {
-            CacheValue += op.Calc(atacker);
+            CacheValue += op.Calc(atacker.Character);
         }
 
-        atacked.Statistics.Hp.AddValue(-CacheValue,false);
+        Debug.Log("AttackEffect");
+        // atacker.StartSpecialAnim();
+        atacked.Character.Statistics.Hp.AddValue(-CacheValue,false);
     }
 
-    public override void Remove(Character atacker, Character atacked)
+    public override void Remove(Opponent atacker, Opponent atacked)
     {
         // atacked.Statistics.Hp.AddValue(CacheValue);
-        Debug.LogError("Attack ");
     }
 
 

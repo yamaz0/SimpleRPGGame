@@ -1,6 +1,6 @@
 [System.Serializable]
-public class TwoCharacterEffect : Effect
+public class TwoOponentBattleEffect : Effect
 {
-    public  virtual void Execute(Character atacker, Character atacked){}
-    public  virtual void Remove(Character atacker, Character atacked){}
+    public  virtual void Execute(Opponent atacker, Opponent atacked){}
+    public  virtual void Remove(Opponent atacker, Opponent atacked){}
 }

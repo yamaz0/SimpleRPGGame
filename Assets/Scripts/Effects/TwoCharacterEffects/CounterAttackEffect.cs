@@ -3,31 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CounterAttackEffect : TwoCharacterEffect
+public class CounterAttackEffect : TwoOponentBattleEffect
 {
     [SerializeField]
-    private float exhaustTime;
-    public float CacheTime { get; set; }
-    public Character CacheAtackerCharacter { get; set; }
-    public Character CacheAtackedCharacter { get; set; }
+    private float chanceCounterPercent;
+    public Opponent CacheAtackerCharacter { get; set; }
 
-    public override void Execute(Character atacker, Character atacked)
+    public override void Execute(Opponent atacker, Opponent atacked)
     {
         CacheAtackerCharacter = atacker;
-        CacheAtackedCharacter = atacked;
-        atacked.Statistics.Hp.OnValueChanged += TryReflectDamage;//DO POPRAWY BO NIE MOZE BYC EVENT HP TYLKO ON ATTACK EVENT CZY COS
+        atacker.OnCharacterAttacked += TryCounter;
     }
 
-    public override void Remove(Character atacker, Character atacked)
+    public override void Remove(Opponent atacker, Opponent atacked)
     {
-        atacked.Statistics.Hp.OnValueChanged -= TryReflectDamage;
+        atacker.OnCharacterAttacked -= TryCounter;
     }
 
-    public void TryReflectDamage(float damage)
+    public void TryCounter()
     {
-        if (CacheTime + exhaustTime < Time.fixedTime)
+        if (Random.Range(0, 1f) < chanceCounterPercent)
         {
-            CacheTime = Time.fixedTime;
+        Debug.Log("Counter Attack");
+            CacheAtackerCharacter.OnCharacterAttacked -= TryCounter;
+            CacheAtackerCharacter.Attack();
         }
     }
 

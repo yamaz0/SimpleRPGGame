@@ -62,20 +62,20 @@ public class AbilityInfo
     [SerializeField]
     private Sprite icon;
     [SerializeReference]
-    private List<TwoCharacterEffect> twoCharacterEffects;
+    private List<TwoOponentBattleEffect> twoOponentBattleEffects;
     [SerializeReference]
     private List<OneCharacterEffect> oneCharacterEffects;
     [SerializeField]
-    private float durationTime;
+    private int durationTime;
     [SerializeField]
-    private bool isSingleUse = false;
+    private int exahustTime;
 
     public string Name { get => name; set => name = value; }
     public int Id { get => id; set => id = value; }
     public List<OneCharacterEffect> OneCharacterEffects { get => oneCharacterEffects; set => oneCharacterEffects = value; }
-    public List<TwoCharacterEffect> TwoCharacterEffects { get => twoCharacterEffects; set => twoCharacterEffects = value; }
-    public float DurationTime { get => durationTime; set => durationTime = value; }
-    public bool IsSingleUse { get => isSingleUse; set => isSingleUse = value; }
+    public List<TwoOponentBattleEffect> TwoOponentBattleEffects { get => twoOponentBattleEffects; set => twoOponentBattleEffects = value; }
+    public int DurationTime { get => durationTime; set => durationTime = value; }
     public Sprite Icon { get => icon; set => icon = value; }
+    public int ExahustTime { get => exahustTime; set => exahustTime = value; }
 }
 
