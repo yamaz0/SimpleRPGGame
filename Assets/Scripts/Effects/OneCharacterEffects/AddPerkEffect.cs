@@ -12,7 +12,8 @@ public class AddPerkEffect : OneCharacterEffect
 
     public override void Execute(Character character)
     {
-        character.Perks.AddPerk(PerkId);
+        Perk perk = new Perk(PerkId);
+        perk.ExecuteEffects(character);
     }
 
     public override void Remove(Character character)
