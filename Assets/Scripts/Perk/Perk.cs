@@ -11,25 +11,20 @@ public class Perk
 
     public Perk(PerkScriptableObject.PerkInfo info)
     {
-        perkInfo = info;
+        PerkInfo = info;
     }
 
     public Perk(int perkId)
     {
         PerkScriptableObject.PerkInfo info = PerkScriptableObject.Instance.GetPerkInfoById(perkId);
-        perkInfo = info;
+        PerkInfo = info;
     }
 
-    public bool CheckCondition(Attributes attributes)
-    {
-        return attributes.Strength.Value >= perkInfo.RequirmentsAttributes.Strength.Value
-            && attributes.Dexterity.Value >= perkInfo.RequirmentsAttributes.Dexterity.Value
-            && attributes.Endurance.Value >= perkInfo.RequirmentsAttributes.Endurance.Value;
-    }
+    public PerkScriptableObject.PerkInfo PerkInfo { get => perkInfo; set => perkInfo = value; }
 
     public void ExecuteEffects(Character character)
     {
-        perkInfo.Efects.ForEach(x => x.Execute(character));
-        character.Perks.AddPerk(perkInfo.Id);
+        PerkInfo.Efects.ForEach(x => x.Execute(character));
+        character.Perks.AddPerk(PerkInfo.Id);
     }
 }

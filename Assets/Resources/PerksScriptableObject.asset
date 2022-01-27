@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c785e759c407aa74782f1b72f0f28761, type: 3}
-  m_Name: PerkObject
+  m_Name: PerksScriptableObject
   m_EditorClassIdentifier: 
   perks:
   - name: Super dodge

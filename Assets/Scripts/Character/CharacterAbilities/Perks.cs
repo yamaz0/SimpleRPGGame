@@ -19,6 +19,18 @@ public class Perks
         PerkScriptableObject.PerkInfo parkInfo = PerkScriptableObject.Instance.GetPerkInfoById(id);
         return new Perk(parkInfo);
     }
+    public List<Perk> GetPerks()
+    {
+        List<Perk> perks = new List<Perk>(KnownPerks.Count);
+
+        foreach (var perkId in KnownPerks)
+        {
+            perks.Add(GetPerk(perkId));
+        }
+
+        return perks;
+    }
+
     public void AddPerk(int id)
     {
         KnownPerks.Add(id);

@@ -16,6 +16,9 @@ MonoBehaviour:
   - modTypeName: Abilities
     modNames:
     - KnownAbilities
+  - modTypeName: Perks
+    modNames:
+    - KnownPerks
   - modTypeName: Attributes
     modNames:
     - Strength
