@@ -11,15 +11,16 @@ public class Equipement
 
     public event System.Action OnEquipmentChanged = delegate { };
 
+    public Equipement()
+    {
+        InitializeEquipmentSlots();
+    }
+
     public void Init()
     {
-        if (itemsId == null)
+        if (itemsId == null || itemsId.Length != Constants.EQUIPMENT_SLOTS_NUMBER)
         {
-            itemsId = new int[Constants.EQUIPMENT_SLOTS_NUMBER];
-            for (int i = 0; i < Constants.EQUIPMENT_SLOTS_NUMBER; i++)
-            {
-                itemsId[i] = Constants.NONE_EQUIP_ID;
-            }
+            InitializeEquipmentSlots();
         }
 
         Items = new List<Item>(Constants.EQUIPMENT_SLOTS_NUMBER);
@@ -28,6 +29,15 @@ public class Equipement
         {
             Item item = ItemsScriptableObject.Instance.GetItemInfoById(itemId)?.CreateItem();
             Items.Add(item);
+        }
+    }
+
+    public void InitializeEquipmentSlots()
+    {
+        itemsId = new int[Constants.EQUIPMENT_SLOTS_NUMBER];
+        for (int i = 0; i < Constants.EQUIPMENT_SLOTS_NUMBER; i++)
+        {
+            itemsId[i] = Constants.NONE_EQUIP_ID;
         }
     }
 
