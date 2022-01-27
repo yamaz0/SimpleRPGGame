@@ -12,12 +12,15 @@ public class Character
     [SerializeField]
     private Abilities abilities;
     [SerializeField]
+    private Perks perks;
+    [SerializeField]
     private CharacterStatistics statistics = new CharacterStatistics();
 
     public Attributes Attributes { get => attributes; set => attributes = value; }
     public InventoryController InventoryController { get => inventoryController; set => inventoryController = value; }
     public CharacterStatistics Statistics { get => statistics; set => statistics = value; }
     public Abilities Abilities { get => abilities; set => abilities = value; }
+    public Perks Perks { get => perks; set => perks = value; }
 
     public void Initialize()
     {

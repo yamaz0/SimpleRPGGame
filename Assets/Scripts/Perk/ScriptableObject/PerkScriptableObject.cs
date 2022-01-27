@@ -51,8 +51,9 @@ public class PerkScriptableObject : ScriptableObject
 
         return null;
     }
-    private void OnValidate() {
-        Perks.ForEach(x => {if(x.Icon == null) x.Icon = Resources.LoadAll<Sprite>("")[0];});
+    private void OnValidate()
+    {
+        Perks.ForEach(x => { if (x.Icon == null) x.Icon = Resources.LoadAll<Sprite>("")[0]; });
     }
 
     [System.Serializable]

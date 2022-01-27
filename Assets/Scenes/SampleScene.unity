@@ -1508,6 +1508,60 @@ MonoBehaviour:
   - {fileID: 1869214123}
   - {fileID: 1956476192}
   - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
 --- !u!1 &92904278
 GameObject:
   m_ObjectHideFlags: 0
@@ -12591,9 +12645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b51b4f79ce3b0488e05ce4178365e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 163589297}
-  btn: {fileID: 250713910}
-  skill: {fileID: 11400000, guid: 7628818653ec261498ed47abf6e81b06, type: 2}
 --- !u!1 &1653314122
 GameObject:
   m_ObjectHideFlags: 0
@@ -12709,7 +12760,7 @@ PrefabInstance:
     - target: {fileID: 7812264700739935136, guid: 3d1096dc70cc70a4daf98aff6999531f,
         type: 3}
       propertyPath: efects.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7812264700739935136, guid: 3d1096dc70cc70a4daf98aff6999531f,
         type: 3}
@@ -12719,7 +12770,7 @@ PrefabInstance:
     - target: {fileID: 7812264700739935136, guid: 3d1096dc70cc70a4daf98aff6999531f,
         type: 3}
       propertyPath: efects.Array.data[1]
-      value: Assembly-CSharp AddCharacterStatisticEffect
+      value: Assembly-CSharp AddPerkEffect
       objectReference: {fileID: 0}
     - target: {fileID: 7812264700739935136, guid: 3d1096dc70cc70a4daf98aff6999531f,
         type: 3}
@@ -12729,7 +12780,7 @@ PrefabInstance:
     - target: {fileID: 7812264700739935136, guid: 3d1096dc70cc70a4daf98aff6999531f,
         type: 3}
       propertyPath: efects.Array.data[1].name
-      value: AddCharacterStatisticEffect
+      value: AddPerkEffect
       objectReference: {fileID: 0}
     - target: {fileID: 7812264700739935136, guid: 3d1096dc70cc70a4daf98aff6999531f,
         type: 3}
@@ -12740,6 +12791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: efects.Array.data[1].value
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812264700739935136, guid: 3d1096dc70cc70a4daf98aff6999531f,
+        type: 3}
+      propertyPath: efects.Array.data[1].perkId
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7812264700739935136, guid: 3d1096dc70cc70a4daf98aff6999531f,
         type: 3}
@@ -12889,6 +12945,8 @@ MonoBehaviour:
       isTwoHandedEquip: 0
     abilities:
       knownAbilities: 01000000
+    perks:
+      knownPerks: 
     statistics:
       maxHp:
         baseValue: 100
@@ -13667,6 +13725,8 @@ MonoBehaviour:
       isTwoHandedEquip: 0
     abilities:
       knownAbilities: 000000000100000002000000
+    perks:
+      knownPerks: 
     statistics:
       maxHp:
         baseValue: 100

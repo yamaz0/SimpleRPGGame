@@ -9,6 +9,11 @@ public class Perk
     [SerializeField]
     private PerkScriptableObject.PerkInfo perkInfo;
 
+    public Perk(PerkScriptableObject.PerkInfo info)
+    {
+        perkInfo = info;
+    }
+
     public bool CheckCondition(Attributes attributes)
     {
         return attributes.Strength.Value >= perkInfo.RequirmentsAttributes.Strength.Value
