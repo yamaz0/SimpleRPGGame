@@ -13,10 +13,11 @@ public class BattleManager : Singleton<BattleManager>
     public Enemy enemy;
 
     [SerializeField]
+    private GameObject battleGameObject;
+    [SerializeField]
     private DuelController duelControllerPrefab;
 
-    [SerializeField]
-    private DuelController duelController;
+    private DuelController DuelController { get; set; }
     public bool walka;
 
     public float TimeFlow { get => timeFlow; set => timeFlow = value; }
@@ -24,8 +25,11 @@ public class BattleManager : Singleton<BattleManager>
 
     public void StartBattle(Character characterFirst, Character characterSecound)
     {
-        duelController = Instantiate(duelControllerPrefab);
-        duelController.Initialize(characterFirst, characterSecound);
+        battleGameObject.SetActive(true);
+
+        DuelController = Instantiate(duelControllerPrefab, battleGameObject.transform);
+        DuelController.gameObject.SetActive(true);
+        DuelController.Initialize(characterFirst, characterSecound);
     }
     protected override void Initialize()
     {
@@ -56,7 +60,7 @@ public class BattleManager : Singleton<BattleManager>
             if (Timer < 0)
             {
                 Timer = TimeFlow;
-                duelController.DoTurn();
+                DuelController.DoTurn();
             }
         }
     }

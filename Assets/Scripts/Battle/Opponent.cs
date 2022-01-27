@@ -32,7 +32,8 @@ public class Opponent : MonoBehaviour
         CacheOpponent = opponent;
         SpritesController.SetSprites(Character);
         Character.UpdateEqStatsMod();
-        Character.Statistics.Hp.SetBaseValue(character.Statistics.MaxHp.Value);
+        Character.Statistics.Hp.SetValue(character.Statistics.MaxHp.Value);
+        Character.Statistics.Hp.SetBaseValue(0);
         InitializeAbilities();
         abilityBattleUIController.Init(Abilities);
     }

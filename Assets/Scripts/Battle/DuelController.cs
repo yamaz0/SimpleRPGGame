@@ -22,13 +22,19 @@ public class DuelController : MonoBehaviour
         op1.DoTurn();
         op2.DoTurn();
 
-// do zmiany ale na razie tak do testu
+        // do zmiany ale na razie tak do testu
         if (op1.Character.Statistics.Hp.Value <= 0)
         {
             BattleManager.Instance.walka = false;
-            Debug.Log("op1 przegral");
+            Debug.Log("gracz przegral");
+            Destroy(gameObject);
         }
-        if (op2.Character.Statistics.Hp.Value <= 0) { Debug.Log("op2 przegral"); BattleManager.Instance.walka = false; }
+        else if (op2.Character.Statistics.Hp.Value <= 0)
+        {
+            Debug.Log("gracz wygral");
+            BattleManager.Instance.walka = false;
+            Destroy(gameObject);
+        }
     }
 
 
