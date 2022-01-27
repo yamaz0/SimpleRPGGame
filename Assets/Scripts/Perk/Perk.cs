@@ -4,15 +4,15 @@ using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
-public class Skill
+public class Perk
 {
     [SerializeField]
-    private string skillName;
+    private string perkName;
     [SerializeReference]
     private List<OneCharacterEffect> efects;
 
     public List<OneCharacterEffect> Efects { get => efects; set => efects = value; }
-    public string SkillName { get => skillName; set => skillName = value; }
+    public string PerkName { get => perkName; set => perkName = value; }
 
     public void AddEffect(OneCharacterEffect e)
     {

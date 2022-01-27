@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SkillObject", menuName = "ScriptableObjects/SkillObject")]
-public class SkillScriptableObject : ScriptableObject
+[CreateAssetMenu(fileName = "PerkObject", menuName = "ScriptableObjects/PerkObject")]
+public class PerkScriptableObject : ScriptableObject
 {
     // [SerializeField]
     // private Text skillnameText;
@@ -12,22 +12,22 @@ public class SkillScriptableObject : ScriptableObject
     // private Text effectnameText;
 
     [SerializeField]
-    private Skill skill;
+    private Perk perk;
 
-    public Skill Skill { get => skill; set => skill = value; }
+    public Perk Perk { get => perk; set => perk = value; }
 }
-[UnityEditor.CustomEditor(typeof(SkillScriptableObject))]
-public class SkillObjectEditor : UnityEditor.Editor
+[UnityEditor.CustomEditor(typeof(PerkScriptableObject))]
+public class PerkObjectEditor : UnityEditor.Editor
 {
     List<System.Type> types;
     bool showPosition;
-    public SkillObjectEditor()
+    public PerkObjectEditor()
     {
         types = System.Reflection.Assembly.GetAssembly(typeof(OneCharacterEffect)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(OneCharacterEffect))).ToList();
     }
     public override void OnInspectorGUI()
     {
-        var script = (SkillScriptableObject)target;
+        var script = (PerkScriptableObject)target;
         showPosition = UnityEditor.EditorGUILayout.Foldout(showPosition, "Add effects buttons");
         if (showPosition)
         {
@@ -37,7 +37,7 @@ public class SkillObjectEditor : UnityEditor.Editor
                 {
                     OneCharacterEffect e = System.Activator.CreateInstance(t) as OneCharacterEffect;
                     e.Name = t.ToString();
-                    script.Skill.AddEffect(e);
+                    script.Perk.AddEffect(e);
                 }
             }
         }

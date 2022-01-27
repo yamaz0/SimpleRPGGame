@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillTreeUI : MonoBehaviour
+public class PerkTreeUI : MonoBehaviour
 {
     [SerializeField]
     private TMPro.TMP_Text text;
@@ -11,16 +11,16 @@ public class SkillTreeUI : MonoBehaviour
     private Button btn;
 
     [SerializeField]
-    private SkillScriptableObject skill;
+    private PerkScriptableObject skill;
 
 
 private void Start() {
-    text.SetText(skill.Skill.SkillName);
+    text.SetText(skill.Perk.PerkName);
     btn.onClick.AddListener(click);
 }
 
     public void click()
     {
-        skill.Skill.ExecuteEffects(Player.Instance.Character);
+        skill.Perk.ExecuteEffects(Player.Instance.Character);
     }
 }
