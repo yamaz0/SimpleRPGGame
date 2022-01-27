@@ -46,14 +46,16 @@ public class AttributeUIController
     {
         bool isEnough = value >= CostValue;
         Button.gameObject.SetActive(isEnough);
-
     }
+
     private void AddValue()
     {
-        Player.Instance.Character.Statistics.Exp.AddValue(-CostValue, true);
+        Character character = Player.Instance.Character;
+        PerksManager.Instance.TryAddAllAvaiblePerks(character);
+        character.Statistics.Exp.AddValue(-CostValue, true);
         CostValue = CacheModificator.Value * 100;
         CacheModificator.AddValue(1, true);
-        Debug.Log(Player.Instance.Character.Statistics.Exp.Value);
+        Debug.Log(character.Statistics.Exp.Value);
     }
 
     public void DetachEvents()

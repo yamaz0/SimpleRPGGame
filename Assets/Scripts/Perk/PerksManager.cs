@@ -10,6 +10,7 @@ public class PerksManager : Singleton<PerksManager>
     {
         base.Initialize();
         List<PerkScriptableObject.PerkInfo> perksInfo = PerkScriptableObject.Instance.Perks;
+        Perks = new List<Perk>(perksInfo.Count);
         foreach (var perkInfo in perksInfo)
         {
             Perks.Add(new Perk(perkInfo));
@@ -23,7 +24,10 @@ public class PerksManager : Singleton<PerksManager>
             bool hasCharacterPerk = character.Perks.KnownPerks.Contains(perk.PerkInfo.Id);
 
             if (hasCharacterPerk == false && CheckCondition(character.Attributes, perk.PerkInfo) == true)
+            {
+                Debug.Log(perk.PerkInfo.Name);
                 perk.ExecuteEffects(character);
+            }
         }
     }
 
