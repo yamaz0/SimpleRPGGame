@@ -30,6 +30,7 @@ MonoBehaviour:
     - CritChance
     - AttackSpeed
     - MaxHp
+    - Exp
   - modTypeName: Inventory
     modNames:
     - ItemsId

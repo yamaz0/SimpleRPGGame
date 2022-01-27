@@ -21,10 +21,13 @@ public class AttributeUIController
     public TextValueUI TextValue { get => textValue; private set => textValue = value; }
 
     public Modificator CacheModificator { get; private set; }
+    public float CostValue { get; set; }
 
     public void Init()
     {
         CacheModificator = Player.Instance.Character.Attributes.GetAttribute(AttributeName);
+        CostValue = CacheModificator.Value * 100;
+        ShowButton(Player.Instance.Character.Statistics.Exp.Value);
         TextValue.Init(AttributeName, CacheModificator.Value.ToString());
         AttachedEvents();
     }
@@ -33,18 +36,29 @@ public class AttributeUIController
     {
         if (CacheModificator != null)
         {
+            Player.Instance.Character.Statistics.Exp.OnValueChanged += ShowButton;
             Button.onClick.AddListener(AddValue);
             CacheModificator.OnValueChanged += SetTextValue;
         }
     }
 
+    private void ShowButton(float value)
+    {
+        bool isEnough = value >= CostValue;
+        Button.gameObject.SetActive(isEnough);
+
+    }
     private void AddValue()
     {
+        Player.Instance.Character.Statistics.Exp.AddValue(-CostValue, true);
+        CostValue = CacheModificator.Value * 100;
         CacheModificator.AddValue(1, true);
+        Debug.Log(Player.Instance.Character.Statistics.Exp.Value);
     }
 
     public void DetachEvents()
     {
+        Player.Instance.Character.Statistics.Exp.OnValueChanged -= ShowButton;
         Button.onClick.RemoveListener(AddValue);
         CacheModificator.OnValueChanged -= SetTextValue;
     }
