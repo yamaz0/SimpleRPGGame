@@ -6,41 +6,73 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PerkObject", menuName = "ScriptableObjects/PerkObject")]
 public class PerkScriptableObject : ScriptableObject
 {
-    // [SerializeField]
-    // private Text skillnameText;
-    // [SerializeField]
-    // private Text effectnameText;
+    private static PerkScriptableObject instance;
 
     [SerializeField]
-    private Perk perk;
+    private List<PerkInfo> perks;
 
-    public Perk Perk { get => perk; set => perk = value; }
-}
-[UnityEditor.CustomEditor(typeof(PerkScriptableObject))]
-public class PerkObjectEditor : UnityEditor.Editor
-{
-    List<System.Type> types;
-    bool showPosition;
-    public PerkObjectEditor()
+    public static PerkScriptableObject Instance { get { return instance; } }
+
+    public List<PerkInfo> Perks { get => perks; set => perks = value; }
+
+    [RuntimeInitializeOnLoadMethod]
+    private static void Init()
     {
-        types = System.Reflection.Assembly.GetAssembly(typeof(OneCharacterEffect)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(OneCharacterEffect))).ToList();
+        instance = Resources.LoadAll<PerkScriptableObject>("")[0];
     }
-    public override void OnInspectorGUI()
+
+    public PerkScriptableObject()
     {
-        var script = (PerkScriptableObject)target;
-        showPosition = UnityEditor.EditorGUILayout.Foldout(showPosition, "Add effects buttons");
-        if (showPosition)
+        instance = this;
+    }
+
+    public PerkInfo GetPerkInfoById(int id)
+    {
+        foreach (PerkInfo perkInfo in Perks)
         {
-            foreach (var t in types)
+            if (perkInfo.Id == id)
             {
-                if (GUILayout.Button($"{t.ToString()}", GUILayout.Height(40)))
-                {
-                    OneCharacterEffect e = System.Activator.CreateInstance(t) as OneCharacterEffect;
-                    e.Name = t.ToString();
-                    script.Perk.AddEffect(e);
-                }
+                return perkInfo;
             }
         }
-        base.OnInspectorGUI();
+
+        return null;
+    }
+
+    public PerkInfo GetPerkInfoByName(string name)
+    {
+        foreach (PerkInfo perkInfo in Perks)
+        {
+            if (perkInfo.Name == name)
+            {
+                return perkInfo;
+            }
+        }
+
+        return null;
+    }
+    private void OnValidate() {
+        Perks.ForEach(x => {if(x.Icon == null) x.Icon = Resources.LoadAll<Sprite>("")[0];});
+    }
+
+    [System.Serializable]
+    public class PerkInfo
+    {
+        [SerializeField]
+        private string name;
+        [SerializeField]
+        private int id;
+        [SerializeField]
+        private Sprite icon;
+        [SerializeField]
+        private Attributes requirmentsAttributes;
+        [SerializeReference]
+        private List<OneCharacterEffect> efects;
+
+        public string Name { get => name; set => name = value; }
+        public int Id { get => id; set => id = value; }
+        public Attributes RequirmentsAttributes { get => requirmentsAttributes; set => requirmentsAttributes = value; }
+        public List<OneCharacterEffect> Efects { get => efects; set => efects = value; }
+        public Sprite Icon { get => icon; set => icon = value; }
     }
 }

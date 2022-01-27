@@ -7,20 +7,17 @@ using UnityEngine;
 public class Perk
 {
     [SerializeField]
-    private string perkName;
-    [SerializeReference]
-    private List<OneCharacterEffect> efects;
+    private PerkScriptableObject.PerkInfo perkInfo;
 
-    public List<OneCharacterEffect> Efects { get => efects; set => efects = value; }
-    public string PerkName { get => perkName; set => perkName = value; }
-
-    public void AddEffect(OneCharacterEffect e)
+    public bool CheckCondition(Attributes attributes)
     {
-        Efects.Add(e);
+        return attributes.Strength.Value >= perkInfo.RequirmentsAttributes.Strength.Value
+            && attributes.Dexterity.Value >= perkInfo.RequirmentsAttributes.Dexterity.Value
+            && attributes.Endurance.Value >= perkInfo.RequirmentsAttributes.Endurance.Value;
     }
 
     public void ExecuteEffects(Character character)
     {
-        Efects.ForEach(x => x.Execute(character));
+        perkInfo.Efects.ForEach(x => x.Execute(character));
     }
 }
