@@ -14,6 +14,12 @@ public class Perk
         perkInfo = info;
     }
 
+    public Perk(int perkId)
+    {
+        PerkScriptableObject.PerkInfo info = PerkScriptableObject.Instance.GetPerkInfoById(perkId);
+        perkInfo = info;
+    }
+
     public bool CheckCondition(Attributes attributes)
     {
         return attributes.Strength.Value >= perkInfo.RequirmentsAttributes.Strength.Value
@@ -24,5 +30,6 @@ public class Perk
     public void ExecuteEffects(Character character)
     {
         perkInfo.Efects.ForEach(x => x.Execute(character));
+        character.Perks.AddPerk(perkInfo.Id);
     }
 }
