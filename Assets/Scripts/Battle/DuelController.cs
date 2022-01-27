@@ -25,14 +25,12 @@ public class DuelController : MonoBehaviour
         // do zmiany ale na razie tak do testu
         if (op1.Character.Statistics.Hp.Value <= 0)
         {
-            BattleManager.Instance.walka = false;
-            Debug.Log("gracz przegral");
+            BattleManager.Instance.BattleEnd(false);
             Destroy(gameObject);
         }
         else if (op2.Character.Statistics.Hp.Value <= 0)
         {
-            Debug.Log("gracz wygral");
-            BattleManager.Instance.walka = false;
+            BattleManager.Instance.BattleEnd(true);
             Destroy(gameObject);
         }
     }

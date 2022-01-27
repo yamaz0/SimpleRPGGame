@@ -39,6 +39,19 @@ public class BattleManager : Singleton<BattleManager>
         gameInputController.Player.walka.started += _ => walka = !walka;
     }
 
+    public void BattleEnd(bool isPlayerWin)
+    {
+        walka = false;
+        if (isPlayerWin == true)
+        {
+            Player.Instance.Character.Statistics.Exp.AddValue(100, true);
+        }
+        else
+        {
+            Player.Instance.Character.Statistics.Exp.AddValue(-100, true);
+        }
+    }
+
     private void OnEnable()
     {
         gameInputController.Enable();

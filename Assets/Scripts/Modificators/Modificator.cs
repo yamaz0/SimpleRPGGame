@@ -45,7 +45,7 @@ public class Modificator
 
     public void SetBaseValue(float modValue, bool isNotify = true)
     {
-        BaseValue = modValue;
+        BaseValue = Mathf.Clamp(modValue, 0, float.MaxValue);
 
         if (isNotify == true)
         {
