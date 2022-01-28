@@ -24,13 +24,19 @@ public class CharacterStatistics
     private Modificator hp = new Modificator(0);
     [SerializeField]
     private Modificator exp = new Modificator(0);
+    [SerializeField]
+    private Modificator twoHandedDamageBonus = new Modificator(0);
+    [SerializeField]
+    private Modificator oneHandedDamageBonus = new Modificator(0);
+    [SerializeField]
+    private Modificator dualWieldDamageBonus = new Modificator(0);
 
 
 
     [Modificator]
-    public Modificator Damage { get => damage; set => damage = value; }
+    public Modificator Damage { get => damage; set => damage = value; }//bazowe obrazenia plus dodatkowe tymczasowe z ekwipunku lub efektow podczas walki
     [Modificator]
-    public Modificator Defence { get => defence; set => defence = value; }
+    public Modificator Defence { get => defence; set => defence = value; }//bazowa obrona plus dodatkowe tymczasowe z ekwipunku lub efektow podczas walki
     [Modificator]
     public Modificator DodgeChance { get => dodgeChance; set => dodgeChance = value; }
     [Modificator]
@@ -43,6 +49,13 @@ public class CharacterStatistics
     public Modificator MaxHp { get => maxHp; set => maxHp = value; }
     [Modificator]
     public Modificator Exp { get => exp; set => exp = value; }
+    [Modificator]
+    public Modificator TwoHandedDamageBonus { get => twoHandedDamageBonus; set => twoHandedDamageBonus = value; }
+    [Modificator]
+    public Modificator OneHandedDamageBonus { get => oneHandedDamageBonus; set => oneHandedDamageBonus = value; }
+    [Modificator]
+    public Modificator DualWieldDamageBonus { get => dualWieldDamageBonus; set => dualWieldDamageBonus = value; }
+
     public Modificator Hp { get => hp; set => hp = value; }
 
     public Modificator GetStatistic(string attributeName)

@@ -9,12 +9,9 @@ public class InventoryController
     private Inventory inventory = new Inventory();
     [SerializeField]
     private Equipement equipement = new Equipement();
-    [SerializeField]
-    private bool isTwoHandedEquip;
 
     public Inventory Inventory { get => inventory; set => inventory = value; }
     public Equipement Equipement { get => equipement; set => equipement = value; }
-    public bool IsTwoHandedEquip { get => isTwoHandedEquip; set => isTwoHandedEquip = value; }
 
     public void Init()
     {

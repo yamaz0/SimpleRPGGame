@@ -45,23 +45,19 @@ public class WeaponItem : Item, IEquipable, IUseable
     {
         if (type == Equipement.EqType.HandLeft || type == Equipement.EqType.HandRight)
         {
-            InventoryController inventoryController = Player.Instance.Character.InventoryController;
+            Character character = Player.Instance.Character;
+            InventoryController inventoryController = character.InventoryController;
 
-            if (TwoHanded == true)
+            if (TwoHanded == true || character.Style == FightStyle.TwoHand)
             {
-                TryUnequipItem(inventoryController,Equipement.EqType.HandLeft);
-                TryUnequipItem(inventoryController,Equipement.EqType.HandRight);
-
-                inventoryController.IsTwoHandedEquip = true;
+                TryUnequipItem(inventoryController, Equipement.EqType.HandLeft);
+                TryUnequipItem(inventoryController, Equipement.EqType.HandRight);
             }
-            else if (inventoryController.IsTwoHandedEquip == true)
+            else
             {
-                if (TryUnequipTwoHandedWeapon(inventoryController, Equipement.EqType.HandLeft)
-                 || TryUnequipTwoHandedWeapon(inventoryController, Equipement.EqType.HandRight))
-                {
-                    inventoryController.IsTwoHandedEquip = false;
-                }
+                TryUnequipItem(inventoryController, type);
             }
+            UpdateCharacterStyle(character, inventoryController);
 
             inventoryController.EquipItem(this, type);
             return true;
@@ -69,22 +65,22 @@ public class WeaponItem : Item, IEquipable, IUseable
         return false;
     }
 
-
-    private bool TryUnequipTwoHandedWeapon(InventoryController inventoryController, Equipement.EqType type)
+    private void UpdateCharacterStyle(Character character, InventoryController inventoryController)
     {
-        Item item = inventoryController.GetItemByType(type);
-        if (CheckItemIsTwoHanded(item) == true)
+        Item itemL = inventoryController.GetItemByType(Equipement.EqType.HandLeft);
+        Item itemR = inventoryController.GetItemByType(Equipement.EqType.HandRight);
+
+        if (itemL != null && itemR != null && itemL is WeaponItem && itemR is WeaponItem)
         {
-            inventoryController.EquipItem(null, type);
-            return true;
+            character.Style = FightStyle.DualWield;
         }
-        return false;
-    }
-
-    private bool CheckItemIsTwoHanded(Item item)
-    {
-        if (item is WeaponItem weaponItem)
-            return weaponItem.TwoHanded;
-        return false;
+        else if (itemR != null && itemR is WeaponItem weaponR)
+        {
+            character.Style = weaponR.TwoHanded == true ? FightStyle.TwoHand : FightStyle.OneHand;
+        }
+        else if (itemL != null && itemL is WeaponItem weaponL)
+        {
+            character.Style = weaponL.TwoHanded == true ? FightStyle.TwoHand : FightStyle.OneHand;
+        }
     }
 }

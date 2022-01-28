@@ -31,14 +31,15 @@ public class ShieldItem : Item, IEquipable, IUseable
     {
         if (type == Equipement.EqType.HandRight)
         {
-            InventoryController inventoryController = Player.Instance.Character.InventoryController;
+            Character character = Player.Instance.Character;
+            InventoryController inventoryController = character.InventoryController;
 
             Item item = inventoryController.GetItemByType(type);
 
-            if (item != null || inventoryController.IsTwoHandedEquip == false)
+            if (item != null || character.Style != FightStyle.TwoHand)
             {
                 inventoryController.EquipItem(this, type);
-                inventoryController.IsTwoHandedEquip = false;
+                character.Style = FightStyle.OneHand;
                 return true;
             }
         }

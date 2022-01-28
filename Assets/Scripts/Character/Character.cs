@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FightStyle { OneHand, TwoHand, DualWield }
+
 [System.Serializable]
 public class Character
 {
@@ -15,12 +17,15 @@ public class Character
     private Perks perks;
     [SerializeField]
     private CharacterStatistics statistics = new CharacterStatistics();
+    [SerializeField]
+    private FightStyle style;
 
     public Attributes Attributes { get => attributes; set => attributes = value; }
     public InventoryController InventoryController { get => inventoryController; set => inventoryController = value; }
     public CharacterStatistics Statistics { get => statistics; set => statistics = value; }
     public Abilities Abilities { get => abilities; set => abilities = value; }
     public Perks Perks { get => perks; set => perks = value; }
+    public FightStyle Style { get => style; set => style = value; }
 
     public void Initialize()
     {

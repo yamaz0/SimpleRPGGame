@@ -44,12 +44,40 @@ public class BattleManager : Singleton<BattleManager>
         walka = false;
         if (isPlayerWin == true)
         {
-            Player.Instance.Character.Statistics.Exp.AddValue(100, true);
+            PlayerWin();
         }
         else
         {
-            Player.Instance.Character.Statistics.Exp.AddValue(-100, true);
+            PlayerLose();
         }
+    }
+
+    private static void PlayerLose()
+    {
+        float expToSub = Player.Instance.Character.Statistics.Exp.Value * 0.1f;
+        Player.Instance.Character.Statistics.Exp.AddValue(-expToSub, true);
+        //popup czy cos ze przegrana i ilosc odjetego expa
+    }
+
+    private static void PlayerWin()
+    {
+        Player.Instance.Character.Statistics.Exp.AddValue(100, true);
+        switch (Player.Instance.Character.Style)
+        {
+            case FightStyle.OneHand:
+                Player.Instance.Character.Statistics.OneHandedDamageBonus.AddValue(1, true);
+                break;
+            case FightStyle.TwoHand:
+                Player.Instance.Character.Statistics.TwoHandedDamageBonus.AddValue(1, true);
+                break;
+            case FightStyle.DualWield:
+                Player.Instance.Character.Statistics.DualWieldDamageBonus.AddValue(1, true);
+                break;
+            default:
+                Debug.LogError("Style not exist!");
+                return;
+        }
+        //popup czy cos ze wygrana z wygranym expem lub nagroda itemy cokolwiek
     }
 
     private void OnEnable()
