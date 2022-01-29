@@ -23,6 +23,11 @@ public class Equipement
             InitializeEquipmentSlots();
         }
 
+        InitializeItems();
+    }
+
+    private void InitializeItems()
+    {
         Items = new List<Item>(Constants.EQUIPMENT_SLOTS_NUMBER);
 
         foreach (var itemId in itemsId)
