@@ -69,6 +69,8 @@ public class AbilityInfo
     private int durationTime;
     [SerializeField]
     private int exahustTime;
+    [SerializeField]
+    private FightStyle style;
 
     public string Name { get => name; set => name = value; }
     public int Id { get => id; set => id = value; }
@@ -77,5 +79,6 @@ public class AbilityInfo
     public int DurationTime { get => durationTime; set => durationTime = value; }
     public Sprite Icon { get => icon; set => icon = value; }
     public int ExahustTime { get => exahustTime; set => exahustTime = value; }
+    public FightStyle Style { get => style; set => style = value; }
 }
 

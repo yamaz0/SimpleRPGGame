@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FightStyle { OneHand, TwoHand, DualWield }
+public enum FightStyle { OneHand, TwoHand, DualWield, None }
 
 [System.Serializable]
 public class Character

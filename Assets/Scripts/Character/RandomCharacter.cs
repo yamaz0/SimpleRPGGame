@@ -10,22 +10,38 @@ public static class RandomCharacter
 
         RandomizeAttributes(originalCharacter, randomCharacter);
 
+        PerksManager.Instance.TryAddAllAvaiblePerks(randomCharacter);
+
         SetRandomEquip(randomCharacter);
 
-        string eqIds = "eq: " ;
-        randomCharacter.InventoryController.Equipement.Items.ForEach(x => eqIds+=x?.Id + ", ");
-Debug.Log(eqIds);
-        // equipItems.FindAll(x => ((EquipItemInfo)x).EquipmentType == Equipement.EqType.Armor);
+        SetRandomAbilities(randomCharacter);
 
-        /*
-        Debug.Log("");
-        Debug.Log("LosuLosu");
-        Debug.Log("Strength: "+randomCharacter.Attributes.Strength.Value);
-        Debug.Log("Dexterity: "+randomCharacter.Attributes.Dexterity.Value);
-        Debug.Log("Endurance: "+randomCharacter.Attributes.Endurance.Value);
-        */
+        string abilss = "abilities: ";
+        randomCharacter.Abilities.KnownAbilities.ForEach(x => abilss += x.ToString() + ", ");
+        Debug.Log(abilss);
+
+        // string eqIds = "eq: ";
+        // randomCharacter.InventoryController.Equipement.Items.ForEach(x => eqIds += x?.Id + ", ");
+        // Debug.Log(eqIds);
+
+        // Debug.Log("");
+        // Debug.Log("LosuLosu");
+        // Debug.Log("Strength: " + randomCharacter.Attributes.Strength.Value + " Dexterity: " + randomCharacter.Attributes.Dexterity.Value + " Endurance: " + randomCharacter.Attributes.Endurance.Value);
+
 
         return null;
+    }
+
+    private static void SetRandomAbilities(Character randomCharacter)
+    {
+        List<AbilityInfo> abilitiesInfo = AbilityScriptableObject.Instance.Abilities.FindAll(x => x.Style == randomCharacter.Style || x.Style == FightStyle.None);
+
+        for (int i = Random.Range(0, 5); i >= 0 && abilitiesInfo.Count > 0; i--)
+        {
+            AbilityInfo randomAbilityInfo = abilitiesInfo[Random.Range(0, abilitiesInfo.Count)];
+            randomCharacter.Abilities.AddAbility(randomAbilityInfo.Id);
+            abilitiesInfo.Remove(randomAbilityInfo);
+        }
     }
 
     private static void SetRandomEqElement(Character randomCharacter, List<ItemInfo> equipItems)
@@ -34,6 +50,7 @@ Debug.Log(eqIds);
         if (randomCharacter.InventoryController.Equipement.GetItemByType(randomEqItem.EquipmentType) == null)
         {
             randomCharacter.InventoryController.Equipement.EquipItem(randomEqItem.CreateItem(), randomEqItem.EquipmentType);
+            equipItems.Remove(randomEqItem);
         }
     }
 

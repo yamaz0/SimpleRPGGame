@@ -8,7 +8,7 @@ using UnityEngine;
 public class Perks
 {
     [SerializeField]
-    private List<int> knownPerks;
+    private List<int> knownPerks = new List<int>();
 
     [Modificator]
     public List<int> KnownPerks { get => knownPerks; set => knownPerks = value; }

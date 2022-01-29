@@ -25,7 +25,7 @@ public class PerksManager : Singleton<PerksManager>
 
             if (hasCharacterPerk == false && CheckCondition(character.Attributes, perk.PerkInfo) == true)
             {
-                Debug.Log(perk.PerkInfo.Name);
+                // Debug.Log(perk.PerkInfo.Name);
                 perk.ExecuteEffects(character);
             }
         }
