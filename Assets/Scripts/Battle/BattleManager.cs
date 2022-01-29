@@ -15,6 +15,8 @@ public class BattleManager : Singleton<BattleManager>
     [SerializeField]
     private GameObject battleGameObject;
     [SerializeField]
+    private GameObject gameGameObject;
+    [SerializeField]
     private DuelController duelControllerPrefab;
 
     private DuelController DuelController { get; set; }
@@ -26,6 +28,8 @@ public class BattleManager : Singleton<BattleManager>
     public void StartBattle(Character characterFirst, Character characterSecound)
     {
         battleGameObject.SetActive(true);
+        gameGameObject.SetActive(false);
+        walka = true;
 
         DuelController = Instantiate(duelControllerPrefab, battleGameObject.transform);
         DuelController.gameObject.SetActive(true);
@@ -41,7 +45,10 @@ public class BattleManager : Singleton<BattleManager>
 
     public void BattleEnd(bool isPlayerWin)
     {
+        battleGameObject.SetActive(false);
+        gameGameObject.SetActive(true);
         walka = false;
+
         if (isPlayerWin == true)
         {
             PlayerWin();
