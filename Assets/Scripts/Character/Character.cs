@@ -10,11 +10,11 @@ public class Character
     [SerializeField]
     private Attributes attributes = new Attributes();
     [SerializeField]
-    private InventoryController inventoryController;
+    private InventoryController inventoryController = new InventoryController();
     [SerializeField]
-    private Abilities abilities;
+    private Abilities abilities = new Abilities();
     [SerializeField]
-    private Perks perks;
+    private Perks perks = new Perks();
     [SerializeField]
     private CharacterStatistics statistics = new CharacterStatistics();
     [SerializeField]
