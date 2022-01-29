@@ -53,40 +53,13 @@ if(string.IsNullOrEmpty(searchPropertyName)) break;
 }
 
  [MenuItem("DoSomething/test")]
-    static void AddItem()
+    static void PrintRandomAtributesValues()
     {
         // Player.Instance.Inventory.AddItem(ItemsManager.ItemType.BOOK, 0);
-
-        // System.Reflection.Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-        // foreach (var assembly in assemblies)
-        // {
-        //     foreach (Type t in assembly.GetTypes())
-        //     {
-        //         IEnumerable<System.Reflection.PropertyInfo> props = t.GetProperties().Where( prop => System.Attribute.IsDefined(prop, typeof(Modificator)));
-        //         foreach (var p in props.ToList())
-        //         {
-        //             Debug.Log(p.Name);
-        //             if(p.Name == "Test1")
-        //             {
-        //                 Character c = new Character();
-        //                 c.Attributes = new Attributes();
-        //                 Debug.Log(c.Attributes.Test1);
-        //                 c.Attributes.Test1 = 5;
-        //                 Debug.Log(c.Attributes.Test1);
-        //                 string n = "Test1";
-
-        //                 string path = GetClassDetails(c.GetType(),ref n);
-        //                 object tmp = c.GetType().GetProperty(path).GetValue(c,null);
-        //                 // System.Reflection.PropertyInfo field = Cheats.GetPropertyValue(c,path) as System.Reflection.PropertyInfo;
-        //                 PropertyInfo propertyInfo = tmp.GetType().GetProperty("Test1", BindingFlags.Public | BindingFlags.Instance);
-        //                 propertyInfo.SetValue(tmp, 9);
-        //                 Debug.Log(c.Attributes.Test1);
-        //             }
-        //         }
-        //     }
-        // }
-
+        for (int i = 0; i < 10; i++)
+        {
+        RandomCharacter.CreateRandomCharacterBalancedToCharacter(null);
+        }
 
     }
 
