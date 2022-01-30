@@ -10,6 +10,8 @@ public static class RandomCharacter
 
         RandomizeAttributes(originalCharacter, randomCharacter);
 
+        randomCharacter.Style = (FightStyle)Random.Range(0, 3);
+
         PerksManager.Instance.TryAddAllAvaiblePerks(randomCharacter);
 
         SetRandomEquip(randomCharacter);
@@ -18,7 +20,8 @@ public static class RandomCharacter
 
         string abilss = "abilities: ";
         randomCharacter.Abilities.KnownAbilities.ForEach(x => abilss += x.ToString() + ", ");
-        Debug.Log(abilss);
+
+        // Debug.Log(abilss);
 
         // string eqIds = "eq: ";
         // randomCharacter.InventoryController.Equipement.Items.ForEach(x => eqIds += x?.Id + ", ");
@@ -29,7 +32,7 @@ public static class RandomCharacter
         // Debug.Log("Strength: " + randomCharacter.Attributes.Strength.Value + " Dexterity: " + randomCharacter.Attributes.Dexterity.Value + " Endurance: " + randomCharacter.Attributes.Endurance.Value);
 
 
-        return null;
+        return randomCharacter;
     }
 
     private static void SetRandomAbilities(Character randomCharacter)
@@ -63,8 +66,7 @@ public static class RandomCharacter
             return x.ItemType == ItemsManager.ItemType.EQUIPMENT;
         });
 
-        FightStyle randomStyle = (FightStyle)Random.Range(0, 3);
-        switch (randomStyle)
+        switch (randomCharacter.Style)
         {
             case FightStyle.OneHand:
                 SetRandomOneHandStyleItems(randomCharacter, items);
@@ -121,9 +123,9 @@ public static class RandomCharacter
 
     private static void RandomizeAttributes(Character originalCharacter, Character randomCharacter)
     {
-        // Attributes originalAttributes = originalCharacter.Attributes;
-        // int attributesPoints = (int)(originalAttributes.Dexterity.Value + originalAttributes.Strength.Value + originalAttributes.Endurance.Value);
-        int attributesPoints = 100;
+        Attributes originalAttributes = originalCharacter.Attributes;
+        int attributesPoints = (int)(originalAttributes.Dexterity.Value + originalAttributes.Strength.Value + originalAttributes.Endurance.Value);
+        // int attributesPoints = 100;
 
         int attributesPointsOffsetTenPercent = (int)(attributesPoints * 0.1f);
         int minRadnom = attributesPoints - attributesPointsOffsetTenPercent;

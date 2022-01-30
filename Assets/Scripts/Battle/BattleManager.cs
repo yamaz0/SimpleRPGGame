@@ -33,7 +33,8 @@ public class BattleManager : Singleton<BattleManager>
 
         DuelController = Instantiate(duelControllerPrefab, battleGameObject.transform);
         DuelController.gameObject.SetActive(true);
-        DuelController.Initialize(characterFirst, characterSecound);
+        // DuelController.Initialize(characterFirst, characterSecound);
+        DuelController.Initialize(characterFirst, RandomCharacter.CreateRandomCharacterBalancedToCharacter(characterFirst));
     }
     protected override void Initialize()
     {

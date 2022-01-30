@@ -78,7 +78,7 @@ MonoBehaviour:
         id: 5
         icon: {fileID: 21300000, guid: 86823c3252463409989c0bb247d92a60, type: 3}
         itemType: 5
-        defense: 0
+        defense: 1
         equipmentType: 0
     00000006:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
@@ -97,7 +97,7 @@ MonoBehaviour:
         icon: {fileID: -5020785835753586017, guid: 3e6a24bbaa0660d428ce353560a579ca,
           type: 3}
         itemType: 5
-        defense: 0
+        defense: 1
         equipmentType: 2
     00000008:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
@@ -106,7 +106,7 @@ MonoBehaviour:
         id: 8
         icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
         itemType: 5
-        defense: 0
+        defense: 1
         equipmentType: 3
     00000009:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}

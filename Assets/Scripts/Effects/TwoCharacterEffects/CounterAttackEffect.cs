@@ -24,7 +24,6 @@ public class CounterAttackEffect : TwoOponentBattleEffect
     {
         if (Random.Range(0, 1f) < chanceCounterPercent)
         {
-        Debug.Log("Counter Attack");
             CacheAtackerCharacter.OnCharacterAttacked -= TryCounter;
             CacheAtackerCharacter.Attack();
         }

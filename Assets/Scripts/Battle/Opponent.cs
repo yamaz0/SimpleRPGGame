@@ -24,16 +24,20 @@ public class Opponent : MonoBehaviour
 
     public event System.Action OnCharacterAttacked = delegate { };
 
-    public enum FightStyle { OneHandWeapon, TwoHandWeapon, DualWield }
-
     public void Initialize(Character character, Opponent opponent)
     {
         Character = character;
         CacheOpponent = opponent;
         SpritesController.SetSprites(Character);
         Character.UpdateEqStatsMod();
-        Character.Statistics.Hp.SetValue(character.Statistics.MaxHp.Value);
-        Character.Statistics.Hp.SetBaseValue(0);
+        float maxHp = character.Statistics.MaxHp.Value + character.Attributes.Endurance.Value * 5;
+        float damage = character.Attributes.Strength.Value * 2;
+        float dodge = character.Attributes.Dexterity.Value;
+        float fastaatack = character.Attributes.Dexterity.Value * 0.5f;
+        Character.Statistics.Hp.SetValue(maxHp);
+        Character.Statistics.Damage.AddValue(damage, false);
+        Character.Statistics.DodgeChance.AddValue(dodge, false);
+        Character.Statistics.AttackSpeed.AddValue(fastaatack, false);
         InitializeAbilities();
         abilityBattleUIController.Init(Abilities);
     }
@@ -59,7 +63,7 @@ public class Opponent : MonoBehaviour
         if (CheckReadyToAttack() == true)
         {
             Attack();
-            Debug.Log("AttackTurn");
+            // Debug.Log("AttackTurn");
         }
         else
         {
@@ -74,7 +78,7 @@ public class Opponent : MonoBehaviour
         Ability randomAbility = GetRandomAbility();
         if (randomAbility != null)
         {
-            Debug.Log("randomAbility");
+            // Debug.Log("randomAbility");
             randomAbility.Execute(this, CacheOpponent);
         }
     }
@@ -124,9 +128,26 @@ public class Opponent : MonoBehaviour
 
     public void Attack()
     {
-        ExhaustedTime = Character.Statistics.AttackSpeed.Value * Random.Range(0.9f, 1.1f);
-        CacheOpponent.Character.Statistics.Hp.AddValue(-Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f), false);
+        float v = Character.Statistics.AttackSpeed.Value * Random.Range(0.9f, 1.1f);
+        ExhaustedTime = 60 / v;
+        float damage = Mathf.Abs(Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f) - Character.Statistics.Defence.Value);
+
+        CacheOpponent.Character.Statistics.Hp.AddValue(-damage, false);
         OnCharacterAttacked();
-        Anim.Play("OneHandWeapon");
+        switch (Character.Style)
+        {
+            case FightStyle.OneHand:
+                Anim.Play("OneHandWeapon");
+                break;
+            case FightStyle.TwoHand:
+                Anim.Play("TwoHandedAttack");
+                break;
+            case FightStyle.DualWield:
+                Anim.Play("DualWielding");
+                break;
+            default:
+                Anim.Play("OneHandWeapon");
+                break;
+        }
     }
 }

@@ -23,7 +23,6 @@ public class AttackEffect : TwoOponentBattleEffect
             CacheValue += op.Calc(atacker.Character);
         }
 
-        Debug.Log("AttackEffect");
         // atacker.StartSpecialAnim();
         atacked.Character.Statistics.Hp.AddValue(-CacheValue,false);
     }

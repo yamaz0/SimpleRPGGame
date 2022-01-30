@@ -21,6 +21,7 @@ MonoBehaviour:
     oneCharacterEffects: []
     durationTime: 0
     exahustTime: 15
+    style: 1
   - name: countra
     id: 1
     icon: {fileID: 21300000, guid: da468f356abb846bcaf3a1b64c5c26d2, type: 3}
@@ -29,6 +30,7 @@ MonoBehaviour:
     oneCharacterEffects: []
     durationTime: 5
     exahustTime: 10
+    style: 3
   - name: attack2
     id: 2
     icon: {fileID: 21300000, guid: 5b54b64aa03a6418fa2cf8b50928ceb9, type: 3}
@@ -37,6 +39,7 @@ MonoBehaviour:
     oneCharacterEffects: []
     durationTime: 0
     exahustTime: 5
+    style: 2
   references:
     version: 1
     00000000:
