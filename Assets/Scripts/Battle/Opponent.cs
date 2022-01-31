@@ -29,15 +29,8 @@ public class Opponent : MonoBehaviour
         Character = character;
         CacheOpponent = opponent;
         SpritesController.SetSprites(Character);
-        Character.UpdateEqStatsMod();
-        float maxHp = character.Statistics.MaxHp.Value + character.Attributes.Endurance.Value * 5;
-        float damage = character.Attributes.Strength.Value * 2;
-        float dodge = character.Attributes.Dexterity.Value;
-        float fastaatack = character.Attributes.Dexterity.Value * 0.5f;
-        Character.Statistics.Hp.SetValue(maxHp);
-        Character.Statistics.Damage.AddValue(damage, false);
-        Character.Statistics.DodgeChance.AddValue(dodge, false);
-        Character.Statistics.AttackSpeed.AddValue(fastaatack, false);
+
+        Character.Statistics.Hp.SetValue(character.Statistics.MaxHp.Value);
         InitializeAbilities();
         abilityBattleUIController.Init(Abilities);
     }

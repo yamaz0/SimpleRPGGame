@@ -30,17 +30,26 @@ public class Character
     public void Initialize()
     {
         InventoryController.Init();
-        InventoryController.Equipement.OnEquipmentChanged += UpdateEqStatsMod;
+        InventoryController.Equipement.OnEquipmentChanged += UpdateStatsMod;
+        UpdateStatsMod();
     }
 
-    public void UpdateEqStatsMod()
+    public void OnDisable()
+    {
+        InventoryController.Equipement.OnEquipmentChanged -= UpdateStatsMod;
+    }
+
+    public void UpdateStatsMod()
     {
         List<Item> items = InventoryController.Equipement.Items;
 
         float atk = 0;
+        float critChance = Attributes.Strength.Value;
         float def = 0;
         float atcSpeed = 0;
         float blockChance = 0;
+        float dodge = Attributes.Dexterity.Value;
+        float maxHp = Attributes.Endurance.Value * 5;
 
         foreach (Item item in items)
         {
@@ -55,14 +64,22 @@ public class Character
             }
             else if (item is ShieldItem si)
             {
-                blockChance += si.BlockChance;
+                blockChance = si.BlockChance;
                 def += si.Defense;
             }
         }
+
+
+        atk += Attributes.Strength.Value * 2;
+        atcSpeed += Attributes.Dexterity.Value * 0.5f;
+
         Statistics.Defence.SetValue(def);
+        Statistics.CritChance.SetValue(critChance);
         Statistics.Damage.SetValue(atk);
         Statistics.AttackSpeed.SetValue(atcSpeed);
         Statistics.BlockChance.SetValue(blockChance);
+        Statistics.DodgeChance.SetValue(dodge);
+        Statistics.MaxHp.SetValue(Statistics.MaxHp.Value + maxHp);
     }
 
 }
