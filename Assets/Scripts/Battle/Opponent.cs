@@ -2,18 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class BattleStatistic
-{
-    float value;
-    List<TwoOponentBattleEffect> effects;
-    public float Calc()
-    {
-        return 0;
-    }
-
-}
-
 [System.Serializable]
 public class Opponent : MonoBehaviour
 {
@@ -81,7 +69,7 @@ public class Opponent : MonoBehaviour
     {
         float v = Character.Statistics.AttackSpeed.Value * Random.Range(0.9f, 1.1f);
         ExhaustedTime = 60 / v;
-        float damage = Mathf.Abs(Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f) - Character.Statistics.Defence.Value);
+        float damage = Mathf.Max(1, Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f) - Character.Statistics.Defence.Value);
 
         CacheOpponent.Character.Statistics.Hp.AddValue(-damage, false);
         OnCharacterAttacked();
