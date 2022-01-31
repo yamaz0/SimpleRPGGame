@@ -14,6 +14,9 @@ public class Ability : ITwoCharacterEffect
     public AbilityInfo AbilityInfo { get => abilityInfo; set => abilityInfo = value; }
     public AbilityState State { get; set; }
 
+    Opponent AttackerCache { get; set; }
+    Opponent AttackedCache { get; set; }
+
     public event System.Action<AbilityState> OnStateChanged = delegate { };
 
     public Ability(AbilityInfo info)
@@ -59,6 +62,8 @@ public class Ability : ITwoCharacterEffect
     public void Execute(Opponent attacker, Opponent attacked)
     {
         ChangeState(AbilityState.InUse);
+        AttackerCache = attacker;
+        AttackedCache = attacked;
 
         foreach (var effect in AbilityInfo.TwoOponentBattleEffects)
         {
@@ -70,15 +75,15 @@ public class Ability : ITwoCharacterEffect
         }
     }
 
-    public void RemoveEffects(Opponent attacker, Opponent attacked)
+    public void RemoveEffects()
     {
         foreach (var effect in AbilityInfo.TwoOponentBattleEffects)
         {
-            effect.Remove(attacker, attacked);
+            effect.Remove(AttackerCache, AttackedCache);
         }
         foreach (var effect in AbilityInfo.OneCharacterEffects)
         {
-            effect.Remove(attacker.Character);
+            effect.Remove(AttackerCache.Character);
         }
     }
 }

@@ -18,9 +18,8 @@ public static class RandomCharacter
 
         SetRandomAbilities(randomCharacter);
 
-        string abilss = "abilities: ";
-        randomCharacter.Abilities.KnownAbilities.ForEach(x => abilss += x.ToString() + ", ");
-
+        // string abilss = "abilities: ";
+        // randomCharacter.Abilities.KnownAbilities.ForEach(x => abilss += x.ToString() + ", ");
         // Debug.Log(abilss);
 
         // string eqIds = "eq: ";
@@ -59,7 +58,7 @@ public static class RandomCharacter
 
     private static void SetRandomEquip(Character randomCharacter)
     {
-        randomCharacter.InventoryController.Equipement.Init();
+        randomCharacter.Initialize();
 
         List<ItemInfo> items = ItemsScriptableObject.Instance.Items.FindAll(x =>
         {

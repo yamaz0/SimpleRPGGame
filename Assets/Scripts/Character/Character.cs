@@ -31,6 +31,9 @@ public class Character
     {
         InventoryController.Init();
         InventoryController.Equipement.OnEquipmentChanged += UpdateStatsMod;
+        // Attributes.Strength.OnValueChanged += UpdateStatsMod;
+        // Attributes.Dexterity.OnValueChanged += UpdateStatsMod;
+        // Attributes.Endurance.OnValueChanged += UpdateStatsMod;
         UpdateStatsMod();
     }
 
@@ -79,7 +82,7 @@ public class Character
         Statistics.AttackSpeed.SetValue(atcSpeed);
         Statistics.BlockChance.SetValue(blockChance);
         Statistics.DodgeChance.SetValue(dodge);
-        Statistics.MaxHp.SetValue(Statistics.MaxHp.Value + maxHp);
+        Statistics.MaxHp.SetValue(maxHp);
     }
 
 }
