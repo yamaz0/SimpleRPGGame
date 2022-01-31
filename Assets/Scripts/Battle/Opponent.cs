@@ -67,11 +67,12 @@ public class Opponent : MonoBehaviour
 
     public void Attack()
     {
-        float v = Character.Statistics.AttackSpeed.Value * Random.Range(0.9f, 1.1f);
-        ExhaustedTime = 60 / v;
-        float damage = Mathf.Max(1, Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f) - Character.Statistics.Defence.Value);
+        float attackSpeed = Character.Statistics.AttackSpeed.Value * Random.Range(0.9f, 1.1f);
+        float dodgeChance = CacheOpponent.Character.Statistics.DodgeChance.Value;
+        float blockChance = CacheOpponent.Character.Statistics.BlockChance.Value;
 
-        CacheOpponent.Character.Statistics.Hp.AddValue(-damage, false);
+        ExhaustedTime = 60 / attackSpeed;
+
         OnCharacterAttacked();
         switch (Character.Style)
         {
@@ -88,5 +89,20 @@ public class Opponent : MonoBehaviour
                 Anim.Play("OneHandWeapon");
                 break;
         }
+
+        if (Random.Range(0,100) < dodgeChance)
+        {
+            //Dodge
+            return;
+        }
+
+        if (Random.Range(0,100) < blockChance)
+        {
+            //block
+            return;
+        }
+
+        float damage = Mathf.Max(1, Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f) - Character.Statistics.Defence.Value);
+        CacheOpponent.Character.Statistics.Hp.AddValue(-damage, false);
     }
 }
