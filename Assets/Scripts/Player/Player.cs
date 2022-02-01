@@ -10,7 +10,7 @@ public class Player : Singleton<Player>
     [SerializeField]
     private GameInputsController gameInputController;
     [SerializeField]
-    private float speed;
+    private float speed = 5;
     public Character Character { get => character; set => character = value; }
 
     public void LoadData()
@@ -26,10 +26,7 @@ public class Player : Singleton<Player>
     private void Start()
     {
         // LoadData();
-        // Inventory = new Inventory();
         Character.Initialize();
-        // gameInputController.Player.Move.started += Move;
-        gameInputController.Player.Move.performed += Move;
     }
 
     private void OnEnable()
@@ -39,24 +36,18 @@ public class Player : Singleton<Player>
 
     private void OnDisable()
     {
-        gameInputController.Player.Move.performed -= Move;
         gameInputController.Disable();
     }
 
-    public void KnowledgeAdd()
+    private void Move()
     {
-        // Attributes.AddAttributeProgress(AttributesScriptableObject.MagicAttributes.KNOWLEDGE, 10);
+        Vector2 movementValues = gameInputController.Player.Move.ReadValue<Vector2>();
+        gameObject.transform.Translate(movementValues * Time.deltaTime * speed);
     }
 
-    public void ConcetrationAdd()
+    private void Update()
     {
-        // Attributes.AddAttributeProgress(AttributesScriptableObject.MagicAttributes.CONCETRATION, 10);
-    }
-    private void Move(InputAction.CallbackContext context)
-    {
-        Debug.Log("move");
-        Vector2 movementValues = context.ReadValue<Vector2>();
-        gameObject.transform.Translate(movementValues * Time.deltaTime * speed);
+        Move();
     }
 
     protected override void Initialize()

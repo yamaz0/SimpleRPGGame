@@ -7,7 +7,7 @@ public class BattleManager : Singleton<BattleManager>
     [SerializeField]
     private GameInputsController gameInputController;
     [SerializeField]
-    private float timeFlow = 0.1f;
+    private float timeFlow = 1f;
 
     public Player player;
     public Enemy enemy;
