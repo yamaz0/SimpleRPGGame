@@ -65,6 +65,7 @@ public class BattleManager : Singleton<BattleManager>
         float expToSub = Player.Instance.Character.Statistics.Exp.Value * 0.1f;
         Player.Instance.Character.Statistics.Exp.AddValue(-expToSub, true);
         //popup czy cos ze przegrana i ilosc odjetego expa
+        PopUpManager.Instance.ShowEndBattlePopUp("LOSE",$"You are too weak. You lose {expToSub} experience.");
     }
 
     private static void PlayerWin()
@@ -86,6 +87,7 @@ public class BattleManager : Singleton<BattleManager>
                 return;
         }
         //popup czy cos ze wygrana z wygranym expem lub nagroda itemy cokolwiek
+        PopUpManager.Instance.ShowEndBattlePopUp("WIN",$"You are very stronk. You get 100 experience.");
     }
 
     private void OnEnable()
