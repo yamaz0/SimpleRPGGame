@@ -22,15 +22,17 @@ MonoBehaviour:
       type: {class: CommonNPCInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 0
-        name: 
+        name: commonMale
         icon: {fileID: 0}
+        animator: {fileID: 9100000, guid: fa951a397bc555041b49b0b4d996b450, type: 2}
         texts: []
     00000001:
       type: {class: CommonNPCInfo, ns: , asm: Assembly-CSharp}
       data:
-        id: 0
-        name: 
+        id: 1
+        name: commonFemale
         icon: {fileID: 0}
+        animator: {fileID: 9100000, guid: c0a69f4e429e90642a40d6f691786578, type: 2}
         texts: []
     00000002:
       type: {class: CommonNPCInfo, ns: , asm: Assembly-CSharp}
@@ -38,4 +40,5 @@ MonoBehaviour:
         id: 0
         name: 
         icon: {fileID: 0}
+        animator: {fileID: 0}
         texts: []

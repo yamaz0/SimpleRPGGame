@@ -8,4 +8,8 @@ public class CommonNPCInfo : NPCInfo
     private List<string> texts;
 
     public List<string> Texts { get => texts; set => texts = value; }
+    public override NPCBase CreateNpc()
+    {
+        return new CommonNPC(this);
+    }
 }

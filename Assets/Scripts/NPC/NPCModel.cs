@@ -16,5 +16,13 @@ public class NPCModel : MonoBehaviour
     // [NpcDropdown]
     private int npcId;
 
+    private void OnValidate()
+    {
+        if (Npc != null && Npc.NpcInfo.Id != npcId)
+        {
+            Npc = NPCScriptableObject.Instance.GetNPCInfoById(npcId).CreateNpc();
+            GetComponent<Animator>().runtimeAnimatorController=Npc.NpcInfo.AnimatorController;
+        }
+    }
 #endif
 }
