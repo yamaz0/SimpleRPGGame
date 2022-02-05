@@ -10,7 +10,7 @@ public class MulOperatorEffect : OperatorEffect
     private float value;
     public override float Calc(Character character)
     {
-        Modificator modificator = character.Statistics.GetStatistic(attributeName);
+        Modificator modificator = character.Attributes.GetAttribute(attributeName);
         return modificator.Value * value;
     }
 

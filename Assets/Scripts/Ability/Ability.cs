@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum AbilityState { Ready, InUse, Exhaust }
 
-public class Ability : ITwoCharacterEffect
+public class Ability
 {
     [SerializeField]
     private AbilityInfo abilityInfo;
@@ -73,6 +73,8 @@ public class Ability : ITwoCharacterEffect
         {
             effect.Execute(attacker.Character);
         }
+
+        attacker.Anim.Play(AbilityInfo.AnimName);
     }
 
     public void RemoveEffects()

@@ -24,7 +24,7 @@ public class AttackEffect : TwoOponentBattleEffect
         }
 
         // atacker.StartSpecialAnim();
-        atacked.Character.Statistics.Hp.AddValue(-CacheValue,false);
+        atacked.DealDamage(CacheValue);
     }
 
     public override void Remove(Opponent atacker, Opponent atacked)

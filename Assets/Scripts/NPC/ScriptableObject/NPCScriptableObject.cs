@@ -6,8 +6,8 @@ public class NPCScriptableObject : SingletonScriptableObject<NPCScriptableObject
 {
     private void OnEnable()
     {
-        Objects.Add(new CommonNPCInfo());
-        Objects.ForEach(x => Debug.Log(x.Name));
+        // Objects.Add(new CommonNPCInfo());
+        // Objects.ForEach(x => Debug.Log(x.Name));
         Init();
     }
 

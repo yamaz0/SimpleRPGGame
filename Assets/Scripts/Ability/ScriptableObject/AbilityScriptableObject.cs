@@ -57,6 +57,8 @@ public class AbilityInfo : BaseInfo
     [SerializeField]
     private int exahustTime;
     [SerializeField]
+    private string animName = "None";
+    [SerializeField]
     private FightStyle style;
 
     public List<OneCharacterEffect> OneCharacterEffects { get => oneCharacterEffects; set => oneCharacterEffects = value; }
@@ -65,6 +67,7 @@ public class AbilityInfo : BaseInfo
     public Sprite Icon { get => icon; set => icon = value; }
     public int ExahustTime { get => exahustTime; set => exahustTime = value; }
     public FightStyle Style { get => style; set => style = value; }
+    public string AnimName { get => animName; set => animName = value; }
 }
 
 

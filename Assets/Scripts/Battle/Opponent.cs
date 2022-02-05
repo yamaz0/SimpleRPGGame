@@ -12,6 +12,8 @@ public class Opponent : MonoBehaviour
     [SerializeField]
     private OpponentSpriteController spritesController;
     [SerializeField]
+    private TMPro.TMP_Text hitText;
+    [SerializeField]
     private BattleAbilitiesController battleAbilitiesController = new BattleAbilitiesController();
 
     public Character Character { get => character; set => character = value; }
@@ -68,6 +70,7 @@ public class Opponent : MonoBehaviour
     public void Attack()
     {
         float attackSpeed = Character.Statistics.AttackSpeed.Value * Random.Range(0.9f, 1.1f);
+        float critChance = Character.Statistics.CritChance.Value;
         float dodgeChance = CacheOpponent.Character.Statistics.DodgeChance.Value;
         float blockChance = CacheOpponent.Character.Statistics.BlockChance.Value;
 
@@ -90,19 +93,46 @@ public class Opponent : MonoBehaviour
                 break;
         }
 
-        if (Random.Range(0,100) < dodgeChance)
+        if (Random.Range(0, 100) < dodgeChance)
         {
-            //Dodge
+            //enemy Dodge
+            CacheOpponent.SetHitText("DODGE");
             return;
         }
 
-        if (Random.Range(0,100) < blockChance)
+        if (Random.Range(0, 100) < blockChance)
         {
-            //block
+            //enemy block
+            CacheOpponent.SetHitText("BLOCK");
             return;
         }
-
         float damage = Mathf.Max(1, Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f) - Character.Statistics.Defence.Value);
-        CacheOpponent.Character.Statistics.Hp.AddValue(-damage, false);
+
+        if (Random.Range(0, 100) < critChance)
+        {
+            //character crit
+            // SetHitText("CRIT");
+            damage += damage;
+        }
+
+        CacheOpponent.DealDamage(damage);
+    }
+
+    public void DealDamage(float damage)
+    {
+        SetHitText(damage.ToString("N0"));
+        Character.Statistics.Hp.AddValue(-damage, false);
+    }
+
+    private IEnumerator ResetHit()
+    {
+        yield return new WaitForSeconds(0.5f);
+        hitText.SetText(" ");
+    }
+
+    public void SetHitText(string text)
+    {
+        hitText.SetText(text);
+        StartCoroutine(ResetHit());
     }
 }

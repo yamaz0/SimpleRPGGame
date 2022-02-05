@@ -21,6 +21,7 @@ MonoBehaviour:
   - id: 5
   - id: 6
   - id: 7
+  - id: 8
   references:
     version: 1
     00000000:
@@ -64,7 +65,8 @@ MonoBehaviour:
       data:
         id: 5
         name: sh1
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        icon: {fileID: -3114753951649970509, guid: 3e6a24bbaa0660d428ce353560a579ca,
+          type: 3}
         itemType: 5
         defense: 1
         blockChance: 5
@@ -73,7 +75,8 @@ MonoBehaviour:
       data:
         id: 6
         name: sh2
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        icon: {fileID: 8760534971004201820, guid: 3e6a24bbaa0660d428ce353560a579ca,
+          type: 3}
         itemType: 5
         defense: 2
         blockChance: 10
@@ -82,7 +85,8 @@ MonoBehaviour:
       data:
         id: 7
         name: sword
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        icon: {fileID: 7344806551139346747, guid: 663e30d87a8f8954c8905bbea4d84a0a,
+          type: 3}
         itemType: 5
         weaponType: 0
         attack: 6
@@ -93,9 +97,22 @@ MonoBehaviour:
       data:
         id: 8
         name: axe
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        icon: {fileID: -6736588211099709609, guid: 6aa8d45f947871441bdc84217f943992,
+          type: 3}
         itemType: 5
         weaponType: 1
         attack: 8
         attackSpeed: 10
         twoHanded: 0
+    00000008:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 9
+        name: twohanded club
+        icon: {fileID: -1720165868902098316, guid: 6aa8d45f947871441bdc84217f943992,
+          type: 3}
+        itemType: 5
+        weaponType: 2
+        attack: 20
+        attackSpeed: 2
+        twoHanded: 1

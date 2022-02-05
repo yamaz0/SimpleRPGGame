@@ -1,14 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-public interface IEffect
-{
-    void Execute(Character character);
-}
-public interface ITwoCharacterEffect
-{
-    void Execute(Opponent atacker, Opponent atacked);
-}
 
 [Serializable]
 public class Effect
