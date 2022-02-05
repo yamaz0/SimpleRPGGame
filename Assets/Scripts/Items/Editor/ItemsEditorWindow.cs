@@ -38,8 +38,7 @@ public class ItemsEditorWindow : EditorWindow
             // ItemsScriptableObject.Instance.Items.ForEach(x => DestroyImmediate(x, true));
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            ItemsScriptableObject.Instance.Items.Clear();
-            Debug.Log(ItemsScriptableObject.Instance.Items.Count);
+            ItemsScriptableObject.Instance.Objects.Clear();
         }
 
         if (GUILayout.Button("Create"))

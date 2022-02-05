@@ -9,9 +9,9 @@ public class PerksManager : Singleton<PerksManager>
     protected override void Initialize()
     {
         base.Initialize();
-        List<PerkScriptableObject.PerkInfo> perksInfo = PerkScriptableObject.Instance.Perks;
-        Perks = new List<Perk>(perksInfo.Count);
-        foreach (var perkInfo in perksInfo)
+        List<BaseInfo> perksBaseInfo = PerkScriptableObject.Instance.Objects;
+        Perks = new List<Perk>(perksBaseInfo.Count);
+        foreach (PerkScriptableObject.PerkInfo perkInfo in perksBaseInfo)
         {
             Perks.Add(new Perk(perkInfo));
         }

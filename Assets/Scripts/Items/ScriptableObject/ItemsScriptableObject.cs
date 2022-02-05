@@ -4,16 +4,45 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemsScriptableObject", menuName = "ScriptableObjects/ItemsScriptableObject")]
-public class ItemsScriptableObject : ScriptableObject
+public class ItemsScriptableObject : SingletonScriptableObject<ItemsScriptableObject>
 {
-    private static ItemsScriptableObject instance;
+    private void OnEnable()
+    {
+        Instance = Resources.LoadAll<ItemsScriptableObject>("")[0];
 
-    [SerializeReference]
-    private List<ItemInfo> items;
+        // hideFlags = HideFlags.HideAndDontSave;
+    }
 
-    public static ItemsScriptableObject Instance { get { if (instance == null) instance = Resources.LoadAll<ItemsScriptableObject>("")[0]; return instance; } }
+    public ItemInfo GetItemInfoById(int id)
+    {
+        return (ItemInfo)Objects.GetElementById(id);
+    }
 
-    public List<ItemInfo> Items { get => items; set => items = value; }
+    public ItemInfo GetItemInfoByName(string name)
+    {
+        return (ItemInfo)Objects.GetElementByName(name);
+    }
+
+    public List<ItemInfo> GetItemsList()
+    {
+        List<ItemInfo> items = new List<ItemInfo>(Objects.Count);
+
+        foreach (ItemInfo item in Objects)
+        {
+            items.Add(item);
+        }
+
+        return items;
+    }
+
+    private void OnValidate()
+    {
+        foreach (ItemInfo item in Objects)
+        {
+            if (item.Icon == null)
+                item.Icon = Resources.LoadAll<Sprite>("")[0];
+        }
+    }
 
 #if UNITY_EDITOR
     public event System.Action OnChangedItems = delegate { };
@@ -22,7 +51,7 @@ public class ItemsScriptableObject : ScriptableObject
         ItemInfo itemInfoInstance = (ItemInfo)System.Activator.CreateInstance(item.GetType());
         itemInfoInstance.CopyValues(item);
 
-        Items.Add(itemInfoInstance);
+        Objects.Add(itemInfoInstance);
         // SaveAndRefresh();
     }
 
@@ -48,33 +77,11 @@ public class ItemsScriptableObject : ScriptableObject
     public void RemoveItemInstance(ItemInfo item)
     {
         ItemInfo itemToRemove = GetItemInfoById(item.Id);
-        Items.Remove(itemToRemove);
+        Objects.Remove(itemToRemove);
         // DestroyImmediate(itemToRemove, true);
         // SaveAndRefresh();
     }
 #endif
-
-    private void OnEnable()
-    {
-        instance = Resources.LoadAll<ItemsScriptableObject>("")[0];
-
-        if (Items == null)
-        {
-            Items = new List<ItemInfo>();
-        }
-
-        // hideFlags = HideFlags.HideAndDontSave;
-    }
-
-    public ItemInfo GetItemInfoById(int id)
-    {
-        return Items.GetElementById(id);
-    }
-
-    public ItemInfo GetItemInfoByName(string name)
-    {
-        return Items.GetElementByName(name);
-    }
 }
 
 [UnityEditor.CustomEditor(typeof(ItemsScriptableObject))]
@@ -94,7 +101,7 @@ public class ItemsScriptableObject1Editor : UnityEditor.Editor
             string[] typeNames = t.ToString().Split('+');
             if (GUILayout.Button($"Add {typeNames[typeNames.Length - 1]}", GUILayout.Height(40)))
             {
-                script.Items.Add(System.Activator.CreateInstance(t) as ItemInfo);
+                script.Objects.Add(System.Activator.CreateInstance(t) as ItemInfo);
             }
         }
         base.OnInspectorGUI();

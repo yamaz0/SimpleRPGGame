@@ -2,17 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IIdable
-{
-    int Id{ get;}
-}
-
-public interface INameable
-{
-    string Name{ get;}
-}
-
-public abstract class Item : IIdable, INameable
+public abstract class Item
 {
     [SerializeField]
     private string name;

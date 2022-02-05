@@ -34,6 +34,9 @@ MonoBehaviour:
     - AttackSpeed
     - MaxHp
     - Exp
+    - TwoHandedDamageBonus
+    - OneHandedDamageBonus
+    - DualWieldDamageBonus
   - modTypeName: Inventory
     modNames:
     - ItemsId

@@ -36,11 +36,11 @@ public static class RandomCharacter
 
     private static void SetRandomAbilities(Character randomCharacter)
     {
-        List<AbilityInfo> abilitiesInfo = AbilityScriptableObject.Instance.Abilities.FindAll(x => x.Style == randomCharacter.Style || x.Style == FightStyle.None);
+        List<BaseInfo> abilitiesInfo = AbilityScriptableObject.Instance.Objects.FindAll(x => ((AbilityInfo)x).Style == randomCharacter.Style || ((AbilityInfo)x).Style == FightStyle.None);
 
         for (int i = Random.Range(0, 5); i >= 0 && abilitiesInfo.Count > 0; i--)
         {
-            AbilityInfo randomAbilityInfo = abilitiesInfo[Random.Range(0, abilitiesInfo.Count)];
+            BaseInfo randomAbilityInfo = abilitiesInfo[Random.Range(0, abilitiesInfo.Count)];
             randomCharacter.Abilities.AddAbility(randomAbilityInfo.Id);
             abilitiesInfo.Remove(randomAbilityInfo);
         }
@@ -48,6 +48,8 @@ public static class RandomCharacter
 
     private static void SetRandomEqElement(Character randomCharacter, List<ItemInfo> equipItems)
     {
+        if (equipItems.Count == 0) return;
+
         EquipItemInfo randomEqItem = (EquipItemInfo)equipItems[Random.Range(0, equipItems.Count)];
         if (randomCharacter.InventoryController.Equipement.GetItemByType(randomEqItem.EquipmentType) == null)
         {
@@ -60,10 +62,15 @@ public static class RandomCharacter
     {
         randomCharacter.Initialize();
 
-        List<ItemInfo> items = ItemsScriptableObject.Instance.Items.FindAll(x =>
+        List<ItemInfo> items = new List<ItemInfo>();
+
+        foreach (ItemInfo item in ItemsScriptableObject.Instance.Objects)
         {
-            return x.ItemType == ItemsManager.ItemType.EQUIPMENT;
-        });
+            if (item.ItemType == ItemsManager.ItemType.EQUIPMENT)
+            {
+                items.Add(item);
+            }
+        }
 
         switch (randomCharacter.Style)
         {

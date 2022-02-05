@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddAbilityEffect : OneCharacterEffect
 {
     [SerializeField]
-    [AbilitiesDropdown]
+    [IdDropdown(typeof(AbilityScriptableObject))]
     private int abilityId;
     [SerializeField]
     private bool isRemove = false;

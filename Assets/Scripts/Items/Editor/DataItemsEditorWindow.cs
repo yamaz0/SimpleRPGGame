@@ -109,7 +109,7 @@ public class DataItemsEditorWindow : ScriptableSingleton<DataItemsEditorWindow>
 
     public void CreateItemTypeInstance(Type t)
     {
-        int itemId = ItemsScriptableObject.Instance.Items.Count > 0 ? ItemsScriptableObject.Instance.Items[ItemsScriptableObject.Instance.Items.Count - 1].Id + 1 : 0;
+        int itemId = ItemsScriptableObject.Instance.Objects.Count > 0 ? ItemsScriptableObject.Instance.Objects[ItemsScriptableObject.Instance.Objects.Count - 1].Id + 1 : 0;
 
         ItemInfo item = (ItemInfo)System.Activator.CreateInstance(t);
         item.Id = itemId;

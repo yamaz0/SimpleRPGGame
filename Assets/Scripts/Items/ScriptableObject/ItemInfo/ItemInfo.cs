@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ItemInfo : IIdable, INameable
+public class ItemInfo : BaseInfo
 {
-    [SerializeField]
-    private string name;
-    [SerializeField]
-    private int id;
     [SerializeField]
     private Sprite icon;
     [SerializeField]
     private ItemsManager.ItemType itemType;
 
-    public string Name { get => name; set => name = value; }
-    public int Id { get => id; set => id = value; }
     public ItemsManager.ItemType ItemType { get => itemType; set => itemType = value; }
     public Sprite Icon { get => icon; set => icon = value; }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddPerkEffect : OneCharacterEffect
 {
     [SerializeField]
-    [PerkDropdown]
+    [IdDropdown(typeof(PerkScriptableObject))]
     private int perkId;
 
     public int PerkId { get => perkId; set => perkId = value; }

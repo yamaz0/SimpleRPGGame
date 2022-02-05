@@ -12,44 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c785e759c407aa74782f1b72f0f28761, type: 3}
   m_Name: PerksScriptableObject
   m_EditorClassIdentifier: 
-  perks:
-  - name: Super dodge
-    id: 0
-    icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
-    requirmentsAttributes:
-      strength:
-        baseValue: 0
-      dexterity:
-        baseValue: 2
-      endurance:
-        baseValue: 0
-    efects:
-    - id: 0
-  - name: I feel strong!
-    id: 1
-    icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
-    requirmentsAttributes:
-      strength:
-        baseValue: 3
-      dexterity:
-        baseValue: 5
-      endurance:
-        baseValue: 0
-    efects:
-    - id: 1
+  objects:
+  - id: 0
   references:
     version: 1
     00000000:
-      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
       data:
-        name: Add 10 dodge
-        statisticName: DodgeChance
-        isPersistent: 1
-        value: 10
+        id: 0
+        name: ppppppperk
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        requirmentsAttributes:
+          strength:
+            baseValue: 1
+          dexterity:
+            baseValue: 1
+          endurance:
+            baseValue: 1
+        efects:
+        - id: 1
+        - id: 2
+        - id: 3
     00000001:
+      type: {class: AddAbilityEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: ability
+        abilityId: 2
+        isRemove: 0
+    00000002:
+      type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: atr
+        attributeName: Strength
+        isPersistent: 0
+        value: 2
+    00000003:
       type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
       data:
-        name: Add 10 Crit Chance
-        statisticName: CritChance
-        isPersistent: 1
-        value: 10
+        name: stat
+        statisticName: Damage
+        isPersistent: 0
+        value: 3

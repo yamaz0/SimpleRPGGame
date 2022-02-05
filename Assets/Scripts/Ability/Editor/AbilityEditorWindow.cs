@@ -25,7 +25,8 @@ public class AbilityEditorWindow : EditorWindow
     }
     private void OnGUI()
     {
-        List<AbilityInfo> abilities = AbilityScriptableObject.Instance.Abilities;
+        List<AbilityInfo> abilities = AbilityScriptableObject.Instance.GetAbilitiesList();
+
         if (currentInfo == null)
         {
             foreach (var a in abilities)
@@ -66,7 +67,7 @@ public class AbilityEditorWindow : EditorWindow
                     e.ViewInfo();
                 }
             }
-            else if(state == State.Mod)
+            else if (state == State.Mod)
             {
                 EffectsButtons(currentInfo);
                 GUILayout.Label("Id: " + currentInfo.Id.ToString());

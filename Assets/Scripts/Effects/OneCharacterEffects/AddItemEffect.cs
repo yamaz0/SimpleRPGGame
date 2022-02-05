@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddItemEffect : OneCharacterEffect
 {
     [SerializeField]
-    [ItemDropdown]
+    [IdDropdown(typeof(ItemsScriptableObject))]
     private int itemId;
     [SerializeField]
     private bool isRemove = false;

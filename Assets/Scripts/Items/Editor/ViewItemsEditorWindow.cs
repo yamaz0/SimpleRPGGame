@@ -138,12 +138,12 @@ public class ViewItemsEditorWindow
 
         if(t == null)
         {
-            filterList.AddRange(ItemsScriptableObject.Instance.Items);
+            filterList.AddRange(ItemsScriptableObject.Instance.GetItemsList());
             DataItemsEditorWindow.instance.IsShowAllFields = false;
         }
         else
         {
-            filterList.AddRange(ItemsScriptableObject.Instance.Items.FindAll((x) => x.GetType().Equals(t)));
+            filterList.AddRange(ItemsScriptableObject.Instance.GetItemsList().FindAll((x) => x.GetType().Equals(t)));
             DataItemsEditorWindow.instance.IsShowAllFields = true;
         }
 

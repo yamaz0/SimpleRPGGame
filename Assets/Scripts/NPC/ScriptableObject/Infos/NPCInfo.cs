@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class NPCInfo : IIdable, INameable
+public class NPCInfo : BaseInfo
 {
     [SerializeField]
-    private string name;
-    [SerializeField]
-    private int id;
+    private Sprite icon;
 
-    public string Name { get => name; set => name = value; }
-    public int Id { get => id; set => id = value; }
+    public Sprite Icon { get => icon; set => icon = value; }
 }

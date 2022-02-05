@@ -4,61 +4,48 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "AbilityScriptableObject", menuName = "ScriptableObjects/AbilityScriptableObject")]
-public class AbilityScriptableObject : ScriptableObject
+public class AbilityScriptableObject : SingletonScriptableObject<AbilityScriptableObject>
 {
-    private static AbilityScriptableObject instance;
-
-    [SerializeField]
-    private List<AbilityInfo> abilities;
-
-    public static AbilityScriptableObject Instance { get { return instance; } }
-
-    public List<AbilityInfo> Abilities { get => abilities; set => abilities = value; }
-
-    [RuntimeInitializeOnLoadMethod]
-    private static void Init()
-    {
-        instance = Resources.LoadAll<AbilityScriptableObject>("")[0];
-    }
 
     public AbilityScriptableObject()
     {
-        instance = this;
+        Instance = this;
     }
 
     public AbilityInfo GetAbilityInfoById(int id)
     {
-        foreach (AbilityInfo abilityInfo in Abilities)
-        {
-            if (abilityInfo.Id == id)
-            {
-                return abilityInfo;
-            }
-        }
-
-        return null;
+        return (AbilityInfo)Objects.GetElementById(id);
     }
 
     public AbilityInfo GetAbilityInfoByName(string name)
     {
-        foreach (AbilityInfo abilityInfo in Abilities)
+        return (AbilityInfo)Objects.GetElementByName(name);
+    }
+
+    public List<AbilityInfo> GetAbilitiesList()
+    {
+        List<AbilityInfo> abilities = new List<AbilityInfo>(Objects.Count);
+
+        foreach (AbilityInfo ability in Objects)
         {
-            if (abilityInfo.Name == name)
-            {
-                return abilityInfo;
-            }
+            abilities.Add(ability);
         }
 
-        return null;
+        return abilities;
+    }
+
+    private void OnValidate()
+    {
+        foreach (AbilityInfo ability in Objects)
+        {
+            if (ability.Icon == null)
+                ability.Icon = Resources.LoadAll<Sprite>("")[0];
+        }
     }
 }
 [System.Serializable]
-public class AbilityInfo
+public class AbilityInfo : BaseInfo
 {
-    [SerializeField]
-    private string name;
-    [SerializeField]
-    private int id;
     [SerializeField]
     private Sprite icon;
     [SerializeReference]
@@ -72,8 +59,6 @@ public class AbilityInfo
     [SerializeField]
     private FightStyle style;
 
-    public string Name { get => name; set => name = value; }
-    public int Id { get => id; set => id = value; }
     public List<OneCharacterEffect> OneCharacterEffects { get => oneCharacterEffects; set => oneCharacterEffects = value; }
     public List<TwoOponentBattleEffect> TwoOponentBattleEffects { get => twoOponentBattleEffects; set => twoOponentBattleEffects = value; }
     public int DurationTime { get => durationTime; set => durationTime = value; }
@@ -82,3 +67,17 @@ public class AbilityInfo
     public FightStyle Style { get => style; set => style = value; }
 }
 
+
+[UnityEditor.CustomEditor(typeof(AbilityScriptableObject))]
+public class AbilityScriptableObjectEditor : UnityEditor.Editor
+{    public override void OnInspectorGUI()
+    {
+        var script = (AbilityScriptableObject)target;
+
+        if (GUILayout.Button($"Add AbilityInfo", GUILayout.Height(40)))
+        {
+            script.Objects.Add(new AbilityInfo());
+        }
+        base.OnInspectorGUI();
+    }
+}

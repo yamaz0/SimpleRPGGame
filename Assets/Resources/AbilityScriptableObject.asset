@@ -12,50 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01924337615fdb74ea65f10b5d5c00b0, type: 3}
   m_Name: AbilityScriptableObject
   m_EditorClassIdentifier: 
-  abilities:
-  - name: Atak1
-    id: 0
-    icon: {fileID: 21300000, guid: a1477bedf691446499d9ff854112bf96, type: 3}
-    twoOponentBattleEffects:
-    - id: 0
-    oneCharacterEffects: []
-    durationTime: 0
-    exahustTime: 15
-    style: 1
-  - name: countra
-    id: 1
-    icon: {fileID: 21300000, guid: da468f356abb846bcaf3a1b64c5c26d2, type: 3}
-    twoOponentBattleEffects:
-    - id: 1
-    oneCharacterEffects: []
-    durationTime: 5
-    exahustTime: 10
-    style: 3
-  - name: attack2
-    id: 2
-    icon: {fileID: 21300000, guid: 5b54b64aa03a6418fa2cf8b50928ceb9, type: 3}
-    twoOponentBattleEffects:
-    - id: 2
-    oneCharacterEffects: []
-    durationTime: 0
-    exahustTime: 5
-    style: 2
+  objects:
+  - id: 0
+  - id: 1
+  - id: 2
   references:
     version: 1
     00000000:
-      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
       data:
-        name: 
-        operators: []
-        atak: 20
+        id: 0
+        name: ab1
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects: []
+        oneCharacterEffects: []
+        durationTime: 0
+        exahustTime: 5
+        style: 2
     00000001:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 1
+        name: ab2
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects: []
+        oneCharacterEffects: []
+        durationTime: 0
+        exahustTime: 3
+        style: 0
+    00000002:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 2
+        name: ab3
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects:
+        - id: 3
+        oneCharacterEffects: []
+        durationTime: 0
+        exahustTime: 10
+        style: 3
+    00000003:
       type: {class: CounterAttackEffect, ns: , asm: Assembly-CSharp}
       data:
-        name: 
-        chanceCounterPercent: 60
-    00000002:
-      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
-      data:
-        name: 
-        operators: []
-        atak: 1
+        name: counterrr
+        chanceCounterPercent: 15

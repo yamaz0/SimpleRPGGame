@@ -25,10 +25,10 @@ public class PerkEditorWindow : EditorWindow
     }
     private void OnGUI()
     {
-        List<PerkScriptableObject.PerkInfo> abilities = PerkScriptableObject.Instance.Perks;
+        List<PerkScriptableObject.PerkInfo> perks = PerkScriptableObject.Instance.GetPerksList();
         if (currentInfo == null)
         {
-            foreach (var a in abilities)
+            foreach (var a in perks)
             {
                 GUILayout.Box(a.Icon.texture, GUILayout.Width(100), GUILayout.Height(50));
                 GUILayout.Label("Id: " + a.Id.ToString());
