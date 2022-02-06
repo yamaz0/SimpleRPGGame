@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddCharacterStatisticEffect : OneCharacterEffect
 {
     [SerializeField]
-    [ModDropdown(nameof(CharacterStatistics))]
+    [NameDropdown(nameof(CharacterStatistics))]
     private string statisticName;
     [SerializeField]
     private bool isPersistent;

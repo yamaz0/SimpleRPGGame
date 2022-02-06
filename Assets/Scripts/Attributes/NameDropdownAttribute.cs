@@ -5,21 +5,36 @@ using UnityEngine;
 using UnityEditor;
 
 [System.AttributeUsage(System.AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public class DropdownAttribute : PropertyAttribute
+public class NameDropdownAttribute : PropertyAttribute
 {
+    private string modtype;
+    public string Modtype { get => modtype; set => modtype = value; }
+
+    public NameDropdownAttribute(string name)
+    {
+        Modtype = name;
+    }
 }
 
-[CustomPropertyDrawer(typeof(DropdownAttribute))]
-public class DropdownPropertyDrawer : PropertyDrawer
+[CustomPropertyDrawer(typeof(NameDropdownAttribute))]
+public class NameDropdownPropertyDrawer : PropertyDrawer
 {
-    private int selectedIndex = 0;
-    private List<string> list = new List<string>();
+    private int SelectedIndex { get; set; }
+    private List<string> List { get; set; }
 
-    protected int SelectedIndex { get => selectedIndex; set => selectedIndex = value; }
-    protected List<string> List { get => list; set => list = value; }
+    public void Init()
+    {
+        NameDropdownAttribute atb = attribute as NameDropdownAttribute;
+        ModificatorsSO.ModType modType = ModificatorsSO.Instance.Modtypes.Find(x => x.ModTypeName.Equals(atb.Modtype));
+        List = new List<string>();
+
+        List.Clear();
+        List.AddRange(modType.ModNames);
+    }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
+        if (List == null || List.Count == 0) Init();
         if (string.IsNullOrEmpty(property.stringValue) || property.stringValue != List[SelectedIndex])
         {
             SelectedIndex = List.FindIndex(x => x.Equals(property.stringValue));

@@ -4,7 +4,7 @@ using UnityEngine;
 public class MulOperatorEffect : OperatorEffect
 {
     [SerializeField]
-    [ModDropdown(nameof(Attributes))]
+    [NameDropdown(nameof(Attributes))]
     private string attributeName;
     [SerializeField]
     private float value;

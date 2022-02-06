@@ -3200,6 +3200,30 @@ MonoBehaviour:
   - {fileID: 1869214123}
   - {fileID: 1956476192}
   - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
 --- !u!1 &92904278
 GameObject:
   m_ObjectHideFlags: 0
@@ -7218,7 +7242,7 @@ GameObject:
   - component: {fileID: 1047882767}
   - component: {fileID: 1047882768}
   m_Layer: 0
-  m_Name: NPCTest
+  m_Name: commonMale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7254,8 +7278,9 @@ MonoBehaviour:
     npcInfo:
       id: 0
       name: commonMale
-      icon: {fileID: 0}
-      animator: {fileID: 0}
+      icon: {fileID: 2305144062599850415, guid: 220d39c4bfd8a5f43897c04e5a02c406,
+        type: 3}
+      animator: {fileID: 9100000, guid: fa951a397bc555041b49b0b4d996b450, type: 2}
   npcId: 0
 --- !u!212 &1047882767
 SpriteRenderer:
@@ -7297,7 +7322,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2471060446478548888, guid: 6f9441bd93ab896438a93542cea44fb6,
+  m_Sprite: {fileID: 2305144062599850415, guid: 220d39c4bfd8a5f43897c04e5a02c406,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17870,6 +17895,10 @@ MonoBehaviour:
       dualWieldDamageBonus:
         baseValue: 0
     style: 0
+  playerQuestController:
+    doneSideQuestsId: 
+    actualSideQuestsId: 
+    actualMainQuestId: 0
   speed: 8.53
 --- !u!4 &1919726951
 Transform:
@@ -18469,7 +18498,7 @@ GameObject:
   - component: {fileID: 2042380472}
   - component: {fileID: 2042380471}
   m_Layer: 0
-  m_Name: NPCTest (1)
+  m_Name: commonFemale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18548,8 +18577,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2471060446478548888, guid: 6f9441bd93ab896438a93542cea44fb6,
-    type: 3}
+  m_Sprite: {fileID: 309628545801974608, guid: 564fedabfe62bd5439a41debe47e7d9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

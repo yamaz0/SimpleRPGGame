@@ -16,7 +16,7 @@ public class ModificatorsManager : Singleton<ModificatorsManager>
     [SerializeField]
     private Text textvalue;
     [SerializeField]
-    [ModDropdown("Attributes")]
+    [NameDropdown("Attributes")]
     private string mod;
 
     // public Dictionary<string, Modificator> DictModyficators { get => dictModyficators; private set => dictModyficators = value; }

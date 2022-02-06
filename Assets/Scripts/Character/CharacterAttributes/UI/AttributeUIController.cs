@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class AttributeUIController
 {
     [SerializeField]
-    [ModDropdown("Attributes")]
+    [NameDropdown("Attributes")]
     private string attributeName;
     [SerializeField]
     private Button button;

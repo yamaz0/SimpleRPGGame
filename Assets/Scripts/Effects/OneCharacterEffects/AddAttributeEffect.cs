@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddAttributeEffect : OneCharacterEffect
 {
     [SerializeField]
-    [ModDropdown(nameof(Attributes))]
+    [NameDropdown(nameof(Attributes))]
     private string attributeName;
     [SerializeField]
     private bool isPersistent;
