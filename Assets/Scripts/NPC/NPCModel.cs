@@ -10,10 +10,8 @@ public class NPCModel : MonoBehaviour
     public NPCBase Npc { get => npc; set => npc = value; }
 
 #if UNITY_EDITOR
-
     [SerializeField]
     [IdDropdown(typeof(NPCScriptableObject))]
-    // [NpcDropdown]
     private int npcId;
 
     private void OnValidate()
@@ -21,7 +19,9 @@ public class NPCModel : MonoBehaviour
         if (Npc != null && Npc.NpcInfo.Id != npcId)
         {
             Npc = NPCScriptableObject.Instance.GetNPCInfoById(npcId).CreateNpc();
-            GetComponent<Animator>().runtimeAnimatorController=Npc.NpcInfo.AnimatorController;
+            GetComponent<Animator>().runtimeAnimatorController = Npc.NpcInfo.AnimatorController;
+            GetComponent<SpriteRenderer>().sprite = Npc.NpcInfo.Icon;
+            gameObject.name = Npc.NpcInfo.Name;
         }
     }
 #endif
