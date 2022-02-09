@@ -30,6 +30,10 @@ public class IdDropdownPropertyDrawer : PropertyDrawer
 
     protected int SelectedIndex { get => selectedIndex; set => selectedIndex = value; }
     protected List<string> Names { get => names; set => names = value; }
+
+    private bool ShowField { get; set; }
+
+
     IdDropdownAttribute atb;
     public void Init()
     {
@@ -46,6 +50,8 @@ public class IdDropdownPropertyDrawer : PropertyDrawer
     {
         if (Names == null || Names.Count == 0) Init();
 
+        Rect foldoutPosition = new Rect(position.x - 15, position.y, 30, position.height);
+        ShowField = EditorGUI.Toggle(foldoutPosition,new GUIContent("", "Dropdown/Field"), ShowField);
         BaseInfo objInfo = atb.Objects.GetElementById(property.intValue);
 
         if (objInfo != null && objInfo.Name != Names[SelectedIndex])
@@ -54,7 +60,7 @@ public class IdDropdownPropertyDrawer : PropertyDrawer
             if (SelectedIndex < 0) SelectedIndex = 0;
         }
 
-        if (Names != null && Names.Count != 0)
+        if (ShowField == true && Names != null && Names.Count != 0)
         {
             SelectedIndex = EditorGUI.Popup(position, property.name, SelectedIndex, Names.ToArray());
             property.intValue = atb.Objects.GetElementByName(Names[SelectedIndex]).Id;
