@@ -40,6 +40,13 @@ public class PlayerQuestController
         OnActualSideQuestsIdChanged(questId);
     }
 
+    public void RemoveSideQuestsId(int questId)
+    {
+        ActualSideQuestsId.Remove(questId);
+        OnActualSideQuestsIdChanged(questId);
+        //quest niepowodzenie
+    }
+
     public void AddDoneSideQuestsId(int questId)
     {
         DoneSideQuestsId.Add(questId);
@@ -66,7 +73,7 @@ public class Player : Singleton<Player>
     [SerializeField]
     private float speed = 5;
     public Character Character { get => character; set => character = value; }
-
+    public PlayerQuestController PlayerQuestController { get => playerQuestController; set => playerQuestController = value; }
 
     public void LoadData()
     {
