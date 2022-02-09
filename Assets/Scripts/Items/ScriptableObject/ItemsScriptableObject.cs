@@ -6,13 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemsScriptableObject", menuName = "ScriptableObjects/ItemsScriptableObject")]
 public class ItemsScriptableObject : SingletonScriptableObject<ItemsScriptableObject>
 {
-    private void OnEnable()
-    {
-        Instance = Resources.LoadAll<ItemsScriptableObject>("")[0];
-
-        // hideFlags = HideFlags.HideAndDontSave;
-    }
-
     public ItemInfo GetItemInfoById(int id)
     {
         return (ItemInfo)Objects.GetElementById(id);

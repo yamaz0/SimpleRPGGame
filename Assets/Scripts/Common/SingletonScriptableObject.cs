@@ -17,4 +17,8 @@ public class SingletonScriptableObject<T> : ScriptableObject where T : Singleton
     {
         instance = Resources.LoadAll<T>("")[0];
     }
+    private void OnEnable()
+    {
+        Init();
+    }
 }

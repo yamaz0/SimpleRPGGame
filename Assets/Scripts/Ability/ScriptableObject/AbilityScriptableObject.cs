@@ -6,12 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AbilityScriptableObject", menuName = "ScriptableObjects/AbilityScriptableObject")]
 public class AbilityScriptableObject : SingletonScriptableObject<AbilityScriptableObject>
 {
-
-    public AbilityScriptableObject()
-    {
-        Instance = this;
-    }
-
     public AbilityInfo GetAbilityInfoById(int id)
     {
         return (AbilityInfo)Objects.GetElementById(id);

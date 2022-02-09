@@ -6,12 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PerkObject", menuName = "ScriptableObjects/PerkObject")]
 public class PerkScriptableObject : SingletonScriptableObject<PerkScriptableObject>
 {
-
-    public PerkScriptableObject()
-    {
-        Instance = this;
-    }
-
     public PerkInfo GetPerkInfoById(int id)
     {
         return (PerkInfo)Objects.GetElementById(id);
