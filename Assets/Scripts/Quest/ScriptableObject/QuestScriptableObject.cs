@@ -17,7 +17,11 @@ public class QuestScriptableObject : SingletonScriptableObject<QuestScriptableOb
 
         return questInfos;
     }
-
+// private void OnValidate() {
+//     SideQuestInfo qi = new SideQuestInfo();
+//     qi.Tasks.Add(new InteractQuestTask());
+//     Objects.Add(qi);
+// }
     public QuestInfo GetQuestInfoById(int id)
     {
         foreach (QuestInfo questInfo in Objects)

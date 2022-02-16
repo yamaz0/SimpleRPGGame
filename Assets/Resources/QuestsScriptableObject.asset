@@ -15,13 +15,16 @@ MonoBehaviour:
   objects:
   - id: 0
   - id: 1
+  - id: 2
+  - id: 3
   references:
     version: 1
     00000000:
       type: {class: MainQuestInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 0
-        name: aeefg
+        name: main
+        icon: {fileID: 0}
         task:
           title: Poczatek
           desc: To jest pierwszy task glownego questa
@@ -29,11 +32,66 @@ MonoBehaviour:
       type: {class: SideQuestInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 1
-        name: eww
+        name: side
+        icon: {fileID: 0}
         tasks:
-        - title: Pierwszy etap
-          desc: Porozmawiaj z kims tam
-        - title: Zabij szczura
-          desc: zrobienie czegos
-        - title: Koniec
-          desc: Oddanie questa
+        - id: 4
+        - id: 4
+        - id: 4
+    00000002:
+      type: {class: MainQuestInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 2
+        name: main2
+        icon: {fileID: 0}
+        task:
+          title: 
+          desc: 
+    00000003:
+      type: {class: SideQuestInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 3
+        name: SideInteract
+        icon: {fileID: 0}
+        tasks:
+        - id: 5
+    00000004:
+      type: {class: , ns: , asm: }
+    00000005:
+      type: {class: InteractQuestTask, ns: , asm: Assembly-CSharp}
+      data:
+        title: Update SideQuest
+        desc: Interact
+        effect:
+          name: 
+          questId: 3
+          iteract:
+            title: 
+            desc: 
+            effect:
+              name: 
+              questId: 0
+              iteract:
+                title: 
+                desc: 
+                effect:
+                  name: 
+                  questId: 0
+                  iteract:
+                    title: 
+                    desc: 
+                    effect:
+                      name: 
+                      questId: 0
+                      iteract:
+                        title: 
+                        desc: 
+                        effect:
+                          name: 
+                          questId: 0
+                          iteract:
+                            title: 
+                            desc: 
+                            effect:
+                              name: 
+                              questId: 0
