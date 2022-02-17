@@ -44,22 +44,22 @@ public class PlayerQuestController
         AddDoneSideQuestsId(sideQuestId);
     }
 
-    public void UpdateSideQuest(int sideQuestId)
-    {
-        for (int i = 0; i < ActualSideQuestsId.Count; i++)
-        {
-            if (ActualSideQuestsId[i].QuestId == sideQuestId)
-            {
-                ActualSideQuestsId[i].ActualTaskNumber++;
-                SideQuestInfo sideQuestInfo = QuestScriptableObject.Instance.Objects.GetElementById(sideQuestId) as SideQuestInfo;
+    // public void UpdateSideQuest(int sideQuestId)
+    // {
+    //     for (int i = 0; i < ActualSideQuestsId.Count; i++)
+    //     {
+    //         if (ActualSideQuestsId[i].QuestId == sideQuestId)
+    //         {
+    //             ActualSideQuestsId[i].ActualTaskNumber++;
+    //             SideQuestInfo sideQuestInfo = QuestScriptableObject.Instance.Objects.GetElementById(sideQuestId) as SideQuestInfo;
 
-                if (ActualSideQuestsId[i].ActualTaskNumber >= sideQuestInfo.Tasks.Count)
-                {
-                    DoneSideQuest(sideQuestId);
-                }
-            }
-        }
-    }
+    //             if (ActualSideQuestsId[i].ActualTaskNumber >= sideQuestInfo.Tasks.Count)
+    //             {
+    //                 DoneSideQuest(sideQuestId);
+    //             }
+    //         }
+    //     }
+    // }
 
     private void RemoveSideQuest(int sideQuestId)
     {
@@ -79,11 +79,11 @@ public class PlayerQuestController
         OnActualMainQuestIdChanged(questId);
     }
 
-    public void AddActualSideQuestsId(int questId)
-    {
-        ActualSideQuestsId.Add(new SideQuestStatus(questId));
-        OnActualSideQuestsIdChanged(questId);
-    }
+    // public void AddActualSideQuestsId(int questId)
+    // {
+    //     ActualSideQuestsId.Add(new SideQuestStatus(questId));
+    //     OnActualSideQuestsIdChanged(questId);
+    // }
 
     public void RemoveSideQuestsId(int questId)
     {

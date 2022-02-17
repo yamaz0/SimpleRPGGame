@@ -17,11 +17,11 @@ public class QuestScriptableObject : SingletonScriptableObject<QuestScriptableOb
 
         return questInfos;
     }
-// private void OnValidate() {
-//     SideQuestInfo qi = new SideQuestInfo();
-//     qi.Tasks.Add(new InteractQuestTask());
-//     Objects.Add(qi);
-// }
+    // private void OnValidate() {
+    //     SideQuestInfo qi = new SideQuestInfo();
+    //     qi.Tasks.Add(new InteractQuestTask());
+    //     Objects.Add(qi);
+    // }
     public QuestInfo GetQuestInfoById(int id)
     {
         foreach (QuestInfo questInfo in Objects)
@@ -52,22 +52,12 @@ public class QuestScriptableObject : SingletonScriptableObject<QuestScriptableOb
 [UnityEditor.CustomEditor(typeof(QuestScriptableObject))]
 public class QuestScriptableObjectEditor : UnityEditor.Editor
 {
-    List<System.Type> types;
-    public QuestScriptableObjectEditor()
-    {
-        types = System.Reflection.Assembly.GetAssembly(typeof(QuestInfo)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(QuestInfo))).ToList();
-    }
     public override void OnInspectorGUI()
     {
         var script = (QuestScriptableObject)target;
-
-        foreach (var t in types)
+        if (GUILayout.Button($"Add", GUILayout.Height(40)))
         {
-            string[] typeNames = t.ToString().Split('+');
-            if (GUILayout.Button($"Add {typeNames[typeNames.Length - 1]}", GUILayout.Height(40)))
-            {
-                script.Objects.Add(System.Activator.CreateInstance(t) as QuestInfo);
-            }
+            script.Objects.Add(new QuestInfo());
         }
         base.OnInspectorGUI();
     }

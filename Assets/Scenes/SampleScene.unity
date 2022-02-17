@@ -3494,6 +3494,150 @@ MonoBehaviour:
   - {fileID: 1869214123}
   - {fileID: 1956476192}
   - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
+  - {fileID: 981351773}
+  - {fileID: 1653314126}
+  - {fileID: 2023777782}
+  - {fileID: 1869214123}
+  - {fileID: 1956476192}
+  - {fileID: 103841040}
 --- !u!1 &92904278
 GameObject:
   m_ObjectHideFlags: 0
@@ -15164,10 +15308,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45b44d1915af7c4b9511a6a618a33c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questSO: {fileID: 11400000, guid: 8d1e2f6a9de2db442aca11a6cfdf38a7, type: 2}
   quests:
-  - questId: 3
-    interactObject: {fileID: 0}
+  - questId: 0
+    questTasks:
+    - taskIndex: 0
+      interactObject: {fileID: 0}
+    - taskIndex: 1
+      interactObject: {fileID: 0}
+    - taskIndex: 2
+      interactObject: {fileID: 0}
+  - questId: 4
+    questTasks:
+    - taskIndex: 1
+      interactObject: {fileID: 0}
 --- !u!4 &1181234555
 Transform:
   m_ObjectHideFlags: 0

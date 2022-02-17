@@ -16,82 +16,96 @@ MonoBehaviour:
   - id: 0
   - id: 1
   - id: 2
-  - id: 3
   references:
     version: 1
     00000000:
-      type: {class: MainQuestInfo, ns: , asm: Assembly-CSharp}
+      type: {class: QuestInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 0
-        name: main
+        name: 
         icon: {fileID: 0}
-        task:
-          title: Poczatek
-          desc: To jest pierwszy task glownego questa
+        tasks:
+        - id: 3
+        - id: 4
+        - id: 5
     00000001:
-      type: {class: SideQuestInfo, ns: , asm: Assembly-CSharp}
+      type: {class: QuestInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 1
-        name: side
+        name: 
         icon: {fileID: 0}
         tasks:
-        - id: 4
-        - id: 4
-        - id: 4
+        - id: 6
     00000002:
-      type: {class: MainQuestInfo, ns: , asm: Assembly-CSharp}
+      type: {class: QuestInfo, ns: , asm: Assembly-CSharp}
       data:
-        id: 2
-        name: main2
-        icon: {fileID: 0}
-        task:
-          title: 
-          desc: 
-    00000003:
-      type: {class: SideQuestInfo, ns: , asm: Assembly-CSharp}
-      data:
-        id: 3
-        name: SideInteract
+        id: 4
+        name: 
         icon: {fileID: 0}
         tasks:
-        - id: 5
+        - id: 7
+        - id: 8
+        - id: 9
+    00000003:
+      type: {class: InteractQuestTask, ns: , asm: Assembly-CSharp}
+      data:
+        title: 
+        desc: 
+        orderNumber: 0
+        effect:
+          name: 
+          questId: 0
     00000004:
-      type: {class: , ns: , asm: }
+      type: {class: InteractQuestTask, ns: , asm: Assembly-CSharp}
+      data:
+        title: 
+        desc: 
+        orderNumber: 1
+        effect:
+          name: 
+          questId: 0
     00000005:
       type: {class: InteractQuestTask, ns: , asm: Assembly-CSharp}
       data:
-        title: Update SideQuest
-        desc: Interact
+        title: 
+        desc: 
+        orderNumber: 2
         effect:
           name: 
-          questId: 3
-          iteract:
-            title: 
-            desc: 
-            effect:
-              name: 
-              questId: 0
-              iteract:
-                title: 
-                desc: 
-                effect:
-                  name: 
-                  questId: 0
-                  iteract:
-                    title: 
-                    desc: 
-                    effect:
-                      name: 
-                      questId: 0
-                      iteract:
-                        title: 
-                        desc: 
-                        effect:
-                          name: 
-                          questId: 0
-                          iteract:
-                            title: 
-                            desc: 
-                            effect:
-                              name: 
-                              questId: 0
+          questId: 0
+    00000006:
+      type: {class: QuestTask, ns: , asm: Assembly-CSharp}
+      data:
+        title: 
+        desc: 
+        orderNumber: 0
+        effect:
+          name: 
+          questId: 0
+    00000007:
+      type: {class: CollectQuestTask, ns: , asm: Assembly-CSharp}
+      data:
+        title: 
+        desc: 
+        orderNumber: 0
+        effect:
+          name: 
+          questId: 0
+    00000008:
+      type: {class: InteractQuestTask, ns: , asm: Assembly-CSharp}
+      data:
+        title: 
+        desc: 
+        orderNumber: 1
+        effect:
+          name: 
+          questId: 0
+    00000009:
+      type: {class: CollectQuestTask, ns: , asm: Assembly-CSharp}
+      data:
+        title: 
+        desc: 
+        orderNumber: 2
+        effect:
+          name: 
+          questId: 0

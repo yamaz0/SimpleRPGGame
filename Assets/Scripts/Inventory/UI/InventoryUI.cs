@@ -29,7 +29,7 @@ public class InventoryUI : MonoBehaviour
         Player.Instance.Character.InventoryController.Inventory.OnInventoryChanged -= Refresh;
     }
 
-    public void Refresh()
+    public void Refresh(int nothing = 0)
     {
         if (Objects.Count != 0)
         {

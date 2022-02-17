@@ -14,7 +14,7 @@ public class Inventory
 
     public List<Item> Items { get; set; }
 
-    public event System.Action OnInventoryChanged = delegate { };
+    public event System.Action<int> OnInventoryChanged = delegate { };
 
     public void Init()
     {
@@ -35,7 +35,7 @@ public class Inventory
         ItemsId.Add(item.Id);
         Items.Add(item);
 
-        NotifyInventoryChanged();
+        NotifyInventoryChanged(item.Id);
     }
 
     public bool RemoveItem(System.Predicate<Item> match)
@@ -53,14 +53,16 @@ public class Inventory
 
     private void RemoveItemsAtIndex(int i)
     {
+        int id = ItemsId[i];
+
         ItemsId.RemoveAt(i);
         Items.RemoveAt(i);
 
-        NotifyInventoryChanged();
+        NotifyInventoryChanged(id);
     }
 
-    private void NotifyInventoryChanged()
+    private void NotifyInventoryChanged(int id)
     {
-        OnInventoryChanged();
+        OnInventoryChanged(id);
     }
 }

@@ -52,6 +52,28 @@ if(string.IsNullOrEmpty(searchPropertyName)) break;
     return str;
 }
 
+ [MenuItem("DoSomething/CollectQuestTask")]
+    static void AddTask()
+    {
+        QuestInfo item = new QuestInfo();
+        item.Tasks.Add(new CollectQuestTask());
+        item.Tasks.Add(new InteractQuestTask());
+        item.Tasks.Add(new CollectQuestTask());
+        QuestScriptableObject.Instance.Objects.Add(item);
+
+    }
+
+ [MenuItem("DoSomething/AddTaskInteract")]
+    static void AddTaskInteract()
+    {
+        QuestInfo item = new QuestInfo();
+        item.Tasks.Add(new InteractQuestTask());
+        item.Tasks.Add(new InteractQuestTask());
+        item.Tasks.Add(new InteractQuestTask());
+        QuestScriptableObject.Instance.Objects.Add(item);
+
+    }
+
  [MenuItem("DoSomething/test")]
     static void PrintRandomAtributesValues()
     {
