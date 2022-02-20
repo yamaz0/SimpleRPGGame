@@ -16,8 +16,9 @@ public class InteractQuestTaskHandler
         taskIndex = index;
     }
 
-    public void InteractActionEffectAdd(InteractQuestTask task)
+    public void AddInteractActionEffect(InteractQuestTask task)
     {
-        task.Init(InteractObject);
+        task.InteractObjectCache = InteractObject;
+        InteractObject.Efects.Add(task.questInfo.Effect);
     }
 }

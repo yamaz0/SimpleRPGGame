@@ -9,7 +9,18 @@ public class QuestInfo : BaseInfo
     private Sprite icon;
 
     [SerializeReference]
-    List<QuestTask> tasks = new List<QuestTask>();
+    List<QuestTaskInfo> tasks = new List<QuestTaskInfo>();
 
-    public List<QuestTask> Tasks { get => tasks; set => tasks = value; }
+    public List<QuestTaskInfo> Tasks { get => tasks; set => tasks = value; }
+
+    public QuestTask GetQuestTask(int orderNumber)
+    {
+        for (int i = 0; i < Tasks.Count; i++)
+        {
+            if (Tasks[i].OrderNumber == orderNumber)
+                return Tasks[i].CreateQuestTask();
+        }
+
+        return null;
+    }
 }

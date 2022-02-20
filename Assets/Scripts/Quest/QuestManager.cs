@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class QuestManager : Singleton<QuestManager>
 {
-    public InteractQuests InteractQuests { get; }
+    [SerializeField]
+    private InteractQuests interactQuests = new InteractQuests();
 
+    public InteractQuests InteractQuests { get => interactQuests; set => interactQuests = value; }
 }
 
 [UnityEditor.CustomEditor(typeof(QuestManager))]

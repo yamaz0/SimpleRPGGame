@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class InteractQuests
 {
     [SerializeField]
@@ -17,6 +18,7 @@ public class InteractQuests
             }
         }
     }
+
 
     public void UpdateQuestsHandlers()
     {
@@ -58,7 +60,7 @@ public class InteractQuests
                         isTaskExist = false;
                         for (int l = 0; l < questInfos[j].Tasks.Count; l++)
                         {
-                            if (questInfos[j].Tasks[l] is InteractQuestTask task && task.OrderNumber == quests[i].QuestTasks[k].TaskIndex)
+                            if (questInfos[j].Tasks[l] is InteractQuestTaskInfo task && task.OrderNumber == quests[i].QuestTasks[k].TaskIndex)
                             {
                                 isTaskExist = true;
                                 break;
@@ -102,7 +104,7 @@ public class InteractQuests
     {
         for (int i = 0; i < questInfo.Tasks.Count; i++)
         {
-            if (questInfo.Tasks[i] is InteractQuestTask interactQuestTask)
+            if (questInfo.Tasks[i] is InteractQuestTaskInfo interactQuestTask)
             {
                 InteractQuestHandler quest = new InteractQuestHandler(questInfo.Id);
 
@@ -117,7 +119,7 @@ public class InteractQuests
     {
         for (int i = 0; i < questInfo.Tasks.Count; i++)
         {
-            if (questInfo.Tasks[i] is InteractQuestTask interactQuestTask)
+            if (questInfo.Tasks[i] is InteractQuestTaskInfo interactQuestTask)
             {
                 bool isQuestTaskExist = false;
                 for (int j = 0; j < quest.QuestTasks.Count; j++)

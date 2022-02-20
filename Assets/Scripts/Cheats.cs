@@ -56,9 +56,9 @@ if(string.IsNullOrEmpty(searchPropertyName)) break;
     static void AddTask()
     {
         QuestInfo item = new QuestInfo();
-        item.Tasks.Add(new CollectQuestTask());
-        item.Tasks.Add(new InteractQuestTask());
-        item.Tasks.Add(new CollectQuestTask());
+        item.Tasks.Add(new CollectQuestTaskInfo());
+        item.Tasks.Add(new InteractQuestTaskInfo());
+        item.Tasks.Add(new CollectQuestTaskInfo());
         QuestScriptableObject.Instance.Objects.Add(item);
 
     }
@@ -67,9 +67,9 @@ if(string.IsNullOrEmpty(searchPropertyName)) break;
     static void AddTaskInteract()
     {
         QuestInfo item = new QuestInfo();
-        item.Tasks.Add(new InteractQuestTask());
-        item.Tasks.Add(new InteractQuestTask());
-        item.Tasks.Add(new InteractQuestTask());
+        item.Tasks.Add(new InteractQuestTaskInfo());
+        item.Tasks.Add(new InteractQuestTaskInfo());
+        item.Tasks.Add(new InteractQuestTaskInfo());
         QuestScriptableObject.Instance.Objects.Add(item);
 
     }
