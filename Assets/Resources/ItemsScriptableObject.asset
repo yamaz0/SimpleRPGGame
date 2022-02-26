@@ -22,6 +22,7 @@ MonoBehaviour:
   - id: 6
   - id: 7
   - id: 8
+  - id: 9
   references:
     version: 1
     00000000:
@@ -116,3 +117,15 @@ MonoBehaviour:
         attack: 20
         attackSpeed: 2
         twoHanded: 1
+    00000009:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 10
+        name: questSword
+        icon: {fileID: -434879369836922269, guid: 6aa8d45f947871441bdc84217f943992,
+          type: 3}
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0

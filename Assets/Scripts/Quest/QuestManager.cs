@@ -7,6 +7,16 @@ public class QuestManager : Singleton<QuestManager>
     private InteractQuests interactQuests = new InteractQuests();
 
     public InteractQuests InteractQuests { get => interactQuests; set => interactQuests = value; }
+
+    public void QuestUpdate(int id)
+    {
+        Player.Instance.PlayerQuestController.UpdateQuest(id);
+    }
+
+    public void QuestRemove(int id)
+    {
+        Player.Instance.PlayerQuestController.RemoveActualQuestById(id);
+    }
 }
 
 [UnityEditor.CustomEditor(typeof(QuestManager))]

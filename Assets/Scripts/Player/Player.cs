@@ -29,6 +29,7 @@ public class Player : Singleton<Player>
     {
         // LoadData();
         Character.Initialize();
+        // PlayerQuestController.Init();
     }
 
     private void OnEnable()

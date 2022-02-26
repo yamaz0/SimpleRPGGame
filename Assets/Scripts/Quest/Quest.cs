@@ -13,20 +13,27 @@ public class Quest
         QuestInfo = info;
         CurrentTaskNumber = currentTaskNumber;
         CurrentTask = QuestInfo.GetQuestTask(CurrentTaskNumber);
+        CurrentTask.Init(QuestInfo.Id);
+        Debug.Log($"StartQuest id:{info.Id}");
     }
+
     public void UpdateQuest()
     {
         CurrentTaskNumber++;
+        CurrentTask.End(QuestInfo.Id);
         QuestTask questTask = QuestInfo.GetQuestTask(CurrentTaskNumber);
         if (questTask == null)
         {
             //finish quest
+            Debug.Log("finished quest");
         }
         else
         {
             CurrentTask = questTask;
+            CurrentTask.Init(QuestInfo.Id);
             // CurrentTask.Init();
             //updateUIorSomething onQuestUpdated(CurrentTask);
+            Debug.Log("Update quest");
         }
     }
 }

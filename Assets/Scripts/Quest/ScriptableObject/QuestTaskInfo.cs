@@ -10,12 +10,12 @@ public class QuestTaskInfo
     [SerializeField]
     private int orderNumber;
     [SerializeField]
-    private StartQuestEffect effect = new StartQuestEffect();
+    private QuestEffect effect = new QuestEffect();
 
     public string Title { get => title; set => title = value; }
     public string Desc { get => desc; set => desc = value; }
     public int OrderNumber { get => orderNumber; set => orderNumber = value; }
-    public StartQuestEffect Effect { get => effect; set => effect = value; }
+    public QuestEffect Effect { get => effect; set => effect = value; }
 
     public virtual QuestTask CreateQuestTask()
     {

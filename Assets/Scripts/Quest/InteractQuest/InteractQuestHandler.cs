@@ -20,15 +20,16 @@ public class InteractQuestHandler
         // QuestTasks.Add(new InteractQuestTaskHandler());
     }
 
-    public void AddTaskEffectsToInteractObject(InteractQuestTaskInfo task)
+    public void AddTaskEffectsToInteractObject(InteractQuestTask task)
     {
         for (int i = 0; i < QuestTasks.Count; i++)
         {
-            if (QuestTasks[i].TaskIndex == task.OrderNumber)
+            if (QuestTasks[i].TaskIndex == task.questInfo.OrderNumber)
             {
-                QuestTasks[i].InteractActionEffectAdd(task);
+                QuestTasks[i].AddInteractActionEffect(task);
                 break;
             }
         }
     }
+
 }

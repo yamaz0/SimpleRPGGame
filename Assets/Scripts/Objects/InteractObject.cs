@@ -36,7 +36,10 @@ public class InteractObject : MonoBehaviour, IInteractable
     public void Use()
     {
         Character character = Player.Instance.Character;
-        Efects.ForEach(x => x.Execute(character));
+        for (int i = 0; i < Efects.Count; i++)
+        {
+            Efects[i].Execute(character);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
