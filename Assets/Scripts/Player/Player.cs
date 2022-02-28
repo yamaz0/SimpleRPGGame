@@ -9,11 +9,8 @@ public class Player : Singleton<Player>
     [SerializeField]
     private GameInputsController gameInputController;
     [SerializeField]
-    private PlayerQuestController playerQuestController;
-    [SerializeField]
     private float speed = 5;
     public Character Character { get => character; set => character = value; }
-    public PlayerQuestController PlayerQuestController { get => playerQuestController; set => playerQuestController = value; }
 
     public void LoadData()
     {
@@ -29,7 +26,6 @@ public class Player : Singleton<Player>
     {
         // LoadData();
         Character.Initialize();
-        // PlayerQuestController.Init();
     }
 
     private void OnEnable()
