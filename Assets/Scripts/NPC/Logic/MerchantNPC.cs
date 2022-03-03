@@ -11,5 +11,6 @@ public class MerchantNPC : NPCBase
     public override void Use()
     {
         base.Use();
+        //create shop GUI(info)
     }
 }

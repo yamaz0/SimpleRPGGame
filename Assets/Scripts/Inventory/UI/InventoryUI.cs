@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    private List<SlotInventory> objects = new List<SlotInventory>(10);
-    public SlotInventory slotTemplate;
+    private List<Slot> objects = new List<Slot>(10);
+    public Slot slotTemplate;
     public Transform content;
 
-    public List<SlotInventory> Objects { get => objects; set => objects = value; }
+    public List<Slot> Objects { get => objects; set => objects = value; }
 
     // private void Update()
     // {
@@ -19,7 +19,7 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
-        Objects = new List<SlotInventory>();
+        Objects = new List<Slot>();
         Player.Instance.Character.InventoryController.Inventory.OnInventoryChanged += Refresh;
         Refresh();
     }
@@ -31,6 +31,9 @@ public class InventoryUI : MonoBehaviour
 
     public void Refresh(int nothing = 0)
     {
+        InventoryItemSlotUIController ctrl = new InventoryItemSlotUIController();
+        List<Item> items = Player.Instance.Character.InventoryController.Inventory.Items;
+
         if (Objects.Count != 0)
         {
             for (int i = Objects.Count - 1; i >= 0; i--)
@@ -39,18 +42,17 @@ public class InventoryUI : MonoBehaviour
             }
             Objects.Clear();
         }
-        List<Item> items = Player.Instance.Character.InventoryController.Inventory.Items;
 
         foreach (var item in items)
         {
-            CreateNewSlot(item);
+            CreateNewSlot(item, ctrl);
         }
     }
 
-    private void CreateNewSlot(Item item)
+    private void CreateNewSlot(Item item, InventoryItemSlotUIController controller)
     {
-        SlotInventory slot = GameObject.Instantiate(slotTemplate, content);
-        slot.Init(item);
+        Slot slot = GameObject.Instantiate(slotTemplate, content);
+        slot.Init(item, controller);
         slot.gameObject.SetActive(true);
 
         Objects.Add(slot);

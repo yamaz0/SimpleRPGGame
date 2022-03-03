@@ -21,19 +21,20 @@ public class EquipmentUI : MonoBehaviour
         Player.Instance.Character.InventoryController.Equipement.OnEquipmentChanged -= Refresh;
     }
 
-    private void OnValidate()
-    {
-        SlotEquipment[] slotEquipments = GetComponentsInChildren<SlotEquipment>();
-        EquipmentSlots.AddRange(slotEquipments);
-    }
+    // private void OnValidate()
+    // {
+    //     SlotEquipment[] slotEquipments = GetComponentsInChildren<SlotEquipment>();
+    //     EquipmentSlots.AddRange(slotEquipments);
+    // }
 
     private void Refresh()
     {
         InventoryController equipement = Player.Instance.Character.InventoryController;
+        EquipmentItemSlotUIController ctrl = new EquipmentItemSlotUIController();
 
         foreach (var s in EquipmentSlots)
         {
-            s.Init(equipement.GetItemByType(s.Eqtype));
+            s.Init(equipement.GetItemByType(s.Eqtype), ctrl);
         }
     }
 

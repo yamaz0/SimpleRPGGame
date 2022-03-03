@@ -8,10 +8,13 @@ public class ItemInfo : BaseInfo
     [SerializeField]
     private Sprite icon;
     [SerializeField]
+    private int price;
+    [SerializeField]
     private ItemsManager.ItemType itemType;
 
     public ItemsManager.ItemType ItemType { get => itemType; set => itemType = value; }
     public Sprite Icon { get => icon; set => icon = value; }
+    public int Price { get => price; set => price = value; }
 
     public virtual Item CreateItem()
     {
@@ -22,7 +25,8 @@ public class ItemInfo : BaseInfo
     {
         Id = item.Id;
         Name = item.Name;
-        icon = item.Icon;
+        Icon = item.Icon;
+        Price = item.Price;
     }
 
 #if UNITY_EDITOR
@@ -31,6 +35,7 @@ public class ItemInfo : BaseInfo
         GUILayout.Label("Id: " + Id.ToString());
         Name = UnityEditor.EditorGUILayout.TextField("Name: ", Name);
         Icon = (Sprite)UnityEditor.EditorGUILayout.ObjectField("Sprite: ",Icon,typeof(Sprite),false);
+        Price = UnityEditor.EditorGUILayout.IntField("Price: ", Price);
     }
 
     public void ShowBaseItemInfo()
@@ -39,6 +44,7 @@ public class ItemInfo : BaseInfo
         GUILayout.Label("Id: " + Id.ToString());
         GUILayout.Label(Name);
         GUILayout.Label("Type: " + ItemType.ToString());
+        GUILayout.Label("Price: " + Price.ToString());
     }
 
     public virtual void ShowAllItemInfo()

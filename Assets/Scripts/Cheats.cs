@@ -63,6 +63,15 @@ public class Cheats : MonoBehaviour
         }
     }
 
+    [MenuItem("DoSomething/AddItems")]
+    static void AddItems()
+    {
+        Player.Instance.Character.InventoryController.AddItem(0);
+        Player.Instance.Character.InventoryController.AddItem(1);
+        Player.Instance.Character.InventoryController.AddItem(0);
+        Player.Instance.Character.InventoryController.AddItem(3);
+    }
+
     [MenuItem("DoSomething/TimeCouting")]
     static void TimeCouting()
     {
