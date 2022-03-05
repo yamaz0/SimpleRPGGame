@@ -69,7 +69,7 @@ public class Cheats : MonoBehaviour
         Player.Instance.Character.InventoryController.AddItem(0);
         Player.Instance.Character.InventoryController.AddItem(1);
         Player.Instance.Character.InventoryController.AddItem(0);
-        Player.Instance.Character.InventoryController.AddItem(3);
+        Player.Instance.Character.InventoryController.AddItem(2);
     }
 
     [MenuItem("DoSomething/TimeCouting")]

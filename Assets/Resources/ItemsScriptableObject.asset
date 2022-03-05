@@ -23,6 +23,7 @@ MonoBehaviour:
   - id: 7
   - id: 8
   - id: 9
+  - id: 10
   references:
     version: 1
     00000000:
@@ -141,3 +142,13 @@ MonoBehaviour:
         attack: 0
         attackSpeed: 0
         twoHanded: 0
+    0000000A:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 2
+        name: hhh
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
