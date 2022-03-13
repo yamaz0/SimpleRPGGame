@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class ShopController : MonoBehaviour
 {
     [SerializeField]
-    private ShopInventory playerInventory;
+    private InventoryUI playerInventory;
     [SerializeField]
-    private ShopInventory NPCInventory;
+    private InventoryUI NPCInventory;
 
-private void OnEnable() {
-    // playerInventory.Init();
-    // NPCInventory.Init();
-}
+    public void ShowShop(InventoryController NPCInventoryController, InventoryController playerInventoryController)
+    {
+        ((ShopInventory)playerInventory).Init(NPCInventoryController, playerInventoryController, true);
+        ((ShopInventory)NPCInventory).Init(playerInventoryController, NPCInventoryController, false);
+    }
+
+    public void CloseShop()
+    {
+        gameObject.SetActive(false);
+    }
 }

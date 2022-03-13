@@ -3,36 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class InventoryUI : MonoBehaviour
 {
     private List<Slot> objects = new List<Slot>(10);
     public Slot slotTemplate;
     public Transform content;
+    public TextValueUI goldText;
+    protected IItemSlotUIController Controller { get; set; }
+    protected InventoryController CharacterInventory { get; set; }
 
     public List<Slot> Objects { get => objects; set => objects = value; }
 
-    // private void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.I))
-    //         Initialize();
-    // }
-
-    private void Start()
+    private void Awake()
     {
+        Init();
         Objects = new List<Slot>();
-        Player.Instance.Character.InventoryController.Inventory.OnInventoryChanged += Refresh;
-        Refresh();
+
     }
 
+    public virtual void Init()
+    {
+        CharacterInventory = Player.Instance.Character.InventoryController;
+        SetController(new InventoryItemSlotUIController());
+    }
+
+    public void SetController(IItemSlotUIController controller)
+    {
+        Controller = controller;
+    }
+    private void OnEnable()
+    {
+        Refresh();
+        goldText.Init("gold", CharacterInventory.Inventory.Gold.ToString());
+        CharacterInventory.Inventory.OnInventoryChanged += Refresh;
+        CharacterInventory.Inventory.OnGoldValueChanged += RefreshGold;
+    }
     private void OnDisable()
     {
-        Player.Instance.Character.InventoryController.Inventory.OnInventoryChanged -= Refresh;
+        CharacterInventory.Inventory.OnInventoryChanged -= Refresh;
+        CharacterInventory.Inventory.OnGoldValueChanged -= RefreshGold;
     }
 
     public void Refresh(int nothing = 0)
     {
-        InventoryItemSlotUIController ctrl = new InventoryItemSlotUIController();
-        List<Item> items = Player.Instance.Character.InventoryController.Inventory.Items;
+        Inventory inventory = CharacterInventory.Inventory;
+        List<Item> items = inventory.Items;
 
         if (Objects.Count != 0)
         {
@@ -45,11 +61,16 @@ public class InventoryUI : MonoBehaviour
 
         foreach (var item in items)
         {
-            CreateNewSlot(item, ctrl);
+            CreateNewSlot(item, Controller);
         }
     }
 
-    private void CreateNewSlot(Item item, InventoryItemSlotUIController controller)
+    public void RefreshGold(int gold)
+    {
+        goldText.SetTextValue(gold.ToString());
+    }
+
+    private void CreateNewSlot(Item item, IItemSlotUIController controller)
     {
         Slot slot = GameObject.Instantiate(slotTemplate, content);
         slot.Init(item, controller);

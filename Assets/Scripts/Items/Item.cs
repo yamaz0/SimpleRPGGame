@@ -12,11 +12,14 @@ public abstract class Item
     private ItemsManager.ItemType type;
     [SerializeField]
     private Sprite icon;
+    [SerializeField]
+    private int price;
 
     public string Name { get => name; set => name = value; }
     public int Id { get => id; set => id = value; }
     public ItemsManager.ItemType Type { get => type; set => type = value; }
     public Sprite Icon { get => icon; set => icon = value; }
+    public int Price { get => price; set => price = value; }
 
     protected virtual void Init(ItemInfo info)
     {
@@ -24,6 +27,7 @@ public abstract class Item
         Name = info.Name;
         Type = info.ItemType;
         Icon = info.Icon;
+        Price = info.Price;
     }
 
     // public abstract string GetFullText(); // do tooltipa czy cos

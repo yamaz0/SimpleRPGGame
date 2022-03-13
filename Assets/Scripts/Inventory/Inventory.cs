@@ -7,14 +7,33 @@ using UnityEngine;
 public class Inventory
 {
     [SerializeField]
-    private List<int> itemsId;
+    private List<int> itemsId = new List<int>();
+    [SerializeField]
+    private int gold;
 
     [Modificator]
     public List<int> ItemsId { get => itemsId; private set => itemsId = value; }
 
     public List<Item> Items { get; set; }
+    public int Gold { get => gold; set => gold = value; }
 
     public event System.Action<int> OnInventoryChanged = delegate { };
+    public event System.Action<int> OnGoldValueChanged = delegate { };
+
+    public bool AddGold(int value)
+    {
+        int newGoldValue = Gold + value;
+
+        if (newGoldValue < 0)
+        {
+            return false;
+        }
+
+        Gold = newGoldValue;
+        OnGoldValueChanged(Gold);
+
+        return true;
+    }
 
     public void Init()
     {
@@ -25,7 +44,7 @@ public class Inventory
 
         for (int i = 0; i < ItemsId.Count; i++)
         {
-            Item item = ItemsScriptableObject.Instance.GetItemInfoById(ItemsId[i])?.CreateItem();
+            Item item = ItemsScriptableObject.Instance.GetItemInfoById(ItemsId[i])?.CreateItem();//usunac kiedys ten pytajnik
             Items.Add(item);
         }
     }

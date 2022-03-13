@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class MerchantNPCInfo : NPCInfo
 {
     [SerializeField]
-    private List<int> itemsId = new List<int>();
+    private InventoryController inventoryController = new InventoryController();
 
-    public List<int> ItemsId { get => itemsId; set => itemsId = value; }
+    public InventoryController InventoryController { get => inventoryController; set => inventoryController = value; }
 
     public override NPCBase CreateNpc()
     {

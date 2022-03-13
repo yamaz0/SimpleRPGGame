@@ -33,7 +33,7 @@ public class InteractObject : MonoBehaviour, IInteractable
         gameInputController.Disable();
     }
 
-    public void Use()
+    public virtual void Use()
     {
         Character character = Player.Instance.Character;
         for (int i = 0; i < Efects.Count; i++)

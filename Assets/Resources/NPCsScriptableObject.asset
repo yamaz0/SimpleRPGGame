@@ -59,3 +59,9 @@ MonoBehaviour:
         icon: {fileID: -7525882869776839469, guid: ffbb56c427bfa5344934e937190ee2e9,
           type: 3}
         animator: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709, type: 2}
+        inventoryController:
+          inventory:
+            itemsId: 000000000100000003000000
+            gold: 100
+          equipement:
+            itemsId: ffffffffffffffffffffffffffffffffffffffffffffffff

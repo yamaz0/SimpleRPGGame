@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class NPCBase : IInteractable
+public class NPCBase
 {
     [SerializeField]
     private NPCInfo npcInfo;

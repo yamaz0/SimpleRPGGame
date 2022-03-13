@@ -32,7 +32,7 @@ MonoBehaviour:
         id: 0
         name: arm
         icon: {fileID: 21300000, guid: 86823c3252463409989c0bb247d92a60, type: 3}
-        price: 0
+        price: 1
         itemType: 5
         defense: 1
         equipmentType: 1
@@ -43,7 +43,7 @@ MonoBehaviour:
         name: helm
         icon: {fileID: -1276848027817976068, guid: 6aa8d45f947871441bdc84217f943992,
           type: 3}
-        price: 0
+        price: 5
         itemType: 5
         defense: 1
         equipmentType: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
         name: legs
         icon: {fileID: 1548026724137119753, guid: 6aa8d45f947871441bdc84217f943992,
           type: 3}
-        price: 0
+        price: 50
         itemType: 5
         defense: 1
         equipmentType: 2
@@ -136,7 +136,7 @@ MonoBehaviour:
         name: questSword
         icon: {fileID: -434879369836922269, guid: 6aa8d45f947871441bdc84217f943992,
           type: 3}
-        price: 0
+        price: 20
         itemType: 5
         weaponType: 0
         attack: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
         id: 2
         name: hhh
         icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
-        price: 0
+        price: 10
         itemType: 5
         defense: 0
         equipmentType: 0
