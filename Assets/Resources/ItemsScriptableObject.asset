@@ -32,7 +32,7 @@ MonoBehaviour:
         id: 0
         name: arm
         icon: {fileID: 21300000, guid: 86823c3252463409989c0bb247d92a60, type: 3}
-        price: 1
+        price: 2
         itemType: 5
         defense: 1
         equipmentType: 1
@@ -43,7 +43,7 @@ MonoBehaviour:
         name: helm
         icon: {fileID: -1276848027817976068, guid: 6aa8d45f947871441bdc84217f943992,
           type: 3}
-        price: 5
+        price: 12
         itemType: 5
         defense: 1
         equipmentType: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
         id: 4
         name: boots
         icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
-        price: 0
+        price: 1
         itemType: 5
         defense: 1
         equipmentType: 3
@@ -75,7 +75,7 @@ MonoBehaviour:
         name: sh1
         icon: {fileID: -3114753951649970509, guid: 3e6a24bbaa0660d428ce353560a579ca,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
         defense: 1
         blockChance: 5
@@ -86,7 +86,7 @@ MonoBehaviour:
         name: sh2
         icon: {fileID: 8760534971004201820, guid: 3e6a24bbaa0660d428ce353560a579ca,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
         defense: 2
         blockChance: 10
@@ -97,7 +97,7 @@ MonoBehaviour:
         name: sword
         icon: {fileID: 7344806551139346747, guid: 663e30d87a8f8954c8905bbea4d84a0a,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
         weaponType: 0
         attack: 6
@@ -110,7 +110,7 @@ MonoBehaviour:
         name: axe
         icon: {fileID: -6736588211099709609, guid: 6aa8d45f947871441bdc84217f943992,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
         weaponType: 1
         attack: 8
@@ -123,7 +123,7 @@ MonoBehaviour:
         name: twohanded club
         icon: {fileID: -1720165868902098316, guid: 6aa8d45f947871441bdc84217f943992,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
         weaponType: 2
         attack: 20

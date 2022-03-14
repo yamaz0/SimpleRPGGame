@@ -476,7 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7481157998590682022}
   - component: {fileID: 7481157998590682023}
-  - component: {fileID: 7481157998590682072}
+  - component: {fileID: 2454500338309515669}
   m_Layer: 5
   m_Name: ItemTemplate
   m_TagString: Untagged
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!114 &7481157998590682072
+--- !u!114 &2454500338309515669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -541,11 +541,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7481157998590682021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 700064da6014ffe449cda7b8107f320b, type: 3}
+  m_Script: {fileID: 11500000, guid: c868c51704d074047b5a47d2e1d3bc3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7481157998792498922}
   Index: 0
+  itemShopUI:
+    itemNameText: {fileID: 7481157998574236031}
+    priceText: {fileID: 7481158000225338769}
 --- !u!1 &7481157998632990902
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,8 +765,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7481157999322811790}
   m_HandleRect: {fileID: 7481157999322811789}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 0.5
+  m_Size: 0.46080002
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1355,7 +1358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f27f3543100d3f4dbb695c2678e1381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotTemplate: {fileID: 7481157998590682072}
+  slotTemplate: {fileID: 2454500338309515669}
   content: {fileID: 7481157999649204834}
   goldText: {fileID: 8418239056371221517}
 --- !u!1 &7481158000078950512
