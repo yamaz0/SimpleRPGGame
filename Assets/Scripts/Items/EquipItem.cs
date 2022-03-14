@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 public interface IEquipable
 {
@@ -34,6 +35,14 @@ public class EquipItem : Item, IEquipable, IUseable
         base.Init(info);
         Defense = ((EquipItemInfo)info).Defense;
         EquipmentType = ((EquipItemInfo)info).EquipmentType;
+    }
+
+    public override string GetDescription()
+    {
+        StringBuilder desc = new StringBuilder();
+        desc.Append($"Defense: {Defense} {System.Environment.NewLine}");
+        desc.Append($"Type: {EquipmentType} {System.Environment.NewLine}");
+        return desc.ToString();
     }
 
     public bool Equip(Equipement.EqType type)

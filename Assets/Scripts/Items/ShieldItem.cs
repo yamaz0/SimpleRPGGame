@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class ShieldItem : Item, IEquipable, IUseable
@@ -25,6 +26,14 @@ public class ShieldItem : Item, IEquipable, IUseable
         base.Init(info);
         Defense = ((ShieldItemInfo)info).Defense;
         BlockChance = ((ShieldItemInfo)info).BlockChance;
+    }
+
+    public override string GetDescription()
+    {
+        StringBuilder desc = new StringBuilder();
+        desc.Append($"Defense: {Defense} {System.Environment.NewLine}");
+        desc.Append($"BlockChance: {BlockChance} {System.Environment.NewLine}");
+        return desc.ToString();
     }
 
     public bool Equip(Equipement.EqType type)

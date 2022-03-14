@@ -30,5 +30,10 @@ public abstract class Item
         Price = info.Price;
     }
 
+    public virtual string GetDescription()
+    {
+        return System.Environment.NewLine;
+    }
+
     // public abstract string GetFullText(); // do tooltipa czy cos
 }

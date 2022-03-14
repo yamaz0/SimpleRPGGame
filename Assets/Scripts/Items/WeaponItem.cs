@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class WeaponItem : Item, IEquipable, IUseable
@@ -33,6 +34,15 @@ public class WeaponItem : Item, IEquipable, IUseable
         Attack = ((WeaponItemInfo)info).Attack;
         AttackSpeed = ((WeaponItemInfo)info).AttackSpeed;
         TwoHanded = ((WeaponItemInfo)info).TwoHanded;
+    }
+
+    public override string GetDescription()
+    {
+        StringBuilder desc = new StringBuilder();
+        desc.Append($"Attack: {Attack} {System.Environment.NewLine}");
+        desc.Append($"AttackSpeed: {AttackSpeed} {System.Environment.NewLine}");
+        desc.Append($"TwoHanded:{TwoHanded} {System.Environment.NewLine}");
+        return desc.ToString();
     }
 
     private void TryUnequipItem(InventoryController inventoryController, Equipement.EqType type)

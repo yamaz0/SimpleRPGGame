@@ -6,7 +6,7 @@ using System.Timers;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IPointerDownHandler, IPointerUpHandler
+public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
     private Image icon;
@@ -85,4 +85,18 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
             icon.sprite = Resources.LoadAll<Sprite>("")[0];
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        PopUpManager.Instance.Tooltip.gameObject.SetActive(true);
+        PopUpManager.Instance.Tooltip.Init(ItemCache, transform.position);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        PopUpManager.Instance.Tooltip.gameObject.SetActive(false);
+    }
+    private void OnDisable()
+    {
+        PopUpManager.Instance.Tooltip.gameObject.SetActive(false);
+    }
 }
