@@ -10,28 +10,40 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
 {
     [SerializeField]
     private Image icon;
+    [SerializeField]
+    private bool isDraggable = true;
     public Item ItemCache { get; set; }
     public Vector3 StartPos { get; set; }
     public int Index = 0;
 
     private IItemSlotUIController Controller { get; set; }
     private Timer Timer { get; set; }
+    public bool IsDraggable { get => isDraggable; set => isDraggable = value; }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        StartPos = transform.position;
-        Index = transform.GetSiblingIndex();
-        transform.SetAsLastSibling();
+        if (IsDraggable == true)
+        {
+            StartPos = transform.position;
+            Index = transform.GetSiblingIndex();
+            transform.SetAsLastSibling();
+        }
         //tutaj jeszcze disable grid content albo cos
     }
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Mouse.current.position.ReadValue();
+        if (IsDraggable == true)
+        {
+            transform.position = Mouse.current.position.ReadValue();
+        }
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        Controller.OnDrop(eventData, this);
+        if (IsDraggable == true)
+        {
+            Controller.OnDrop(eventData, this);
+        }
     }
 
     private void SingleClick(object o, System.EventArgs e)

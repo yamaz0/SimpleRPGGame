@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 [CreateAssetMenu(fileName = "NPCs", menuName = "ScriptableObjects/NPCs")]
-[System.Serializable]
 public class NPCScriptableObject : SingletonScriptableObject<NPCScriptableObject>
 {
     public NPCInfo GetNPCInfoById(int id)

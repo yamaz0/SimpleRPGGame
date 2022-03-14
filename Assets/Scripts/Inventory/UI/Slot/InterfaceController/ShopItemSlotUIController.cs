@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
 public class ShopItemSlotUIController : IItemSlotUIController
@@ -16,6 +17,20 @@ public class ShopItemSlotUIController : IItemSlotUIController
 
     public void OnDrop(PointerEventData eventData, Slot slot)
     {
-        throw new System.NotImplementedException();
+        List<RaycastResult> res = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, res);
+        for (int i = 0; i < res.Count; i++)
+        {
+            ShopInventory inventory = res[i].gameObject.GetComponent<ShopInventory>();
+            if (inventory != null && inventory != ShopInventoryController)
+            {
+                ShopInventoryController.BuyItem(slot.ItemCache);
+                break;
+            }
+        }
+        slot.transform.SetSiblingIndex(slot.Index);
+        slot.transform.position = slot.StartPos;
+        slot.gameObject.SetActive(false);
+        slot.gameObject.SetActive(true);
     }
 }

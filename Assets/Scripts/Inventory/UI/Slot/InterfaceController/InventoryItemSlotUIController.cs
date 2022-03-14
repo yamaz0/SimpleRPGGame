@@ -36,7 +36,7 @@ public class InventoryItemSlotUIController : IItemSlotUIController
         }
         slot.transform.SetSiblingIndex(slot.Index);
         slot.transform.position = slot.StartPos;
-        // gameObject.SetActive(false);
-        // gameObject.SetActive(true);
+        slot.gameObject.SetActive(false);
+        slot.gameObject.SetActive(true);
     }
 }
