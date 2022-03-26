@@ -30,8 +30,8 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 0
-        name: arm
-        icon: {fileID: 21300000, guid: 86823c3252463409989c0bb247d92a60, type: 3}
+        name: magic plate armor
+        icon: {fileID: 21300028, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 2
         itemType: 5
         defense: 1
@@ -40,9 +40,8 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 1
-        name: helm
-        icon: {fileID: -1276848027817976068, guid: 6aa8d45f947871441bdc84217f943992,
-          type: 3}
+        name: golden helmet
+        icon: {fileID: 21300026, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 12
         itemType: 5
         defense: 1
@@ -51,9 +50,8 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 3
-        name: legs
-        icon: {fileID: 1548026724137119753, guid: 6aa8d45f947871441bdc84217f943992,
-          type: 3}
+        name: goku ssj5 legs
+        icon: {fileID: 21300030, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 50
         itemType: 5
         defense: 1
@@ -62,8 +60,8 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 4
-        name: boots
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        name: jiren boots
+        icon: {fileID: 21300034, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 1
         itemType: 5
         defense: 1
@@ -133,7 +131,7 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 10
-        name: questSword
+        name: sword +9
         icon: {fileID: -434879369836922269, guid: 6aa8d45f947871441bdc84217f943992,
           type: 3}
         price: 20
@@ -146,8 +144,8 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 2
-        name: hhh
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        name: jebac putina
+        icon: {fileID: 21300000, guid: 83ab2434deb511a4b8aabd90f5d9de60, type: 3}
         price: 10
         itemType: 5
         defense: 0

@@ -9,15 +9,15 @@ public class MerchantNPC : NPCBase
     public MerchantNPC(NPCInfo info) : base(info)
     {
         InventoryController = new InventoryController();
-        Inventory inventoryInfo = ((MerchantNPCInfo)NpcInfo).InventoryController.Inventory;
 
-        foreach (var itemId in inventoryInfo.ItemsId)
+        MerchantNPCInfo npcInfo = ((MerchantNPCInfo)NpcInfo);
+        foreach (var item in npcInfo.ItemsIds)
         {
-            InventoryController.Inventory.ItemsId.Add(itemId);
+            InventoryController.Inventory.ItemsId.Add(item.ID);
         }
 
         InventoryController.Inventory.Init();
-        InventoryController.Inventory.AddGold(inventoryInfo.Gold);
+        InventoryController.Inventory.AddGold(npcInfo.Gold);
     }
 
 

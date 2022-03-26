@@ -9,6 +9,8 @@ public class PopUpManager : Singleton<PopUpManager>
     [SerializeField]
     private ShopController shopController;
     [SerializeField]
+    private AbilitiesUIWindowController abilitiesUIWindowController;
+    [SerializeField]
     private TooltipUI tooltip;
 
     public TooltipUI Tooltip { get => tooltip; set => tooltip = value; }
@@ -17,6 +19,13 @@ public class PopUpManager : Singleton<PopUpManager>
     {
         popUpController.ShowEndBattlePopUp(title, desc);
     }
+
+    public void ShowAbilitiesWindow(TrainerNPCInfo info)
+    {
+        abilitiesUIWindowController.Init(info);
+        abilitiesUIWindowController.gameObject.SetActive(true);
+    }
+
     public void ShowShop(InventoryController npcInventoryController)
     {
         InventoryController playerInventoryController = Player.Instance.Character.InventoryController;

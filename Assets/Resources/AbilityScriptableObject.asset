@@ -22,7 +22,7 @@ MonoBehaviour:
       type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 0
-        name: ab1
+        name: jakis skill
         icon: {fileID: 5601323976189978565, guid: 2edfd0eb34e1fa349824f67025b135d3,
           type: 3}
         twoOponentBattleEffects:

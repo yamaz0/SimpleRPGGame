@@ -17,8 +17,10 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
     public int Index = 0;
 
     private IItemSlotUIController Controller { get; set; }
-    private Timer Timer { get; set; }
+    private Timer DoubleClickTimer { get; set; }
+    private Timer TooltipTimer { get; set; }
     public bool IsDraggable { get => isDraggable; set => isDraggable = value; }
+    public bool IsDragging { get; set; }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -27,6 +29,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
             StartPos = transform.position;
             Index = transform.GetSiblingIndex();
             transform.SetAsLastSibling();
+            IsDragging = true;
         }
         //tutaj jeszcze disable grid content albo cos
     }
@@ -43,12 +46,13 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
         if (IsDraggable == true)
         {
             Controller.OnDrop(eventData, this);
+            IsDragging = false;
         }
     }
 
     private void SingleClick(object o, System.EventArgs e)
     {
-        Timer.Stop();
+        DoubleClickTimer.Stop();
     }
     private void DoubleClick()
     {
@@ -57,13 +61,13 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (Timer.Enabled == false)
+        if (DoubleClickTimer.Enabled == false)
         {
-            Timer.Start();
+            DoubleClickTimer.Start();
         }
         else
         {
-            Timer.Stop();
+            DoubleClickTimer.Stop();
             DoubleClick();
         }
     }
@@ -75,9 +79,12 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
     public virtual void Init(Item item, IItemSlotUIController slotController)
     {
         Controller = slotController;
-        Timer = new Timer();
-        Timer.Interval = 400;
-        Timer.Elapsed += SingleClick;
+        DoubleClickTimer = new Timer();
+        DoubleClickTimer.Interval = 400;
+        DoubleClickTimer.Elapsed += SingleClick;
+        TooltipTimer = new Timer();
+        TooltipTimer.Interval = 400;
+        TooltipTimer.Elapsed += ShowTooltip;
         ItemCache = item;
         if (ItemCache != null)
             icon.sprite = ItemCache.Icon;
@@ -87,16 +94,31 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (IsDragging == false)
+        {
+            TooltipTimer.Start();
+
+        }
+    }
+
+    private void ShowTooltip(object o, System.EventArgs e)
+    {
         PopUpManager.Instance.Tooltip.gameObject.SetActive(true);
         PopUpManager.Instance.Tooltip.Init(ItemCache, transform.position);
+        TooltipTimer.Stop();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        PopUpManager.Instance.Tooltip.gameObject.SetActive(false);
+        if (IsDragging == false)
+        {
+            PopUpManager.Instance.Tooltip.gameObject.SetActive(false);
+            TooltipTimer.Stop();
+        }
     }
     private void OnDisable()
     {
-        PopUpManager.Instance.Tooltip.gameObject.SetActive(false);
+        TooltipTimer.Stop();
+        PopUpManager.Instance?.Tooltip.gameObject.SetActive(false);
     }
 }
