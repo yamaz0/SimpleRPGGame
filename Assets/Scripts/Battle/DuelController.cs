@@ -26,12 +26,12 @@ public class DuelController : MonoBehaviour
         if (op1.Character.Statistics.Hp.Value <= 0)
         {
             BattleManager.Instance.BattleEnd(false);
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
         }
         else if (op2.Character.Statistics.Hp.Value <= 0)
         {
             BattleManager.Instance.BattleEnd(true);
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
         }
     }
 

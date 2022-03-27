@@ -20,6 +20,11 @@ public class RandomCharacterUI : MonoBehaviour
 
     public Character CacheCharacter { get; set; }
 
+    private void Start()
+    {
+        button.onClick.AddListener(OnButtonClicked);
+    }
+
     public void Init(Character character)
     {
         CacheCharacter = character;
@@ -33,8 +38,6 @@ public class RandomCharacterUI : MonoBehaviour
 
         SetSlot(leftHand, left);
         SetSlot(rightHand, right);
-
-        button.onClick.AddListener(OnButtonClicked);
     }
 
     private void SetSlot(Slot slot, Item item)

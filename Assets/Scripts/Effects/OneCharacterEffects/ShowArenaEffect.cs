@@ -1,11 +1,14 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
-public class StartRandomCharacterBattleEffect : OneCharacterEffect
+public class ShowArenaEffect : OneCharacterEffect
 {
     public override void Execute(Character character)
     {
-        BattleManager.Instance.StartBattle(Player.Instance.Character, character);
+        PopUpManager.Instance.ShowArena();
     }
 
     public override void Remove(Character character)

@@ -11,6 +11,8 @@ public class PopUpManager : Singleton<PopUpManager>
     [SerializeField]
     private AbilitiesUIWindowController abilitiesUIWindowController;
     [SerializeField]
+    private RandomCharacterWindowController randomCharacterWindowController;
+    [SerializeField]
     private TooltipUI tooltip;
 
     public TooltipUI Tooltip { get => tooltip; set => tooltip = value; }
@@ -18,6 +20,11 @@ public class PopUpManager : Singleton<PopUpManager>
     public void ShowEndBattlePopUp(string title, string desc)
     {
         popUpController.ShowEndBattlePopUp(title, desc);
+    }
+
+    public void ShowArena()
+    {
+        randomCharacterWindowController.gameObject.SetActive(true);
     }
 
     public void ShowAbilitiesWindow(TrainerNPCInfo info)

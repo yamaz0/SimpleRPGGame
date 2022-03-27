@@ -7,7 +7,7 @@ public class RandomCharacterWindowController : MonoBehaviour
     [SerializeField]
     private List<RandomCharacterUI> randomCharactersUIs = new List<RandomCharacterUI>(3);
 
-    private void Start()
+    private void OnEnable()
     {
         for (int i = 0; i < 3; i++)
         {

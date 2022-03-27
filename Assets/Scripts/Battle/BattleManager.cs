@@ -33,6 +33,7 @@ public class BattleManager : Singleton<BattleManager>
 
         DuelController = Instantiate(duelControllerPrefab, battleGameObject.transform);
         DuelController.gameObject.SetActive(true);
+        DuelController.transform.position = Player.Instance.gameObject.transform.position - new Vector3(0, 4, 0);
         // DuelController.Initialize(characterFirst, characterSecound);
         DuelController.Initialize(characterFirst, RandomCharacter.CreateRandomCharacterBalancedToCharacter(characterFirst));
     }
@@ -58,6 +59,7 @@ public class BattleManager : Singleton<BattleManager>
         {
             PlayerLose();
         }
+        // DestroyImmediate(DuelController.gameObject);
     }
 
     private static void PlayerLose()
@@ -65,7 +67,7 @@ public class BattleManager : Singleton<BattleManager>
         float expToSub = Player.Instance.Character.Statistics.Exp.Value * 0.1f;
         Player.Instance.Character.Statistics.Exp.AddValue(-expToSub, true);
         //popup czy cos ze przegrana i ilosc odjetego expa
-        PopUpManager.Instance.ShowEndBattlePopUp("LOSE",$"You are too weak. You lose {expToSub} experience.");
+        PopUpManager.Instance.ShowEndBattlePopUp("LOSE", $"You are too weak. You lose {expToSub} experience.");
     }
 
     private static void PlayerWin()
@@ -87,7 +89,7 @@ public class BattleManager : Singleton<BattleManager>
                 return;
         }
         //popup czy cos ze wygrana z wygranym expem lub nagroda itemy cokolwiek
-        PopUpManager.Instance.ShowEndBattlePopUp("WIN",$"You are very stronk. You get 100 experience.");
+        PopUpManager.Instance.ShowEndBattlePopUp("WIN", $"You are very stronk. You get 100 experience.");
     }
 
     private void OnEnable()
