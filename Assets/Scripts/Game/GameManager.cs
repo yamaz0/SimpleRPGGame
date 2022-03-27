@@ -53,4 +53,9 @@ public class GameManager : Singleton<GameManager>
         base.Initialize();
         gameInputController = new GameInputsController();
     }
+
+    public void SetPlayerCanMove(bool state)
+    {
+        Player.Instance.CanMove = state;
+    }
 }

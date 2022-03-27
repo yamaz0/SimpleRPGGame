@@ -11,6 +11,7 @@ public class Player : Singleton<Player>
     [SerializeField]
     private float speed = 5;
     public Character Character { get => character; set => character = value; }
+    public bool CanMove { get; set; } = true;
 
     public void LoadData()
     {
@@ -46,7 +47,10 @@ public class Player : Singleton<Player>
 
     private void Update()
     {
-        Move();
+        if (CanMove == true)
+        {
+            Move();
+        }
     }
 
     protected override void Initialize()
