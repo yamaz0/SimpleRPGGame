@@ -6,8 +6,8 @@ public class InputManager : Singleton<InputManager>
 {    
     [SerializeField]
     private GameInputsController gameInputController;
-    [SerializeField]
-    private GameObject inventory;
+    System.Action<UnityEngine.InputSystem.InputAction.CallbackContext> ShowInventoryDelegate;
+    System.Action<UnityEngine.InputSystem.InputAction.CallbackContext> ShowStatsDelegate;
 
 
 
@@ -15,17 +15,22 @@ public class InputManager : Singleton<InputManager>
     {
         base.Initialize();
         gameInputController = new GameInputsController();
+
+        ShowInventoryDelegate = delegate (UnityEngine.InputSystem.InputAction.CallbackContext x) { WindowManager.Instance.ShowInventory(); };
+        ShowStatsDelegate = delegate (UnityEngine.InputSystem.InputAction.CallbackContext x) { WindowManager.Instance.ShowStats(); };
     }
 
     private void OnEnable()
     {
         gameInputController.Enable();
-        gameInputController.Player.Inventory.started += _ => inventory.SetActive(!inventory.activeSelf);
+        gameInputController.Player.Inventory.started += ShowInventoryDelegate;
+        gameInputController.Player.CharacterStats.started += ShowStatsDelegate;
     }
 
     private void OnDisable()
     {
-        gameInputController.Player.Inventory.started -= _ => inventory.SetActive(!inventory.activeSelf);
+        gameInputController.Player.Inventory.started -= ShowInventoryDelegate;
+        gameInputController.Player.CharacterStats.started -= ShowStatsDelegate;
         gameInputController.Disable();
     }
 }

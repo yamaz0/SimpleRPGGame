@@ -13,6 +13,6 @@ public class TrainerNPC : NPCBase
 
     public override void Use()
     {
-        PopUpManager.Instance.ShowAbilitiesWindow((TrainerNPCInfo)NpcInfo);
+        WindowManager.Instance.ShowAbilitiesWindow((TrainerNPCInfo)NpcInfo);
     }
 }

@@ -18,9 +18,12 @@ public class InteractObject : MonoBehaviour, IInteractable
     bool isActive = false;
     public List<OneCharacterEffect> Efects { get => efects; set => efects = value; }
 
+    System.Action<UnityEngine.InputSystem.InputAction.CallbackContext> useDelegate;
+
     private void Awake()
     {
         gameInputController = new GameInputsController();
+        useDelegate = delegate (UnityEngine.InputSystem.InputAction.CallbackContext x) { Use(); };
     }
 
     private void OnEnable()
@@ -46,7 +49,7 @@ public class InteractObject : MonoBehaviour, IInteractable
     {
         if (other.tag == "Player")
         {
-            gameInputController.Player.Interact.started += _ => Use();
+            gameInputController.Player.Interact.started += useDelegate;
             useUI.SetActive(true);
         }
     }
@@ -55,7 +58,7 @@ public class InteractObject : MonoBehaviour, IInteractable
     {
         if (other.tag == "Player")
         {
-            gameInputController.Player.Interact.started -= _ => Use();
+            gameInputController.Player.Interact.started -= useDelegate;
             useUI.SetActive(false);
         }
     }

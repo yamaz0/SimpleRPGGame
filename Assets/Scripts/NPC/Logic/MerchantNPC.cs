@@ -28,6 +28,6 @@ public class MerchantNPC : NPCBase
 
     public override void Use()
     {
-        PopUpManager.Instance.ShowShop(InventoryController);
+        WindowManager.Instance.ShowShop(InventoryController);
     }
 }

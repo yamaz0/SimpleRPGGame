@@ -8,7 +8,7 @@ public class ShowArenaEffect : OneCharacterEffect
 {
     public override void Execute(Character character)
     {
-        PopUpManager.Instance.ShowArena();
+        WindowManager.Instance.ShowArena();
     }
 
     public override void Remove(Character character)

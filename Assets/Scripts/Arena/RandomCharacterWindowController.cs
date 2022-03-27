@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomCharacterWindowController : MonoBehaviour
+public class RandomCharacterWindowController : Window
 {
     [SerializeField]
     private List<RandomCharacterUI> randomCharactersUIs = new List<RandomCharacterUI>(3);
 
-    private void OnEnable()
+    public void Init()
     {
         for (int i = 0; i < 3; i++)
         {

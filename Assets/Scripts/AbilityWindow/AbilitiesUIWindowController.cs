@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class AbilitiesUIWindowController : MonoBehaviour
+public class AbilitiesUIWindowController : Window
 {
     [SerializeField]
     private AbilityUI template;

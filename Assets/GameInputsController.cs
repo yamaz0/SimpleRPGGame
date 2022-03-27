@@ -71,6 +71,15 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CharacterStats"",
+                    ""type"": ""Button"",
+                    ""id"": ""ae53c5f1-442c-4472-b3d1-ad3d29fed371"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -247,6 +256,17 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b4e8867-7bcf-4897-a0de-81ca0806e2b2"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""CharacterStats"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -867,6 +887,7 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_walka = m_Player.FindAction("walka", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
+        m_Player_CharacterStats = m_Player.FindAction("CharacterStats", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -946,6 +967,7 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_walka;
     private readonly InputAction m_Player_Inventory;
+    private readonly InputAction m_Player_CharacterStats;
     public struct PlayerActions
     {
         private @GameInputsController m_Wrapper;
@@ -955,6 +977,7 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @walka => m_Wrapper.m_Player_walka;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
+        public InputAction @CharacterStats => m_Wrapper.m_Player_CharacterStats;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -979,6 +1002,9 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                 @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @CharacterStats.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterStats;
+                @CharacterStats.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterStats;
+                @CharacterStats.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterStats;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -998,6 +1024,9 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
+                @CharacterStats.started += instance.OnCharacterStats;
+                @CharacterStats.performed += instance.OnCharacterStats;
+                @CharacterStats.canceled += instance.OnCharacterStats;
             }
         }
     }
@@ -1192,6 +1221,7 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
         void OnInteract(InputAction.CallbackContext context);
         void OnWalka(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnCharacterStats(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

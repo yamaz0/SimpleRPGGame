@@ -1082,6 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80428a1e97ae9904381b4cd33dd0302a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPlayerMove: 0
   playerInventory: {fileID: 2301325210534201495}
   NPCInventory: {fileID: 7481157999985614530}
 --- !u!1 &7481157999649204833
@@ -1790,10 +1791,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7481157999336668971}
-        m_TargetAssemblyTypeName: ShopController, Assembly-CSharp
-        m_MethodName: CloseShop
-        m_Mode: 1
+      - m_Target: {fileID: 7481157999336668969}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
