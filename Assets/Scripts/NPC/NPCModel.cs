@@ -26,6 +26,8 @@ public class NPCModel : InteractObject
 
     private void OnValidate()
     {
+        if (NPCScriptableObject.Instance == null) return;
+
         NPCInfo nPCInfo = NPCScriptableObject.Instance.GetNPCInfoById(npcId);
         GetComponent<Animator>().runtimeAnimatorController = nPCInfo.AnimatorController;
         GetComponent<SpriteRenderer>().sprite = nPCInfo.Icon;

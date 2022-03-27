@@ -5,7 +5,7 @@ public class StartRandomCharacterBattleEffect : OneCharacterEffect
 {
     public override void Execute(Character character)
     {
-        BattleManager.Instance.StartBattle(character, RandomCharacter.CreateRandomCharacterBalancedToCharacter(character));
+        BattleManager.Instance.StartBattle(Player.Instance.Character, character);
     }
 
     public override void Remove(Character character)

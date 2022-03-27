@@ -56,7 +56,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
     }
     private void DoubleClick()
     {
-        Controller.DoubleClick(this);
+        Controller?.DoubleClick(this);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -98,7 +98,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
         {
             TooltipTimer.Start();
 
-        }
+        }ShowTooltip(null,null);
     }
 
     private void ShowTooltip(object o, System.EventArgs e)
