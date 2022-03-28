@@ -24,129 +24,1061 @@ MonoBehaviour:
   - id: 8
   - id: 9
   - id: 10
+  - id: 11
+  - id: 12
+  - id: 13
+  - id: 14
+  - id: 15
+  - id: 16
+  - id: 17
+  - id: 18
+  - id: 19
+  - id: 20
+  - id: 21
+  - id: 22
+  - id: 23
+  - id: 24
+  - id: 25
+  - id: 26
+  - id: 27
+  - id: 28
+  - id: 29
+  - id: 30
+  - id: 31
+  - id: 32
+  - id: 33
+  - id: 34
+  - id: 35
+  - id: 36
+  - id: 37
+  - id: 38
+  - id: 39
+  - id: 40
+  - id: 41
+  - id: 42
+  - id: 43
+  - id: 44
+  - id: 45
+  - id: 46
+  - id: 47
+  - id: 48
+  - id: 49
+  - id: 50
+  - id: 51
+  - id: 52
+  - id: 53
+  - id: 54
+  - id: 55
+  - id: 56
+  - id: 57
+  - id: 58
+  - id: 59
+  - id: 60
+  - id: 61
+  - id: 62
+  - id: 63
+  - id: 64
+  - id: 65
+  - id: 66
+  - id: 67
+  - id: 68
+  - id: 69
+  - id: 70
+  - id: 71
+  - id: 72
+  - id: 73
+  - id: 74
+  - id: 75
+  - id: 76
+  - id: 77
+  - id: 78
+  - id: 79
+  - id: 80
+  - id: 81
+  - id: 82
+  - id: 83
   references:
     version: 1
     00000000:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 0
-        name: magic plate armor
-        icon: {fileID: 21300028, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 2
+        name: Armor
+        icon: {fileID: -428760190848722466, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
         itemType: 5
-        defense: 1
+        defense: 0
         equipmentType: 1
     00000001:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 1
-        name: golden helmet
-        icon: {fileID: 21300026, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 12
+        name: 
+        icon: {fileID: -4124754585435695773, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
         itemType: 5
-        defense: 1
-        equipmentType: 0
+        defense: 0
+        equipmentType: 1
     00000002:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
-        id: 3
-        name: goku ssj5 legs
-        icon: {fileID: 21300030, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 50
+        id: 2
+        name: 
+        icon: {fileID: -2359634908533085328, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
         itemType: 5
-        defense: 1
-        equipmentType: 2
+        defense: 0
+        equipmentType: 1
     00000003:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
-        id: 4
-        name: jiren boots
-        icon: {fileID: 21300034, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 1
+        id: 3
+        name: 
+        icon: {fileID: 1002184306193214245, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
         itemType: 5
-        defense: 1
-        equipmentType: 3
+        defense: 0
+        equipmentType: 1
     00000004:
-      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 4
+        name: 
+        icon: {fileID: -5383197533797868373, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 1
+    00000005:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 5
-        name: sh1
-        icon: {fileID: -3114753951649970509, guid: 3e6a24bbaa0660d428ce353560a579ca,
+        name: 
+        icon: {fileID: 6123435783545580667, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 1
+        price: 0
         itemType: 5
-        defense: 1
-        blockChance: 5
-    00000005:
-      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+        defense: 0
+        equipmentType: 1
+    00000006:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 6
-        name: sh2
-        icon: {fileID: 8760534971004201820, guid: 3e6a24bbaa0660d428ce353560a579ca,
+        name: 
+        icon: {fileID: -2664705749959713560, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 1
+    00000007:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 7
+        name: 
+        icon: {fileID: 8459810019820544495, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 1
+    00000008:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 8
+        name: 
+        icon: {fileID: -8953489640803899282, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 1
+    00000009:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 9
+        name: 
+        icon: {fileID: 2144756211240924905, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 1
+    0000000A:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 10
+        name: 
+        icon: {fileID: 5616841710775462211, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 1
+    0000000B:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 11
+        name: 
+        icon: {fileID: 3765164017081499847, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    0000000C:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 12
+        name: 
+        icon: {fileID: 1751564263558216763, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    0000000D:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 13
+        name: 
+        icon: {fileID: -7163662278193710585, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    0000000E:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 14
+        name: 
+        icon: {fileID: 2475235557930881987, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    0000000F:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 15
+        name: 
+        icon: {fileID: 6260659127007101507, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    00000010:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 16
+        name: 
+        icon: {fileID: -3930946897451993484, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    00000011:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 17
+        name: 
+        icon: {fileID: 5846979971430347887, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    00000012:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 18
+        name: 
+        icon: {fileID: -2708232225190019670, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    00000013:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 19
+        name: helm
+        icon: {fileID: 2429457697700603145, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    00000014:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 20
+        name: butki
+        icon: {fileID: -732356172534689064, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
         price: 1
         itemType: 5
-        defense: 2
-        blockChance: 10
-    00000006:
+        defense: 0
+        equipmentType: 3
+    00000015:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 21
+        name: spodnie
+        icon: {fileID: 8286571802576935001, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 1
+        itemType: 5
+        defense: 0
+        equipmentType: 2
+    00000016:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 22
+        name: shield
+        icon: {fileID: 6738218706411903907, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 1
+        blockChance: 1
+    00000017:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
-        id: 7
+        id: 23
         name: sword
-        icon: {fileID: 7344806551139346747, guid: 663e30d87a8f8954c8905bbea4d84a0a,
+        icon: {fileID: -5291451472265558584, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
         price: 1
         itemType: 5
         weaponType: 0
-        attack: 6
-        attackSpeed: 5
+        attack: 1
+        attackSpeed: 1
         twoHanded: 0
-    00000007:
-      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+    00000018:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
-        id: 8
-        name: axe
-        icon: {fileID: -6736588211099709609, guid: 6aa8d45f947871441bdc84217f943992,
+        id: 24
+        name: buty
+        icon: {fileID: 980155311395259703, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
         price: 1
         itemType: 5
-        weaponType: 1
-        attack: 8
-        attackSpeed: 10
-        twoHanded: 0
-    00000008:
-      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+        defense: 4
+        equipmentType: 3
+    00000019:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
-        id: 9
-        name: twohanded club
-        icon: {fileID: -1720165868902098316, guid: 6aa8d45f947871441bdc84217f943992,
+        id: 25
+        name: buty
+        icon: {fileID: 8132948862792318974, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
         price: 1
         itemType: 5
-        weaponType: 2
-        attack: 20
-        attackSpeed: 2
-        twoHanded: 1
-    00000009:
+        defense: 3
+        equipmentType: 3
+    0000001A:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 26
+        name: buty
+        icon: {fileID: 2614870373251885436, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 1
+        itemType: 5
+        defense: 2
+        equipmentType: 3
+    0000001B:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 27
+        name: 
+        icon: {fileID: -5626462023738469512, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 1
+        itemType: 5
+        defense: 1
+        equipmentType: 2
+    0000001C:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 28
+        name: 
+        icon: {fileID: -8089074258220290989, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 2
+    0000001D:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 29
+        name: 
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 0
+    0000001E:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 30
+        name: 
+        icon: {fileID: 5269696323455554877, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 2
+    0000001F:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 31
+        name: 
+        icon: {fileID: -5487276986869650839, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 2
+    00000020:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 32
+        name: 
+        icon: {fileID: -3459497016148413627, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 2
+    00000021:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 33
+        name: 
+        icon: {fileID: 7874393127953130763, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 2
+    00000022:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 34
+        name: 
+        icon: {fileID: 7898442284587706422, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 3
+    00000023:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 35
+        name: 
+        icon: {fileID: -7868066966165509634, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 2
+    00000024:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 36
+        name: 
+        icon: {fileID: -6338023803479276477, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    00000025:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 37
+        name: 
+        icon: {fileID: -2693009140137883590, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    00000026:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 38
+        name: 
+        icon: {fileID: -956252262595852801, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    00000027:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 39
+        name: 
+        icon: {fileID: -7121528990389113491, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    00000028:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 40
+        name: 
+        icon: {fileID: 7306274148607722714, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    00000029:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 41
+        name: 
+        icon: {fileID: 9184157982723834790, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    0000002A:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 42
+        name: 
+        icon: {fileID: -4790045407390419966, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    0000002B:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 43
+        name: 
+        icon: {fileID: -6064055205779420750, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    0000002C:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 44
+        name: 
+        icon: {fileID: 3386722485073375770, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    0000002D:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 45
+        name: 
+        icon: {fileID: 6068373614614089934, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    0000002E:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
-        id: 10
-        name: sword +9
-        icon: {fileID: -434879369836922269, guid: 6aa8d45f947871441bdc84217f943992,
+        id: 46
+        name: 
+        icon: {fileID: -4503959654975345253, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 20
+        price: 0
         itemType: 5
         weaponType: 0
         attack: 0
         attackSpeed: 0
         twoHanded: 0
-    0000000A:
+    0000002F:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 47
+        name: 
+        icon: {fileID: -991624993403651741, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000030:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 48
+        name: 
+        icon: {fileID: -395754046378778226, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000031:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 49
+        name: 
+        icon: {fileID: -7993332057416388722, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000032:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 50
+        name: 
+        icon: {fileID: -8455385196880188254, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000033:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 51
+        name: 
+        icon: {fileID: 3837657218237827454, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000034:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 52
+        name: 
+        icon: {fileID: 6761164967045977113, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000035:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 53
+        name: 
+        icon: {fileID: -7993332057416388722, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000036:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 54
+        name: 
+        icon: {fileID: -8455385196880188254, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000037:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 55
+        name: 
+        icon: {fileID: 3837657218237827454, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000038:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 56
+        name: 
+        icon: {fileID: -593593287421737549, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000039:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 57
+        name: 
+        icon: {fileID: 5513074867279518088, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000003A:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 58
+        name: 
+        icon: {fileID: 6395214293025444372, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000003B:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 59
+        name: 
+        icon: {fileID: -5344007660830287148, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000003C:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 60
+        name: 
+        icon: {fileID: -6556086720143981034, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000003D:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 61
+        name: 
+        icon: {fileID: 6214652250989123760, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000003E:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 62
+        name: 
+        icon: {fileID: 552989659857323890, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000003F:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 63
+        name: 
+        icon: {fileID: 4292883687895924744, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000040:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 64
+        name: 
+        icon: {fileID: -1704500264438275045, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000041:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 65
+        name: 
+        icon: {fileID: -8295029410813222302, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000042:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 66
+        name: 
+        icon: {fileID: -3514555725737318775, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000043:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 67
+        name: 
+        icon: {fileID: 1089564401988209714, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000044:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 68
+        name: 
+        icon: {fileID: -975732921841048486, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000045:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 69
+        name: 
+        icon: {fileID: 247323085539891363, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000046:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 70
+        name: 
+        icon: {fileID: 3193556787941829315, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000047:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 71
+        name: 
+        icon: {fileID: -4324415484267399853, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000048:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 72
+        name: 
+        icon: {fileID: -307629049884990207, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    00000049:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 73
+        name: 
+        icon: {fileID: -5091404219277743440, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000004A:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 74
+        name: 
+        icon: {fileID: 4173028981204323692, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 2
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000004B:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 75
+        name: 
+        icon: {fileID: -4362153397682307005, guid: f937d2f72b31e7f4dae2790104045df0,
+          type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 1
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 1
+    0000004C:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 76
+        name: 
+        icon: {fileID: 21300018, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000004D:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 77
+        name: 
+        icon: {fileID: 21300020, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000004E:
+      type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 78
+        name: 
+        icon: {fileID: 21300024, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+        price: 0
+        itemType: 5
+        weaponType: 0
+        attack: 0
+        attackSpeed: 0
+        twoHanded: 0
+    0000004F:
+      type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 79
+        name: 
+        icon: {fileID: 21300036, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        blockChance: 0
+    00000050:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
-        id: 2
-        name: jebac putina
-        icon: {fileID: 21300000, guid: 83ab2434deb511a4b8aabd90f5d9de60, type: 3}
-        price: 10
+        id: 80
+        name: 
+        icon: {fileID: 21300026, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+        price: 0
         itemType: 5
         defense: 0
         equipmentType: 0
+    00000051:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 81
+        name: 
+        icon: {fileID: 21300028, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 1
+    00000052:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 82
+        name: 
+        icon: {fileID: 21300030, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 2
+    00000053:
+      type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 83
+        name: 
+        icon: {fileID: 21300034, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+        price: 0
+        itemType: 5
+        defense: 0
+        equipmentType: 3

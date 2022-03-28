@@ -94,7 +94,9 @@ public class ItemsScriptableObject1Editor : UnityEditor.Editor
             string[] typeNames = t.ToString().Split('+');
             if (GUILayout.Button($"Add {typeNames[typeNames.Length - 1]}", GUILayout.Height(40)))
             {
-                script.Objects.Add(System.Activator.CreateInstance(t) as ItemInfo);
+                ItemInfo item = System.Activator.CreateInstance(t) as ItemInfo;
+                item.Id = script.Objects.Count;
+                script.Objects.Add(item);
             }
         }
         base.OnInspectorGUI();
