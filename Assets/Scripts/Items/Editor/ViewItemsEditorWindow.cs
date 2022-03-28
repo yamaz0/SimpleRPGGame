@@ -70,7 +70,7 @@ public class ViewItemsEditorWindow
 
             int w = 0;
             int h = 0;
-            float expand = DataItemsEditorWindow.instance.IsShowAllFields == true ? 1.2f : 1.0f;
+            float expand = DataItemsEditorWindow.instance.IsShowAllFields == true ? 1.5f : 1.0f;
 
             foreach (var item in items)
             {
@@ -79,7 +79,7 @@ public class ViewItemsEditorWindow
                     GUILayout.BeginHorizontal();
                 }
                         GUILayout.BeginVertical();
-                            GUILayout.BeginArea(new Rect(100*w, 150*expand*h, 100, 150));
+                            GUILayout.BeginArea(new Rect(100*w, 150*expand*h, 100, 150*expand));
                             if(DataItemsEditorWindow.instance.IsShowAllFields == true)
                             {
                                 item.ShowAllItemInfo();
@@ -104,7 +104,7 @@ public class ViewItemsEditorWindow
                                     }
                                     GUILayout.EndHorizontal();
                             GUILayout.EndArea();
-                            GUILayout.Space(150);
+                            GUILayout.Space(150*expand);
                         GUILayout.EndVertical();
 
                     w++;

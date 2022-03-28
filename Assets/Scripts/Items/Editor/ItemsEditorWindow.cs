@@ -33,13 +33,13 @@ public class ItemsEditorWindow : EditorWindow
 
     private void OnGUI()
     {
-        if (GUILayout.Button("clear"))
-        {
-            // ItemsScriptableObject.Instance.Items.ForEach(x => DestroyImmediate(x, true));
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-            ItemsScriptableObject.Instance.Objects.Clear();
-        }
+        // if (GUILayout.Button("clear"))
+        // {
+        //     // ItemsScriptableObject.Instance.Items.ForEach(x => DestroyImmediate(x, true));
+        //     AssetDatabase.SaveAssets();
+        //     AssetDatabase.Refresh();
+        //     ItemsScriptableObject.Instance.Objects.Clear();
+        // }
 
         if (GUILayout.Button("Create"))
         {

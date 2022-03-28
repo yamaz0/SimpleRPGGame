@@ -34,17 +34,27 @@ public class ItemInfo : BaseInfo
     {
         GUILayout.Label("Id: " + Id.ToString());
         Name = UnityEditor.EditorGUILayout.TextField("Name: ", Name);
-        Icon = (Sprite)UnityEditor.EditorGUILayout.ObjectField("Sprite: ",Icon,typeof(Sprite),false);
+        Icon = (Sprite)UnityEditor.EditorGUILayout.ObjectField("Sprite: ", Icon, typeof(Sprite), false);
         Price = UnityEditor.EditorGUILayout.IntField("Price: ", Price);
     }
 
     public void ShowBaseItemInfo()
     {
-        GUILayout.Box(Icon.texture,GUILayout.Width(100),GUILayout.Height(50));
+        GUILayout.Box(GenerateTextureFromSprite(Icon), GUILayout.Width(100), GUILayout.Height(50));
         GUILayout.Label("Id: " + Id.ToString());
         GUILayout.Label(Name);
         GUILayout.Label("Type: " + ItemType.ToString());
         GUILayout.Label("Price: " + Price.ToString());
+    }
+
+    Texture2D GenerateTextureFromSprite(Sprite aSprite)
+    {
+        var rect = aSprite.rect;
+        var tex = new Texture2D((int)rect.width, (int)rect.height);
+        var data = aSprite.texture.GetPixels((int)rect.x, (int)rect.y, (int)rect.width, (int)rect.height);
+        tex.SetPixels(data);
+        tex.Apply(true);
+        return tex;
     }
 
     public virtual void ShowAllItemInfo()
