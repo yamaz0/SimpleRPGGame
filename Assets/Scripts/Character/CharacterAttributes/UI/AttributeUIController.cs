@@ -29,7 +29,7 @@ public class AttributeUIController
         CostValue = CacheModificator.Value * 100;
         ShowButton(Player.Instance.Character.Statistics.Exp.Value);
         TextValue.Init(AttributeName, CacheModificator.Value.ToString());
-        AttachedEvents();
+        // AttachedEvents();
     }
 
     public void AttachedEvents()

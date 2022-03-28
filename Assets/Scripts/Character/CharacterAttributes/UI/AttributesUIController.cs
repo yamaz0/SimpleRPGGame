@@ -33,6 +33,11 @@ public class AttributesUIController : MonoBehaviour
 
     private void Start()
     {
+        Refresh();
+    }
+
+    private void Refresh()
+    {
         AttributeUIObjects.ForEach(x => x.Init());
         maxHpText.Init("maxHp", Player.Instance.Character.Statistics.MaxHp.Value.ToString());
         damageText.Init("damage", Player.Instance.Character.Statistics.Damage.Value.ToString());
@@ -49,6 +54,7 @@ public class AttributesUIController : MonoBehaviour
 
     private void OnEnable()
     {
+        Refresh();
         AttributeUIObjects.ForEach(x => x.AttachedEvents());
         Player.Instance.Character.Statistics.MaxHp.OnValueChanged += maxHpText.SetTextValue;
         Player.Instance.Character.Statistics.Damage.OnValueChanged += damageText.SetTextValue;

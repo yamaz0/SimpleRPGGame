@@ -60606,10 +60606,13 @@ MonoBehaviour:
     attributes:
       strength:
         baseValue: 0
+        tmpValue: 0
       dexterity:
         baseValue: 0
+        tmpValue: 0
       endurance:
         baseValue: 0
+        tmpValue: 0
     inventoryController:
       inventory:
         itemsId: 
@@ -60623,28 +60626,40 @@ MonoBehaviour:
     statistics:
       maxHp:
         baseValue: 100
+        tmpValue: 0
       damage:
         baseValue: 0
+        tmpValue: 0
       attackSpeed:
         baseValue: 0
+        tmpValue: 0
       defence:
         baseValue: 0
+        tmpValue: 0
       dodgeChance:
         baseValue: 0
+        tmpValue: 0
       blockChance:
         baseValue: 0
+        tmpValue: 0
       critChance:
         baseValue: 0
+        tmpValue: 0
       hp:
         baseValue: 0
+        tmpValue: 0
       exp:
         baseValue: 0
+        tmpValue: 0
       twoHandedDamageBonus:
         baseValue: 0
+        tmpValue: 0
       oneHandedDamageBonus:
         baseValue: 0
+        tmpValue: 0
       dualWieldDamageBonus:
         baseValue: 0
+        tmpValue: 0
     style: 0
 --- !u!4 &1730599732
 Transform:
@@ -61949,10 +61964,13 @@ MonoBehaviour:
     attributes:
       strength:
         baseValue: 5
+        tmpValue: 0
       dexterity:
         baseValue: 2
+        tmpValue: 0
       endurance:
         baseValue: 3
+        tmpValue: 0
     inventoryController:
       inventory:
         itemsId: 020000000a000000
@@ -61965,29 +61983,41 @@ MonoBehaviour:
       knownPerks: 
     statistics:
       maxHp:
-        baseValue: 200
+        baseValue: 100
+        tmpValue: 0
       damage:
         baseValue: 1
+        tmpValue: 0
       attackSpeed:
         baseValue: 1
+        tmpValue: 0
       defence:
         baseValue: 0
+        tmpValue: 0
       dodgeChance:
         baseValue: 0
+        tmpValue: 0
       blockChance:
         baseValue: 0
+        tmpValue: 0
       critChance:
         baseValue: 0
+        tmpValue: 0
       hp:
         baseValue: 0
+        tmpValue: 0
       exp:
         baseValue: 1000
+        tmpValue: 0
       twoHandedDamageBonus:
         baseValue: 0
+        tmpValue: 0
       oneHandedDamageBonus:
         baseValue: 0
+        tmpValue: 0
       dualWieldDamageBonus:
         baseValue: 0
+        tmpValue: 0
     style: 0
   speed: 8.53
 --- !u!4 &1919726951
