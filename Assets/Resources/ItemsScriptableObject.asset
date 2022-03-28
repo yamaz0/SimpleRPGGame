@@ -147,12 +147,12 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 4
-        name: 
+        name: Basic armor
         icon: {fileID: -5383197533797868373, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
-        defense: 0
+        defense: 1
         equipmentType: 1
     00000005:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
@@ -246,12 +246,12 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 13
-        name: 
+        name: Basic helmet
         icon: {fileID: -7163662278193710585, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
-        defense: 0
+        defense: 1
         equipmentType: 0
     0000000E:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
@@ -391,12 +391,12 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 26
-        name: buty
+        name: Basic boots
         icon: {fileID: 2614870373251885436, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
         price: 1
         itemType: 5
-        defense: 2
+        defense: 1
         equipmentType: 3
     0000001B:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
@@ -425,7 +425,8 @@ MonoBehaviour:
       data:
         id: 29
         name: 
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        icon: {fileID: 5820086750453969133, guid: 35e9590587c43f942a37445ef5f53473,
+          type: 3}
         price: 0
         itemType: 5
         defense: 0
@@ -467,12 +468,12 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 33
-        name: 
+        name: Basic legs
         icon: {fileID: 7874393127953130763, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
-        defense: 0
+        defense: 1
         equipmentType: 2
     00000022:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}

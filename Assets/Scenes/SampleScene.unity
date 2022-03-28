@@ -6604,7 +6604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1267355, g: 0.14604416, b: 0.3018868, a: 0.6392157}
+  m_Color: {r: 0.1267355, g: 0.14604416, b: 0.3018868, a: 0.92156863}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -61956,9 +61956,9 @@ MonoBehaviour:
     inventoryController:
       inventory:
         itemsId: 020000000a000000
-        gold: 50
+        gold: 999
       equipement:
-        itemsId: ffffffffffffffffffffffffffffffffffffffffffffffff
+        itemsId: 0d00000004000000210000001a000000300000002c000000
     abilities:
       knownAbilities: 0100000002000000
     perks:

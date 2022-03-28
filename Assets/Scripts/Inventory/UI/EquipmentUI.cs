@@ -12,10 +12,14 @@ public class EquipmentUI : MonoBehaviour
 
     private void Start()
     {
+        // Refresh();
+        // Player.Instance.Character.InventoryController.Equipement.OnEquipmentChanged += Refresh;
+    }
+    private void OnEnable()
+    {
         Refresh();
         Player.Instance.Character.InventoryController.Equipement.OnEquipmentChanged += Refresh;
     }
-
     private void OnDisable()
     {
         Player.Instance.Character.InventoryController.Equipement.OnEquipmentChanged -= Refresh;
