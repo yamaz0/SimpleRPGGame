@@ -103,12 +103,12 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 0
-        name: Armor
+        name: Chain Armor
         icon: {fileID: -428760190848722466, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 30
         itemType: 5
-        defense: 0
+        defense: 5
         equipmentType: 1
     00000001:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
@@ -345,13 +345,13 @@ MonoBehaviour:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 22
-        name: shield
+        name: Shield
         icon: {fileID: 6738218706411903907, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 30
         itemType: 5
-        defense: 1
-        blockChance: 1
+        defense: 10
+        blockChance: 10
     00000017:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
@@ -501,137 +501,137 @@ MonoBehaviour:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 36
-        name: 
+        name: Round Shield
         icon: {fileID: -6338023803479276477, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 80
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 20
+        blockChance: 15
     00000025:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 37
-        name: 
+        name: Tutle Shield
         icon: {fileID: -2693009140137883590, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 7
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 5
+        blockChance: 2
     00000026:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 38
-        name: 
+        name: Wall Shield
         icon: {fileID: -956252262595852801, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 20
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 7
+        blockChance: 7
     00000027:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 39
-        name: 
+        name: Magic Shield
         icon: {fileID: -7121528990389113491, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 100
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 20
+        blockChance: 20
     00000028:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 40
-        name: 
+        name: Green Shield
         icon: {fileID: 7306274148607722714, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 20
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 8
+        blockChance: 6
     00000029:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 41
-        name: 
+        name: Red Shield
         icon: {fileID: 9184157982723834790, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 25
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 8
+        blockChance: 7
     0000002A:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 42
-        name: 
+        name: Purple Shield
         icon: {fileID: -4790045407390419966, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 35
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 15
+        blockChance: 10
     0000002B:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 43
-        name: 
+        name: White Shield
         icon: {fileID: -6064055205779420750, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 60
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 17
+        blockChance: 12
     0000002C:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 44
-        name: 
+        name: Wooden Shield
         icon: {fileID: 3386722485073375770, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 10
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 1
+        blockChance: 2
     0000002D:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 45
-        name: 
+        name: Cooper Shield
         icon: {fileID: 6068373614614089934, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 15
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 4
+        blockChance: 3
     0000002E:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 46
-        name: 
-        icon: {fileID: -4503959654975345253, guid: f937d2f72b31e7f4dae2790104045df0,
+        name: Wooden Staff
+        icon: {fileID: -8561806557982860685, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 35
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
-        twoHanded: 0
+        attack: 30
+        attackSpeed: 9
+        twoHanded: 1
     0000002F:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 47
-        name: 
-        icon: {fileID: -991624993403651741, guid: f937d2f72b31e7f4dae2790104045df0,
+        name: Iron Axe
+        icon: {fileID: -7583409310137716746, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 35
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        weaponType: 1
+        attack: 20
+        attackSpeed: 10
         twoHanded: 0
     00000030:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
@@ -650,15 +650,15 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 49
-        name: 
-        icon: {fileID: -7993332057416388722, guid: f937d2f72b31e7f4dae2790104045df0,
+        name: Battle Axe
+        icon: {fileID: 2244293218654037644, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 30
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
-        twoHanded: 0
+        weaponType: 1
+        attack: 30
+        attackSpeed: 9
+        twoHanded: 1
     00000032:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
@@ -676,14 +676,14 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 51
-        name: 
-        icon: {fileID: 3837657218237827454, guid: f937d2f72b31e7f4dae2790104045df0,
+        name: Double Axe
+        icon: {fileID: -5428206428529569624, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 60
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        weaponType: 1
+        attack: 30
+        attackSpeed: 10
         twoHanded: 0
     00000034:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
@@ -702,41 +702,41 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 53
-        name: 
+        name: Mini Sword
         icon: {fileID: -7993332057416388722, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 13
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 11
+        attackSpeed: 10
         twoHanded: 0
     00000036:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 54
-        name: 
+        name: Machete
         icon: {fileID: -8455385196880188254, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 20
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 17
+        attackSpeed: 9
         twoHanded: 0
     00000037:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 55
-        name: 
+        name: Magic Sword
         icon: {fileID: 3837657218237827454, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 90
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
-        twoHanded: 0
+        attack: 50
+        attackSpeed: 10
+        twoHanded: 1
     00000038:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
@@ -767,80 +767,80 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 58
-        name: 
+        name: Katana
         icon: {fileID: 6395214293025444372, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 30
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 20
+        attackSpeed: 15
         twoHanded: 0
     0000003B:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 59
-        name: 
+        name: Dagger
         icon: {fileID: -5344007660830287148, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 7
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 5
+        attackSpeed: 10
         twoHanded: 0
     0000003C:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 60
-        name: 
+        name: Short sword
         icon: {fileID: -6556086720143981034, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 30
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 18
+        attackSpeed: 10
         twoHanded: 0
     0000003D:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 61
-        name: 
+        name: Rapier
         icon: {fileID: 6214652250989123760, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 25
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 17
+        attackSpeed: 11
         twoHanded: 0
     0000003E:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 62
-        name: 
+        name: Sabre
         icon: {fileID: 552989659857323890, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 17
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 10
+        attackSpeed: 10
         twoHanded: 0
     0000003F:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 63
-        name: 
+        name: Two handed sword
         icon: {fileID: 4292883687895924744, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 100
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
-        twoHanded: 0
+        attack: 45
+        attackSpeed: 9
+        twoHanded: 1
     00000040:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
@@ -858,14 +858,14 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 65
-        name: 
+        name: Cooper Sword
         icon: {fileID: -8295029410813222302, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 15
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 7
+        attackSpeed: 10
         twoHanded: 0
     00000042:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
@@ -1037,12 +1037,12 @@ MonoBehaviour:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 79
-        name: 
+        name: Fire Shield
         icon: {fileID: 21300036, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 0
+        price: 999
         itemType: 5
-        defense: 0
-        blockChance: 0
+        defense: 99
+        blockChance: 51
     00000050:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
