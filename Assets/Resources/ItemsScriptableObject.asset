@@ -114,34 +114,34 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 1
-        name: 
+        name: Armor
         icon: {fileID: -4124754585435695773, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 100
         itemType: 5
-        defense: 0
+        defense: 50
         equipmentType: 1
     00000002:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 2
-        name: 
+        name: Leather Armor
         icon: {fileID: -2359634908533085328, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 10
         itemType: 5
-        defense: 0
+        defense: 3
         equipmentType: 1
     00000003:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 3
-        name: 
+        name: Green Armor
         icon: {fileID: 1002184306193214245, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 45
         itemType: 5
-        defense: 0
+        defense: 10
         equipmentType: 1
     00000004:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
@@ -158,21 +158,21 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 5
-        name: 
+        name: Light Armor
         icon: {fileID: 6123435783545580667, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 50
         itemType: 5
-        defense: 0
+        defense: 11
         equipmentType: 1
     00000006:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 6
-        name: 
+        name: Clothes
         icon: {fileID: -2664705749959713560, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
         defense: 0
         equipmentType: 1
@@ -180,67 +180,67 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 7
-        name: 
+        name: Blue Armor
         icon: {fileID: 8459810019820544495, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 75
         itemType: 5
-        defense: 0
+        defense: 30
         equipmentType: 1
     00000008:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 8
-        name: 
+        name: Black Armor
         icon: {fileID: -8953489640803899282, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 59
         itemType: 5
-        defense: 0
+        defense: 20
         equipmentType: 1
     00000009:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 9
-        name: 
-        icon: {fileID: 2144756211240924905, guid: f937d2f72b31e7f4dae2790104045df0,
+        name: Heavy Armor
+        icon: {fileID: 5252835699789497765, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 90
         itemType: 5
-        defense: 0
+        defense: 40
         equipmentType: 1
     0000000A:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 10
-        name: 
-        icon: {fileID: 5616841710775462211, guid: f937d2f72b31e7f4dae2790104045df0,
+        name: Boots
+        icon: {fileID: 5863121150902147412, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 65
         itemType: 5
-        defense: 0
+        defense: 15
         equipmentType: 1
     0000000B:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 11
-        name: 
+        name: Weak Helmet
         icon: {fileID: 3765164017081499847, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 5
         itemType: 5
-        defense: 0
+        defense: 2
         equipmentType: 0
     0000000C:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 12
-        name: 
+        name: Green Helmet
         icon: {fileID: 1751564263558216763, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 10
         itemType: 5
-        defense: 0
+        defense: 3
         equipmentType: 0
     0000000D:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
@@ -257,89 +257,89 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 14
-        name: 
+        name: Black Helmet
         icon: {fileID: 2475235557930881987, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 20
         itemType: 5
-        defense: 0
+        defense: 6
         equipmentType: 0
     0000000F:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 15
-        name: 
+        name: Magic Helmet
         icon: {fileID: 6260659127007101507, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 100
         itemType: 5
-        defense: 0
+        defense: 10
         equipmentType: 0
     00000010:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 16
-        name: 
+        name: Hat
         icon: {fileID: -3930946897451993484, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 15
         itemType: 5
-        defense: 0
+        defense: 4
         equipmentType: 0
     00000011:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 17
-        name: 
+        name: Helmet
         icon: {fileID: 5846979971430347887, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 30
         itemType: 5
-        defense: 0
+        defense: 7
         equipmentType: 0
     00000012:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 18
-        name: 
+        name: Lucky Hat
         icon: {fileID: -2708232225190019670, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 20
         itemType: 5
-        defense: 0
+        defense: 5
         equipmentType: 0
     00000013:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 19
-        name: helm
+        name: Funny Helmet
         icon: {fileID: 2429457697700603145, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 500
         itemType: 5
-        defense: 0
+        defense: 20
         equipmentType: 0
     00000014:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 20
-        name: butki
+        name: Warm Boots
         icon: {fileID: -732356172534689064, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 1
+        price: 5
         itemType: 5
-        defense: 0
+        defense: 2
         equipmentType: 3
     00000015:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 21
-        name: spodnie
+        name: Red Legs
         icon: {fileID: 8286571802576935001, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 1
+        price: 5
         itemType: 5
-        defense: 0
+        defense: 2
         equipmentType: 2
     00000016:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
@@ -369,23 +369,23 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 24
-        name: buty
+        name: Purple Boots
         icon: {fileID: 980155311395259703, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 1
+        price: 50
         itemType: 5
-        defense: 4
+        defense: 10
         equipmentType: 3
     00000019:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 25
-        name: buty
+        name: Wings Boots
         icon: {fileID: 8132948862792318974, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 1
+        price: 20
         itemType: 5
-        defense: 3
+        defense: 5
         equipmentType: 3
     0000001A:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
@@ -402,67 +402,67 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 27
-        name: 
+        name: Short Legs
         icon: {fileID: -5626462023738469512, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 1
+        price: 10
         itemType: 5
-        defense: 1
+        defense: 3
         equipmentType: 2
     0000001C:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 28
-        name: 
+        name: Nice Legs
         icon: {fileID: -8089074258220290989, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 15
         itemType: 5
-        defense: 0
+        defense: 4
         equipmentType: 2
     0000001D:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 29
-        name: 
+        name: Purple Hat
         icon: {fileID: 5820086750453969133, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 110
         itemType: 5
-        defense: 0
+        defense: 11
         equipmentType: 0
     0000001E:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 30
-        name: 
+        name: Green Legs
         icon: {fileID: 5269696323455554877, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 20
         itemType: 5
-        defense: 0
+        defense: 5
         equipmentType: 2
     0000001F:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 31
-        name: 
+        name: White Legs
         icon: {fileID: -5487276986869650839, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 25
         itemType: 5
-        defense: 0
+        defense: 6
         equipmentType: 2
     00000020:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 32
-        name: 
+        name: Blue Legs
         icon: {fileID: -3459497016148413627, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 30
         itemType: 5
-        defense: 0
+        defense: 7
         equipmentType: 2
     00000021:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
@@ -479,23 +479,23 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 34
-        name: 
+        name: Steel Boots
         icon: {fileID: 7898442284587706422, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 75
         itemType: 5
-        defense: 0
+        defense: 20
         equipmentType: 3
     00000023:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 35
-        name: 
+        name: Magic Legs
         icon: {fileID: -7868066966165509634, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 40
         itemType: 5
-        defense: 0
+        defense: 10
         equipmentType: 2
     00000024:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
@@ -1047,39 +1047,39 @@ MonoBehaviour:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 80
-        name: 
+        name: Fire Helmet
         icon: {fileID: 21300026, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 0
+        price: 999
         itemType: 5
-        defense: 0
+        defense: 99
         equipmentType: 0
     00000051:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 81
-        name: 
+        name: Fire Armor
         icon: {fileID: 21300028, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 0
+        price: 999
         itemType: 5
-        defense: 0
+        defense: 99
         equipmentType: 1
     00000052:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 82
-        name: 
+        name: Fire Legs
         icon: {fileID: 21300030, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 0
+        price: 999
         itemType: 5
-        defense: 0
+        defense: 99
         equipmentType: 2
     00000053:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 83
-        name: 
+        name: Fire Boots
         icon: {fileID: 21300034, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 0
+        price: 999
         itemType: 5
-        defense: 0
+        defense: 99
         equipmentType: 3
