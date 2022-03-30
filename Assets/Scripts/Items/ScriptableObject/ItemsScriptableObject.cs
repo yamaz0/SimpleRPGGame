@@ -45,7 +45,7 @@ public class ItemsScriptableObject : SingletonScriptableObject<ItemsScriptableOb
         itemInfoInstance.CopyValues(item);
 
         Objects.Add(itemInfoInstance);
-        // SaveAndRefresh();
+        SaveAndRefresh();
     }
 
     private void SaveAndRefresh()
@@ -64,7 +64,7 @@ public class ItemsScriptableObject : SingletonScriptableObject<ItemsScriptableOb
     public void UpdateItemInstance(ItemInfo item)
     {
         GetItemInfoById(item.Id).CopyValues(item);
-        // SaveAndRefresh();
+        SaveAndRefresh();
     }
 
     public void RemoveItemInstance(ItemInfo item)
@@ -72,7 +72,7 @@ public class ItemsScriptableObject : SingletonScriptableObject<ItemsScriptableOb
         ItemInfo itemToRemove = GetItemInfoById(item.Id);
         Objects.Remove(itemToRemove);
         // DestroyImmediate(itemToRemove, true);
-        // SaveAndRefresh();
+        SaveAndRefresh();
     }
 #endif
 }

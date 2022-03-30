@@ -637,14 +637,14 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 48
-        name: 
+        name: Knife
         icon: {fileID: -395754046378778226, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 1
+        attackSpeed: 10
         twoHanded: 0
     00000031:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
@@ -689,14 +689,14 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 52
-        name: 
+        name: Axe
         icon: {fileID: 6761164967045977113, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        weaponType: 1
+        attack: 1
+        attackSpeed: 10
         twoHanded: 0
     00000035:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
@@ -741,27 +741,27 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 56
-        name: 
+        name: Broken Knife
         icon: {fileID: -593593287421737549, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 1
+        attackSpeed: 10
         twoHanded: 0
     00000039:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 57
-        name: 
+        name: Sabre
         icon: {fileID: 5513074867279518088, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 17
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 10
+        attackSpeed: 10
         twoHanded: 0
     0000003A:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
@@ -871,167 +871,167 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 66
-        name: 
+        name: Golden Sword
         icon: {fileID: -3514555725737318775, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 100
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
-        twoHanded: 0
+        attack: 42
+        attackSpeed: 12
+        twoHanded: 1
     00000043:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 67
-        name: 
+        name: Blood Sword
         icon: {fileID: 1089564401988209714, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 60
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
-        twoHanded: 0
+        attack: 27
+        attackSpeed: 11
+        twoHanded: 1
     00000044:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 68
-        name: 
+        name: Cold Sword
         icon: {fileID: -975732921841048486, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 70
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 20
+        attackSpeed: 17
         twoHanded: 0
     00000045:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 69
-        name: 
+        name: Club
         icon: {fileID: 247323085539891363, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 1
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        weaponType: 2
+        attack: 1
+        attackSpeed: 10
         twoHanded: 0
     00000046:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 70
-        name: 
+        name: Hammer
         icon: {fileID: 3193556787941829315, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 15
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        weaponType: 2
+        attack: 10
+        attackSpeed: 10
         twoHanded: 0
     00000047:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 71
-        name: 
+        name: Battle Hammer
         icon: {fileID: -4324415484267399853, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 30
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
-        twoHanded: 0
+        weaponType: 2
+        attack: 30
+        attackSpeed: 9
+        twoHanded: 1
     00000048:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 72
-        name: 
+        name: Spike Club
         icon: {fileID: -307629049884990207, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 50
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        weaponType: 2
+        attack: 25
+        attackSpeed: 15
         twoHanded: 0
     00000049:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 73
-        name: 
+        name: Mace
         icon: {fileID: -5091404219277743440, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 75
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        weaponType: 2
+        attack: 35
+        attackSpeed: 11
         twoHanded: 0
     0000004A:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 74
-        name: 
+        name: Crystal Club
         icon: {fileID: 4173028981204323692, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 100
         itemType: 5
         weaponType: 2
-        attack: 0
-        attackSpeed: 0
-        twoHanded: 0
+        attack: 50
+        attackSpeed: 9
+        twoHanded: 1
     0000004B:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 75
-        name: 
+        name: Halberd
         icon: {fileID: -4362153397682307005, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
-        price: 0
+        price: 100
         itemType: 5
         weaponType: 1
-        attack: 0
-        attackSpeed: 0
+        attack: 45
+        attackSpeed: 10
         twoHanded: 1
     0000004C:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 76
-        name: 
+        name: Fire sword
         icon: {fileID: 21300018, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 0
+        price: 999
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 99
+        attackSpeed: 50
         twoHanded: 0
     0000004D:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 77
-        name: 
+        name: Fire Club
         icon: {fileID: 21300020, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 0
+        price: 999
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        weaponType: 2
+        attack: 99
+        attackSpeed: 50
         twoHanded: 0
     0000004E:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 78
-        name: 
+        name: Fire Axe
         icon: {fileID: 21300024, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 0
+        price: 999
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        weaponType: 1
+        attack: 99
+        attackSpeed: 50
         twoHanded: 0
     0000004F:
       type: {class: ShieldItemInfo, ns: , asm: Assembly-CSharp}
