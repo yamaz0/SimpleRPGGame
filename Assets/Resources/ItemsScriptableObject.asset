@@ -663,15 +663,15 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 50
-        name: 
-        icon: {fileID: -8455385196880188254, guid: f937d2f72b31e7f4dae2790104045df0,
+        name: Purple Staff
+        icon: {fileID: -7655823996655903715, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 80
         itemType: 5
-        weaponType: 0
-        attack: 0
-        attackSpeed: 0
-        twoHanded: 0
+        weaponType: 2
+        attack: 45
+        attackSpeed: 9
+        twoHanded: 1
     00000033:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
@@ -845,14 +845,14 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 64
-        name: 
-        icon: {fileID: -1704500264438275045, guid: 35e9590587c43f942a37445ef5f53473,
+        name: Pirate Sword
+        icon: {fileID: -8864223617709786134, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 0
+        price: 90
         itemType: 5
         weaponType: 0
-        attack: 0
-        attackSpeed: 0
+        attack: 30
+        attackSpeed: 10
         twoHanded: 0
     00000041:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
