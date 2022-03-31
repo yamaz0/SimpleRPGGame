@@ -11,9 +11,16 @@ public class WindowManager : Singleton<WindowManager>
     [SerializeField]
     private RandomCharacterWindowController randomCharacterWindowController;
     [SerializeField]
+    private AbilityWindowController abilityWindowController;
+    [SerializeField]
     private GameObject inventory;
     [SerializeField]
     private GameObject stats;
+
+    public void ShowAbilities()
+    {
+        abilityWindowController.gameObject.SetActive(!abilityWindowController.gameObject.activeSelf);
+    }
 
     public void ShowStats()
     {

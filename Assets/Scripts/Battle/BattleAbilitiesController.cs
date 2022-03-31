@@ -9,15 +9,15 @@ public class BattleAbilitiesController
     public List<Ability> Abilities { get; set; }
     public List<Ability> AbilitiesLosuLosu { get; set; }
 
-    public void InitializeAbilities(Abilities characterAbilities)
+    public void InitializeAbilities(Character character)
     {
         Abilities = new List<Ability>();
         AbilitiesLosuLosu = new List<Ability>();
-        Abilities abilities = characterAbilities;
-        List<int> knownAbilities = abilities.KnownAbilities;
+        Abilities characterAbilities = character.Abilities;
+        List<int> knownAbilities = characterAbilities.GetChoosedStyleAbilities(character.Style);
         foreach (var abilityId in knownAbilities)
         {
-            Ability ability = abilities.GetAbility(abilityId);
+            Ability ability = characterAbilities.GetAbility(abilityId);
             ability.OnStateChanged += changedState => UpdateAbility(ability, changedState);
             Abilities.Add(ability);
             AbilitiesLosuLosu.Add(ability);

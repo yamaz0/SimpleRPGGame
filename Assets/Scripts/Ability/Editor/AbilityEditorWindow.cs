@@ -8,6 +8,7 @@ public class AbilityEditorWindow : EditorWindow
 {
     enum State { None, Mod, Details }
     List<System.Type> effectTypes;
+    List<System.Type> oneCharacterEffectTypes;
     AbilityInfo currentInfo;
     State state;
 
@@ -21,6 +22,7 @@ public class AbilityEditorWindow : EditorWindow
     private void OnEnable()
     {
         effectTypes = System.Reflection.Assembly.GetAssembly(typeof(TwoOponentBattleEffect)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(TwoOponentBattleEffect))).ToList();
+        oneCharacterEffectTypes = System.Reflection.Assembly.GetAssembly(typeof(OneCharacterEffect)).GetTypes().Where(TheType => TheType.IsClass && !TheType.IsAbstract && TheType.IsSubclassOf(typeof(OneCharacterEffect))).ToList();
 
     }
     private void OnGUI()
@@ -84,13 +86,23 @@ public class AbilityEditorWindow : EditorWindow
 
     private void EffectsButtons(AbilityInfo info)
     {
-        GUILayout.Label("Effects");
+        GUILayout.Label("Battle Effects");
         GUILayout.BeginHorizontal();
         foreach (var t in effectTypes)
         {
             if (GUILayout.Button(t.ToString()))
             {
                 info.TwoOponentBattleEffects.Add(System.Activator.CreateInstance(t) as TwoOponentBattleEffect);
+            }
+        }
+        GUILayout.EndHorizontal();
+        GUILayout.Label("Character Effects");
+        GUILayout.BeginHorizontal();
+        foreach (var t in oneCharacterEffectTypes)
+        {
+            if (GUILayout.Button(t.ToString()))
+            {
+                info.OneCharacterEffects.Add(System.Activator.CreateInstance(t) as OneCharacterEffect);
             }
         }
         GUILayout.EndHorizontal();

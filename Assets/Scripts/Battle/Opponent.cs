@@ -31,7 +31,7 @@ public class Opponent : MonoBehaviour
         SpritesController.SetSprites(Character);
 
         Character.Statistics.Hp.SetValue(character.Statistics.MaxHp.Value);
-        battleAbilitiesController.InitializeAbilities(character.Abilities);
+        battleAbilitiesController.InitializeAbilities(character);
     }
 
 

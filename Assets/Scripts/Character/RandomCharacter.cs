@@ -41,7 +41,7 @@ public static class RandomCharacter
         for (int i = Random.Range(0, 5); i >= 0 && abilitiesInfo.Count > 0; i--)
         {
             BaseInfo randomAbilityInfo = abilitiesInfo[Random.Range(0, abilitiesInfo.Count)];
-            randomCharacter.Abilities.AddAbility(randomAbilityInfo.Id);
+            randomCharacter.Abilities.GetChoosedStyleAbilities(randomCharacter.Style).Add(randomAbilityInfo.Id);
             abilitiesInfo.Remove(randomAbilityInfo);
         }
     }
