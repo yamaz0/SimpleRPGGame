@@ -31,6 +31,7 @@ public class Character
     {
         InventoryController.Init();
         InventoryController.Equipement.OnEquipmentChanged += UpdateStatsMod;
+        PerksManager.Instance.TryAddAllAvaiblePerks(this);
         // Attributes.Strength.OnValueChanged += UpdateStatsMod;
         // Attributes.Dexterity.OnValueChanged += UpdateStatsMod;
         // Attributes.Endurance.OnValueChanged += UpdateStatsMod;

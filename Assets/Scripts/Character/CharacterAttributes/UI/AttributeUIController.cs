@@ -7,6 +7,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class AttributeUIController
 {
+    private const int MULTIPLIER_ATRIBUTE_COST_VALUE = 10;
     [SerializeField]
     [NameDropdown("Attributes")]
     private string attributeName;
@@ -26,7 +27,7 @@ public class AttributeUIController
     public void Init()
     {
         CacheModificator = Player.Instance.Character.Attributes.GetAttribute(AttributeName);
-        CostValue = CacheModificator.Value * 100;
+        CalcCostValue();
         ShowButton(Player.Instance.Character.Statistics.Exp.Value);
         TextValue.Init(AttributeName, CacheModificator.Value.ToString());
         // AttachedEvents();
@@ -53,9 +54,13 @@ public class AttributeUIController
         Character character = Player.Instance.Character;
         PerksManager.Instance.TryAddAllAvaiblePerks(character);
         character.Statistics.Exp.AddValue(-CostValue, true);
-        CostValue = CacheModificator.Value * 100;
+        CalcCostValue();
         CacheModificator.AddValue(1, true);
-        Debug.Log(character.Statistics.Exp.Value);
+    }
+
+    private void CalcCostValue()
+    {
+        CostValue = CacheModificator.Value * MULTIPLIER_ATRIBUTE_COST_VALUE;
     }
 
     public void DetachEvents()
