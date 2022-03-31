@@ -106,7 +106,7 @@ public class Opponent : MonoBehaviour
             CacheOpponent.SetHitText("BLOCK");
             return;
         }
-        float damage = Mathf.Max(1, Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f) - Character.Statistics.Defence.Value);
+        float damage = Mathf.Max(1, Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f) - CacheOpponent.Character.Statistics.Defence.Value);
 
         if (Random.Range(0, 100) < critChance)
         {

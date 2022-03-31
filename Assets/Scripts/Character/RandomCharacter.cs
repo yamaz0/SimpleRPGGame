@@ -30,7 +30,7 @@ public static class RandomCharacter
         // Debug.Log("LosuLosu");
         // Debug.Log("Strength: " + randomCharacter.Attributes.Strength.Value + " Dexterity: " + randomCharacter.Attributes.Dexterity.Value + " Endurance: " + randomCharacter.Attributes.Endurance.Value);
 
-
+        randomCharacter.UpdateStatsMod();
         return randomCharacter;
     }
 

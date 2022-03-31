@@ -14,13 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - id: 0
+  - id: 1
+  - id: 2
+  - id: 3
   references:
     version: 1
     00000000:
       type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 0
-        name: ppppppperk
+        name: I am Legend!
+        icon: {fileID: 21300000, guid: 2c961366528f28c458c619797d0bbb2f, type: 3}
+        requirmentsAttributes:
+          strength:
+            baseValue: 99
+          dexterity:
+            baseValue: 99
+          endurance:
+            baseValue: 99
+        efects:
+        - id: 4
+        - id: 5
+    00000001:
+      type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 1
+        name: 
         icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
         requirmentsAttributes:
           strength:
@@ -29,27 +48,46 @@ MonoBehaviour:
             baseValue: 1
           endurance:
             baseValue: 1
-        efects:
-        - id: 1
-        - id: 2
-        - id: 3
-    00000001:
-      type: {class: AddAbilityEffect, ns: , asm: Assembly-CSharp}
-      data:
-        name: ability
-        abilityId: 2
-        isRemove: 0
+        efects: []
     00000002:
+      type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 2
+        name: 
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        requirmentsAttributes:
+          strength:
+            baseValue: 1
+          dexterity:
+            baseValue: 1
+          endurance:
+            baseValue: 1
+        efects: []
+    00000003:
+      type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 3
+        name: 
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        requirmentsAttributes:
+          strength:
+            baseValue: 1
+          dexterity:
+            baseValue: 1
+          endurance:
+            baseValue: 1
+        efects: []
+    00000004:
       type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
       data:
         name: atr
         attributeName: Strength
         isPersistent: 0
         value: 2
-    00000003:
+    00000005:
       type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
       data:
         name: stat
         statisticName: Damage
         isPersistent: 0
-        value: 3
+        value: 999

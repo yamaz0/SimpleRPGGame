@@ -30,7 +30,8 @@ public class PerkEditorWindow : EditorWindow
         {
             foreach (var a in perks)
             {
-                GUILayout.Box(a.Icon.texture, GUILayout.Width(100), GUILayout.Height(50));
+                Texture2D texture = a.Icon.texture ? a.Icon.texture : Resources.LoadAll<Sprite>("")[0].texture;
+                GUILayout.Box(texture, GUILayout.Width(100), GUILayout.Height(50));
                 GUILayout.Label("Id: " + a.Id.ToString());
                 GUILayout.Label("Name: " + a.Name);
                 if (GUILayout.Button("Details"))
@@ -38,7 +39,6 @@ public class PerkEditorWindow : EditorWindow
                     currentInfo = a;
                     state = State.Details;
                 }
-                GUILayout.Label("Name: " + a.Name);
                 if (GUILayout.Button("Mod"))
                 {
                     currentInfo = a;
@@ -60,7 +60,7 @@ public class PerkEditorWindow : EditorWindow
 
                 GUILayout.Label("Id: " + currentInfo.Id.ToString());
                 GUILayout.Label("Name: " + currentInfo.Name);
-                GUILayout.Label("TwoCharacterEffects: ");
+                GUILayout.Label("OneCharacterEffects: ");
                 foreach (var e in currentInfo.Efects)
                 {
                     e.ViewInfo();
@@ -71,7 +71,7 @@ public class PerkEditorWindow : EditorWindow
                 EffectsButtons(currentInfo);
                 GUILayout.Label("Id: " + currentInfo.Id.ToString());
                 GUILayout.Label("Name: " + currentInfo.Name);
-                GUILayout.Label("TwoCharacterEffects: ");
+                GUILayout.Label("OneCharacterEffects: ");
                 foreach (var e in currentInfo.Efects)
                 {
                     e.ViewFields();

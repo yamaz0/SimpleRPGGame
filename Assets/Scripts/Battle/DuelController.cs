@@ -25,13 +25,31 @@ public class DuelController : MonoBehaviour
         // do zmiany ale na razie tak do testu
         if (op1.Character.Statistics.Hp.Value <= 0)
         {
-            BattleManager.Instance.BattleEnd(false);
-            DestroyImmediate(gameObject);
+            float expToSub = Player.Instance.Character.Statistics.Exp.Value * 0.1f;
+            Player.Instance.Character.Statistics.Exp.AddValue(-expToSub, true);
+            //popup czy cos ze przegrana i ilosc odjetego expa
+            PopUpManager.Instance.ShowEndBattlePopUp("LOSE", $"You are too weak. You lose {expToSub} experience.");
+
         }
         else if (op2.Character.Statistics.Hp.Value <= 0)
         {
-            BattleManager.Instance.BattleEnd(true);
-            DestroyImmediate(gameObject);
+            Player.Instance.Character.Statistics.Exp.AddValue(100, true);
+            switch (Player.Instance.Character.Style)
+            {
+                case FightStyle.OneHand:
+                    Player.Instance.Character.Statistics.OneHandedDamageBonus.AddValue(1, true);
+                    break;
+                case FightStyle.TwoHand:
+                    Player.Instance.Character.Statistics.TwoHandedDamageBonus.AddValue(1, true);
+                    break;
+                case FightStyle.DualWield:
+                    Player.Instance.Character.Statistics.DualWieldDamageBonus.AddValue(1, true);
+                    break;
+                default:
+                    Debug.LogError("Style not exist!");
+                    return;
+            }
+            PopUpManager.Instance.ShowEndBattlePopUp("WIN", $"You are very stronk. You get 100 experience.");
         }
     }
 

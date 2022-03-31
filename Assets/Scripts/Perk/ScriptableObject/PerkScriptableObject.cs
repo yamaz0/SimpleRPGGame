@@ -45,7 +45,7 @@ public class PerkScriptableObject : SingletonScriptableObject<PerkScriptableObje
         [SerializeField]
         private Attributes requirmentsAttributes;
         [SerializeReference]
-        private List<OneCharacterEffect> efects;
+        private List<OneCharacterEffect> efects = new List<OneCharacterEffect>();
 
         public Attributes RequirmentsAttributes { get => requirmentsAttributes; set => requirmentsAttributes = value; }
         public List<OneCharacterEffect> Efects { get => efects; set => efects = value; }
@@ -62,7 +62,10 @@ public class PerksScriptableObjectEditor : UnityEditor.Editor
 
         if (GUILayout.Button($"Add PerkInfo", GUILayout.Height(40)))
         {
-            script.Objects.Add(new PerkScriptableObject.PerkInfo());
+            PerkScriptableObject.PerkInfo item = new PerkScriptableObject.PerkInfo();
+            item.Id = script.Objects.Count;
+            item.Icon = Resources.LoadAll<Sprite>("")[0];
+            script.Objects.Add(item);
         }
         base.OnInspectorGUI();
     }

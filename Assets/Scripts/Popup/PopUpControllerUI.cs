@@ -9,7 +9,9 @@ public class PopUpControllerUI : MonoBehaviour
 
     public void ShowEndBattlePopUp(string title, string desc)
     {
+        BattleManager.Instance.StopFight();
         endBattlePopUp.gameObject.SetActive(true);
         endBattlePopUp.Init(title, desc);
+        endBattlePopUp.Button.onClick.AddListener(() => { BattleManager.Instance.BattleEnd(); });
     }
 }

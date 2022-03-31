@@ -98,7 +98,8 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
         {
             TooltipTimer.Start();
 
-        }ShowTooltip(null,null);
+        }
+        ShowTooltip(null, null);
     }
 
     private void ShowTooltip(object o, System.EventArgs e)
@@ -116,6 +117,12 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
             TooltipTimer.Stop();
         }
     }
+
+    // private void OnEnable()
+    // {
+    //     ItemCache = null;
+    // }
+
     private void OnDisable()
     {
         TooltipTimer.Stop();

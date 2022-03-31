@@ -22,16 +22,15 @@ MonoBehaviour:
       type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 0
-        name: jakis skill
-        icon: {fileID: 5601323976189978565, guid: 2edfd0eb34e1fa349824f67025b135d3,
-          type: 3}
+        name: Kick!
+        icon: {fileID: 21300000, guid: 034d324c158efbb49993409265a738d9, type: 3}
         twoOponentBattleEffects:
         - id: 3
         oneCharacterEffects: []
         durationTime: 0
-        exahustTime: 5
-        animName: SuperAttackDualWield
-        style: 2
+        exahustTime: 10
+        animName: KickAttack
+        style: 3
     00000001:
       type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
       data:
@@ -65,7 +64,7 @@ MonoBehaviour:
       data:
         name: 
         operators: []
-        atak: 5
+        atak: 10
     00000004:
       type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
       data:

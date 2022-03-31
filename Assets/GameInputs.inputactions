@@ -15,27 +15,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "BattleTets",
-                    "type": "Button",
-                    "id": "803bc73a-3e18-4849-b599-541c24ab915f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "3a14ebe3-7765-4514-8ba8-7ced82493cfc",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "walka",
-                    "type": "Button",
-                    "id": "92d0f2e9-c690-4f59-801e-db72dc97502c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -204,34 +186,12 @@
                 },
                 {
                     "name": "",
-                    "id": "845f0937-d255-49c2-917a-793b1c2e89c1",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "BattleTets",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4921d1c1-4c63-4304-a0c5-6ba5fa59a4d7",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "43675913-60ce-4cf9-a773-c9a47655b060",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "walka",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

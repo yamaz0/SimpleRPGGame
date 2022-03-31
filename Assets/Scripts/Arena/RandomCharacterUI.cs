@@ -42,10 +42,16 @@ public class RandomCharacterUI : MonoBehaviour
 
     private void SetSlot(Slot slot, Item item)
     {
+
         if (item != null)
         {
             slot.gameObject.SetActive(true);
             slot.Init(item, null);
+        }
+        else
+        {
+            slot.ItemCache = null;
+            slot.gameObject.SetActive(false);
         }
     }
 

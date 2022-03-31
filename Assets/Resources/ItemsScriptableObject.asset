@@ -754,7 +754,7 @@ MonoBehaviour:
       type: {class: WeaponItemInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 57
-        name: Sabre
+        name: Old Sabre
         icon: {fileID: 5513074867279518088, guid: f937d2f72b31e7f4dae2790104045df0,
           type: 3}
         price: 17
