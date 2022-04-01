@@ -11,6 +11,7 @@ public class AbilityEditorWindow : EditorWindow
     List<System.Type> oneCharacterEffectTypes;
     AbilityInfo currentInfo;
     State state;
+    Vector2 scrollPos;
 
     [MenuItem("ProjektMagic/AbilityWindow")]
     private static void ShowWindow()
@@ -29,8 +30,11 @@ public class AbilityEditorWindow : EditorWindow
     {
         List<AbilityInfo> abilities = AbilityScriptableObject.Instance.GetAbilitiesList();
 
+        GUILayout.BeginArea(new Rect(0, 0, Screen.width, Screen.height - 25));
+        scrollPos = GUILayout.BeginScrollView(scrollPos, false, true);
         if (currentInfo == null)
         {
+
             foreach (var a in abilities)
             {
                 GUILayout.Box(a.Icon.texture, GUILayout.Width(100), GUILayout.Height(50));
@@ -80,7 +84,10 @@ public class AbilityEditorWindow : EditorWindow
                     e.ViewFields();
                 }
             }
+
         }
+        GUILayout.EndScrollView();
+        GUILayout.EndArea();
     }
 
 

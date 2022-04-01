@@ -14,6 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - id: 0
+  - id: 1
+  - id: 2
+  - id: 3
+  - id: 4
+  - id: 5
+  - id: 6
+  - id: 7
+  - id: 8
+  - id: 9
+  - id: 10
+  - id: 11
   references:
     version: 1
     00000000:
@@ -23,15 +34,244 @@ MonoBehaviour:
         name: Kick!
         icon: {fileID: 21300000, guid: 62ee3ccb82dad494e87e6f58795f2132, type: 3}
         twoOponentBattleEffects:
-        - id: 1
+        - id: 12
         oneCharacterEffects: []
         durationTime: 0
         exahustTime: 10
         animName: KickAttack
         style: 3
     00000001:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 1
+        name: Double Hit
+        icon: {fileID: 21300000, guid: 722457268bcad2f4ebb4c3ee499643b3, type: 3}
+        twoOponentBattleEffects:
+        - id: 13
+        oneCharacterEffects: []
+        durationTime: 0
+        exahustTime: 12
+        animName: SuperAttackDualWield
+        style: 2
+    00000002:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 2
+        name: Hard Attack
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects:
+        - id: 14
+        oneCharacterEffects: []
+        durationTime: 0
+        exahustTime: 15
+        animName: SuperTwoHandAttack
+        style: 1
+    00000003:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 3
+        name: Fast Hit
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects:
+        - id: 15
+        oneCharacterEffects: []
+        durationTime: 0
+        exahustTime: 7
+        animName: FastTwoHandAttack
+        style: 1
+    00000004:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 4
+        name: Front Attack
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects: []
+        oneCharacterEffects: []
+        durationTime: 0
+        exahustTime: 9
+        animName: PowerAttack
+        style: 0
+    00000005:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 5
+        name: Two hits
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects: []
+        oneCharacterEffects: []
+        durationTime: 0
+        exahustTime: 20
+        animName: TwoHitsAttack
+        style: 0
+    00000006:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 6
+        name: 4x Combo!
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects: []
+        oneCharacterEffects: []
+        durationTime: 0
+        exahustTime: 17
+        animName: FourHitsCombo
+        style: 2
+    00000007:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 7
+        name: Better Defense
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects: []
+        oneCharacterEffects:
+        - id: 16
+        durationTime: 10
+        exahustTime: 17
+        animName: None
+        style: 3
+    00000008:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 8
+        name: Better Dodge
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects: []
+        oneCharacterEffects:
+        - id: 17
+        durationTime: 10
+        exahustTime: 17
+        animName: None
+        style: 3
+    00000009:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 9
+        name: Better Block
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects: []
+        oneCharacterEffects:
+        - id: 18
+        durationTime: 10
+        exahustTime: 17
+        animName: None
+        style: 3
+    0000000A:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 10
+        name: Better Crit
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects: []
+        oneCharacterEffects:
+        - id: 19
+        durationTime: 10
+        exahustTime: 17
+        animName: None
+        style: 3
+    0000000B:
+      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 11
+        name: Better Damage
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        twoOponentBattleEffects: []
+        oneCharacterEffects:
+        - id: 20
+        durationTime: 10
+        exahustTime: 17
+        animName: None
+        style: 3
+    0000000C:
       type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
       data:
         name: Damage
         operators: []
         atak: 10
+    0000000D:
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        operators:
+        - id: 21
+        atak: 0
+    0000000E:
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        operators:
+        - id: 22
+        - id: 23
+        atak: 0
+    0000000F:
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        operators:
+        - id: 24
+        - id: 25
+        - id: 26
+        atak: 0
+    00000010:
+      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        statisticName: Defence
+        isPersistent: 0
+        value: 20
+    00000011:
+      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 20
+        statisticName: DodgeChance
+        isPersistent: 0
+        value: 20
+    00000012:
+      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        statisticName: BlockChance
+        isPersistent: 0
+        value: 20
+    00000013:
+      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        statisticName: CritChance
+        isPersistent: 0
+        value: 20
+    00000014:
+      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        statisticName: Damage
+        isPersistent: 0
+        value: 20
+    00000015:
+      type: {class: StatisticOperatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statisticName: Damage
+        value: 2
+    00000016:
+      type: {class: AttributeOperatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        attributeName: Strength
+        value: 3
+    00000017:
+      type: {class: StatisticOperatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statisticName: Damage
+        value: 0.5
+    00000018:
+      type: {class: AttributeOperatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        attributeName: Strength
+        value: 1.5
+    00000019:
+      type: {class: AttributeOperatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        attributeName: Dexterity
+        value: 2
+    0000001A:
+      type: {class: StatisticOperatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statisticName: Damage
+        value: 0.5
