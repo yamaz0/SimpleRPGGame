@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89eca5c60ac26840bb6729eb9d11cd1, type: 3}
   m_Name: NPCsScriptableObject
   m_EditorClassIdentifier: 
-  referenc: {fileID: 11400000}
   objects:
   - id: 0
   - id: 1
   - id: 2
   - id: 3
   - id: 4
+  - id: 5
+  - id: 6
+  - id: 7
+  - id: 8
+  - id: 9
+  - id: 10
+  - id: 11
   references:
     version: 1
     00000000:
@@ -113,31 +119,12 @@ MonoBehaviour:
         animatorController: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709,
           type: 2}
         itemsIds:
-        - id: 0
-        - id: 1
         - id: 2
+        - id: 0
         - id: 3
-        - id: 4
         - id: 5
-        - id: 6
+        - id: 1
         - id: 7
-        - id: 8
-        - id: 9
-        - id: 10
-        - id: 11
-        - id: 12
-        - id: 13
-        - id: 14
-        - id: 15
-        - id: 16
-        - id: 17
-        - id: 18
-        - id: 19
-        - id: 20
-        - id: 21
-        - id: 22
-        - id: 23
-        - id: 76
         gold: 100
     00000004:
       type: {class: TrainerNPCInfo, ns: , asm: Assembly-CSharp}
@@ -149,3 +136,128 @@ MonoBehaviour:
         abilitiesIds:
         - id: 0
           cost: 69
+        - id: 4
+          cost: 13
+        - id: 5
+          cost: 42
+        - id: 7
+          cost: 10
+        - id: 9
+          cost: 20
+        - id: 11
+          cost: 30
+    00000005:
+      type: {class: MerchantNPCInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 5
+        name: WeaponsMerhatn
+        icon: {fileID: -7525882869776839469, guid: ffbb56c427bfa5344934e937190ee2e9,
+          type: 3}
+        animatorController: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709,
+          type: 2}
+        itemsIds:
+        - id: 47
+        - id: 49
+        - id: 51
+        - id: 75
+        - id: 78
+        - id: 64
+        - id: 66
+        - id: 55
+        - id: 76
+        - id: 46
+        - id: 50
+        - id: 72
+        - id: 71
+        - id: 73
+        - id: 74
+        - id: 77
+        gold: 100
+    00000006:
+      type: {class: MerchantNPCInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 6
+        name: Helmets
+        icon: {fileID: -7525882869776839469, guid: ffbb56c427bfa5344934e937190ee2e9,
+          type: 3}
+        animatorController: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709,
+          type: 2}
+        itemsIds:
+        - id: 12
+        - id: 17
+        - id: 19
+        gold: 0
+    00000007:
+      type: {class: MerchantNPCInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 7
+        name: Boots
+        icon: {fileID: -7525882869776839469, guid: ffbb56c427bfa5344934e937190ee2e9,
+          type: 3}
+        animatorController: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709,
+          type: 2}
+        itemsIds:
+        - id: 20
+        - id: 24
+        - id: 25
+        - id: 10
+        gold: 100
+    00000008:
+      type: {class: MerchantNPCInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 8
+        name: Legs
+        icon: {fileID: -7525882869776839469, guid: ffbb56c427bfa5344934e937190ee2e9,
+          type: 3}
+        animatorController: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709,
+          type: 2}
+        itemsIds:
+        - id: 30
+        - id: 32
+        - id: 35
+        - id: 82
+        gold: 0
+    00000009:
+      type: {class: MerchantNPCInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 9
+        name: Shields
+        icon: {fileID: -7525882869776839469, guid: ffbb56c427bfa5344934e937190ee2e9,
+          type: 3}
+        animatorController: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709,
+          type: 2}
+        itemsIds:
+        - id: 22
+        - id: 42
+        - id: 43
+        - id: 39
+        - id: 79
+        gold: 100
+    0000000A:
+      type: {class: TrainerNPCInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 10
+        name: dualWield
+        icon: {fileID: 21300000, guid: 754f43f8fc4997f42b16428846136321, type: 3}
+        animatorController: {fileID: 0}
+        abilitiesIds:
+        - id: 1
+          cost: 20
+        - id: 6
+          cost: 30
+        - id: 8
+          cost: 10
+    0000000B:
+      type: {class: TrainerNPCInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 11
+        name: TwoHanded
+        icon: {fileID: 21300000, guid: 754f43f8fc4997f42b16428846136321, type: 3}
+        animatorController: {fileID: 0}
+        abilitiesIds:
+        - id: 3
+          cost: 10
+        - id: 2
+          cost: 20
+        - id: 11
+          cost: 30

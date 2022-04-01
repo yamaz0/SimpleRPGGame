@@ -25,6 +25,7 @@ public class AddCharacterStatisticEffect : OneCharacterEffect
 
     public override void Remove(Character character)
     {
-        throw new NotImplementedException();
+        Modificator modificator = character.Statistics.GetStatistic(statisticName);
+        modificator.AddValue(-Value, IsPersistent);
     }
 }

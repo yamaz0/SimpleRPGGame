@@ -315,7 +315,7 @@ MonoBehaviour:
         name: Funny Helmet
         icon: {fileID: 2429457697700603145, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 500
+        price: 100
         itemType: 5
         defense: 20
         equipmentType: 0
@@ -630,7 +630,7 @@ MonoBehaviour:
         price: 35
         itemType: 5
         weaponType: 1
-        attack: 20
+        attack: 30
         attackSpeed: 10
         twoHanded: 0
     00000030:
@@ -656,7 +656,7 @@ MonoBehaviour:
         price: 30
         itemType: 5
         weaponType: 1
-        attack: 30
+        attack: 50
         attackSpeed: 9
         twoHanded: 1
     00000032:
@@ -682,7 +682,7 @@ MonoBehaviour:
         price: 60
         itemType: 5
         weaponType: 1
-        attack: 30
+        attack: 60
         attackSpeed: 10
         twoHanded: 0
     00000034:
@@ -773,7 +773,7 @@ MonoBehaviour:
         price: 30
         itemType: 5
         weaponType: 0
-        attack: 20
+        attack: 40
         attackSpeed: 15
         twoHanded: 0
     0000003B:
@@ -877,7 +877,7 @@ MonoBehaviour:
         price: 100
         itemType: 5
         weaponType: 0
-        attack: 42
+        attack: 62
         attackSpeed: 12
         twoHanded: 1
     00000043:
@@ -981,7 +981,7 @@ MonoBehaviour:
         price: 100
         itemType: 5
         weaponType: 2
-        attack: 50
+        attack: 80
         attackSpeed: 9
         twoHanded: 1
     0000004B:
@@ -994,7 +994,7 @@ MonoBehaviour:
         price: 100
         itemType: 5
         weaponType: 1
-        attack: 45
+        attack: 80
         attackSpeed: 10
         twoHanded: 1
     0000004C:
@@ -1003,7 +1003,7 @@ MonoBehaviour:
         id: 76
         name: Fire sword
         icon: {fileID: 21300018, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 999
+        price: 99
         itemType: 5
         weaponType: 0
         attack: 99
@@ -1015,7 +1015,7 @@ MonoBehaviour:
         id: 77
         name: Fire Club
         icon: {fileID: 21300020, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 999
+        price: 99
         itemType: 5
         weaponType: 2
         attack: 99
@@ -1027,7 +1027,7 @@ MonoBehaviour:
         id: 78
         name: Fire Axe
         icon: {fileID: 21300024, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
-        price: 999
+        price: 99
         itemType: 5
         weaponType: 1
         attack: 99
