@@ -143,6 +143,8 @@ public class ModificatorAttribute : System.Attribute
 public class ModificatorTypeAttribute : System.Attribute
 {
 }
+
+#if UNITY_EDITOR
 [CustomEditor(typeof(ModificatorsSO))]
 public class ModificatorsSOEditor : Editor
 {
@@ -159,3 +161,4 @@ public class ModificatorsSOEditor : Editor
         }
     }
 }
+#endif

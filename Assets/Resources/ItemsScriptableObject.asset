@@ -219,7 +219,7 @@ MonoBehaviour:
         price: 65
         itemType: 5
         defense: 15
-        equipmentType: 1
+        equipmentType: 3
     0000000B:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:

@@ -9,6 +9,11 @@ public class GameManager : Singleton<GameManager>
     private GameInputsController gameInputController;
 
     public static bool GamePause { get; private set; }
+    public AbilityScriptableObject ASO;
+    public PerkScriptableObject PSO;
+    public NPCScriptableObject NSO;
+    public ItemsScriptableObject ISO;
+
 
     private void OnEnable()
     {
@@ -52,6 +57,10 @@ public class GameManager : Singleton<GameManager>
     {
         base.Initialize();
         gameInputController = new GameInputsController();
+        ASO.Init();
+        PSO.Init();
+        NSO.Init();
+        ISO.Init();
     }
 
     public void SetPlayerCanMove(bool state)

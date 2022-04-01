@@ -64,17 +64,23 @@ public class AbilityInfo : BaseInfo
     public string AnimName { get => animName; set => animName = value; }
 }
 
+#if UNITY_EDITOR
 
 [UnityEditor.CustomEditor(typeof(AbilityScriptableObject))]
 public class AbilityScriptableObjectEditor : UnityEditor.Editor
-{    public override void OnInspectorGUI()
+{
+    public override void OnInspectorGUI()
     {
         var script = (AbilityScriptableObject)target;
 
         if (GUILayout.Button($"Add AbilityInfo", GUILayout.Height(40)))
         {
-            script.Objects.Add(new AbilityInfo());
+            AbilityInfo info = new AbilityInfo();
+            info.Id = script.Objects.Count;
+            info.Icon = Resources.LoadAll<Sprite>("")[0];
+            script.Objects.Add(info);
         }
         base.OnInspectorGUI();
     }
 }
+#endif

@@ -21,6 +21,7 @@ public class IdDropdownAttribute : PropertyAttribute
         Objects.AddRange(searchables);
     }
 }
+#if UNITY_EDITOR
 
 [CustomPropertyDrawer(typeof(IdDropdownAttribute))]
 public class IdDropdownPropertyDrawer : PropertyDrawer
@@ -71,3 +72,4 @@ public class IdDropdownPropertyDrawer : PropertyDrawer
         }
     }
 }
+#endif

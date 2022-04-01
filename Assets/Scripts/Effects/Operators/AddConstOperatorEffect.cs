@@ -14,7 +14,7 @@ public class AddConstOperatorEffect : OperatorEffect
     {
         return value;
     }
-
+#if UNITY_EDITOR
     public override void ViewInfo()
     {
         UnityEditor.EditorGUILayout.LabelField($"Value to add :{value}");
@@ -24,4 +24,5 @@ public class AddConstOperatorEffect : OperatorEffect
     {
         value = UnityEditor.EditorGUILayout.FloatField("value", value);
     }
+#endif
 }

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 [System.Serializable]
@@ -10,9 +9,9 @@ public class NPCInfo : BaseInfo
     private Sprite icon;
 
     [SerializeField]
-    private UnityEditor.Animations.AnimatorController animator;
+    private RuntimeAnimatorController animatorController;
     public Sprite Icon { get => icon; set => icon = value; }
-    public AnimatorController AnimatorController { get => animator; set => animator = value; }
+    public RuntimeAnimatorController AnimatorController { get => animatorController; set => animatorController = value; }
 
     public virtual NPCBase CreateNpc()
     {

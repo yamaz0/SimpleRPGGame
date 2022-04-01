@@ -15,6 +15,7 @@ public class NameDropdownAttribute : PropertyAttribute
         Modtype = name;
     }
 }
+#if UNITY_EDITOR
 
 [CustomPropertyDrawer(typeof(NameDropdownAttribute))]
 public class NameDropdownPropertyDrawer : PropertyDrawer
@@ -52,3 +53,5 @@ public class NameDropdownPropertyDrawer : PropertyDrawer
         }
     }
 }
+
+#endif

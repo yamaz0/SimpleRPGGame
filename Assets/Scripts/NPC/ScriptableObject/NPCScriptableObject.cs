@@ -32,6 +32,7 @@ public class NPCScriptableObject : SingletonScriptableObject<NPCScriptableObject
     }
 }
 
+#if UNITY_EDITOR
 
 [UnityEditor.CustomEditor(typeof(NPCScriptableObject))]
 public class NpcScriptableObjectEditor : UnityEditor.Editor
@@ -56,3 +57,5 @@ public class NpcScriptableObjectEditor : UnityEditor.Editor
         base.OnInspectorGUI();
     }
 }
+
+#endif

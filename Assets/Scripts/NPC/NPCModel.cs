@@ -6,12 +6,13 @@ public class NPCModel : InteractObject
 {
     [SerializeField]
     private NPCBase npc;
-
+    [SerializeField]
+    private int id;
     public NPCBase Npc { get => npc; set => npc = value; }
 
     private void Start()
     {
-        Npc = NPCScriptableObject.Instance.GetNPCInfoById(npcId).CreateNpc();
+        Npc = NPCScriptableObject.Instance.GetNPCInfoById(id).CreateNpc();
     }
 
     public override void Use()
@@ -28,6 +29,7 @@ public class NPCModel : InteractObject
     {
         if (NPCScriptableObject.Instance == null) return;
 
+        id = npcId;
         NPCInfo nPCInfo = NPCScriptableObject.Instance.GetNPCInfoById(npcId);
         GetComponent<Animator>().runtimeAnimatorController = nPCInfo.AnimatorController;
         GetComponent<SpriteRenderer>().sprite = nPCInfo.Icon;

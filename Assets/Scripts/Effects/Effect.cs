@@ -14,9 +14,11 @@ public class Effect
     {
         GUILayout.Label("Name: " + Name.ToString());
     }
+#if UNITY_EDITOR
     public virtual void ViewFields()
     {
         Name = UnityEditor.EditorGUILayout.TextField("Name", Name);
     }
+#endif
 
 }

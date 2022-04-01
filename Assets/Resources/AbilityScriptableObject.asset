@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - id: 0
-  - id: 1
-  - id: 2
   references:
     version: 1
     00000000:
@@ -23,62 +21,17 @@ MonoBehaviour:
       data:
         id: 0
         name: Kick!
-        icon: {fileID: 21300000, guid: 034d324c158efbb49993409265a738d9, type: 3}
+        icon: {fileID: 21300000, guid: 62ee3ccb82dad494e87e6f58795f2132, type: 3}
         twoOponentBattleEffects:
-        - id: 3
+        - id: 1
         oneCharacterEffects: []
         durationTime: 0
         exahustTime: 10
         animName: KickAttack
         style: 3
     00000001:
-      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
-      data:
-        id: 1
-        name: ab2
-        icon: {fileID: -8951780388439148649, guid: 2edfd0eb34e1fa349824f67025b135d3,
-          type: 3}
-        twoOponentBattleEffects:
-        - id: 4
-        oneCharacterEffects: []
-        durationTime: 0
-        exahustTime: 3
-        animName: SuperAttackOneHand
-        style: 0
-    00000002:
-      type: {class: AbilityInfo, ns: , asm: Assembly-CSharp}
-      data:
-        id: 2
-        name: ab3
-        icon: {fileID: 1337063725808123163, guid: 6aa8d45f947871441bdc84217f943992,
-          type: 3}
-        twoOponentBattleEffects:
-        - id: 5
-        oneCharacterEffects: []
-        durationTime: 10
-        exahustTime: 10
-        animName: CounterAttackEffect
-        style: 3
-    00000003:
       type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
       data:
-        name: 
+        name: Damage
         operators: []
         atak: 10
-    00000004:
-      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
-      data:
-        name: 
-        operators:
-        - id: 6
-        atak: 0
-    00000005:
-      type: {class: CounterAttackEffect, ns: , asm: Assembly-CSharp}
-      data:
-        name: counterrr
-        chanceCounterPercent: 15
-    00000006:
-      type: {class: MulOperatorEffect, ns: , asm: Assembly-CSharp}
-      data:
-        attributeName: Strength
-        value: 2

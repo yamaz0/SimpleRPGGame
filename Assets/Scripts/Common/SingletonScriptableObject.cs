@@ -13,7 +13,7 @@ public class SingletonScriptableObject<T> : ScriptableObject where T : Singleton
     public List<BaseInfo> Objects { get => objects; set => objects = value; }
 
     [RuntimeInitializeOnLoadMethod]
-    protected static void Init()
+    public void Init()
     {
         instance = Resources.LoadAll<T>("")[0];
     }

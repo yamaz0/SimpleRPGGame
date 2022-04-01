@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89eca5c60ac26840bb6729eb9d11cd1, type: 3}
   m_Name: NPCsScriptableObject
   m_EditorClassIdentifier: 
+  referenc: {fileID: 11400000}
   objects:
   - id: 0
   - id: 1
@@ -27,7 +28,8 @@ MonoBehaviour:
         name: commonMale
         icon: {fileID: 2305144062599850415, guid: 220d39c4bfd8a5f43897c04e5a02c406,
           type: 3}
-        animator: {fileID: 9100000, guid: fa951a397bc555041b49b0b4d996b450, type: 2}
+        animatorController: {fileID: 9100000, guid: fa951a397bc555041b49b0b4d996b450,
+          type: 2}
         texts:
         - Hello!
         - Did something happen?
@@ -39,7 +41,8 @@ MonoBehaviour:
         name: commonFemale
         icon: {fileID: 309628545801974608, guid: 564fedabfe62bd5439a41debe47e7d9a,
           type: 3}
-        animator: {fileID: 9100000, guid: c0a69f4e429e90642a40d6f691786578, type: 2}
+        animatorController: {fileID: 9100000, guid: c0a69f4e429e90642a40d6f691786578,
+          type: 2}
         texts:
         - Hello!
         - Did something happen?
@@ -51,7 +54,8 @@ MonoBehaviour:
         name: enemy
         icon: {fileID: -7525882869776839469, guid: ffbb56c427bfa5344934e937190ee2e9,
           type: 3}
-        animator: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709, type: 2}
+        animatorController: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709,
+          type: 2}
         character:
           attributes:
             strength:
@@ -68,6 +72,9 @@ MonoBehaviour:
               itemsId: ffffffffffffffffffffffffffffffffffffffffffffffff
           abilities:
             knownAbilities: 
+            chooseOneHandStyleAbilities: 
+            chooseTwoHandStyleAbilities: 
+            chooseDualWieldStyleAbilities: 
           perks:
             knownPerks: 
           statistics:
@@ -103,7 +110,8 @@ MonoBehaviour:
         name: merchant
         icon: {fileID: -7525882869776839469, guid: ffbb56c427bfa5344934e937190ee2e9,
           type: 3}
-        animator: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709, type: 2}
+        animatorController: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709,
+          type: 2}
         itemsIds:
         - id: 0
         - id: 1
@@ -137,7 +145,7 @@ MonoBehaviour:
         id: 4
         name: Trener pokemon
         icon: {fileID: 21300000, guid: 754f43f8fc4997f42b16428846136321, type: 3}
-        animator: {fileID: 0}
+        animatorController: {fileID: 0}
         abilitiesIds:
         - id: 0
           cost: 69

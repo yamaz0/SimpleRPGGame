@@ -76,6 +76,7 @@ public class ItemsScriptableObject : SingletonScriptableObject<ItemsScriptableOb
     }
 #endif
 }
+#if UNITY_EDITOR
 
 [UnityEditor.CustomEditor(typeof(ItemsScriptableObject))]
 public class ItemsScriptableObject1Editor : UnityEditor.Editor
@@ -102,3 +103,5 @@ public class ItemsScriptableObject1Editor : UnityEditor.Editor
         base.OnInspectorGUI();
     }
 }
+
+#endif

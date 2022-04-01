@@ -52,6 +52,7 @@ public class PerkScriptableObject : SingletonScriptableObject<PerkScriptableObje
         public Sprite Icon { get => icon; set => icon = value; }
     }
 }
+#if UNITY_EDITOR
 
 [UnityEditor.CustomEditor(typeof(PerkScriptableObject))]
 public class PerksScriptableObjectEditor : UnityEditor.Editor
@@ -70,3 +71,5 @@ public class PerksScriptableObjectEditor : UnityEditor.Editor
         base.OnInspectorGUI();
     }
 }
+
+#endif

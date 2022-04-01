@@ -63,6 +63,7 @@ public class InteractObject : MonoBehaviour, IInteractable
         }
     }
 }
+#if UNITY_EDITOR
 
 [UnityEditor.CustomEditor(typeof(InteractObject))]
 public class InteractObjectEditor : UnityEditor.Editor
@@ -92,3 +93,4 @@ public class InteractObjectEditor : UnityEditor.Editor
         base.OnInspectorGUI();
     }
 }
+#endif

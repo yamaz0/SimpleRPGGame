@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c785e759c407aa74782f1b72f0f28761, type: 3}
   m_Name: PerksScriptableObject
   m_EditorClassIdentifier: 
+  referenc: {fileID: 11400000}
   objects:
   - id: 0
   - id: 1
