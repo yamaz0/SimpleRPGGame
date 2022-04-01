@@ -65,11 +65,19 @@ public class WeaponItem : Item, IEquipable, IUseable
             }
             else
             {
-                TryUnequipItem(inventoryController, type);
-            }
-            UpdateCharacterStyle(character, inventoryController);
+                if (type == Equipement.EqType.HandRight)
+                {
+                    Item item = inventoryController.GetItemByType(Equipement.EqType.HandLeft);
 
+                    if (item == null)
+                    {
+                        type = Equipement.EqType.HandLeft;
+                    }
+                }
+            }
             inventoryController.EquipItem(this, type);
+
+            UpdateCharacterStyle(character, inventoryController);
             return true;
         }
         return false;
