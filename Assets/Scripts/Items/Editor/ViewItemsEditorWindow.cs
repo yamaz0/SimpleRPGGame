@@ -70,7 +70,7 @@ public class ViewItemsEditorWindow
 
             int w = 0;
             int h = 0;
-            float expand = DataItemsEditorWindow.instance.IsShowAllFields == true ? 1.5f : 1.0f;
+            float expand = DataItemsEditorWindow.instance.IsShowAllFields == true ? 1.7f : 1.2f;
 
             foreach (var item in items)
             {

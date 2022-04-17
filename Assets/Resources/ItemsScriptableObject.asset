@@ -108,6 +108,7 @@ MonoBehaviour:
           type: 3}
         price: 30
         itemType: 5
+        unlockLevel: 0
         defense: 5
         equipmentType: 1
     00000001:
@@ -119,6 +120,7 @@ MonoBehaviour:
           type: 3}
         price: 100
         itemType: 5
+        unlockLevel: 0
         defense: 50
         equipmentType: 1
     00000002:
@@ -130,6 +132,7 @@ MonoBehaviour:
           type: 3}
         price: 10
         itemType: 5
+        unlockLevel: 0
         defense: 3
         equipmentType: 1
     00000003:
@@ -141,6 +144,7 @@ MonoBehaviour:
           type: 3}
         price: 45
         itemType: 5
+        unlockLevel: 0
         defense: 10
         equipmentType: 1
     00000004:
@@ -152,6 +156,7 @@ MonoBehaviour:
           type: 3}
         price: 1
         itemType: 5
+        unlockLevel: 0
         defense: 1
         equipmentType: 1
     00000005:
@@ -163,6 +168,7 @@ MonoBehaviour:
           type: 3}
         price: 50
         itemType: 5
+        unlockLevel: 0
         defense: 11
         equipmentType: 1
     00000006:
@@ -174,6 +180,7 @@ MonoBehaviour:
           type: 3}
         price: 1
         itemType: 5
+        unlockLevel: 0
         defense: 0
         equipmentType: 1
     00000007:
@@ -185,6 +192,7 @@ MonoBehaviour:
           type: 3}
         price: 75
         itemType: 5
+        unlockLevel: 0
         defense: 30
         equipmentType: 1
     00000008:
@@ -196,6 +204,7 @@ MonoBehaviour:
           type: 3}
         price: 59
         itemType: 5
+        unlockLevel: 0
         defense: 20
         equipmentType: 1
     00000009:
@@ -207,6 +216,7 @@ MonoBehaviour:
           type: 3}
         price: 90
         itemType: 5
+        unlockLevel: 0
         defense: 40
         equipmentType: 1
     0000000A:
@@ -218,6 +228,7 @@ MonoBehaviour:
           type: 3}
         price: 65
         itemType: 5
+        unlockLevel: 0
         defense: 15
         equipmentType: 3
     0000000B:
@@ -229,6 +240,7 @@ MonoBehaviour:
           type: 3}
         price: 5
         itemType: 5
+        unlockLevel: 0
         defense: 2
         equipmentType: 0
     0000000C:
@@ -240,6 +252,7 @@ MonoBehaviour:
           type: 3}
         price: 10
         itemType: 5
+        unlockLevel: 0
         defense: 3
         equipmentType: 0
     0000000D:
@@ -251,6 +264,7 @@ MonoBehaviour:
           type: 3}
         price: 1
         itemType: 5
+        unlockLevel: 0
         defense: 1
         equipmentType: 0
     0000000E:
@@ -262,6 +276,7 @@ MonoBehaviour:
           type: 3}
         price: 20
         itemType: 5
+        unlockLevel: 0
         defense: 6
         equipmentType: 0
     0000000F:
@@ -273,6 +288,7 @@ MonoBehaviour:
           type: 3}
         price: 100
         itemType: 5
+        unlockLevel: 0
         defense: 10
         equipmentType: 0
     00000010:
@@ -284,6 +300,7 @@ MonoBehaviour:
           type: 3}
         price: 15
         itemType: 5
+        unlockLevel: 0
         defense: 4
         equipmentType: 0
     00000011:
@@ -295,6 +312,7 @@ MonoBehaviour:
           type: 3}
         price: 30
         itemType: 5
+        unlockLevel: 0
         defense: 7
         equipmentType: 0
     00000012:
@@ -306,6 +324,7 @@ MonoBehaviour:
           type: 3}
         price: 20
         itemType: 5
+        unlockLevel: 0
         defense: 5
         equipmentType: 0
     00000013:
@@ -317,6 +336,7 @@ MonoBehaviour:
           type: 3}
         price: 100
         itemType: 5
+        unlockLevel: 0
         defense: 20
         equipmentType: 0
     00000014:
@@ -328,6 +348,7 @@ MonoBehaviour:
           type: 3}
         price: 5
         itemType: 5
+        unlockLevel: 0
         defense: 2
         equipmentType: 3
     00000015:
@@ -339,6 +360,7 @@ MonoBehaviour:
           type: 3}
         price: 5
         itemType: 5
+        unlockLevel: 0
         defense: 2
         equipmentType: 2
     00000016:
@@ -350,6 +372,7 @@ MonoBehaviour:
           type: 3}
         price: 30
         itemType: 5
+        unlockLevel: 0
         defense: 10
         blockChance: 10
     00000017:
@@ -361,6 +384,7 @@ MonoBehaviour:
           type: 3}
         price: 1
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 1
         attackSpeed: 1
@@ -374,6 +398,7 @@ MonoBehaviour:
           type: 3}
         price: 50
         itemType: 5
+        unlockLevel: 0
         defense: 10
         equipmentType: 3
     00000019:
@@ -385,6 +410,7 @@ MonoBehaviour:
           type: 3}
         price: 20
         itemType: 5
+        unlockLevel: 0
         defense: 5
         equipmentType: 3
     0000001A:
@@ -396,6 +422,7 @@ MonoBehaviour:
           type: 3}
         price: 1
         itemType: 5
+        unlockLevel: 0
         defense: 1
         equipmentType: 3
     0000001B:
@@ -407,6 +434,7 @@ MonoBehaviour:
           type: 3}
         price: 10
         itemType: 5
+        unlockLevel: 0
         defense: 3
         equipmentType: 2
     0000001C:
@@ -418,6 +446,7 @@ MonoBehaviour:
           type: 3}
         price: 15
         itemType: 5
+        unlockLevel: 0
         defense: 4
         equipmentType: 2
     0000001D:
@@ -429,6 +458,7 @@ MonoBehaviour:
           type: 3}
         price: 110
         itemType: 5
+        unlockLevel: 0
         defense: 11
         equipmentType: 0
     0000001E:
@@ -440,6 +470,7 @@ MonoBehaviour:
           type: 3}
         price: 20
         itemType: 5
+        unlockLevel: 0
         defense: 5
         equipmentType: 2
     0000001F:
@@ -451,6 +482,7 @@ MonoBehaviour:
           type: 3}
         price: 25
         itemType: 5
+        unlockLevel: 0
         defense: 6
         equipmentType: 2
     00000020:
@@ -462,6 +494,7 @@ MonoBehaviour:
           type: 3}
         price: 30
         itemType: 5
+        unlockLevel: 0
         defense: 7
         equipmentType: 2
     00000021:
@@ -473,6 +506,7 @@ MonoBehaviour:
           type: 3}
         price: 1
         itemType: 5
+        unlockLevel: 0
         defense: 1
         equipmentType: 2
     00000022:
@@ -484,6 +518,7 @@ MonoBehaviour:
           type: 3}
         price: 75
         itemType: 5
+        unlockLevel: 0
         defense: 20
         equipmentType: 3
     00000023:
@@ -495,6 +530,7 @@ MonoBehaviour:
           type: 3}
         price: 40
         itemType: 5
+        unlockLevel: 0
         defense: 10
         equipmentType: 2
     00000024:
@@ -506,6 +542,7 @@ MonoBehaviour:
           type: 3}
         price: 80
         itemType: 5
+        unlockLevel: 0
         defense: 20
         blockChance: 15
     00000025:
@@ -517,6 +554,7 @@ MonoBehaviour:
           type: 3}
         price: 7
         itemType: 5
+        unlockLevel: 0
         defense: 5
         blockChance: 2
     00000026:
@@ -528,6 +566,7 @@ MonoBehaviour:
           type: 3}
         price: 20
         itemType: 5
+        unlockLevel: 0
         defense: 7
         blockChance: 7
     00000027:
@@ -539,6 +578,7 @@ MonoBehaviour:
           type: 3}
         price: 100
         itemType: 5
+        unlockLevel: 0
         defense: 20
         blockChance: 20
     00000028:
@@ -550,6 +590,7 @@ MonoBehaviour:
           type: 3}
         price: 20
         itemType: 5
+        unlockLevel: 0
         defense: 8
         blockChance: 6
     00000029:
@@ -561,6 +602,7 @@ MonoBehaviour:
           type: 3}
         price: 25
         itemType: 5
+        unlockLevel: 0
         defense: 8
         blockChance: 7
     0000002A:
@@ -572,6 +614,7 @@ MonoBehaviour:
           type: 3}
         price: 35
         itemType: 5
+        unlockLevel: 0
         defense: 15
         blockChance: 10
     0000002B:
@@ -583,6 +626,7 @@ MonoBehaviour:
           type: 3}
         price: 60
         itemType: 5
+        unlockLevel: 0
         defense: 17
         blockChance: 12
     0000002C:
@@ -594,6 +638,7 @@ MonoBehaviour:
           type: 3}
         price: 10
         itemType: 5
+        unlockLevel: 0
         defense: 1
         blockChance: 2
     0000002D:
@@ -605,6 +650,7 @@ MonoBehaviour:
           type: 3}
         price: 15
         itemType: 5
+        unlockLevel: 0
         defense: 4
         blockChance: 3
     0000002E:
@@ -616,6 +662,7 @@ MonoBehaviour:
           type: 3}
         price: 35
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 30
         attackSpeed: 9
@@ -629,6 +676,7 @@ MonoBehaviour:
           type: 3}
         price: 35
         itemType: 5
+        unlockLevel: 0
         weaponType: 1
         attack: 30
         attackSpeed: 10
@@ -642,6 +690,7 @@ MonoBehaviour:
           type: 3}
         price: 1
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 1
         attackSpeed: 10
@@ -655,6 +704,7 @@ MonoBehaviour:
           type: 3}
         price: 30
         itemType: 5
+        unlockLevel: 0
         weaponType: 1
         attack: 50
         attackSpeed: 9
@@ -668,6 +718,7 @@ MonoBehaviour:
           type: 3}
         price: 80
         itemType: 5
+        unlockLevel: 0
         weaponType: 2
         attack: 45
         attackSpeed: 9
@@ -681,6 +732,7 @@ MonoBehaviour:
           type: 3}
         price: 60
         itemType: 5
+        unlockLevel: 0
         weaponType: 1
         attack: 60
         attackSpeed: 10
@@ -694,6 +746,7 @@ MonoBehaviour:
           type: 3}
         price: 1
         itemType: 5
+        unlockLevel: 0
         weaponType: 1
         attack: 1
         attackSpeed: 10
@@ -707,6 +760,7 @@ MonoBehaviour:
           type: 3}
         price: 13
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 11
         attackSpeed: 10
@@ -720,6 +774,7 @@ MonoBehaviour:
           type: 3}
         price: 20
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 17
         attackSpeed: 9
@@ -733,6 +788,7 @@ MonoBehaviour:
           type: 3}
         price: 90
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 50
         attackSpeed: 10
@@ -746,6 +802,7 @@ MonoBehaviour:
           type: 3}
         price: 1
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 1
         attackSpeed: 10
@@ -759,6 +816,7 @@ MonoBehaviour:
           type: 3}
         price: 17
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 10
         attackSpeed: 10
@@ -772,6 +830,7 @@ MonoBehaviour:
           type: 3}
         price: 30
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 40
         attackSpeed: 15
@@ -785,6 +844,7 @@ MonoBehaviour:
           type: 3}
         price: 7
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 5
         attackSpeed: 10
@@ -798,6 +858,7 @@ MonoBehaviour:
           type: 3}
         price: 30
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 18
         attackSpeed: 10
@@ -811,6 +872,7 @@ MonoBehaviour:
           type: 3}
         price: 25
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 17
         attackSpeed: 11
@@ -824,6 +886,7 @@ MonoBehaviour:
           type: 3}
         price: 17
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 10
         attackSpeed: 10
@@ -837,6 +900,7 @@ MonoBehaviour:
           type: 3}
         price: 100
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 45
         attackSpeed: 9
@@ -850,6 +914,7 @@ MonoBehaviour:
           type: 3}
         price: 90
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 30
         attackSpeed: 10
@@ -863,6 +928,7 @@ MonoBehaviour:
           type: 3}
         price: 15
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 7
         attackSpeed: 10
@@ -876,6 +942,7 @@ MonoBehaviour:
           type: 3}
         price: 100
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 62
         attackSpeed: 12
@@ -889,6 +956,7 @@ MonoBehaviour:
           type: 3}
         price: 60
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 27
         attackSpeed: 11
@@ -902,6 +970,7 @@ MonoBehaviour:
           type: 3}
         price: 70
         itemType: 5
+        unlockLevel: 0
         weaponType: 0
         attack: 20
         attackSpeed: 17
@@ -915,6 +984,7 @@ MonoBehaviour:
           type: 3}
         price: 1
         itemType: 5
+        unlockLevel: 0
         weaponType: 2
         attack: 1
         attackSpeed: 10
@@ -928,6 +998,7 @@ MonoBehaviour:
           type: 3}
         price: 15
         itemType: 5
+        unlockLevel: 0
         weaponType: 2
         attack: 10
         attackSpeed: 10
@@ -941,6 +1012,7 @@ MonoBehaviour:
           type: 3}
         price: 30
         itemType: 5
+        unlockLevel: 0
         weaponType: 2
         attack: 30
         attackSpeed: 9
@@ -954,6 +1026,7 @@ MonoBehaviour:
           type: 3}
         price: 50
         itemType: 5
+        unlockLevel: 0
         weaponType: 2
         attack: 25
         attackSpeed: 15
@@ -967,6 +1040,7 @@ MonoBehaviour:
           type: 3}
         price: 75
         itemType: 5
+        unlockLevel: 0
         weaponType: 2
         attack: 35
         attackSpeed: 11
@@ -980,6 +1054,7 @@ MonoBehaviour:
           type: 3}
         price: 100
         itemType: 5
+        unlockLevel: 0
         weaponType: 2
         attack: 80
         attackSpeed: 9
@@ -993,6 +1068,7 @@ MonoBehaviour:
           type: 3}
         price: 100
         itemType: 5
+        unlockLevel: 0
         weaponType: 1
         attack: 80
         attackSpeed: 10
@@ -1005,6 +1081,7 @@ MonoBehaviour:
         icon: {fileID: 21300018, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 99
         itemType: 5
+        unlockLevel: 9
         weaponType: 0
         attack: 99
         attackSpeed: 50
@@ -1017,6 +1094,7 @@ MonoBehaviour:
         icon: {fileID: 21300020, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 99
         itemType: 5
+        unlockLevel: 9
         weaponType: 2
         attack: 99
         attackSpeed: 50
@@ -1029,6 +1107,7 @@ MonoBehaviour:
         icon: {fileID: 21300024, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 99
         itemType: 5
+        unlockLevel: 0
         weaponType: 1
         attack: 99
         attackSpeed: 50
@@ -1041,6 +1120,7 @@ MonoBehaviour:
         icon: {fileID: 21300036, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 999
         itemType: 5
+        unlockLevel: 9
         defense: 99
         blockChance: 51
     00000050:
@@ -1051,6 +1131,7 @@ MonoBehaviour:
         icon: {fileID: 21300026, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 999
         itemType: 5
+        unlockLevel: 9
         defense: 99
         equipmentType: 0
     00000051:
@@ -1061,6 +1142,7 @@ MonoBehaviour:
         icon: {fileID: 21300028, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 999
         itemType: 5
+        unlockLevel: 9
         defense: 99
         equipmentType: 1
     00000052:
@@ -1071,6 +1153,7 @@ MonoBehaviour:
         icon: {fileID: 21300030, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 999
         itemType: 5
+        unlockLevel: 9
         defense: 99
         equipmentType: 2
     00000053:
@@ -1081,5 +1164,6 @@ MonoBehaviour:
         icon: {fileID: 21300034, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
         price: 999
         itemType: 5
+        unlockLevel: 9
         defense: 99
         equipmentType: 3

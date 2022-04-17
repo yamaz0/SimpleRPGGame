@@ -11,10 +11,13 @@ public class ItemInfo : BaseInfo
     private int price;
     [SerializeField]
     private ItemsManager.ItemType itemType;
+    [SerializeField]
+    private int unlockLevel;
 
     public ItemsManager.ItemType ItemType { get => itemType; set => itemType = value; }
     public Sprite Icon { get => icon; set => icon = value; }
     public int Price { get => price; set => price = value; }
+    public int UnlockLevel { get => unlockLevel; set => unlockLevel = value; }
 
     public virtual Item CreateItem()
     {
@@ -36,6 +39,7 @@ public class ItemInfo : BaseInfo
         Name = UnityEditor.EditorGUILayout.TextField("Name: ", Name);
         Icon = (Sprite)UnityEditor.EditorGUILayout.ObjectField("Sprite: ", Icon, typeof(Sprite), false);
         Price = UnityEditor.EditorGUILayout.IntField("Price: ", Price);
+        UnlockLevel = UnityEditor.EditorGUILayout.IntField("UnlockAt: ", UnlockLevel);
     }
 
     public void ShowBaseItemInfo()
@@ -45,6 +49,7 @@ public class ItemInfo : BaseInfo
         GUILayout.Label(Name);
         GUILayout.Label("Type: " + ItemType.ToString());
         GUILayout.Label("Price: " + Price.ToString());
+        GUILayout.Label("UnlockAt: " + UnlockLevel.ToString());
     }
 
     Texture2D GenerateTextureFromSprite(Sprite aSprite)

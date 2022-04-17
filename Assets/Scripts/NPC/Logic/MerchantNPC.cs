@@ -28,6 +28,23 @@ public class MerchantNPC : NPCBase
 
     public override void Use()
     {
-        WindowManager.Instance.ShowShop(InventoryController);
+        InventoryController copy = new InventoryController();
+        List<int> copyItemsId = copy.Inventory.ItemsId;
+
+        Inventory inventory = InventoryController.Inventory;
+        List<int> itemsIds = inventory.ItemsId;
+        int playerProgressLevel = Player.Instance.ProgressLevel;
+
+        for (int i = 0; i < itemsIds.Count; i++)
+        {
+            if (playerProgressLevel >= inventory.Items[i].UnlockLevel)
+            {
+                copyItemsId.Add(itemsIds[i]);
+            }
+        }
+
+        copy.Inventory.Init();
+
+        WindowManager.Instance.ShowShop(copy);
     }
 }

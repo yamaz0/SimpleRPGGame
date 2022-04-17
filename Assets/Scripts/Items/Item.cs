@@ -14,12 +14,15 @@ public abstract class Item
     private Sprite icon;
     [SerializeField]
     private int price;
+    [SerializeField]
+    private int unlockLevel;
 
     public string Name { get => name; set => name = value; }
     public int Id { get => id; set => id = value; }
     public ItemsManager.ItemType Type { get => type; set => type = value; }
     public Sprite Icon { get => icon; set => icon = value; }
     public int Price { get => price; set => price = value; }
+    public int UnlockLevel { get => unlockLevel; set => unlockLevel = value; }
 
     protected virtual void Init(ItemInfo info)
     {
@@ -28,6 +31,7 @@ public abstract class Item
         Type = info.ItemType;
         Icon = info.Icon;
         Price = info.Price;
+        UnlockLevel = info.UnlockLevel;
     }
 
     public virtual string GetDescription()

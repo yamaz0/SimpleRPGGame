@@ -10,7 +10,10 @@ public class Player : Singleton<Player>
     private GameInputsController gameInputController;
     [SerializeField]
     private float speed = 5;
+    [SerializeField]
+    private int progressLevel = 0;
     public Character Character { get => character; set => character = value; }
+    public int ProgressLevel { get => progressLevel; set => progressLevel = value; }
     public bool CanMove { get; set; } = true;
 
     public void LoadData()
