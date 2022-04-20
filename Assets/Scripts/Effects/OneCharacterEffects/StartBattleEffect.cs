@@ -11,7 +11,7 @@ public class StartBattleEffect : OneCharacterEffect
 
     public override void Execute(Character character)
     {
-        BattleManager.Instance.StartBattle(character, EnemyCharacter.Character);
+        BattleManager.Instance.StartBattle(character, EnemyCharacter.Character, new DuelRule());
     }
 
     public override void Remove(Character character)

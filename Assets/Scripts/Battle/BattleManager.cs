@@ -23,7 +23,7 @@ public class BattleManager : Singleton<BattleManager>
     public float TimeFlow { get => timeFlow; set => timeFlow = value; }
     public float Timer { get; set; }
 
-    public void StartBattle(Character characterFirst, Character characterSecound)
+    public void StartBattle(Character characterFirst, Character characterSecound, RuleBase rule)
     {
         battleGameObject.SetActive(true);
         gameGameObject.SetActive(false);
@@ -32,7 +32,7 @@ public class BattleManager : Singleton<BattleManager>
         DuelController = Instantiate(duelControllerPrefab, battleGameObject.transform);
         DuelController.gameObject.SetActive(true);
         DuelController.transform.position = Player.Instance.gameObject.transform.position - new Vector3(0, 4, 0);
-        DuelController.Initialize(characterFirst, characterSecound);
+        DuelController.Initialize(characterFirst, characterSecound, rule);
         // DuelController.Initialize(characterFirst, RandomCharacter.CreateRandomCharacterBalancedToCharacter(characterFirst));
     }
 
