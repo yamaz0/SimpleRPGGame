@@ -63,10 +63,11 @@ public static class RandomCharacter
         randomCharacter.Initialize();
 
         List<ItemInfo> items = new List<ItemInfo>();
+        int progressLevel = Player.Instance.ProgressLevel;
 
         foreach (ItemInfo item in ItemsScriptableObject.Instance.Objects)
         {
-            if (item.ItemType == ItemsManager.ItemType.EQUIPMENT)
+            if (item.ItemType == ItemsManager.ItemType.EQUIPMENT && item.UnlockLevel <= progressLevel)
             {
                 items.Add(item);
             }
