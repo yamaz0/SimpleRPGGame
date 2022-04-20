@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class FightTournament : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    List<Enemy> enemies = new List<Enemy>(6);
 
-    // Update is called once per frame
-    void Update()
+    public int Progress { get; set; }
+
+    public void Fight()
     {
-        
+        BattleManager.Instance.StartBattle(Player.Instance.Character, enemies[Player.Instance.ProgressLevel].Character, new TournamentRule());
     }
 }
