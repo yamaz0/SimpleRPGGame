@@ -9,9 +9,9 @@ public class Enemy : MonoBehaviour
 
     public Character Character { get => character; set => character = value; }
 
-    private void Start()
+    private void Awake()
     {
-        Character = RandomCharacter.CreateRandomCharacterBalancedToCharacter(Player.Instance.Character);
+        // Character = RandomCharacter.CreateRandomCharacterBalancedToCharacter(Player.Instance.Character);
         Character.Initialize();
     }
 

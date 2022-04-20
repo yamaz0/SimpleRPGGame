@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomCharacterWindowController : Window
 {
     [SerializeField]
-    private List<RandomCharacterUI> randomCharactersUIs = new List<RandomCharacterUI>(3);
+    private List<CharacterInfoUI> randomCharactersUIs = new List<CharacterInfoUI>(3);
 
     public void Init()
     {

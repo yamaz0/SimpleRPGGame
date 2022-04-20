@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class RandomCharacterUI : MonoBehaviour
+public class CharacterInfoUI : MonoBehaviour
 {
+    [SerializeField]
+    private TMPro.TMP_Text characterNameText;
     [SerializeField]
     private TextValueUI strenght;
     [SerializeField]
@@ -18,6 +20,7 @@ public class RandomCharacterUI : MonoBehaviour
     [SerializeField]
     private Button button;
 
+    protected OneCharacterEffect Effect { get; set; }
     public Character CacheCharacter { get; set; }
 
     private void Start()
@@ -25,10 +28,11 @@ public class RandomCharacterUI : MonoBehaviour
         button.onClick.AddListener(OnButtonClicked);
     }
 
-    public void Init(Character character)
+    public virtual void Init(Character character)
     {
         CacheCharacter = character;
 
+        characterNameText.SetText(CacheCharacter.Name);
         strenght.Init("Strength", CacheCharacter.Attributes.Strength.Value.ToString());
         dexterity.Init("Dexterity", CacheCharacter.Attributes.Dexterity.Value.ToString());
         endurance.Init("Endurance", CacheCharacter.Attributes.Endurance.Value.ToString());
@@ -38,9 +42,11 @@ public class RandomCharacterUI : MonoBehaviour
 
         SetSlot(leftHand, left);
         SetSlot(rightHand, right);
+
+        Effect = new StartDuelBattleEffect();
     }
 
-    private void SetSlot(Slot slot, Item item)
+    protected void SetSlot(Slot slot, Item item)
     {
 
         if (item != null)
@@ -57,7 +63,6 @@ public class RandomCharacterUI : MonoBehaviour
 
     public void OnButtonClicked()
     {
-        StartRandomCharacterBattleEffect effect = new StartRandomCharacterBattleEffect();
-        effect.Execute(CacheCharacter);
+        Effect.Execute(CacheCharacter);
     }
 }

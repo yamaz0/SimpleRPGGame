@@ -8,6 +8,8 @@ public enum FightStyle { OneHand, TwoHand, DualWield, None }
 public class Character
 {
     [SerializeField]
+    private string name = "Adam Kowalski";
+    [SerializeField]
     private Attributes attributes = new Attributes();
     [SerializeField]
     private InventoryController inventoryController = new InventoryController();
@@ -26,6 +28,7 @@ public class Character
     public Abilities Abilities { get => abilities; set => abilities = value; }
     public Perks Perks { get => perks; set => perks = value; }
     public FightStyle Style { get => style; set => style = value; }
+    public string Name { get => name; set => name = value; }
 
     public void Initialize()
     {
