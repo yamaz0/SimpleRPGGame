@@ -1,14 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 [System.Serializable]
-public class ShowArenaEffect : OneCharacterEffect
+public class ShowTournamentWindowEffect : OneCharacterEffect
 {
     public override void Execute(Character character)
     {
-        WindowManager.Instance.ShowArena();
+        WindowManager.Instance.ShowTournament();
     }
 
     public override void Remove(Character character)
