@@ -11,6 +11,8 @@ public class WindowManager : Singleton<WindowManager>
     [SerializeField]
     private RandomCharacterWindowController randomCharacterWindowController;
     [SerializeField]
+    private TournamentWindowController tournamentWindowController;
+    [SerializeField]
     private AbilityWindowController abilityWindowController;
     [SerializeField]
     private GameObject inventory;
@@ -36,6 +38,12 @@ public class WindowManager : Singleton<WindowManager>
     {
         randomCharacterWindowController.Init();
         randomCharacterWindowController.gameObject.SetActive(true);
+    }
+
+    public void ShowTournament()
+    {
+        tournamentWindowController.Init();
+        tournamentWindowController.gameObject.SetActive(true);
     }
 
     public void ShowAbilitiesWindow(TrainerNPCInfo info)

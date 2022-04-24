@@ -11,7 +11,7 @@ public class TournamentWindowController : Window
 
     private void Start()
     {
-        Init();
+        // Init();
     }
 
     public void Init()
