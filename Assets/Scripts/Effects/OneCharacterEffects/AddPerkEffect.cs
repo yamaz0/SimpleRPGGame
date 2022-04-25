@@ -20,4 +20,9 @@ public class AddPerkEffect : OneCharacterEffect
     {
         throw new NotImplementedException();
     }
+
+    public override string GetDescription()
+    {
+        return $"Added perk: {PerkScriptableObject.Instance.GetPerkInfoById(PerkId).Name}.";
+    }
 }

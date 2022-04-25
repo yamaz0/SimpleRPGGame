@@ -26,4 +26,9 @@ public class AddAttributeEffect : OneCharacterEffect
     {
         throw new NotImplementedException();
     }
+
+    public override string GetDescription()
+    {
+        return $"Added {Value} to {AttributeName}.";
+    }
 }

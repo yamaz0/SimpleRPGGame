@@ -24,4 +24,9 @@ public class AddAbilityEffect : OneCharacterEffect
     {
         throw new NotImplementedException();
     }
+
+    public override string GetDescription()
+    {
+        return $"Added ability: {AbilityScriptableObject.Instance.GetAbilityInfoById(AbilityId).Name}.";
+    }
 }

@@ -71,6 +71,15 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CharacterPerks"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f566ced-cb95-4598-a2d6-c28c7ad76bcd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -247,6 +256,17 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""CharacterAbilities"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae41237d-248f-4fb0-81c7-91ebd9f26ae9"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""CharacterPerks"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -867,6 +887,7 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_CharacterStats = m_Player.FindAction("CharacterStats", throwIfNotFound: true);
         m_Player_CharacterAbilities = m_Player.FindAction("CharacterAbilities", throwIfNotFound: true);
+        m_Player_CharacterPerks = m_Player.FindAction("CharacterPerks", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -946,6 +967,7 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_CharacterStats;
     private readonly InputAction m_Player_CharacterAbilities;
+    private readonly InputAction m_Player_CharacterPerks;
     public struct PlayerActions
     {
         private @GameInputsController m_Wrapper;
@@ -955,6 +977,7 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @CharacterStats => m_Wrapper.m_Player_CharacterStats;
         public InputAction @CharacterAbilities => m_Wrapper.m_Player_CharacterAbilities;
+        public InputAction @CharacterPerks => m_Wrapper.m_Player_CharacterPerks;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -979,6 +1002,9 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                 @CharacterAbilities.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterAbilities;
                 @CharacterAbilities.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterAbilities;
                 @CharacterAbilities.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterAbilities;
+                @CharacterPerks.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterPerks;
+                @CharacterPerks.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterPerks;
+                @CharacterPerks.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterPerks;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -998,6 +1024,9 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
                 @CharacterAbilities.started += instance.OnCharacterAbilities;
                 @CharacterAbilities.performed += instance.OnCharacterAbilities;
                 @CharacterAbilities.canceled += instance.OnCharacterAbilities;
+                @CharacterPerks.started += instance.OnCharacterPerks;
+                @CharacterPerks.performed += instance.OnCharacterPerks;
+                @CharacterPerks.canceled += instance.OnCharacterPerks;
             }
         }
     }
@@ -1192,6 +1221,7 @@ public partial class @GameInputsController : IInputActionCollection2, IDisposabl
         void OnInventory(InputAction.CallbackContext context);
         void OnCharacterStats(InputAction.CallbackContext context);
         void OnCharacterAbilities(InputAction.CallbackContext context);
+        void OnCharacterPerks(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

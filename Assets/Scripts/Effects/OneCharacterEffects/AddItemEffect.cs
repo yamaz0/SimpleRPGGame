@@ -24,4 +24,9 @@ public class AddItemEffect : OneCharacterEffect
     {
         throw new NotImplementedException();
     }
+
+    public override string GetDescription()
+    {
+        return $"Added item: {ItemsScriptableObject.Instance.GetItemInfoById(ItemId).Name}.";
+    }
 }

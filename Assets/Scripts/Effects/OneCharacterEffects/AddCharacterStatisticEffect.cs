@@ -28,4 +28,9 @@ public class AddCharacterStatisticEffect : OneCharacterEffect
         Modificator modificator = character.Statistics.GetStatistic(statisticName);
         modificator.AddValue(-Value, IsPersistent);
     }
+
+    public override string GetDescription()
+    {
+        return $"Added {Value} to {StatisticName}.";
+    }
 }

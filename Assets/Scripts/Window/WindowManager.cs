@@ -15,6 +15,8 @@ public class WindowManager : Singleton<WindowManager>
     [SerializeField]
     private AbilityWindowController abilityWindowController;
     [SerializeField]
+    private PerkWindowController perkWindowController;
+    [SerializeField]
     private GameObject inventory;
     [SerializeField]
     private GameObject stats;
@@ -22,6 +24,11 @@ public class WindowManager : Singleton<WindowManager>
     public void ShowAbilities()
     {
         abilityWindowController.gameObject.SetActive(!abilityWindowController.gameObject.activeSelf);
+    }
+
+    public void ShowPerks()
+    {
+        perkWindowController.gameObject.SetActive(!perkWindowController.gameObject.activeSelf);
     }
 
     public void ShowStats()

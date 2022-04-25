@@ -104,8 +104,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
 
     private void ShowTooltip(object o, System.EventArgs e)
     {
-        PopUpManager.Instance.Tooltip.gameObject.SetActive(true);
-        PopUpManager.Instance.Tooltip.Init(ItemCache, transform.position);
+        PopUpManager.Instance.ShowItemTooltip(ItemCache, transform.position);
         TooltipTimer.Stop();
     }
 
@@ -113,7 +112,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
     {
         if (IsDragging == false)
         {
-            PopUpManager.Instance.Tooltip.gameObject.SetActive(false);
+            PopUpManager.Instance.ItemTooltip.gameObject.SetActive(false);
             TooltipTimer.Stop();
         }
     }
@@ -126,6 +125,6 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler
     private void OnDisable()
     {
         TooltipTimer.Stop();
-        PopUpManager.Instance?.Tooltip.gameObject.SetActive(false);
+        PopUpManager.Instance?.ItemTooltip.gameObject.SetActive(false);
     }
 }

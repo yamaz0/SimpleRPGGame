@@ -8,9 +8,24 @@ public class PopUpManager : Singleton<PopUpManager>
     private PopUpControllerUI popUpController;
 
     [SerializeField]
-    private TooltipUI tooltip;
+    private ItemTooltipUI itemTooltip;
+    [SerializeField]
+    private PerkTooltipUI perkTooltip;
 
-    public TooltipUI Tooltip { get => tooltip; set => tooltip = value; }
+    public ItemTooltipUI ItemTooltip { get => itemTooltip; set => itemTooltip = value; }
+    public PerkTooltipUI PerkTooltip { get => perkTooltip; set => perkTooltip = value; }
+
+    public void ShowItemTooltip(Item ItemCache, Vector3 pos)
+    {
+        ItemTooltip.gameObject.SetActive(true);
+        ItemTooltip.Init(ItemCache, pos);
+    }
+
+    public void ShowPerkTooltip(Perk perk, Vector3 pos)
+    {
+        PerkTooltip.gameObject.SetActive(true);
+        PerkTooltip.Init(perk, pos);
+    }
 
     public void ShowEndBattlePopUp(string title, string desc)
     {

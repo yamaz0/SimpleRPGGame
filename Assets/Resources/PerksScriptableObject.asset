@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c785e759c407aa74782f1b72f0f28761, type: 3}
   m_Name: PerksScriptableObject
   m_EditorClassIdentifier: 
-  referenc: {fileID: 11400000}
   objects:
   - id: 0
   - id: 1
@@ -40,8 +39,8 @@ MonoBehaviour:
       type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 1
-        name: 
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        name: Pierwszy perk!
+        icon: {fileID: 21300000, guid: 078df9cba8edbcb4ca3cbe7c1fae7409, type: 3}
         requirmentsAttributes:
           strength:
             baseValue: 1
@@ -49,13 +48,14 @@ MonoBehaviour:
             baseValue: 1
           endurance:
             baseValue: 1
-        efects: []
+        efects:
+        - id: 6
     00000002:
       type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 2
-        name: 
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        name: Drugi Perk!
+        icon: {fileID: 21300000, guid: 2c961366528f28c458c619797d0bbb2f, type: 3}
         requirmentsAttributes:
           strength:
             baseValue: 1
@@ -63,13 +63,14 @@ MonoBehaviour:
             baseValue: 1
           endurance:
             baseValue: 1
-        efects: []
+        efects:
+        - id: 7
     00000003:
       type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 3
-        name: 
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        name: Trzeci Perk wow wow
+        icon: {fileID: 21300000, guid: 8661c2c7e325a33438f06b02458fd199, type: 3}
         requirmentsAttributes:
           strength:
             baseValue: 1
@@ -77,7 +78,9 @@ MonoBehaviour:
             baseValue: 1
           endurance:
             baseValue: 1
-        efects: []
+        efects:
+        - id: 8
+        - id: 9
     00000004:
       type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -92,3 +95,30 @@ MonoBehaviour:
         statisticName: Damage
         isPersistent: 0
         value: 999
+    00000006:
+      type: {class: AddAbilityEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: Kick!
+        abilityId: 0
+        isRemove: 0
+    00000007:
+      type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: AddDext
+        attributeName: Dexterity
+        isPersistent: 0
+        value: 3
+    00000008:
+      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: AddDamage
+        statisticName: Damage
+        isPersistent: 0
+        value: 69
+    00000009:
+      type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: AddStrenght
+        attributeName: Strength
+        isPersistent: 0
+        value: 1
