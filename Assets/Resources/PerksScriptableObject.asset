@@ -17,108 +17,188 @@ MonoBehaviour:
   - id: 1
   - id: 2
   - id: 3
+  - id: 4
+  - id: 5
+  - id: 6
   references:
     version: 1
     00000000:
       type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 0
-        name: I am Legend!
+        name: Starburst stream!
         icon: {fileID: 21300000, guid: 2c961366528f28c458c619797d0bbb2f, type: 3}
         requirmentsAttributes:
           strength:
-            baseValue: 99
+            baseValue: 0
           dexterity:
-            baseValue: 99
+            baseValue: 25
           endurance:
-            baseValue: 99
+            baseValue: 0
         efects:
-        - id: 4
-        - id: 5
+        - id: 7
     00000001:
       type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 1
-        name: Pierwszy perk!
+        name: Smash!
         icon: {fileID: 21300000, guid: 078df9cba8edbcb4ca3cbe7c1fae7409, type: 3}
         requirmentsAttributes:
           strength:
-            baseValue: 1
+            baseValue: 25
           dexterity:
-            baseValue: 1
+            baseValue: 0
           endurance:
-            baseValue: 1
+            baseValue: 0
         efects:
-        - id: 6
+        - id: 8
     00000002:
       type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 2
-        name: Drugi Perk!
-        icon: {fileID: 21300000, guid: 2c961366528f28c458c619797d0bbb2f, type: 3}
+        name: Power attack!
+        icon: {fileID: 21300000, guid: 0d2df74cd40ea7b4cb686dda25352114, type: 3}
         requirmentsAttributes:
           strength:
-            baseValue: 1
+            baseValue: 0
           dexterity:
-            baseValue: 1
+            baseValue: 0
           endurance:
-            baseValue: 1
+            baseValue: 25
         efects:
-        - id: 7
+        - id: 9
     00000003:
       type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
       data:
         id: 3
-        name: Trzeci Perk wow wow
+        name: Good warrior
         icon: {fileID: 21300000, guid: 8661c2c7e325a33438f06b02458fd199, type: 3}
         requirmentsAttributes:
           strength:
-            baseValue: 1
+            baseValue: 999
+          dexterity:
+            baseValue: 999
+          endurance:
+            baseValue: 999
+        efects:
+        - id: 10
+        - id: 11
+    00000004:
+      type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 4
+        name: Better Damage
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        requirmentsAttributes:
+          strength:
+            baseValue: 15
           dexterity:
             baseValue: 1
           endurance:
             baseValue: 1
         efects:
-        - id: 8
-        - id: 9
-    00000004:
-      type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
-      data:
-        name: atr
-        attributeName: Strength
-        isPersistent: 0
-        value: 2
+        - id: 12
+        - id: 13
     00000005:
-      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
       data:
-        name: stat
-        statisticName: Damage
-        isPersistent: 0
-        value: 999
+        id: 5
+        name: BetterDefense
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        requirmentsAttributes:
+          strength:
+            baseValue: 0
+          dexterity:
+            baseValue: 0
+          endurance:
+            baseValue: 15
+        efects:
+        - id: 14
+        - id: 15
     00000006:
+      type: {class: PerkScriptableObject/PerkInfo, ns: , asm: Assembly-CSharp}
+      data:
+        id: 6
+        name: Better Speed
+        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        requirmentsAttributes:
+          strength:
+            baseValue: 1
+          dexterity:
+            baseValue: 15
+          endurance:
+            baseValue: 1
+        efects:
+        - id: 16
+        - id: 17
+    00000007:
+      type: {class: AddAbilityEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: Add Ability 4x Combo (dualwield)
+        abilityId: 6
+        isRemove: 0
+    00000008:
       type: {class: AddAbilityEffect, ns: , asm: Assembly-CSharp}
       data:
         name: Kick!
-        abilityId: 0
+        abilityId: 2
         isRemove: 0
-    00000007:
-      type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
+    00000009:
+      type: {class: AddAbilityEffect, ns: , asm: Assembly-CSharp}
       data:
-        name: AddDext
-        attributeName: Dexterity
-        isPersistent: 0
-        value: 3
-    00000008:
+        name: 
+        abilityId: 4
+        isRemove: 0
+    0000000A:
       type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
       data:
         name: AddDamage
         statisticName: Damage
         isPersistent: 0
         value: 69
-    00000009:
+    0000000B:
       type: {class: AddAttributeEffect, ns: , asm: Assembly-CSharp}
       data:
         name: AddStrenght
         attributeName: Strength
         isPersistent: 0
         value: 1
+    0000000C:
+      type: {class: AddAbilityEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        abilityId: 11
+        isRemove: 0
+    0000000D:
+      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        statisticName: Damage
+        isPersistent: 0
+        value: 5
+    0000000E:
+      type: {class: AddAbilityEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        abilityId: 7
+        isRemove: 0
+    0000000F:
+      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        statisticName: Defence
+        isPersistent: 0
+        value: 5
+    00000010:
+      type: {class: AddAbilityEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        abilityId: 8
+        isRemove: 0
+    00000011:
+      type: {class: AddCharacterStatisticEffect, ns: , asm: Assembly-CSharp}
+      data:
+        name: 
+        statisticName: DodgeChance
+        isPersistent: 0
+        value: 5

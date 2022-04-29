@@ -28,6 +28,7 @@ public class DuelRule : RuleBase
     {
         Character playerCharacter = Player.Instance.Character;
         playerCharacter.Statistics.Exp.AddValue(100, true);
+        playerCharacter.InventoryController.Inventory.Gold += 100;
 
         switch (playerCharacter.Style)
         {

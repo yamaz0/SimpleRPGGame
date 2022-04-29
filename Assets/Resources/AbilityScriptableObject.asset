@@ -302,7 +302,7 @@ MonoBehaviour:
     0000001E:
       type: {class: AttributeOperatorEffect, ns: , asm: Assembly-CSharp}
       data:
-        attributeName: Strength
+        attributeName: Endurance
         value: 5
     0000001F:
       type: {class: StatisticOperatorEffect, ns: , asm: Assembly-CSharp}

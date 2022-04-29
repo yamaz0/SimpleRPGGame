@@ -73,6 +73,7 @@ public class Opponent : MonoBehaviour
         float critChance = Character.Statistics.CritChance.Value;
         float dodgeChance = CacheOpponent.Character.Statistics.DodgeChance.Value;
         float blockChance = CacheOpponent.Character.Statistics.BlockChance.Value;
+        float bonusDamage = 0;
 
         ExhaustedTime = 60 / attackSpeed;
 
@@ -80,12 +81,15 @@ public class Opponent : MonoBehaviour
         switch (Character.Style)
         {
             case FightStyle.OneHand:
+                bonusDamage = Character.Statistics.OneHandedDamageBonus.Value;
                 Anim.Play("OneHandWeapon");
                 break;
             case FightStyle.TwoHand:
+                bonusDamage = Character.Statistics.TwoHandedDamageBonus.Value;
                 Anim.Play("TwoHandedAttack");
                 break;
             case FightStyle.DualWield:
+                bonusDamage = Character.Statistics.DualWieldDamageBonus.Value;
                 Anim.Play("DualWielding");
                 break;
             default:
@@ -106,7 +110,7 @@ public class Opponent : MonoBehaviour
             CacheOpponent.SetHitText("BLOCK");
             return;
         }
-        float damage = Mathf.Max(1, Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f) - CacheOpponent.Character.Statistics.Defence.Value);
+        float damage = Mathf.Max(1, Character.Statistics.Damage.Value * Random.Range(0.9f, 1.1f) - CacheOpponent.Character.Statistics.Defence.Value) + bonusDamage;
 
         if (Random.Range(0, 100) < critChance)
         {

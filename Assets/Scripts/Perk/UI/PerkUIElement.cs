@@ -23,6 +23,11 @@ public class PerkUIElement : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         PopUpManager.Instance.PerkTooltip.gameObject.SetActive(false);
     }
 
+    private void OnDisable()
+    {
+        PopUpManager.Instance.PerkTooltip.gameObject.SetActive(false);
+    }
+
     public void Init(Perk perk)
     {
         PerkCache = perk;

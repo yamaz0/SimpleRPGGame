@@ -56,6 +56,7 @@ public class AttributeUIController
         character.Statistics.Exp.AddValue(-CostValue, true);
         CalcCostValue();
         CacheModificator.AddValue(1, true);
+        character.UpdateStatsMod();
     }
 
     private void CalcCostValue()
