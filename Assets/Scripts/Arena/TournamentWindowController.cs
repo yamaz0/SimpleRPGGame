@@ -4,7 +4,7 @@ using UnityEngine;
 public class TournamentWindowController : Window
 {
     [SerializeField]
-    private CharacterInfoUI randomCharacterUI;
+    private CharacterInfoUI characterUI;
 
     [SerializeField]
     List<Enemy> enemies = new List<Enemy>(6);
@@ -16,6 +16,8 @@ public class TournamentWindowController : Window
 
     public void Init()
     {
-        randomCharacterUI.Init(enemies[0].Character);
+        Enemy boss = Instantiate(enemies[Player.Instance.ProgressLevel]);
+        Character character = boss.Character;
+        characterUI.Init(character);
     }
 }

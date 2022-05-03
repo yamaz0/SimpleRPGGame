@@ -1875,8 +1875,10 @@ MonoBehaviour:
   canPlayerMove: 0
   randomCharacterUI: {fileID: 1762366884227094462}
   enemies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2458018056905444378, guid: 2a3b677fbf7a7a647b74630b984880db, type: 3}
+  - {fileID: 2458018056905444378, guid: 0a6892cbdceed3045ad3e48af1799f94, type: 3}
+  - {fileID: 2458018056905444378, guid: 07a65cc2397638846b9736b8fe6c7b97, type: 3}
+  - {fileID: 2458018056905444378, guid: 4b317974b612ec043a57f29ff75e47c4, type: 3}
 --- !u!1 &1762366885941192233
 GameObject:
   m_ObjectHideFlags: 0

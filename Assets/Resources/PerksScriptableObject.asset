@@ -88,7 +88,7 @@ MonoBehaviour:
       data:
         id: 4
         name: Better Damage
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        icon: {fileID: 21300000, guid: c60f7cf1ed80f5840ac51195ae687e71, type: 3}
         requirmentsAttributes:
           strength:
             baseValue: 15
@@ -104,7 +104,7 @@ MonoBehaviour:
       data:
         id: 5
         name: BetterDefense
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        icon: {fileID: 21300000, guid: 683e7d9d6853b8a4b9dbe41a0be44b5c, type: 3}
         requirmentsAttributes:
           strength:
             baseValue: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
       data:
         id: 6
         name: Better Speed
-        icon: {fileID: 21300000, guid: e7d84fc1ad7002e4ab4c31d89c74813d, type: 3}
+        icon: {fileID: 21300000, guid: 59404f171a3d5694fa1650a8c37fc39f, type: 3}
         requirmentsAttributes:
           strength:
             baseValue: 1

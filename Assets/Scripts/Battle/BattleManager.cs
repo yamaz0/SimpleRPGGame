@@ -28,6 +28,7 @@ public class BattleManager : Singleton<BattleManager>
         battleGameObject.SetActive(true);
         gameGameObject.SetActive(false);
         walka = true;
+        player.Character.UpdateStatsMod();
 
         DuelController = Instantiate(duelControllerPrefab, battleGameObject.transform);
         DuelController.gameObject.SetActive(true);
@@ -41,6 +42,7 @@ public class BattleManager : Singleton<BattleManager>
         battleGameObject.SetActive(false);
         gameGameObject.SetActive(true);
 
+        player.Character.UpdateStatsMod();
         DestroyImmediate(DuelController.gameObject);
     }
 

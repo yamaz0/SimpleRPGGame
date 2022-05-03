@@ -63,6 +63,7 @@ MonoBehaviour:
         animatorController: {fileID: 9100000, guid: 900747de89d4ae0498f881ef338db709,
           type: 2}
         character:
+          name: Adam Kowalski
           attributes:
             strength:
               baseValue: 1
@@ -172,6 +173,9 @@ MonoBehaviour:
         - id: 73
         - id: 74
         - id: 77
+        - id: 70
+        - id: 52
+        - id: 57
         gold: 100
     00000006:
       type: {class: MerchantNPCInfo, ns: , asm: Assembly-CSharp}

@@ -30,6 +30,7 @@ public class ItemInfo : BaseInfo
         Name = item.Name;
         Icon = item.Icon;
         Price = item.Price;
+        UnlockLevel = item.UnlockLevel;
     }
 
 #if UNITY_EDITOR
