@@ -57,20 +57,46 @@ public class Cheats : MonoBehaviour
     [MenuItem("DoSomething/test")]
     static void PrintRandomAtributesValues()
     {
-        // Player.Instance.Inventory.AddItem(ItemsManager.ItemType.BOOK, 0);
-        for (int i = 0; i < 10; i++)
-        {
-            RandomCharacter.CreateRandomCharacterBalancedToCharacter(null);
-        }
+WindowManager.Instance.ShowNotification("new Ability: super duper kozak rzecz!");
+WindowManager.Instance.ShowNotification("new Ability: Kick!!");
+WindowManager.Instance.ShowNotification("new Item: Super Magic Sword!");
+WindowManager.Instance.ShowNotification("New Perk: Ssj5!");
     }
 
     [MenuItem("DoSomething/AddItems")]
-    static void AddItems()
+    static void ChangeItems()
     {
-        Player.Instance.Character.InventoryController.AddItem(0);
-        Player.Instance.Character.InventoryController.AddItem(1);
-        Player.Instance.Character.InventoryController.AddItem(0);
-        Player.Instance.Character.InventoryController.AddItem(2);
+        // foreach (ItemInfo item in ItemsScriptableObject.Instance.Objects)
+        // {
+        //     int lvl = 0;
+        //     if (item is WeaponItemInfo wi)
+        //     {
+        //         if (wi.Attack < 15)
+        //             lvl = 0;
+        //         else if (wi.Attack < 30)
+        //             lvl = 1;
+        //         else if (wi.Attack < 45)
+        //             lvl = 2;
+        //         else if (wi.Attack < 60)
+        //             lvl = 3;
+        //         else
+        //             lvl = 4;
+        //     }
+        //     else if (item is EquipItemInfo ei)
+        //     {
+        //         if (ei.Defense < 15)
+        //             lvl = 0;
+        //         else if (ei.Defense < 30)
+        //             lvl = 1;
+        //         else if (ei.Defense < 45)
+        //             lvl = 2;
+        //         else if (ei.Defense < 60)
+        //             lvl = 3;
+        //         else
+        //             lvl = 4;
+        //     }
+        //     item.UnlockLevel = lvl;
+        // }
     }
 
     [MenuItem("DoSomething/TimeCouting")]
