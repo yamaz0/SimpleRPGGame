@@ -45,14 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character:
-    name: Adam Kowalski
+    name: Putin
     attributes:
       strength:
-        baseValue: 10
+        baseValue: 99
       dexterity:
-        baseValue: 10
+        baseValue: 99
       endurance:
-        baseValue: 10
+        baseValue: 99
     inventoryController:
       inventory:
         itemsId: 

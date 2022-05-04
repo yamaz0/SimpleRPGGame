@@ -14,10 +14,24 @@ public class AddAbilityEffect : OneCharacterEffect
 
     public override void Execute(Character character)
     {
+        AbilityInfo abilityInfo = AbilityScriptableObject.Instance.GetAbilityInfoById(AbilityId);
+        string text = string.Empty;
+
         if (IsRemove == false)
+        {
             character.Abilities.AddAbility(AbilityId);
+            text = $"New Ability: {abilityInfo.Name}";
+        }
         else
+        {
             character.Abilities.RemoveAbility(AbilityId);
+            text = $"Remove Ability: {abilityInfo.Name}";
+        }
+
+        if (character == Player.Instance.Character)
+        {
+            PopUpManager.Instance.ShowNotification(text, abilityInfo.Icon);
+        }
     }
 
     public override void Remove(Character character)

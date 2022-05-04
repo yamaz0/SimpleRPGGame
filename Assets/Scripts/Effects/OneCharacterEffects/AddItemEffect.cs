@@ -14,10 +14,20 @@ public class AddItemEffect : OneCharacterEffect
 
     public override void Execute(Character character)
     {
+        Item item = ItemsScriptableObject.Instance.GetItemInfoById(ItemId).CreateItem();
+
         if (IsRemove == true)
-            character.InventoryController.RemoveItem(ItemId);
+        {
+            bool isRemoved = character.InventoryController.RemoveItem(item);
+            if (character == Player.Instance.Character && isRemoved == true)
+                PopUpManager.Instance.ShowNotification($"Remove item: {item.Name}", item.Icon);
+        }
         else
-            character.InventoryController.AddItem(ItemId);
+        {
+            character.InventoryController.AddItem(item);
+            if (character == Player.Instance.Character)
+                PopUpManager.Instance.ShowNotification($"New item: {item.Name}", item.Icon);
+        }
     }
 
     public override void Remove(Character character)

@@ -14,7 +14,7 @@ public class TournamentWindowController : Window
         // Init();
     }
 
-    public void Init()
+    public void Init()//TODO zmienic na scriptableobjecty
     {
         Enemy boss = Instantiate(enemies[Player.Instance.ProgressLevel]);
         Character character = boss.Character;

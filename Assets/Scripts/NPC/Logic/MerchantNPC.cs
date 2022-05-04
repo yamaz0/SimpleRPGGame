@@ -44,6 +44,7 @@ public class MerchantNPC : NPCBase
         }
 
         copy.Inventory.Init();
+        copy.Inventory.AddGold(inventory.Gold);
 
         WindowManager.Instance.ShowShop(copy);
     }

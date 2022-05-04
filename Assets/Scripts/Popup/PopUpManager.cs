@@ -11,9 +11,16 @@ public class PopUpManager : Singleton<PopUpManager>
     private ItemTooltipUI itemTooltip;
     [SerializeField]
     private PerkTooltipUI perkTooltip;
+    [SerializeField]
+    private NotificationWindowController notificationWindowController;
 
     public ItemTooltipUI ItemTooltip { get => itemTooltip; set => itemTooltip = value; }
     public PerkTooltipUI PerkTooltip { get => perkTooltip; set => perkTooltip = value; }
+
+    public void ShowNotification(string text, Sprite icon = null)
+    {
+        notificationWindowController.ShowNotification(text, icon);
+    }
 
     public void ShowItemTooltip(Item ItemCache, Vector3 pos)
     {

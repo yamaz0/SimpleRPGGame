@@ -61,4 +61,10 @@ public class Player : Singleton<Player>
         base.Initialize();
         gameInputController = new GameInputsController();
     }
+
+    // public void AttachedEvents()
+    // {
+    //     Character.InventoryController.Inventory.OnInventoryChanged 
+    //     PopUpManager.Instance.ShowNotification($"Get {Value} {AttributeName}");
+    // }
 }

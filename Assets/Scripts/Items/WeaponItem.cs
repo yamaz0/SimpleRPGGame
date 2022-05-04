@@ -39,9 +39,17 @@ public class WeaponItem : Item, IEquipable, IUseable
     public override string GetDescription()
     {
         StringBuilder desc = new StringBuilder();
-        desc.Append($"Attack: {Attack} {System.Environment.NewLine}");
-        desc.Append($"AttackSpeed: {AttackSpeed} {System.Environment.NewLine}");
-        desc.Append($"TwoHanded:{TwoHanded} {System.Environment.NewLine}");
+        desc.Append($"Attack: {Attack}{System.Environment.NewLine}");
+        desc.Append($"AtkSpeed: {AttackSpeed}{System.Environment.NewLine}");
+        if (TwoHanded == true)
+        {
+            desc.Append($"TwoHanded{System.Environment.NewLine}");
+        }
+        else
+        {
+            desc.Append($"One Hand{System.Environment.NewLine}");
+        }
+
         return desc.ToString();
     }
 

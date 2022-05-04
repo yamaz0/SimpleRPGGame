@@ -24,7 +24,8 @@ public class Perk
 
     public void ExecuteEffects(Character character)
     {
-        WindowManager.Instance.ShowNotification($"New Perk: {PerkInfo.Name}", PerkInfo.Icon);
+        if (character == Player.Instance.Character)
+            PopUpManager.Instance.ShowNotification($"New Perk: {PerkInfo.Name}", PerkInfo.Icon);
 
         PerkInfo.Efects.ForEach(x => x.Execute(character));
         character.Perks.AddPerk(PerkInfo.Id);

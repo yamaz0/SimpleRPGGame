@@ -45,14 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character:
-    name: Adam Kowalski
+    name: Szatryk Pulc
     attributes:
       strength:
-        baseValue: 10
+        baseValue: 30
       dexterity:
-        baseValue: 10
+        baseValue: 40
       endurance:
-        baseValue: 10
+        baseValue: 20
     inventoryController:
       inventory:
         itemsId: 

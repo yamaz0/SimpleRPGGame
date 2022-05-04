@@ -388,7 +388,7 @@ MonoBehaviour:
         weaponType: 0
         attack: 1
         attackSpeed: 1
-        twoHanded: 0
+        twoHanded: 1
     00000018:
       type: {class: EquipItemInfo, ns: , asm: Assembly-CSharp}
       data:
@@ -398,7 +398,7 @@ MonoBehaviour:
           type: 3}
         price: 50
         itemType: 5
-        unlockLevel: 0
+        unlockLevel: 4
         defense: 10
         equipmentType: 3
     00000019:
@@ -542,7 +542,7 @@ MonoBehaviour:
           type: 3}
         price: 80
         itemType: 5
-        unlockLevel: 0
+        unlockLevel: 3
         defense: 20
         blockChance: 15
     00000025:
@@ -626,7 +626,7 @@ MonoBehaviour:
           type: 3}
         price: 60
         itemType: 5
-        unlockLevel: 0
+        unlockLevel: 3
         defense: 17
         blockChance: 12
     0000002C:
@@ -744,11 +744,11 @@ MonoBehaviour:
         name: Axe
         icon: {fileID: 6761164967045977113, guid: 35e9590587c43f942a37445ef5f53473,
           type: 3}
-        price: 1
+        price: 10
         itemType: 5
         unlockLevel: 0
         weaponType: 1
-        attack: 1
+        attack: 10
         attackSpeed: 10
         twoHanded: 0
     00000035:

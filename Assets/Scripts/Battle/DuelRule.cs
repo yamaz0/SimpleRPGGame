@@ -27,8 +27,9 @@ public class DuelRule : RuleBase
     public override void OnWin()
     {
         Character playerCharacter = Player.Instance.Character;
-        playerCharacter.Statistics.Exp.AddValue(100, true);
-        playerCharacter.InventoryController.Inventory.Gold += 100;
+        int exp = (100 * Player.Instance.ProgressLevel) * Player.Instance.ProgressLevel + 100;
+        playerCharacter.Statistics.Exp.AddValue(exp, true);
+        playerCharacter.InventoryController.Inventory.Gold += 10;
 
         switch (playerCharacter.Style)
         {
@@ -46,6 +47,6 @@ public class DuelRule : RuleBase
                 return;
         }
 
-        PopUpManager.Instance.ShowEndBattlePopUp("WIN", $"You are very stronk. You get 100 experience.");
+        PopUpManager.Instance.ShowEndBattlePopUp("WIN", $"You are very stronk. You get {exp} experience and 10 gold.");
     }
 }

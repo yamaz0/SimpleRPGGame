@@ -57,10 +57,18 @@ public class Cheats : MonoBehaviour
     [MenuItem("DoSomething/test")]
     static void PrintRandomAtributesValues()
     {
-WindowManager.Instance.ShowNotification("new Ability: super duper kozak rzecz!");
-WindowManager.Instance.ShowNotification("new Ability: Kick!!");
-WindowManager.Instance.ShowNotification("new Item: Super Magic Sword!");
-WindowManager.Instance.ShowNotification("New Perk: Ssj5!");
+        AddPerkEffect perk = new AddPerkEffect();
+        perk.PerkId = 0;
+        perk.Execute(Player.Instance.Character);
+
+        AddItemEffect item = new AddItemEffect();
+        item.ItemId = 4;
+        item.Execute(Player.Instance.Character);
+
+        AddCharacterStatisticEffect exp = new AddCharacterStatisticEffect();
+        exp.StatisticName = "Exp";
+        exp.Value = 997;
+        exp.Execute(Player.Instance.Character);
     }
 
     [MenuItem("DoSomething/AddItems")]

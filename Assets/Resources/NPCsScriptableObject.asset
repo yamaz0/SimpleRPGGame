@@ -190,6 +190,11 @@ MonoBehaviour:
         - id: 12
         - id: 17
         - id: 19
+        - id: 29
+        - id: 80
+        - id: 14
+        - id: 15
+        - id: 16
         gold: 0
     00000007:
       type: {class: MerchantNPCInfo, ns: , asm: Assembly-CSharp}
@@ -220,6 +225,8 @@ MonoBehaviour:
         - id: 32
         - id: 35
         - id: 82
+        - id: 21
+        - id: 28
         gold: 0
     00000009:
       type: {class: MerchantNPCInfo, ns: , asm: Assembly-CSharp}
@@ -232,10 +239,15 @@ MonoBehaviour:
           type: 2}
         itemsIds:
         - id: 22
+        - id: 36
+        - id: 37
+        - id: 38
+        - id: 39
+        - id: 40
+        - id: 41
         - id: 42
         - id: 43
-        - id: 39
-        - id: 79
+        - id: 45
         gold: 100
     0000000A:
       type: {class: TrainerNPCInfo, ns: , asm: Assembly-CSharp}

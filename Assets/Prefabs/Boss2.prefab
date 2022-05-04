@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character:
-    name: Adam Kowalski
+    name: Iwan Grozny
     attributes:
       strength:
         baseValue: 20

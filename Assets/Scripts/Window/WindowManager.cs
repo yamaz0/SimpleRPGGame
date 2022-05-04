@@ -20,13 +20,6 @@ public class WindowManager : Singleton<WindowManager>
     private GameObject inventory;
     [SerializeField]
     private GameObject stats;
-    [SerializeField]
-    private NotificationWindowController notificationWindowController;
-
-    public void ShowNotification(string text, Sprite icon = null)
-    {
-        notificationWindowController.ShowNotification(text, icon);
-    }
 
     public void ShowAbilities()
     {
